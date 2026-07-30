@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#4f633d">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="description" content="Conteúdo interativo do módulo PICS para ACS e ACE.">
+    <title>PICS para ACS e ACE</title>
+    <link rel="preload" as="image" href="./assets/images/pnpic-main-logo.webp" type="image/webp">
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link id="route-stylesheet" rel="stylesheet" href="./assets/css/style-modulo.css">
+    <link rel="stylesheet" href="./assets/css/app.css">
+    <script type="module" src="./assets/js/app.js"></script>
+</head>
+<body>
+    <button class="skip-link" id="skip-to-content" type="button">Pular para o conteúdo principal</button>
+    <div class="app-scroll-progress" aria-hidden="true"></div>
+    <div id="app" aria-busy="true">
+        <main class="app-status"><section class="app-status-card"><h1>Carregando conteúdo…</h1><p>Aguarde um instante.</p></section></main>
+    </div>
+    <div id="app-live-region" class="app-live-region" aria-live="polite" aria-atomic="true"></div>
+    <noscript><main class="app-status"><section class="app-status-card"><h1>JavaScript necessário</h1><p>Este conteúdo interativo precisa do JavaScript ativado no navegador.</p></section></main></noscript>
+</body>
+</html>

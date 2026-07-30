@@ -1,0 +1,13 @@
+{
+  "name": "pics-modulo-01-spa",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "SPA acessível e compatível com publicação como pacote HTML no Moodle.",
+  "scripts": {
+    "start": "node scripts/serve.mjs",
+    "test": "node --test",
+    "validate": "node scripts/validate.mjs",
+    "check": "npm run validate && npm test"
+  }
+}
