@@ -48,6 +48,7 @@
       this._cornerHoverRaf = 0;
       this._pendingCornerEvent = null;
       this._lastLayoutMetrics = null;
+      this._pinchState = null;
     }
 
     connectedCallback() {
@@ -66,6 +67,8 @@
       cancelAnimationFrame(this._resizeRaf);
       cancelAnimationFrame(this._cornerHoverRaf);
       clearTimeout(this._hintTimer);
+      this._pinchState = null;
+      this.refs?.viewport?.classList.remove("is-pinching");
       if (this.classList.contains("is-pseudo-fullscreen")) {
         this.classList.remove("is-pseudo-fullscreen");
         document.documentElement.style.removeProperty("overflow");
@@ -145,7 +148,7 @@
             </div>
           </div>
 
-          <div class="pics-flipbook__viewport" data-ref="viewport" tabindex="0" aria-label="Área de leitura. Use as setas para navegar, mais e menos para zoom.">
+          <div class="pics-flipbook__viewport" data-ref="viewport" tabindex="0" aria-label="Área de leitura. Use as setas para navegar, mais e menos ou o gesto de pinça para controlar o zoom.">
             <div class="pics-flipbook__zoom-space" data-ref="zoom-space">
               <div class="pics-flipbook__book-shell" data-ref="book-shell">
                 <div class="pics-flipbook__book" data-ref="book" data-mode="single">
@@ -158,7 +161,7 @@
                 </div>
               </div>
             </div>
-            <div class="pics-flipbook__hint" data-ref="hint">Arraste pelos cantos para folhear • use +/− para ampliar</div>
+            <div class="pics-flipbook__hint" data-ref="hint">Arraste pelos cantos para folhear • use +/− ou pinça para ampliar</div>
             <div class="pics-flipbook__loading" data-ref="loading">
               <div class="pics-flipbook__loading-card">
                 <div class="pics-flipbook__spinner" aria-hidden="true"></div>
@@ -251,6 +254,22 @@
           this.setZoom(this.zoom > 1.1 ? 1 : 1.75);
         }
       }, { signal });
+      this.refs.viewport.addEventListener("touchstart", (event) => this._onPinchStart(event), {
+        signal,
+        passive: false
+      });
+      this.refs.viewport.addEventListener("touchmove", (event) => this._onPinchMove(event), {
+        signal,
+        passive: false
+      });
+      this.refs.viewport.addEventListener("touchend", (event) => this._onPinchEnd(event), {
+        signal,
+        passive: false
+      });
+      this.refs.viewport.addEventListener("touchcancel", (event) => this._onPinchEnd(event), {
+        signal,
+        passive: false
+      });
 
       this.refs.book.addEventListener("pointermove", (event) => this._queueCornerHover(event), { signal });
       this.refs.book.addEventListener("pointerleave", () => this._clearCornerHover(), { signal });
@@ -324,6 +343,8 @@
       this._hideError();
       this.currentPage = 0;
       this.zoom = 1;
+      this._pinchState = null;
+      this.refs.viewport.classList.remove("is-pinching");
       this._completedEmitted = false;
       const ratio = Number(this.manifest?.pageSize?.aspectRatio) || 0.70665;
       this.style.setProperty("--pf-page-ratio", String(ratio));
@@ -766,8 +787,102 @@
       this._renderCurrentState(false);
     }
 
+    _pinchMetrics(touches) {
+      if (!touches || touches.length < 2) return null;
+      const first = touches[0];
+      const second = touches[1];
+      const deltaX = second.clientX - first.clientX;
+      const deltaY = second.clientY - first.clientY;
+      return {
+        distance: Math.hypot(deltaX, deltaY),
+        clientX: (first.clientX + second.clientX) / 2,
+        clientY: (first.clientY + second.clientY) / 2
+      };
+    }
+
+    _beginPinch(touches) {
+      const metrics = this._pinchMetrics(touches);
+      if (!metrics || metrics.distance < 8) return false;
+
+      const viewport = this.refs.viewport;
+      const rect = viewport.getBoundingClientRect();
+      const localX = metrics.clientX - rect.left;
+      const localY = metrics.clientY - rect.top;
+      const shellLeft = this.refs.bookShell.offsetLeft;
+      const shellTop = this.refs.bookShell.offsetTop;
+
+      this._pinchState = {
+        startDistance: metrics.distance,
+        startZoom: this.zoom,
+        bookX: (viewport.scrollLeft + localX - shellLeft) / this.zoom,
+        bookY: (viewport.scrollTop + localY - shellTop) / this.zoom
+      };
+      viewport.classList.add("is-pinching");
+      return true;
+    }
+
+    _onPinchStart(event) {
+      if (!this.pages.length || event.touches.length < 2) return;
+      if (event.cancelable) event.preventDefault();
+      if (this.turning) this._cancelTurn(true);
+      this._clearCornerHover();
+      this.refs.hint?.classList.remove("is-visible");
+
+      if (!this._pinchState) {
+        this._beginPinch(event.touches);
+      }
+    }
+
+    _onPinchMove(event) {
+      const pinch = this._pinchState;
+      const metrics = this._pinchMetrics(event.touches);
+      if (!pinch || !metrics) return;
+      if (event.cancelable) event.preventDefault();
+
+      const viewport = this.refs.viewport;
+      const rect = viewport.getBoundingClientRect();
+      const localX = metrics.clientX - rect.left;
+      const localY = metrics.clientY - rect.top;
+      const scale = metrics.distance / pinch.startDistance;
+      const nextZoom = clamp(
+        Math.round(pinch.startZoom * scale * 1000) / 1000,
+        this.minZoom,
+        this.maxZoom
+      );
+
+      this.zoom = nextZoom;
+      this._applyZoomSpace();
+
+      const targetLeft = this.refs.bookShell.offsetLeft + pinch.bookX * nextZoom - localX;
+      const targetTop = this.refs.bookShell.offsetTop + pinch.bookY * nextZoom - localY;
+      const maxLeft = Math.max(0, this.refs.zoomSpace.scrollWidth - viewport.clientWidth);
+      const maxTop = Math.max(0, this.refs.zoomSpace.scrollHeight - viewport.clientHeight);
+      viewport.scrollLeft = clamp(targetLeft, 0, maxLeft);
+      viewport.scrollTop = clamp(targetTop, 0, maxTop);
+      this._syncControls(false);
+    }
+
+    _onPinchEnd(event) {
+      if (!this._pinchState) return;
+      if (event.touches.length >= 2) {
+        if (event.cancelable) event.preventDefault();
+        this._beginPinch(event.touches);
+        return;
+      }
+
+      this._pinchState = null;
+      this.refs.viewport.classList.remove("is-pinching");
+      this._centerBookIfNeeded();
+      this.refs.live.textContent = `Zoom em ${Math.round(this.zoom * 100)}%`;
+    }
+
     _onTurnPointerDown(event) {
-      if (event.button !== 0 || this.turning) return;
+      if (
+        event.button !== 0 ||
+        this.turning ||
+        this._pinchState ||
+        (event.pointerType === "touch" && this.zoom > 1.001)
+      ) return;
       const direction = event.currentTarget.dataset.direction;
       const canTurn = direction === "forward"
         ? this.stateIndex < this.states.length - 1

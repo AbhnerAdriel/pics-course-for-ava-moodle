@@ -228,7 +228,7 @@ pics-flipbook,
   position: relative;
   width: 100%;
   min-height: 480px;
-  height: clamp(520px, 76vh, 880px);
+  height: clamp(560px, 80vh, 940px);
   overflow: hidden;
   overscroll-behavior: contain;
   background:
@@ -243,6 +243,15 @@ pics-flipbook,
 .pics-flipbook__viewport.is-zoomed {
   overflow: auto;
   scrollbar-gutter: stable both-edges;
+}
+
+.pics-flipbook__viewport.is-pinching {
+  cursor: zoom-in;
+  user-select: none;
+}
+
+.pics-flipbook__viewport.is-zoomed .pics-flipbook__edge {
+  touch-action: pan-x pan-y;
 }
 
 .pics-flipbook__viewport::before {
