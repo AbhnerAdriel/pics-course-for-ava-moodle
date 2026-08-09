@@ -11,6 +11,7 @@
 }
 
 html { min-height: 100%; }
+html.is-route-scroll-reset { scroll-behavior: auto !important; }
 body { min-height: 100vh; }
 
 .skip-link {
@@ -28,7 +29,10 @@ body { min-height: 100vh; }
 }
 .skip-link:focus { transform: translateY(0); }
 
-#app { min-height: 100vh; }
+#app {
+    min-height: 100vh;
+    overflow-anchor: none;
+}
 .route-view { animation: route-enter 220ms ease-out both; }
 @keyframes route-enter {
     from { opacity: 0; transform: translateY(6px); }

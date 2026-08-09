@@ -61,6 +61,7 @@
     }
 
     disconnectedCallback() {
+      if (this.turning) this._cancelTurn(true);
       this.abortController?.abort();
       this.resizeObserver?.disconnect();
       cancelAnimationFrame(this.animationFrame);
@@ -118,7 +119,6 @@
               <p class="pics-flipbook__eyebrow">Leitura interativa</p>
               <h3 class="pics-flipbook__title">Carregando flipbook...</h3>
             </div>
-            <span class="pics-flipbook__meta" aria-hidden="true">PDF • <span data-ref="meta-count">0 páginas</span></span>
           </header>
 
           <div class="pics-flipbook__toolbar" role="toolbar" aria-label="Controles do flipbook">
@@ -191,7 +191,6 @@
       this.refs = {
         frame: q(".pics-flipbook__frame"),
         title: q(".pics-flipbook__title"),
-        metaCount: q('[data-ref="meta-count"]'),
         pageInput: q('[data-ref="page-input"]'),
         pageTotal: q('[data-ref="page-total"]'),
         zoomLabel: q('[data-ref="zoom-label"]'),
@@ -276,10 +275,19 @@
 
       [this.refs.edgeForward, this.refs.edgeBackward].forEach((edge) => {
         edge.addEventListener("pointerdown", (event) => this._onTurnPointerDown(event), { signal });
-        edge.addEventListener("pointermove", (event) => this._onTurnPointerMove(event), { signal });
-        edge.addEventListener("pointerup", (event) => this._onTurnPointerUp(event), { signal });
-        edge.addEventListener("pointercancel", (event) => this._onTurnPointerCancel(event), { signal });
+        edge.addEventListener("lostpointercapture", (event) => this._onTurnLostPointerCapture(event), { signal });
       });
+
+      window.addEventListener("pointermove", (event) => this._onTurnPointerMove(event), {
+        signal,
+        passive: false
+      });
+      window.addEventListener("pointerup", (event) => this._onTurnPointerUp(event), { signal });
+      window.addEventListener("pointercancel", (event) => this._onTurnPointerCancel(event), { signal });
+      window.addEventListener("blur", () => this._cancelTurn(true), { signal });
+      document.addEventListener("visibilitychange", () => {
+        if (document.hidden) this._cancelTurn(true);
+      }, { signal });
 
       document.addEventListener("fullscreenchange", () => this._syncFullscreenButton(), { signal });
 
@@ -350,7 +358,6 @@
       this.style.setProperty("--pf-page-ratio", String(ratio));
       this.refs.book.style.setProperty("--pf-page-ratio", String(ratio));
       this.refs.title.textContent = this.getAttribute("title") || this.manifest?.title || "Flipbook";
-      this.refs.metaCount.textContent = `${this.pages.length} ${this.pages.length === 1 ? "página" : "páginas"}`;
       this.refs.pageTotal.textContent = String(this.pages.length);
       this.refs.pageInput.max = String(this.pages.length);
       this.refs.progress.max = String(this.pages.length);
@@ -460,17 +467,8 @@
       width = Math.round(Math.max(120, width) * 2) / 2;
       height = Math.round(Math.max(160, height) * 2) / 2;
 
-      const sizeChanged =
-        Math.abs((this._baseBookWidth || 0) - width) >= 0.5 ||
-        Math.abs((this._baseBookHeight || 0) - height) >= 0.5;
-
       this._baseBookWidth = width;
       this._baseBookHeight = height;
-
-      if (sizeChanged || modeChanged) {
-        this.refs.bookShell.style.width = `${width}px`;
-        this.refs.bookShell.style.height = `${height}px`;
-      }
 
       this._applyZoomSpace(false);
       this._renderCurrentState(false);
@@ -699,7 +697,8 @@
         startX: 0,
         lastX: 0,
         startTime: 0,
-        cornerSign: 0
+        cornerSign: 0,
+        captureTarget: null
       };
       this._setTurnProgress(0);
       return this.turning;
@@ -729,7 +728,7 @@
       const corner = this.turning.cornerSign || 0;
       const rotateZ = corner * bend * (this.turning.direction === "forward" ? -1 : 1) * 1.4;
       const scaleX = 1 - bend * (this.turning.hard ? 0.002 : 0.018);
-      const lift = bend * (this.turning.hard ? 1 : 5);
+      const lift = bend * (this.turning.hard ? 1 : 5) * this.zoom;
       this.turning.element.style.transform = `rotateY(${angle}deg) rotateZ(${rotateZ}deg) translateZ(${lift}px) scaleX(${scaleX})`;
     }
 
@@ -759,10 +758,14 @@
 
     _commitTurn() {
       if (!this.turning) return;
-      const targetStateIndex = this.turning.targetStateIndex;
-      const targetPage = this.turning.targetPage;
-      this.turning.element.remove();
+      const turn = this.turning;
+      const targetStateIndex = turn.targetStateIndex;
+      const targetPage = turn.targetPage;
+      turn.dragging = false;
+      this._releaseTurnPointerCapture(turn);
+      turn.element.remove();
       this.turning = null;
+      this.animationFrame = 0;
       this.refs.book.style.removeProperty("--pf-turn-progress");
       this.stateIndex = targetStateIndex;
       const state = this.states[this.stateIndex];
@@ -775,16 +778,36 @@
     _cancelTurn(immediate = false) {
       if (!this.turning) return;
       cancelAnimationFrame(this.animationFrame);
-      const originalStateIndex = this.turning.originalStateIndex;
-      if (!immediate && this.turning.progress > 0.001) {
-        this._animateTurn(this.turning.progress, 0, 360, false);
+      this.animationFrame = 0;
+      const turn = this.turning;
+      const originalStateIndex = turn.originalStateIndex;
+      turn.dragging = false;
+      this._releaseTurnPointerCapture(turn);
+      if (!immediate && turn.progress > 0.001) {
+        this._animateTurn(turn.progress, 0, 360, false);
         return;
       }
-      this.turning.element.remove();
+      turn.element.remove();
       this.turning = null;
       this.stateIndex = originalStateIndex;
       this.refs.book.style.removeProperty("--pf-turn-progress");
       this._renderCurrentState(false);
+    }
+
+    _releaseTurnPointerCapture(turn) {
+      if (!turn) return;
+      const target = turn.captureTarget;
+      const pointerId = turn.pointerId;
+      turn.captureTarget = null;
+      if (!target || pointerId == null || typeof target.releasePointerCapture !== "function") return;
+
+      try {
+        if (typeof target.hasPointerCapture !== "function" || target.hasPointerCapture(pointerId)) {
+          target.releasePointerCapture(pointerId);
+        }
+      } catch {
+        // The global pointer listeners still finish or cancel the interaction.
+      }
     }
 
     _pinchMetrics(touches) {
@@ -872,6 +895,11 @@
 
       this._pinchState = null;
       this.refs.viewport.classList.remove("is-pinching");
+      if (Math.abs(this.zoom - 1) < 0.01) {
+        this.zoom = 1;
+        this._applyZoomSpace();
+        this._syncControls(false);
+      }
       this._centerBookIfNeeded();
       this.refs.live.textContent = `Zoom em ${Math.round(this.zoom * 100)}%`;
     }
@@ -880,8 +908,7 @@
       if (
         event.button !== 0 ||
         this.turning ||
-        this._pinchState ||
-        (event.pointerType === "touch" && this.zoom > 1.001)
+        this._pinchState
       ) return;
       const direction = event.currentTarget.dataset.direction;
       const canTurn = direction === "forward"
@@ -894,15 +921,21 @@
       if (!turn) return;
 
       event.preventDefault();
-      event.currentTarget.setPointerCapture?.(event.pointerId);
       const rect = this.refs.book.getBoundingClientRect();
       turn.dragging = true;
       turn.pointerId = event.pointerId;
+      turn.captureTarget = event.currentTarget;
       turn.startX = event.clientX;
       turn.lastX = event.clientX;
       turn.startTime = performance.now();
       turn.cornerSign = event.clientY < rect.top + rect.height / 2 ? -1 : 1;
       this._clearCornerHover();
+
+      try {
+        event.currentTarget.setPointerCapture?.(event.pointerId);
+      } catch {
+        // Window-level pointer listeners keep the drag recoverable without capture.
+      }
     }
 
     _onTurnPointerMove(event) {
@@ -924,6 +957,7 @@
       if (!turn?.dragging || turn.pointerId !== event.pointerId) return;
       event.preventDefault();
       turn.dragging = false;
+      this._releaseTurnPointerCapture(turn);
       const elapsed = Math.max(1, performance.now() - turn.startTime);
       const signedDistance = turn.direction === "forward"
         ? turn.startX - event.clientX
@@ -942,6 +976,15 @@
       const turn = this.turning;
       if (!turn?.dragging || turn.pointerId !== event.pointerId) return;
       turn.dragging = false;
+      this._releaseTurnPointerCapture(turn);
+      this._animateTurn(turn.progress, 0, 260, false);
+    }
+
+    _onTurnLostPointerCapture(event) {
+      const turn = this.turning;
+      if (!turn?.dragging || turn.pointerId !== event.pointerId) return;
+      turn.dragging = false;
+      turn.captureTarget = null;
       this._animateTurn(turn.progress, 0, 260, false);
     }
 
@@ -1024,6 +1067,7 @@
 
     setZoom(value) {
       if (!this.pages.length) return;
+      if (this.turning) this._cancelTurn(true);
       const next = clamp(Math.round(value * 100) / 100, this.minZoom, this.maxZoom);
       if (Math.abs(next - this.zoom) < 0.001) return;
       const viewport = this.refs.viewport;
@@ -1065,7 +1109,12 @@
       this.refs.zoomSpace.style.height = `${spaceHeight}px`;
       this.refs.bookShell.style.left = `${left}px`;
       this.refs.bookShell.style.top = `${top}px`;
-      this.refs.bookShell.style.transform = `scale(${this.zoom})`;
+      // Real layout dimensions make the browser rasterize page images at the
+      // active zoom instead of stretching a cached 100% composited layer.
+      this.refs.bookShell.style.width = `${scaledWidth}px`;
+      this.refs.bookShell.style.height = `${scaledHeight}px`;
+      this.refs.bookShell.style.removeProperty("transform");
+      this.refs.book.style.perspective = `${Math.round(2200 * this.zoom)}px`;
     }
 
     _centerBookIfNeeded() {

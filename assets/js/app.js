@@ -16,6 +16,12 @@ const moodleBridge = new MoodleBridge();
 let cleanupView = [];
 let lastRoute = null;
 let renderSequence = 0;
+let routeScrollFrame = 0;
+let routeScrollCleanupFrame = 0;
+
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
 
 document.querySelector('#skip-to-content')?.addEventListener('click', () => {
     const target = document.querySelector('#conteudo-principal');
@@ -23,10 +29,47 @@ document.querySelector('#skip-to-content')?.addEventListener('click', () => {
 });
 
 function cleanup() {
+    cancelRouteScroll();
     cleanupView.forEach((fn) => {
         try { fn(); } catch (error) { console.warn(error); }
     });
     cleanupView = [];
+}
+
+function cancelRouteScroll() {
+    cancelAnimationFrame(routeScrollFrame);
+    cancelAnimationFrame(routeScrollCleanupFrame);
+    routeScrollFrame = 0;
+    routeScrollCleanupFrame = 0;
+    document.documentElement.classList.remove('is-route-scroll-reset');
+}
+
+function scheduleRouteScroll(target, sequence) {
+    cancelRouteScroll();
+    const applyScroll = () => {
+        if (sequence !== renderSequence || (target && !target.isConnected)) return false;
+
+        const root = document.documentElement;
+        root.classList.add('is-route-scroll-reset');
+        let top = 0;
+        for (let element = target; element; element = element.offsetParent) {
+            top += element.offsetTop;
+        }
+        window.scrollTo({top: Math.max(0, top), left: 0, behavior: 'auto'});
+        return true;
+    };
+
+    applyScroll();
+    routeScrollFrame = requestAnimationFrame(() => {
+        routeScrollFrame = requestAnimationFrame(() => {
+            routeScrollFrame = 0;
+            if (!applyScroll()) return;
+            routeScrollCleanupFrame = requestAnimationFrame(() => {
+                document.documentElement.classList.remove('is-route-scroll-reset');
+                routeScrollCleanupFrame = 0;
+            });
+        });
+    });
 }
 
 function announce(message) {
@@ -60,8 +103,8 @@ async function render(route) {
             app.innerHTML = renderHome({course});
             app.setAttribute('aria-busy', 'false');
             bindCommon();
-            window.scrollTo({top: 0, behavior: 'auto'});
             document.querySelector('#conteudo-principal')?.focus({preventScroll: true});
+            scheduleRouteScroll(null, sequence);
             announce('Página principal do módulo carregada.');
             return;
         }
@@ -96,10 +139,9 @@ async function render(route) {
 
             const sameUnit = previous?.name === 'unit' && previous.slug === unit.slug;
             const target = sameUnit ? document.querySelector('#pagina-conteudo') : document.querySelector('#conteudo-principal');
-            if (sameUnit) target?.scrollIntoView({block: 'start', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'});
-            else window.scrollTo({top: 0, behavior: 'auto'});
             const heading = document.querySelector('#pagina-conteudo h1, #pagina-conteudo h2, #pagina-conteudo h3');
             if (heading) { heading.tabIndex = -1; heading.focus({preventScroll: true}); }
+            scheduleRouteScroll(sameUnit ? target : null, sequence);
             announce(`${pageData.title}. Página ${page} de ${unit.pages.length}.`);
             return;
         }
