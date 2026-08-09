@@ -14,6 +14,8 @@ const required = [
     'assets/flipbook/js/flipbook.js',
     'assets/flipbook/pdf/HQ_page-0001.pdf',
     'assets/flipbook/pdf/HQ_page-0001.flipbook/manifest.json',
+    'assets/video/css/video-component.css',
+    'assets/video/js/video-component.js',
 ];
 const missing = required.filter((relative) => !fs.existsSync(path.join(root, relative)));
 if (missing.length) {
@@ -81,10 +83,15 @@ if (flipbookPdfSignature !== '%PDF-') {
 }
 
 const shellHtml = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
-for (const asset of ['./assets/flipbook/css/flipbook.css', './assets/flipbook/js/flipbook.js']) {
+for (const asset of [
+    './assets/flipbook/css/flipbook.css',
+    './assets/flipbook/js/flipbook.js',
+    './assets/video/css/video-component.css',
+    './assets/video/js/video-component.js',
+]) {
     const occurrences = shellHtml.split(asset).length - 1;
     if (occurrences !== 1) {
-        console.error(`Integração do flipbook inválida: ${asset} deve ser carregado exatamente uma vez.`);
+        console.error(`Integração de componente inválida: ${asset} deve ser carregado exatamente uma vez.`);
         process.exit(1);
     }
 }

@@ -86,6 +86,8 @@ function bindCommon() {
     cleanupView.push(bindNavigationDrawer(document));
     cleanupView.push(bindPageInteractions(document));
     cleanupView.push(bindConfiguredLinks(document));
+    const cleanupVideo = window.PICSVideo?.init?.(document);
+    if (typeof cleanupVideo === 'function') cleanupView.push(cleanupVideo);
 }
 
 async function render(route) {

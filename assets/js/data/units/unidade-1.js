@@ -95,5 +95,57 @@ export const unitOne = {
                 </aside>
             </section>`,
         },
+        {
+            title: 'Abordagens de cuidado integral focadas na pessoa e seus aspectos biopsicossociais',
+            className: 'pagina-video-interativo',
+            html: `<section class="pics-video" data-pics-video aria-labelledby="unidade-1-pagina-3-titulo">
+                <header class="pics-video__intro">
+                    <div class="pics-video__eyebrow" aria-hidden="true">
+                        <svg class="pics-video__eyebrow-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+                            <rect x="2.75" y="4.75" width="18.5" height="14.5" rx="2.25" stroke="currentColor" stroke-width="1.5"></rect>
+                            <path d="M10 8.75L15.25 12 10 15.25V8.75Z" fill="currentColor"></path>
+                        </svg>
+                        <span class="pics-video__eyebrow-line"></span>
+                        <span class="pics-video__eyebrow-text">CONTEÚDO EM VÍDEO</span>
+                    </div>
+
+                    <h2 class="pics-video__title" id="unidade-1-pagina-3-titulo">
+                        Abordagens de cuidado integral focadas na pessoa e seus aspectos biopsicossociais
+                    </h2>
+
+                    <p class="pics-video__description">
+                        Assista ao vídeo a seguir para aprofundar os conceitos apresentados nesta unidade
+                        e observar como as práticas integrativas podem ser incorporadas ao cuidado de forma
+                        acolhedora, segura e centrada nas pessoas.
+                    </p>
+                </header>
+
+                <div class="pics-video__stage">
+                    <div class="pics-video__frame" data-video-id="M7lc1UVf-VE">
+                        <span class="pics-video__offset-frame pics-video__offset-frame--gold" aria-hidden="true"></span>
+                        <span class="pics-video__offset-frame pics-video__offset-frame--green" aria-hidden="true"></span>
+
+                        <div class="pics-video__media-shell">
+                            <div class="pics-video__media" data-video-mount>
+                                <iframe
+                                    src="https://www.youtube.com/embed/WOoa1zonTSs"
+                                    title="Vídeo de exemplo do YouTube"
+                                    loading="lazy"
+                                    referrerpolicy="strict-origin-when-cross-origin"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    allowfullscreen>
+                                </iframe>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="pics-video__caption">
+                        <span class="pics-video__caption-marker" aria-hidden="true"></span>
+                        <span>Material audiovisual da unidade</span>
+                    </div>
+                </div>
+            </section>`,
+        },
     ],
 };
