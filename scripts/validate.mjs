@@ -5,13 +5,88 @@ import {fileURLToPath} from 'node:url';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const required = [
     'index.html', 'assets/js/app.js', 'assets/css/app.css',
-    'assets/js/data/units/introducao.js', 'assets/js/data/units/boas-vindas.js',
+    'assets/js/data/units/introducao.js', 'assets/js/data/units/boas-vindas.js', 'assets/js/data/units/unidade-1.js',
     'assets/images/pnpic-main-logo.webp', 'assets/images/instituicoes-rodape.webp',
+    'assets/images/unidades/unidade-01/figura-01-unidade-01.webp',
+    'assets/images/unidades/unidade-01/figura-02-unidade-01.webp',
+    'assets/images/unidades/unidade-01/figura-03-unidade-01.webp',
+    'assets/flipbook/css/flipbook.css',
+    'assets/flipbook/js/flipbook.js',
+    'assets/flipbook/pdf/HQ_page-0001.pdf',
+    'assets/flipbook/pdf/HQ_page-0001.flipbook/manifest.json',
 ];
 const missing = required.filter((relative) => !fs.existsSync(path.join(root, relative)));
 if (missing.length) {
     console.error('Arquivos obrigatórios ausentes:', missing.join(', '));
     process.exit(1);
+}
+
+const flipbookRoot = path.join(root, 'assets/flipbook');
+const flipbookManifestPath = path.join(flipbookRoot, 'pdf/HQ_page-0001.flipbook/manifest.json');
+const flipbookManifest = JSON.parse(fs.readFileSync(flipbookManifestPath, 'utf8'));
+const flipbookPages = Array.isArray(flipbookManifest.pages) ? flipbookManifest.pages : [];
+
+if (flipbookManifest.version !== 1 || flipbookManifest.pageCount !== 7 || flipbookPages.length !== 7) {
+    console.error('Manifesto do flipbook inválido: eram esperadas 7 páginas.');
+    process.exit(1);
+}
+
+if (flipbookPages.some((page, index) => Number(page.number) !== index + 1)) {
+    console.error('Manifesto do flipbook inválido: numeração de páginas inconsistente.');
+    process.exit(1);
+}
+
+if (flipbookPages[0]?.type !== 'hard' || flipbookPages.at(-1)?.type !== 'hard') {
+    console.error('Manifesto do flipbook inválido: as capas inicial e final devem ser rígidas.');
+    process.exit(1);
+}
+
+const flipbookManifestDirectory = path.dirname(flipbookManifestPath);
+const flipbookReferences = [
+    {label: 'PDF de origem', value: flipbookManifest.sourcePdf},
+    ...flipbookPages.flatMap((page) => [
+        {label: `imagem da página ${page.number}`, value: page.src},
+        {label: `miniatura da página ${page.number}`, value: page.thumb},
+    ]),
+];
+const invalidFlipbookReferences = [];
+const missingFlipbookReferences = [];
+
+for (const reference of flipbookReferences) {
+    if (typeof reference.value !== 'string' || !reference.value.trim() || /^[a-z][a-z\d+.-]*:/i.test(reference.value) || reference.value.startsWith('//')) {
+        invalidFlipbookReferences.push(reference.label);
+        continue;
+    }
+
+    const target = path.resolve(flipbookManifestDirectory, reference.value);
+    const relativeToFlipbook = path.relative(flipbookRoot, target);
+    if (relativeToFlipbook.startsWith('..') || path.isAbsolute(relativeToFlipbook)) {
+        invalidFlipbookReferences.push(reference.label);
+    } else if (!fs.existsSync(target)) {
+        missingFlipbookReferences.push(reference.label);
+    }
+}
+
+if (invalidFlipbookReferences.length || missingFlipbookReferences.length) {
+    if (invalidFlipbookReferences.length) console.error('Referências inválidas no flipbook:', invalidFlipbookReferences.join(', '));
+    if (missingFlipbookReferences.length) console.error('Arquivos referenciados pelo flipbook ausentes:', missingFlipbookReferences.join(', '));
+    process.exit(1);
+}
+
+const flipbookPdfPath = path.resolve(flipbookManifestDirectory, flipbookManifest.sourcePdf);
+const flipbookPdfSignature = fs.readFileSync(flipbookPdfPath).subarray(0, 5).toString('ascii');
+if (flipbookPdfSignature !== '%PDF-') {
+    console.error('PDF do flipbook inválido: assinatura PDF não encontrada.');
+    process.exit(1);
+}
+
+const shellHtml = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+for (const asset of ['./assets/flipbook/css/flipbook.css', './assets/flipbook/js/flipbook.js']) {
+    const occurrences = shellHtml.split(asset).length - 1;
+    if (occurrences !== 1) {
+        console.error(`Integração do flipbook inválida: ${asset} deve ser carregado exatamente uma vez.`);
+        process.exit(1);
+    }
 }
 
 const files = [];

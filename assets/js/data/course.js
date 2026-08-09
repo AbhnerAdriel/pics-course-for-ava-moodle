@@ -1,5 +1,6 @@
 import {introductionUnit} from './units/introducao.js';
 import {welcomeUnit} from './units/boas-vindas.js';
+import {unitOne} from './units/unidade-1.js';
 
 export const course = Object.freeze({
     id: 'pics-modulo-01',
@@ -25,7 +26,7 @@ export const course = Object.freeze({
         {
             slug: 'unidade-1', category: 'Unidade 1', title: 'Introdução às PICS no SUS: princípios e bases legais',
             description: 'Conheça os fundamentos das PICS, sua organização no SUS e suas bases legais.',
-            image: './assets/images/unidades/unidade-01.webp', available: false,
+            image: './assets/images/unidades/unidade-01.webp', available: true,
         },
         {
             slug: 'unidade-2', category: 'Unidade 2', title: 'Práticas integradas à atuação dos ACS e ACE - Parte I',
@@ -53,4 +54,5 @@ export const course = Object.freeze({
 export const unitsBySlug = new Map([
     [introductionUnit.slug, introductionUnit],
     [welcomeUnit.slug, welcomeUnit],
+    [unitOne.slug, unitOne],
 ]);

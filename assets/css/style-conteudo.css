@@ -496,6 +496,18 @@ button:focus-visible,
     text-align: left;
 }
 
+.conteudo-figura-subtitulo {
+    margin: 14px 0 0;
+
+    color: var(--conteudo-cor-texto-suave);
+
+    font-family: var(--fonte-principal);
+    font-size: clamp(12px, 1vw, 14px);
+    line-height: 1.4;
+    font-style: italic;
+    text-align: center;
+}
+
 .conteudo-texto-imagem-flex-imagem.conteudo-figura {
     min-height: 100%;
 
@@ -643,6 +655,135 @@ button:focus-visible,
     font-weight: 800;
     font-style: normal;
     text-align: left;
+}
+
+.pagina-o-que-sao-as-pics .conteudo-texto-imagem-flex-titulo {
+    font-size: clamp(28px, 3.2vw, 42px);
+}
+
+.pagina-o-que-sao-as-pics .conteudo-texto-imagem-flex-imagem.unidade-1-figura img {
+    width: 82%;
+    max-height: 560px;
+
+    align-self: center;
+
+    background-color: #f3f4ef;
+
+    object-fit: contain;
+}
+
+.pagina-o-que-sao-as-pics .conteudo-texto-corrido-imagem.unidade-1-figura {
+    width: 82%;
+
+    margin-inline: auto;
+}
+
+.pagina-o-que-sao-as-pics .conteudo-texto-corrido-imagem.unidade-1-figura img {
+    height: auto;
+
+    object-fit: contain;
+}
+
+.pagina-o-que-sao-as-pics .conteudo-texto-corrido-imagem .conteudo-figura-subtitulo {
+    margin-top: 12px;
+}
+
+@media (max-width: 768px) {
+    .pagina-o-que-sao-as-pics .conteudo-texto-imagem-flex-titulo {
+        font-size: clamp(25px, 6vw, 32px);
+    }
+
+    .pagina-o-que-sao-as-pics .conteudo-texto-imagem-flex-imagem.unidade-1-figura img,
+    .pagina-o-que-sao-as-pics .conteudo-texto-corrido-imagem.unidade-1-figura {
+        width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .pagina-o-que-sao-as-pics .conteudo-texto-imagem-flex-titulo {
+        font-size: clamp(22px, 5.8vw, 27px);
+    }
+}
+
+.pagina-conteudo.pagina-flipbook-interativo {
+    padding: clamp(14px, 2.5vw, 32px);
+}
+
+.unidade-1-flipbook {
+    width: 100%;
+
+    margin: 0 auto;
+}
+
+.flipbook-introducao {
+    margin-bottom: 24px;
+    padding: clamp(22px, 4vw, 42px);
+
+    background-color: var(--conteudo-cor-card);
+
+    border: 1px solid var(--conteudo-cor-borda);
+    border-radius: 34px;
+
+    box-shadow: var(--conteudo-sombra-suave);
+}
+
+.flipbook-introducao-etiqueta {
+    margin: 0 0 6px;
+
+    color: var(--conteudo-cor-dourado);
+
+    font-family: var(--fonte-auxiliar);
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.flipbook-introducao-titulo {
+    margin: 0 0 14px;
+
+    color: var(--conteudo-cor-titulo);
+
+    font-family: var(--fonte-auxiliar);
+    font-size: clamp(28px, 4vw, 46px);
+    line-height: 1.08;
+    font-weight: 800;
+}
+
+.flipbook-introducao-descricao {
+    max-width: 78ch;
+
+    margin: 0;
+
+    color: var(--conteudo-cor-texto);
+
+    font-family: var(--fonte-principal);
+    font-size: clamp(15px, 1.7vw, 18px);
+    line-height: 1.6;
+}
+
+.flipbook-reflexao {
+    margin-top: 24px;
+    padding: clamp(20px, 3vw, 28px);
+
+    background-color: var(--conteudo-cor-dourado-claro);
+
+    border: 1px solid var(--conteudo-cor-borda);
+    border-radius: 24px;
+}
+
+.flipbook-reflexao p {
+    margin: 0;
+
+    color: var(--conteudo-cor-texto);
+
+    font-family: var(--fonte-principal);
+    font-size: clamp(15px, 1.7vw, 18px);
+    line-height: 1.6;
+}
+
+.flipbook-reflexao strong {
+    color: var(--conteudo-cor-titulo);
 }
 
 /* ----- Seção Formulário ----- */

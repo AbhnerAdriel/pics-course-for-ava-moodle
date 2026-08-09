@@ -41,6 +41,7 @@ As rotas têm o formato:
 ```text
 #/unidade/introducao/pagina/1
 #/unidade/boas-vindas/pagina/3
+#/unidade/unidade-1/pagina/2
 ```
 
 Por serem rotas com fragmento, o Moodle sempre entrega o mesmo `index.html` e não precisa conhecer as rotas internas.
@@ -65,4 +66,4 @@ A aplicação continua funcionando mesmo quando esse adaptador não existe.
 
 ## Conteúdo disponível
 
-O pacote recebido contém conteúdo completo para **Introdução** e **Boas-Vindas**. As demais unidades permanecem visíveis no catálogo, mas marcadas como “Em breve”, porque os respectivos arquivos de conteúdo não estavam presentes no projeto original.
+O pacote contém conteúdo publicado para **Introdução**, **Boas-Vindas** e as duas primeiras páginas da **Unidade 1**. A segunda página da Unidade 1 incorpora um flipbook interativo autocontido, disponível em `assets/flipbook`. As demais unidades permanecem visíveis no catálogo, mas marcadas como “Em breve”.
