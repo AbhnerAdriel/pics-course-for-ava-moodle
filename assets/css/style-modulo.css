@@ -429,7 +429,7 @@ button:focus-visible,
 #banner-modulo .dark-overlay {
     z-index: 1;
 
-    background-color: rgba(0, 0, 0, 0.58);
+    background-color: rgba(0, 0, 0, 0.4);
 
     border-bottom-right-radius: var(--border-radius-banner-modulo);
     border-bottom-left-radius: var(--border-radius-banner-modulo);
@@ -488,7 +488,7 @@ button:focus-visible,
 /* ----- Caixa de Informações Gerais do Curso no Banner ----- */
 
 #banner-informacoes-modulo {
-    width: min(74%, 1180px);
+    width: min(80%, 1180px);
 
     position: relative;
     z-index: 3;

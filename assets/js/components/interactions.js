@@ -35,18 +35,3 @@ export function bindPageInteractions(root = document) {
 
     return () => cleanup.forEach((fn) => fn());
 }
-
-export function bindScrollProgress(element) {
-    const update = () => {
-        const max = document.documentElement.scrollHeight - window.innerHeight;
-        const percent = max > 0 ? Math.min(100, Math.max(0, (window.scrollY / max) * 100)) : 0;
-        element.style.setProperty('--scroll-progress', `${percent}%`);
-    };
-    window.addEventListener('scroll', update, {passive: true});
-    window.addEventListener('resize', update, {passive: true});
-    update();
-    return () => {
-        window.removeEventListener('scroll', update);
-        window.removeEventListener('resize', update);
-    };
-}

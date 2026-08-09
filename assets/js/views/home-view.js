@@ -1,4 +1,4 @@
-import {unitsBySlug, getPublishedUnits} from '../data/course.js';
+import {unitsBySlug} from '../data/course.js';
 import {toHash, unitPath} from '../core/router.js';
 import {navigationShell} from '../components/navigation-drawer.js';
 
@@ -7,15 +7,13 @@ const bookIcon = `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
     <path d="M5 21.25A2.25 2.25 0 0 1 7.25 19H19" /><path d="M9 7h6" /><path d="M9 10h6" />
 </svg>`;
 
-function unitCard(unit, progressStore) {
+function unitCard(unit) {
     const data = unitsBySlug.get(unit.slug);
-    const totalPages = data?.pages.length || 0;
-    const progress = totalPages ? progressStore.unitPercent(unit.slug, totalPages) : 0;
-    const lastPage = totalPages ? progressStore.getUnit(unit.slug).lastPage : 1;
     const available = Boolean(unit.available && data);
-    const actionLabel = progress > 0 ? 'Continuar' : 'Acessar';
 
-    return `<article class="unidade-card" role="listitem" aria-labelledby="unit-${unit.slug}-title">
+    return `<article class="unidade-card${available ? ' unidade-card--disponivel' : ''}" role="listitem" aria-labelledby="unit-${unit.slug}-title">
+        ${available ? `<a class="unidade-card-link" href="${toHash(unitPath(unit.slug, 1))}" target="_blank" rel="noopener noreferrer"
+            aria-label="Acessar ${unit.title} em nova aba"></a>` : ''}
         <div class="unidade-card-imagem">
             <img src="${unit.image}" alt="" aria-hidden="true" loading="lazy" decoding="async">
             <span class="unidade-card-categoria">${unit.category}</span>
@@ -25,19 +23,13 @@ function unitCard(unit, progressStore) {
             <p>${unit.description}</p>
             ${available ? '' : '<span class="unidade-card-status">Conteúdo em preparação</span>'}
         </div>
-        ${available ? `<div class="unidade-card-progresso">
-            <div class="unidade-card-progresso-label"><span>Progresso</span><span>${progress}%</span></div>
-            <progress max="100" value="${progress}" aria-label="Progresso em ${unit.title}: ${progress}%">${progress}%</progress>
-        </div>` : ''}
         ${available
-            ? `<a href="${toHash(unitPath(unit.slug, lastPage))}" class="unidade-card-botao" aria-label="${actionLabel} ${unit.title}">${bookIcon}${actionLabel}</a>`
+            ? `<span class="unidade-card-botao" aria-hidden="true">${bookIcon}Acessar</span>`
             : `<span class="unidade-card-botao" aria-disabled="true">${bookIcon}Em breve</span>`}
     </article>`;
 }
 
-export function renderHome({course, progressStore}) {
-    const published = getPublishedUnits().map((unit) => unitsBySlug.get(unit.slug));
-    const courseProgress = progressStore.coursePercent(published);
+export function renderHome({course}) {
     return `<div class="route-view" data-view="home">
         ${navigationShell({mode: 'home', course})}
         <header id="banner-modulo" aria-labelledby="banner-modulo-titulo">
@@ -58,17 +50,11 @@ export function renderHome({course, progressStore}) {
                     </article>`).join('')}
                 </div>
             </section>
-            <section class="curso-progresso-resumo" aria-label="Progresso geral no conteúdo publicado">
-                <div class="curso-progresso-card">
-                    <strong>Seu progresso no conteúdo publicado</strong><span>${courseProgress}% concluído</span>
-                    <progress max="100" value="${courseProgress}">${courseProgress}%</progress>
-                </div>
-            </section>
             <section id="unidades-modulo" aria-labelledby="unidades-modulo-titulo">
                 <div id="unidades-modulo-cabecalho"><span>Unidades</span><h2 id="unidades-modulo-titulo">Unidades do Módulo</h2>
                     <p>Este módulo foi estruturado e dividido em unidades com o objetivo de promover a qualificação profissional de forma assertiva e organizada.</p>
                 </div>
-                <div id="unidades-modulo-lista" role="list">${course.units.map((unit) => unitCard(unit, progressStore)).join('')}</div>
+                <div id="unidades-modulo-lista" role="list">${course.units.map(unitCard).join('')}</div>
             </section>
         </main>
         <footer id="rodape-modulo"><div id="rodape-modulo-container">

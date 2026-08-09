@@ -1,7 +1,7 @@
 import {appConfig} from '../config.js';
 
 function defaultState() {
-    return {version: 1, units: {}, lastRoute: '/', updatedAt: null};
+    return {version: 1, units: {}, updatedAt: null};
 }
 
 function uniquePages(values) {
@@ -46,7 +46,6 @@ export class ProgressStore {
     getUnit(slug) {
         const unit = this.#state.units[slug] || {};
         return {
-            lastPage: Math.max(1, Number(unit.lastPage) || 1),
             visitedPages: uniquePages(unit.visitedPages || []),
             completed: Boolean(unit.completed),
             updatedAt: unit.updatedAt || null,
@@ -58,28 +57,10 @@ export class ProgressStore {
         const safePage = Math.min(Math.max(1, Number(page) || 1), Math.max(1, Number(totalPages) || 1));
         const visitedPages = uniquePages([...current.visitedPages, safePage]);
         const completed = visitedPages.length >= totalPages;
-        const next = {lastPage: safePage, visitedPages, completed, updatedAt: new Date().toISOString()};
+        const next = {visitedPages, completed, updatedAt: new Date().toISOString()};
         this.#state.units[slug] = next;
         this.#write();
         return structuredClone(next);
     }
 
-    setLastRoute(path) {
-        this.#state.lastRoute = path || '/';
-        this.#write();
-    }
-
-    unitPercent(slug, totalPages) {
-        const total = Math.max(1, Number(totalPages) || 1);
-        return Math.round((Math.min(this.getUnit(slug).visitedPages.length, total) / total) * 100);
-    }
-
-    coursePercent(units) {
-        const totals = units.reduce((acc, unit) => {
-            acc.total += unit.pages.length;
-            acc.visited += Math.min(this.getUnit(unit.slug).visitedPages.length, unit.pages.length);
-            return acc;
-        }, {visited: 0, total: 0});
-        return totals.total ? Math.round((totals.visited / totals.total) * 100) : 0;
-    }
 }

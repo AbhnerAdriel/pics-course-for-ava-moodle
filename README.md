@@ -6,12 +6,13 @@ Esta versão reorganiza o projeto original como uma **Single Page Application se
 
 - uma única página HTML e navegação sem recarregamento completo;
 - rotas compartilháveis e compatíveis com voltar/avançar do navegador;
-- progresso persistido no `localStorage` e retomada da última página de cada unidade;
+- cards de unidades disponíveis abertos em nova aba, sempre a partir da primeira página;
+- indicador da página atual junto à paginação, sem progresso agregado na página principal;
 - camada opcional para sincronização com um plugin Moodle;
 - foco gerenciado, menu com bloqueio de foco, `aria-live`, skip-link e suporte a `prefers-reduced-motion`;
 - imagens otimizadas em WebP e nomes de arquivos portáveis;
 - JavaScript modular, sem jQuery, sem código inline e sem etapa obrigatória de build;
-- testes automatizados do roteador e do armazenamento de progresso.
+- testes automatizados do roteador, das visualizações e do registro de páginas visitadas.
 
 ## Executar localmente
 

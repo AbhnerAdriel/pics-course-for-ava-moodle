@@ -54,7 +54,3 @@ export const unitsBySlug = new Map([
     [introductionUnit.slug, introductionUnit],
     [welcomeUnit.slug, welcomeUnit],
 ]);
-
-export function getPublishedUnits() {
-    return course.units.filter((unit) => unit.available && unitsBySlug.has(unit.slug));
-}

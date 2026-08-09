@@ -6,19 +6,17 @@ import {MoodleBridge} from './services/moodle-bridge.js';
 import {renderHome} from './views/home-view.js';
 import {renderUnit, bindConfiguredLinks} from './views/unit-view.js';
 import {bindNavigationDrawer} from './components/navigation-drawer.js';
-import {bindPageInteractions, bindScrollProgress} from './components/interactions.js';
+import {bindPageInteractions} from './components/interactions.js';
 
 const app = document.querySelector('#app');
 const liveRegion = document.querySelector('#app-live-region');
 const styleManager = new RouteStyleManager(document.querySelector('#route-stylesheet'));
 const progressStore = new ProgressStore();
 const moodleBridge = new MoodleBridge();
-const scrollProgress = document.querySelector('.app-scroll-progress');
 let cleanupView = [];
 let lastRoute = null;
 let renderSequence = 0;
 
-bindScrollProgress(scrollProgress);
 document.querySelector('#skip-to-content')?.addEventListener('click', () => {
     const target = document.querySelector('#conteudo-principal');
     if (target) { target.focus({preventScroll: true}); target.scrollIntoView({block: 'start'}); }
@@ -59,9 +57,8 @@ async function render(route) {
             await styleManager.use('home');
             if (sequence !== renderSequence) return;
             document.title = course.shortTitle;
-            app.innerHTML = renderHome({course, progressStore});
+            app.innerHTML = renderHome({course});
             app.setAttribute('aria-busy', 'false');
-            progressStore.setLastRoute('/');
             bindCommon();
             window.scrollTo({top: 0, behavior: 'auto'});
             document.querySelector('#conteudo-principal')?.focus({preventScroll: true});
@@ -94,7 +91,6 @@ async function render(route) {
             app.innerHTML = renderUnit({course, unit, page});
             app.setAttribute('aria-busy', 'false');
             const unitProgress = progressStore.visit(unit.slug, page, unit.pages.length);
-            progressStore.setLastRoute(route.path);
             moodleBridge.progressChanged({courseId: course.id, unitSlug: unit.slug, page, totalPages: unit.pages.length, ...unitProgress});
             bindCommon();
 

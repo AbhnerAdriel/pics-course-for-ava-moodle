@@ -82,6 +82,29 @@ body { min-height: 100vh; }
     filter: grayscale(0.25);
 }
 .unidade-card-botao[aria-disabled="true"]:hover { transform: none; }
+.unidade-card--disponivel {
+    position: relative;
+    cursor: pointer;
+}
+.unidade-card-link {
+    position: absolute;
+    z-index: 3;
+    inset: 0;
+    border-radius: inherit;
+}
+.unidade-card-link:focus-visible {
+    outline: none;
+    box-shadow: none;
+}
+.unidade-card--disponivel:focus-within {
+    outline: 3px solid var(--app-focus);
+    outline-offset: 5px;
+}
+.unidade-card--disponivel:hover .unidade-card-botao,
+.unidade-card--disponivel:focus-within .unidade-card-botao {
+    background-color: var(--app-primary-dark);
+    transform: translateY(-2px);
+}
 .unidade-card-status {
     display: inline-flex;
     align-items: center;
@@ -91,50 +114,6 @@ body { min-height: 100vh; }
     font-size: 0.78rem;
     font-weight: 700;
 }
-.unidade-card-progresso {
-    display: grid;
-    gap: 0.35rem;
-    padding: 0 1rem 0.9rem;
-}
-.unidade-card-progresso-label {
-    display: flex;
-    justify-content: space-between;
-    gap: 0.75rem;
-    color: var(--app-muted);
-    font-size: 0.75rem;
-    font-weight: 700;
-}
-.unidade-card-progresso progress {
-    width: 100%;
-    height: 0.45rem;
-    overflow: hidden;
-    border: 0;
-    border-radius: 999px;
-    background: #e8ecdf;
-}
-.unidade-card-progresso progress::-webkit-progress-bar { background: #e8ecdf; }
-.unidade-card-progresso progress::-webkit-progress-value { background: var(--app-primary); }
-.unidade-card-progresso progress::-moz-progress-bar { background: var(--app-primary); }
-
-.curso-progresso-resumo {
-    max-width: 980px;
-    margin: 1rem auto 0;
-    padding: 0 1.25rem;
-}
-.curso-progresso-card {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    gap: 0.75rem 1.25rem;
-    align-items: center;
-    padding: 1rem 1.2rem;
-    border: 1px solid var(--app-border);
-    border-radius: 1rem;
-    background: rgba(255,255,255,0.92);
-    box-shadow: 0 12px 34px rgba(31,45,31,0.08);
-}
-.curso-progresso-card strong { color: var(--app-text); }
-.curso-progresso-card span { color: var(--app-muted); font-size: 0.9rem; }
-.curso-progresso-card progress { grid-column: 1 / -1; width: 100%; height: 0.55rem; }
 
 .voltar-modulo-wrapper {
     position: absolute;
@@ -176,19 +155,7 @@ body { min-height: 100vh; }
 }
 @keyframes ripple { to { opacity: 0; transform: translate(-50%, -50%) scale(18); } }
 
-.app-scroll-progress {
-    position: fixed;
-    z-index: 9998;
-    top: 0;
-    left: 0;
-    width: var(--scroll-progress, 0%);
-    height: 4px;
-    background: #a3cd6d;
-    pointer-events: none;
-}
-
 @media (max-width: 680px) {
-    .curso-progresso-card { grid-template-columns: 1fr; }
     .voltar-modulo-wrapper { top: 0.7rem; right: 0.7rem; }
     .voltar-modulo-link span { display: none; }
 }

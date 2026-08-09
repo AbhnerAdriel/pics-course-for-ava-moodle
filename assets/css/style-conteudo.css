@@ -221,7 +221,7 @@ button:focus-visible,
 #banner-conteudo .dark-overlay {
     z-index: 1;
 
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.52);
 
     border-bottom-right-radius: var(--border-radius-banner-conteudo);
     border-bottom-left-radius: var(--border-radius-banner-conteudo);

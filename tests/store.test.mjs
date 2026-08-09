@@ -16,12 +16,11 @@ test('registra páginas visitadas sem duplicação', () => {
     store.visit('intro', 1, 3);
     store.visit('intro', 2, 3);
     assert.deepEqual(store.getUnit('intro').visitedPages, [1, 2]);
-    assert.equal(store.unitPercent('intro', 3), 67);
+    assert.equal('lastPage' in store.getUnit('intro'), false);
 });
 
 test('marca a unidade como concluída ao visitar todas as páginas', () => {
     const store = new ProgressStore({storage: new MemoryStorage(), key: 'test2'});
     [1, 2, 3].forEach((page) => store.visit('intro', page, 3));
     assert.equal(store.getUnit('intro').completed, true);
-    assert.equal(store.unitPercent('intro', 3), 100);
 });
