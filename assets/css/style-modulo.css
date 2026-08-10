@@ -16,15 +16,6 @@
     --banner-info-curso-cor-borda: #e1e6d8;
     --banner-info-curso-sombra: 0 18px 45px rgba(0, 0, 0, 0.12);
 
-    --forum-pratica-cor-fundo: #ffffff;
-    --forum-pratica-cor-titulo: #263326;
-    --forum-pratica-cor-texto: #4f5c4f;
-    --forum-pratica-cor-destaque: #735f20;
-    --forum-pratica-cor-botao: #4f633d;
-    --forum-pratica-cor-botao-hover: #3f5130;
-    --forum-pratica-cor-borda: #e1e6d8;
-    --forum-pratica-sombra: 0 24px 60px rgba(31, 45, 31, 0.11);
-
     --unidade-card-cor-fundo: #ffffff;
     --unidade-card-cor-titulo: #263326;
     --unidade-card-cor-texto: #4f5c4f;
@@ -70,8 +61,6 @@ button,
 .banner-info-numero,
 .unidade-card-categoria,
 .unidade-card-botao,
-.forum-pratica-tag,
-.forum-pratica-botao,
 .menu-navegacao-botao,
 .menu-navegacao-cabecalho h2,
 .menu-navegacao-grupo h3,
@@ -87,7 +76,6 @@ button {
 a:focus-visible,
 button:focus-visible,
 .unidade-card-botao:focus-visible,
-.forum-pratica-botao:focus-visible,
 .menu-navegacao-botao:focus-visible,
 .menu-navegacao-fechar:focus-visible,
 .menu-link:focus-visible {
@@ -96,8 +84,7 @@ button:focus-visible,
     box-shadow: 0 0 0 7px rgba(255, 255, 255, 0.95);
 }
 
-.unidade-card-botao:focus-visible,
-.forum-pratica-botao:focus-visible {
+.unidade-card-botao:focus-visible {
     transform: none;
 }
 
@@ -569,189 +556,6 @@ button:focus-visible,
 }
 
 
-/* ----- Seção Fórum Dialogando com a Prática ----- */
-
-.forum-pratica {
-    width: min(84%, 1300px);
-
-    margin: 78px auto 72px;
-}
-
-.forum-pratica-card {
-    min-height: 390px;
-
-    position: relative;
-
-    display: grid;
-    grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr);
-    align-items: stretch;
-
-    overflow: hidden;
-
-    background-color: var(--forum-pratica-cor-fundo);
-
-    border: 1px solid var(--forum-pratica-cor-borda);
-    border-radius: 34px;
-
-    box-shadow: var(--forum-pratica-sombra);
-}
-
-.forum-pratica-card::before {
-    content: '';
-
-    width: 210px;
-    height: 210px;
-
-    position: absolute;
-    top: -70px;
-    left: -70px;
-    z-index: 1;
-
-    background-color: rgba(219, 191, 127, 0.16);
-
-    border-radius: 50%;
-}
-
-.forum-pratica-conteudo {
-    position: relative;
-    z-index: 2;
-
-    padding: 54px 58px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-}
-
-.forum-pratica-tag {
-    display: inline-flex;
-    align-items: center;
-
-    margin-bottom: 14px;
-
-    padding: 10px 16px;
-
-    background-color: rgba(219, 191, 127, 0.16);
-    color: var(--forum-pratica-cor-botao);
-
-    border-radius: 999px;
-
-    font-size: 13px;
-    line-height: 1;
-    font-weight: 800;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-}
-
-.forum-pratica-titulo {
-    max-width: 620px;
-
-    margin-bottom: 20px;
-
-    font-family: var(--fonte-auxiliar);
-    font-size: clamp(30px, 3.7vw, 48px);
-    line-height: 1.05;
-    font-weight: 800;
-    letter-spacing: -1.1px;
-
-    color: var(--forum-pratica-cor-destaque);
-}
-
-.forum-pratica-conteudo p {
-    max-width: 720px;
-
-    margin-bottom: 32px;
-
-    font-family: var(--fonte-principal);
-    font-size: 18px;
-    line-height: 1.65;
-    font-weight: 400;
-
-    color: var(--forum-pratica-cor-texto);
-}
-
-.forum-pratica-botao {
-    min-height: 60px;
-
-    padding: 0 28px;
-
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-
-    background-color: var(--forum-pratica-cor-botao);
-    color: #ffffff;
-
-    border-radius: 999px;
-
-    font-size: 18px;
-    line-height: 1;
-    font-weight: 800;
-    text-decoration: none;
-
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.forum-pratica-botao span {
-    font-size: 22px;
-    line-height: 1;
-
-    transition: transform 0.3s ease;
-}
-
-.forum-pratica-botao:hover {
-    background-color: var(--forum-pratica-cor-botao-hover);
-
-    transform: translateY(-2px);
-
-    box-shadow: 0 14px 28px rgba(111, 128, 87, 0.24);
-}
-
-.forum-pratica-botao:hover span {
-    transform: translateX(4px);
-}
-
-.forum-pratica-imagem {
-    min-height: 300px;
-
-    position: relative;
-
-    overflow: hidden;
-}
-
-.forum-pratica-imagem::before {
-    content: '';
-
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0));
-}
-
-.forum-pratica-imagem img {
-    width: 100%;
-    height: 100%;
-
-    display: block;
-
-    object-fit: cover;
-    object-position: center;
-
-    transform: scale(0.6);
-
-    transition: transform 0.45s ease, filter 0.45s ease;
-}
-
-.forum-pratica-card:hover .forum-pratica-imagem img {
-    transform: scale(0.65);
-
-    filter: brightness(1.03) contrast(1.02);
-}
-
-
 /* ----- Seção de Unidades do Módulo ----- */
 
 #unidades-modulo {
@@ -1052,24 +856,6 @@ button:focus-visible,
         max-width: 100%;
     }
 
-    .forum-pratica {
-        width: 82%;
-
-        margin: 68px auto 64px;
-    }
-
-    .forum-pratica-card {
-        grid-template-columns: minmax(0, 1fr) minmax(320px, 0.85fr);
-    }
-
-    .forum-pratica-conteudo {
-        padding: 46px 44px;
-    }
-
-    .forum-pratica-conteudo p {
-        font-size: 17px;
-    }
-
     #unidades-modulo {
         width: 82%;
     }
@@ -1275,61 +1061,6 @@ button:focus-visible,
         line-height: 1.45;
     }
 
-    .forum-pratica {
-        width: min(90%, 520px);
-
-        margin: 54px auto 54px;
-    }
-
-    .forum-pratica-card {
-        min-height: auto;
-
-        display: flex;
-        flex-direction: column-reverse;
-
-        border-radius: 28px;
-    }
-
-    .forum-pratica-conteudo {
-        padding: 30px 24px 28px;
-    }
-
-    .forum-pratica-tag {
-        margin-bottom: 12px;
-
-        padding: 9px 14px;
-
-        font-size: 11.5px;
-    }
-
-    .forum-pratica-titulo {
-        margin-bottom: 16px;
-
-        font-size: clamp(26px, 7.4vw, 35px);
-    }
-
-    .forum-pratica-conteudo p {
-        margin-bottom: 24px;
-
-        font-size: 15.5px;
-        line-height: 1.55;
-    }
-
-    .forum-pratica-botao {
-        width: 100%;
-        min-height: 58px;
-
-        font-size: 17px;
-    }
-
-    .forum-pratica-imagem {
-        min-height: 250px;
-    }
-
-    .forum-pratica-imagem::before {
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.18));
-    }
-
     #unidades-modulo {
         width: min(90%, 520px);
 
@@ -1517,43 +1248,6 @@ button:focus-visible,
         line-height: 1.4;
     }
 
-    .forum-pratica {
-        width: 88%;
-
-        margin: 44px auto 48px;
-    }
-
-    .forum-pratica-card {
-        border-radius: 24px;
-    }
-
-    .forum-pratica-conteudo {
-        padding: 26px 20px 24px;
-    }
-
-    .forum-pratica-tag {
-        font-size: 10.5px;
-    }
-
-    .forum-pratica-titulo {
-        font-size: clamp(24px, 7vw, 30px);
-    }
-
-    .forum-pratica-conteudo p {
-        font-size: 15px;
-        line-height: 1.52;
-    }
-
-    .forum-pratica-botao {
-        min-height: 56px;
-
-        font-size: 16.5px;
-    }
-
-    .forum-pratica-imagem {
-        min-height: 220px;
-    }
-
     #unidades-modulo {
         width: 88%;
 
@@ -1682,32 +1376,6 @@ button:focus-visible,
         font-size: 20px;
     }
 
-    .forum-pratica-card {
-        border-radius: 22px;
-    }
-
-    .forum-pratica-conteudo {
-        padding: 24px 18px 22px;
-    }
-
-    .forum-pratica-titulo {
-        font-size: 23px;
-    }
-
-    .forum-pratica-conteudo p {
-        font-size: 14.5px;
-    }
-
-    .forum-pratica-botao {
-        min-height: 54px;
-
-        font-size: 16px;
-    }
-
-    .forum-pratica-imagem {
-        min-height: 200px;
-    }
-
     .unidade-card {
         min-height: 490px;
 
@@ -1797,7 +1465,6 @@ button:focus-visible,
 
     .skip-link,
     .unidade-card-botao,
-    .forum-pratica-botao,
     .menu-navegacao-botao,
     .menu-navegacao-fechar,
     .menu-link {

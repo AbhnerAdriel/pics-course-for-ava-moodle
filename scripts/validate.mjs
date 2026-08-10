@@ -10,12 +10,17 @@ const required = [
     'assets/images/unidades/unidade-01/figura-01-unidade-01.webp',
     'assets/images/unidades/unidade-01/figura-02-unidade-01.webp',
     'assets/images/unidades/unidade-01/figura-03-unidade-01.webp',
+    'assets/images/unidades/unidade-01/historico-pics-sus.jpg',
     'assets/flipbook/css/flipbook.css',
     'assets/flipbook/js/flipbook.js',
     'assets/flipbook/pdf/HQ_page-0001.pdf',
     'assets/flipbook/pdf/HQ_page-0001.flipbook/manifest.json',
     'assets/video/css/video-component.css',
     'assets/video/js/video-component.js',
+    'assets/horizontal-timeline/css/horizontal-timeline.css',
+    'assets/horizontal-timeline/js/horizontal-timeline.js',
+    'assets/pillar-stack/css/pillar-stack.css',
+    'assets/pillar-stack/js/pillar-stack.js',
 ];
 const missing = required.filter((relative) => !fs.existsSync(path.join(root, relative)));
 if (missing.length) {
@@ -88,6 +93,10 @@ for (const asset of [
     './assets/flipbook/js/flipbook.js',
     './assets/video/css/video-component.css',
     './assets/video/js/video-component.js',
+    './assets/horizontal-timeline/css/horizontal-timeline.css',
+    './assets/horizontal-timeline/js/horizontal-timeline.js',
+    './assets/pillar-stack/css/pillar-stack.css',
+    './assets/pillar-stack/js/pillar-stack.js',
 ]) {
     const occurrences = shellHtml.split(asset).length - 1;
     if (occurrences !== 1) {

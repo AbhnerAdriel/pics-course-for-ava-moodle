@@ -72,26 +72,26 @@ export const unitOne = {
             </section>`,
         },
         {
-            title: 'Não consigo dormir, meus pensamentos não param à noite',
+            title: 'O que são Práticas Integrativas e Complementares em Saúde (PICS)',
             className: 'pagina-flipbook-interativo',
             html: `<section class="unidade-1-flipbook" aria-labelledby="unidade-1-pagina-2-titulo">
                 <header class="flipbook-introducao">
                     <p class="flipbook-introducao-etiqueta">Conteúdo complementar</p>
 
-                    <h2 id="unidade-1-pagina-2-titulo" class="flipbook-introducao-titulo">Leitura: pensamentos, gentileza e respiração</h2>
+                    <h2 id="unidade-1-pagina-2-titulo" class="flipbook-introducao-titulo">O que são Práticas Integrativas e Complementares em Saúde (PICS)</h2>
 
                     <p class="flipbook-introducao-descricao">
-                        Leia a história em quadrinhos abaixo. Você pode folhear pelas bordas das páginas, usar os controles de navegação, ampliar trechos, abrir as miniaturas e entrar em tela cheia.
+                        Explore o material abaixo para aprofundar sua compreensão sobre as Práticas Integrativas e Complementares em Saúde (PICS). Você pode folhear pelas bordas das páginas, usar os controles de navegação, ampliar trechos, abrir as miniaturas e entrar em tela cheia.
                     </p>
                 </header>
 
                 <pics-flipbook
                     src="./assets/flipbook/pdf/HQ_page-0001.pdf"
-                    title="Não consigo dormir, meus pensamentos não param à noite">
+                    title="O que são Práticas Integrativas e Complementares em Saúde (PICS)">
                 </pics-flipbook>
 
                 <aside class="flipbook-reflexao" aria-label="Para refletir">
-                    <p><strong>Para refletir:</strong> depois da leitura, identifique quais atitudes ajudaram a personagem a lidar melhor com seus pensamentos e emoções.</p>
+                    <p><strong>Para refletir:</strong> durante a leitura, identifique quais práticas de cuidado são apresentadas e como elas podem contribuir para a promoção da saúde, o autocuidado e o cuidado integral.</p>
                 </aside>
             </section>`,
         },
@@ -143,6 +143,731 @@ export const unitOne = {
                     <div class="pics-video__caption">
                         <span class="pics-video__caption-marker" aria-hidden="true"></span>
                         <span>Material audiovisual da unidade</span>
+                    </div>
+                </div>
+            </section>`,
+        },
+        {
+            title: 'Histórico das PICS no Sistema Único de Saúde (SUS)',
+            className: 'pagina-historico-pics',
+            html: `<section class="conteudo-texto-imagem-flex pagina-historico-pics__introducao" aria-labelledby="unidade-1-pagina-4-titulo" aria-describedby="unidade-1-pagina-4-descricao">
+                <div class="conteudo-texto-imagem-flex-card">
+                    <div class="conteudo-texto-imagem-flex-conteudo">
+                        <h2 id="unidade-1-pagina-4-titulo" class="conteudo-texto-imagem-flex-titulo">Histórico das PICS no Sistema Único de Saúde (SUS)</h2>
+
+                        <p id="unidade-1-pagina-4-descricao" class="conteudo-texto-imagem-flex-descricao">
+                            Caro cursista, nesta unidade apresentaremos a história das Práticas Integrativas e Complementares em Saúde (PICS) de forma cronológica.
+                        </p>
+                    </div>
+
+                    <figure class="conteudo-texto-imagem-flex-imagem pagina-historico-pics__imagem-abertura">
+                        <img loading="lazy" decoding="async" src="./assets/images/unidades/unidade-01/historico-pics-sus.jpg" width="1000" height="1250" alt="Profissional de saúde apresenta um modelo de pontos de acupuntura a um grupo reunido com plantas medicinais.">
+                    </figure>
+                </div>
+            </section>
+
+            <section class="conteudo-texto-corrido pagina-historico-pics__texto" aria-labelledby="unidade-1-pagina-4-como-surgiram-titulo">
+                <p>
+                    A adoção das Práticas Integrativas e Complementares em Saúde (PICS) no Brasil segue uma tendência mundial de valorização das medicinas tradicionais complementares e integrativas (MTCI), incentivadas pela OMS desde os anos 1970. No país, o tema ganhou força a partir da década de 1980 e foi institucionalizado em 2006 com a criação da Política Nacional de Práticas Integrativas e Complementares (PNPIC), que incorporou diversas terapias ao SUS. A partir de 2017, houve uma grande expansão das modalidades reconhecidas, consolidando um avanço significativo na área. Hoje, as PICS estão presentes em 84% dos municípios brasileiros, com destaque para os diferentes recursos terapêuticos que compõem a Medicina Tradicional Chinesa, como por exemplo acupuntura, auriculoterapia, práticas corporais e mentais da MTC (tai chi, lian gong, etc), e são consideradas pela OMS e pelo SUS como importantes para a promoção da saúde, prevenção de doenças e fortalecimento da atenção primária.
+                </p>
+
+                <h2 id="unidade-1-pagina-4-como-surgiram-titulo">Como surgiram as PICS</h2>
+
+                <p>
+                    A utilização das Práticas Integrativas e Complementares em Saúde (PICS) no Brasil acompanha o movimento mundial de valorização das Medicinas Tradicionais Complementares e Integrativas (MTCI), impulsionado pela Organização Mundial da Saúde (OMS) desde a década de 1970, especialmente após a Declaração de Alma-Ata (1978), que defendeu a atenção primária à saúde e o respeito às práticas culturais locais.
+                </p>
+
+                <p>
+                    No Brasil, os debates sobre o tema começaram no final dos anos 1970 e se consolidaram na 8ª Conferência Nacional de Saúde (1986), que recomendou a introdução de práticas alternativas nos serviços públicos. Contudo, a verdadeira institucionalização das PICS ocorreu somente em 2006, com a criação da Política Nacional de Práticas Integrativas e Complementares (PNPIC), por meio da Portaria nº 971/2006 do Ministério da Saúde. Essa política marcou o início da oferta regular de práticas como acupuntura/medicina tradicional chinesa, homeopatia, fitoterapia e termalismo social no Sistema Único de Saúde (SUS).
+                </p>
+
+                <p>
+                    A PNPIC foi um marco para o reconhecimento oficial das PICS como tecnologias de cuidado de baixo custo, resolutivas e voltadas à integralidade do cuidado, buscando promover saúde, prevenir doenças e ampliar o acesso da população a terapias complementares.
+                </p>
+
+                <p>
+                    Entre 2017 e 2018, houve ampliação significativa do número de práticas reconhecidas, passando de 5 para 29 modalidades no SUS, incluindo yoga, reiki, meditação, aromaterapia, constelação familiar, osteopatia, musicoterapia, entre outras. Essa expansão, apesar de significar avanços, ocorreu em meio a controvérsias políticas e desafios estruturais, como falta de financiamento, carência de profissionais qualificados e ausência de regulamentação formativa.
+                </p>
+
+                <p>
+                    Atualmente, as PICS estão presentes em mais de 4.300 municípios brasileiros (78% do total), com destaque para a Medicina Tradicional Chinesa (MTC), que abrange práticas como acupuntura, auriculoterapia, moxabustão, tai chi chuan e fitoterapia chinesa. A MTC representa uma das principais bases teóricas e práticas da PNPIC, contribuindo para a visão holística e integradora da saúde.
+                </p>
+
+                <p>
+                    A OMS (2014–2023) também reforça a importância da integração dessas práticas nos sistemas nacionais de saúde, reconhecendo seu impacto positivo na qualidade de vida e na redução de custos assistenciais. No Brasil, as PICS vêm sendo consolidadas como parte essencial da atenção primária e da efetivação do princípio da integralidade e universalidade do SUS.
+                </p>
+            </section>
+
+            <section class="pagina-historico-pics__linha-do-tempo" aria-labelledby="unidade-1-pagina-4-linha-do-tempo-titulo">
+                <h2 id="unidade-1-pagina-4-linha-do-tempo-titulo">Linha do Tempo – Evolução das PICS no Brasil</h2>
+                <p id="unidade-1-pagina-4-linha-do-tempo-descricao" class="sr-only">Período / Marco. Evento / Política. Principais Avanços.</p>
+
+                <pics-horizontal-timeline aria-labelledby="unidade-1-pagina-4-linha-do-tempo-titulo" aria-describedby="unidade-1-pagina-4-linha-do-tempo-descricao">
+                    <ol class="pics-horizontal-timeline__events">
+                        <li data-timeline-event data-label="1978">
+                            <article>
+                                <time datetime="1978">1978</time>
+                                <h3>Declaração de Alma-Ata (OMS)</h3>
+                                <p>Incentiva a valorização das medicinas tradicionais e o respeito às práticas culturais locais na atenção primária à saúde.</p>
+                            </article>
+                        </li>
+
+                        <li data-timeline-event data-label="1970–1980">
+                            <article>
+                                <time>Final da década de 1970 – 1980</time>
+                                <h3>Início dos debates no Brasil</h3>
+                                <p>Primeiras discussões sobre terapias alternativas e complementares nos serviços públicos de saúde.</p>
+                            </article>
+                        </li>
+
+                        <li data-timeline-event data-label="1986">
+                            <article>
+                                <time datetime="1986">1986</time>
+                                <h3>8ª Conferência Nacional de Saúde (CNS)</h3>
+                                <p>Delibera pela introdução de <em>práticas alternativas de assistência à saúde</em> no sistema público — marco político inicial.</p>
+                            </article>
+                        </li>
+
+                        <li data-timeline-event data-label="1988">
+                            <article>
+                                <time datetime="1988">1988</time>
+                                <h3>Resolução CIPLAN nº 5</h3>
+                                <p>Regulamenta o uso da <strong>acupuntura</strong> nos serviços públicos, reconhecendo a <strong>Medicina Tradicional Chinesa (MTC)</strong> como prática terapêutica.</p>
+                            </article>
+                        </li>
+
+                        <li data-timeline-event data-label="1990–2000">
+                            <article>
+                                <time>1990–2000</time>
+                                <h3>Pesquisas e grupos sobre “racionalidades médicas”</h3>
+                                <p>Consolidação teórica das diferentes racionalidades em saúde (biomédica, tradicional, integrativa etc.).</p>
+                            </article>
+                        </li>
+
+                        <li data-timeline-event data-label="2006">
+                            <article>
+                                <time datetime="2006">2006</time>
+                                <h3>Criação da PNPIC – Portaria nº 971/2006 (Ministério da Saúde)</h3>
+                                <p>Institucionaliza as PICS no <strong>SUS</strong>, incluindo oficialmente: <strong>acupuntura/MTC, homeopatia, fitoterapia, termalismo e medicina antroposófica</strong>.</p>
+                            </article>
+                        </li>
+
+                        <li data-timeline-event data-label="2017">
+                            <article>
+                                <time datetime="2017">2017</time>
+                                <h3>Portaria nº 849/2017</h3>
+                                <p>Ampliação para <strong>19 práticas</strong>, incorporando <strong>reiki, yoga, meditação, arteterapia, biodança, naturopatia, entre outras</strong>.</p>
+                            </article>
+                        </li>
+
+                        <li data-timeline-event data-label="2018">
+                            <article>
+                                <time datetime="2018">2018</time>
+                                <h3>Portaria nº 702/2018</h3>
+                                <p>Nova ampliação para <strong>29 práticas</strong>, incluindo <strong>aromaterapia, constelação familiar, cromoterapia, ozonioterapia, bioenergética, terapia floral</strong>, etc.</p>
+                            </article>
+                        </li>
+
+                        <li data-timeline-event data-label="2020–2024">
+                            <article>
+                                <time>2020–2024</time>
+                                <h3>Expansão e consolidação</h3>
+                                <p>PICS presentes em <strong>84% dos municípios brasileiros</strong> e <strong>100% das capitais</strong>. A MTC destaca-se como principal referência técnica e científica entre as práticas.</p>
+                            </article>
+                        </li>
+                    </ol>
+                </pics-horizontal-timeline>
+            </section>
+
+            <section class="lista-ordenada-estilizada-1-wrapper pagina-historico-pics__avancos" aria-labelledby="unidade-1-pagina-4-avancos-titulo">
+                <div class="lista-ordenada-estilizada-1-card">
+                    <h2 id="unidade-1-pagina-4-avancos-titulo">Principais Características e Avanços das PICS</h2>
+
+                    <ol class="lista-ordenada-estilizada-1">
+                        <li>Estimulam mecanismos naturais de prevenção de agravos, promoção e recuperação da saúde por meio de tecnologias eficazes e seguras;</li>
+                        <li>Promovem o fortalecimento do vínculo terapêutico e a integração do ser humano com o meio ambiente e a sociedade;</li>
+                        <li>Baixo custo e alta resolutividade, com foco na promoção, prevenção e autocuidado.</li>
+                        <li>Humanização do cuidado: escuta ativa, vínculo terapêutico e valorização da pessoa em sua totalidade.</li>
+                        <li>Fortalecimento da Atenção Primária à Saúde (APS) e dos princípios do SUS: universalidade, integralidade e equidade.</li>
+                        <li>Desafios persistentes: falta de financiamento estável, capacitação insuficiente de profissionais e ausência de regulamentação formativa homogênea.</li>
+                    </ol>
+                </div>
+            </section>
+
+            <section class="pagina-historico-pics__card pagina-historico-pics__card--resumo" aria-labelledby="unidade-1-pagina-4-resumo-titulo">
+                <div class="pagina-historico-pics__card-icone" aria-hidden="true">
+                    <svg viewBox="0 0 48 48" fill="none" focusable="false">
+                        <path d="M14 8.5h17l7 7V39a2.5 2.5 0 0 1-2.5 2.5h-21A2.5 2.5 0 0 1 12 39V11a2.5 2.5 0 0 1 2-2.45Z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"></path>
+                        <path d="M30.5 9v7h7M18 23h14M18 29h14M18 35h9" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                </div>
+
+                <div class="pagina-historico-pics__card-conteudo">
+                    <h2 id="unidade-1-pagina-4-resumo-titulo">Resumo:</h2>
+
+                    <p>
+                        A utilização das PICS no Brasil reflete uma transição de um modelo biomédico centrado na doença para uma abordagem integral do cuidado, incorporando incorporando tecnologias leves de saúde por meio de diferentes recursos terapêuticos e abordagens de cuidado centradas na integralidade do indivíduo e em diálogo com os saberes tradicionais.
+                    </p>
+
+                    <p>
+                        A criação da PNPIC (2006) foi o divisor de águas, e a Medicina Tradicional Chinesa representa o símbolo maior dessa integração, contribuindo para a efetivação do direito universal à saúde e o fortalecimento dos princípios do SUS.
+                    </p>
+                </div>
+            </section>
+
+            <section class="pagina-historico-pics__card pagina-historico-pics__card--reflexao" aria-labelledby="unidade-1-pagina-4-reflexao-titulo">
+                <div class="pagina-historico-pics__card-icone" aria-hidden="true">
+                    <svg viewBox="0 0 48 48" fill="none" focusable="false">
+                        <path d="M35.9 31.25c3.22-2.82 5.1-6.7 5.1-10.88C41 12.16 33.39 5.5 24 5.5S7 12.16 7 20.37c0 8.22 7.61 14.88 17 14.88 1.8 0 3.53-.25 5.16-.73L38.5 42l-2.6-10.75Z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"></path>
+                        <path d="M19.2 17.25a5.04 5.04 0 0 1 9.54 2.26c0 3.36-3.66 3.77-4.57 6.18M24.16 30.2h.02" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"></path>
+                    </svg>
+                </div>
+
+                <div class="pagina-historico-pics__card-conteudo">
+                    <h2 id="unidade-1-pagina-4-reflexao-titulo">Perguntas para a sua Reflexão:</h2>
+
+                    <ol class="pagina-historico-pics__perguntas">
+                        <li>Como a criação da Política Nacional de Práticas Integrativas e Complementares no SUS (PNPIC), em 2006, contribuiu para a inclusão e expansão das PICS no Sistema Único de Saúde (SUS)?</li>
+                        <li>De que forma a Medicina Tradicional Chinesa (MTC) se destaca dentro das PICS no Brasil e qual é sua contribuição para a abordagem holística defendida pelo SUS e pela OMS?</li>
+                    </ol>
+                </div>
+            </section>
+
+            <section class="pagina-historico-pics__referencias" aria-labelledby="unidade-1-pagina-4-referencias-titulo">
+                <h2 id="unidade-1-pagina-4-referencias-titulo">Referências:</h2>
+                <p>FURTADO, José Henrique de Lacerda; QUEIROZ, Caio Ramon; FURTADO, Francisca Paula de Lacerda. A evolução das práticas integrativas e complementares no Brasil e o papel da Medicina Tradicional Chinesa. Revista Saúde e Desenvolvimento, Curitiba, v. 18, n. 28, p. 74-88, 2024.</p>
+            </section>`,
+        },
+        {
+            title: 'Importância das PICS para ampliar o cuidado em saúde',
+            className: 'pagina-importancia-pics',
+            html: `<section class="conteudo-texto-corrido" aria-labelledby="unidade-1-pagina-5-titulo">
+                <h2 id="unidade-1-pagina-5-titulo">Importância das PICS para ampliar o cuidado em saúde</h2>
+
+                <p>
+                    As Práticas Integrativas e Complementares em Saúde (PICS) têm se destacado por ampliarem a visão sobre o cuidado, considerando o indivíduo de forma integral e humanizada. Na Atenção Primária à Saúde, fortalecem princípios da Política Nacional de Humanização, como acolhimento, autonomia e vínculo, ao oferecer práticas que vão além do modelo biomédico convencional.
+                </p>
+
+                <p>
+                    Práticas como fitoterapia, meditação e práticas corporais da medicina tradicional chinesa contribuem para a promoção da saúde, prevenção de doenças e estímulo ao autocuidado. Apesar de seu potencial, a implementação das PICS ainda é desigual e requer maior integração à formação profissional e à organização dos serviços. Mesmo assim, representam uma estratégia importante para qualificar o cuidado e fortalecer um modelo de saúde centrado na pessoa.
+                </p>
+
+                <h3>Ampliação do cuidado</h3>
+
+                <p>
+                    Agora que você conheceu a história das Práticas Integrativas e Complementares (PICS), vamos abordar o seu papel na ampliação do cuidado em saúde.
+                </p>
+
+                <p>
+                    As PICS têm conquistado crescente relevância no cenário da saúde pública e da atenção integral ao indivíduo. Tal importância está diretamente atrelada à capacidade de ampliar o olhar sobre o processo saúde-doença e oportunizar aos usuários alternativas terapêuticas que valorizem e respeitem aspectos físicos, emocionais, sociais e espirituais, promovendo um cuidado mais humanizado e completo.
+                </p>
+
+                <p>
+                    Nesse sentido, a utilização das PICS contribui significativamente para ampliar e humanizar o cuidado na Atenção Primária à Saúde (APS), uma vez que essas práticas fortalecem o acolhimento, a autonomia, a integralidade e o vínculo - dimensões fundamentais da Política Nacional de Humanização (PNH).
+                </p>
+
+                <p>
+                    A incorporação de técnicas da fitoterapia, meditação, yoga, auto massagem, terapia comunitária integrativa e práticas corporais da medicina tradicional chinesa, entre outras, afirmam o papel das PICS contribuindo para que o cuidado não se restrinja ao tratamento de sintomas isolados, mas considerando o indivíduo na sua totalidade. Essa perspetiva amplia as possibilidades de prevenção, promoção da saúde e alívio do sofrimento, além de estimular a autonomia e o autocuidado, fortalecendo o vínculo entre profissionais e usuários.
+                </p>
+
+                <p>
+                    Compreender que ao vincular as PICS aos princípios estruturantes do SUS, especialmente a PNH, pois essa abordagem reforça que a adoção das PICS não é acessória, mas tem potencial transformador sobre o modelo de cuidado, aproximando a prática clínica da escuta qualificada, do vínculo e da autonomia do usuário.
+                </p>
+
+                <p>
+                    Quando as PICS são incorporadas à APS, ocorre uma ampliação do conceito de cuidado: a atenção volta-se não apenas aos sintomas, mas às dimensões psicossociais e culturais dos sujeitos. Essa ampliação reforça o caráter holístico e menos fragmentado da atenção, algo frequentemente ausente no modelo biomédico tradicional.
+                </p>
+
+                <p>
+                    Na Atenção Primária à Saúde, em especial, as PICS ampliam a resolutividade das equipes, oferecendo recursos terapêuticos que podem reduzir o uso excessivo de medicamentos, melhorar a qualidade de vida e favorecer práticas de cuidado mais acessíveis e sustentáveis. Além disso, estimulam a participação ativa da comunidade e promovem bem-estar, contribuindo para a construção de ambientes de saúde mais acolhedores e inclusivos.
+                </p>
+
+                <p>
+                    As PICS são potentes ferramentas para transformar o cuidado em saúde. Contudo, a efetivação dessas práticas ainda é heterogênea, frágil e pouco sistematizada. Não basta inserir as PICS na APS; é necessário transformá-las em práticas coerentes com os valores da humanização, integrando-as à formação profissional, à gestão pública e ao processo de trabalho das equipes, caso contrário corremos o risco de que as PICS reproduzam o mesmo modelo fragmentado que pretendem superar.
+                </p>
+
+                <p>
+                    Portanto, a integração das PICS aos serviços de saúde representa uma estratégia potente para ampliar o cuidado, respeitar a diversidade de saberes e práticas e fortalecer um modelo de saúde centrado na pessoa, na prevenção e na promoção da qualidade de vida.
+                </p>
+
+                <h3 id="unidade-1-pagina-5-pontos-titulo">Principais pontos do texto:</h3>
+
+                <p id="unidade-1-pagina-5-pontos-descricao">
+                    O texto argumenta que a integração das PICS na APS é uma estratégia crucial para aprimorar o modelo de cuidado em saúde no Brasil:
+                </p>
+
+                <pics-pillar-stack
+                    class="pillar-stack"
+                    data-pillar-stack
+                    role="list"
+                    aria-labelledby="unidade-1-pagina-5-pontos-titulo"
+                    aria-describedby="unidade-1-pagina-5-pontos-descricao"
+                >
+                    <article class="pillar-stack__card" data-stack-card role="listitem" style="--card-rotate: -0.45deg;">
+                        <div class="pillar-stack__surface">
+                            <div class="pillar-stack__topline">
+                                <span class="pillar-stack__kicker">Ponto-chave</span>
+                                <span class="pillar-stack__number" aria-hidden="true">01</span>
+                            </div>
+
+                            <div class="pillar-stack__icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" focusable="false">
+                                    <path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6S2.5 12 2.5 12Z" />
+                                    <circle cx="12" cy="12" r="2.7" />
+                                </svg>
+                            </div>
+
+                            <h4 class="pillar-stack__title">Ampliação do Olhar e Cuidado Integral:</h4>
+                            <p>as PICS promovem um olhar ampliado sobre o processo saúde-doença e oferecem alternativas que respeitam os aspectos físicos, emocionais, sociais e espirituais do indivíduo, tratando-o na sua totalidade.</p>
+                        </div>
+                    </article>
+
+                    <article class="pillar-stack__card" data-stack-card role="listitem" style="--card-rotate: 0.38deg;">
+                        <div class="pillar-stack__surface">
+                            <div class="pillar-stack__topline">
+                                <span class="pillar-stack__kicker">Ponto-chave</span>
+                                <span class="pillar-stack__number" aria-hidden="true">02</span>
+                            </div>
+
+                            <div class="pillar-stack__icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" focusable="false">
+                                    <path d="M12 20s-7-4.3-7-10a4 4 0 0 1 7-2.7A4 4 0 0 1 19 10c0 5.7-7 10-7 10Z" />
+                                    <path d="M9.5 11.3 11 13l3.6-4" />
+                                </svg>
+                            </div>
+
+                            <h4 class="pillar-stack__title">Afinidade com a Humanização (PNH):</h4>
+                            <p>o uso das PICS contribui diretamente para a Política Nacional de Humanização (PNH), reforçando dimensões como o acolhimento, a autonomia, a integralidade e o vínculo terapêutico.</p>
+                        </div>
+                    </article>
+
+                    <article class="pillar-stack__card" data-stack-card role="listitem" style="--card-rotate: -0.28deg;">
+                        <div class="pillar-stack__surface">
+                            <div class="pillar-stack__topline">
+                                <span class="pillar-stack__kicker">Ponto-chave</span>
+                                <span class="pillar-stack__number" aria-hidden="true">03</span>
+                            </div>
+
+                            <div class="pillar-stack__icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" focusable="false">
+                                    <path d="M5 7h10M12 4l3 3-3 3" />
+                                    <path d="M19 17H9m3 3-3-3 3-3" />
+                                </svg>
+                            </div>
+
+                            <h4 class="pillar-stack__title">Caráter Contra-Hegemônico:</h4>
+                            <p>as PICS reforçam o caráter holístico e menos fragmentado da atenção, opondo-se à lógica biomédica tradicional ou convencional.</p>
+                        </div>
+                    </article>
+
+                    <article class="pillar-stack__card" data-stack-card role="listitem" style="--card-rotate: 0.32deg;">
+                        <div class="pillar-stack__surface">
+                            <div class="pillar-stack__topline">
+                                <span class="pillar-stack__kicker">Ponto-chave</span>
+                                <span class="pillar-stack__number" aria-hidden="true">04</span>
+                            </div>
+
+                            <div class="pillar-stack__icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" focusable="false">
+                                    <path d="M19 4C11 4 6 8.2 6 14c0 3.3 2.2 5.7 5.6 5.7C18 19.7 20 11 19 4Z" />
+                                    <path d="M5 20c2.7-5.1 6.6-8.8 11.4-11" />
+                                </svg>
+                            </div>
+
+                            <h4 class="pillar-stack__title">Aumento da Resolutividade e Sustentabilidade:</h4>
+                            <p>na APS, as PICS:</p>
+                            <ul>
+                                <li>Reduzem o uso excessivo de medicamentos (medicalização).</li>
+                                <li>Melhoram a qualidade de vida e aliviam o sofrimento (por exemplo, em dores crônicas e saúde mental).</li>
+                                <li>Estimulam o autocuidado e o autoconhecimento.</li>
+                                <li>Apresentam uma boa relação custo/benefício.</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="pillar-stack__card" data-stack-card role="listitem" style="--card-rotate: -0.34deg;">
+                        <div class="pillar-stack__surface">
+                            <div class="pillar-stack__topline">
+                                <span class="pillar-stack__kicker">Ponto-chave</span>
+                                <span class="pillar-stack__number" aria-hidden="true">05</span>
+                            </div>
+
+                            <div class="pillar-stack__icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" focusable="false">
+                                    <path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1" />
+                                    <circle cx="12" cy="12" r="4.2" />
+                                </svg>
+                            </div>
+
+                            <h4 class="pillar-stack__title">Potencial de Transformação:</h4>
+                            <p>a adoção das PICS não deve ser acessória, mas sim uma prática com potencial transformador sobre o modelo de cuidado, desde que sejam coerentes com os valores da humanização e integradas ao processo de trabalho das equipes.</p>
+                        </div>
+                    </article>
+                </pics-pillar-stack>
+            </section>
+
+            <section class="pagina-historico-pics__card pagina-historico-pics__card--reflexao" aria-labelledby="unidade-1-pagina-5-reflexao-titulo">
+                <div class="pagina-historico-pics__card-icone" aria-hidden="true">
+                    <svg viewBox="0 0 48 48" fill="none" focusable="false">
+                        <path d="M35.9 31.25c3.22-2.82 5.1-6.7 5.1-10.88C41 12.16 33.39 5.5 24 5.5S7 12.16 7 20.37c0 8.22 7.61 14.88 17 14.88 1.8 0 3.53-.25 5.16-.73L38.5 42l-2.6-10.75Z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"></path>
+                        <path d="M19.2 17.25a5.04 5.04 0 0 1 9.54 2.26c0 3.36-3.66 3.77-4.57 6.18M24.16 30.2h.02" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"></path>
+                    </svg>
+                </div>
+
+                <div class="pagina-historico-pics__card-conteudo">
+                    <h2 id="unidade-1-pagina-5-reflexao-titulo">Questões para Discussão e Reflexão</h2>
+
+                    <ol class="pagina-historico-pics__perguntas">
+                        <li>Que estratégias de educação permanente e divulgação são necessárias para que as PICS se tornem uma prática consolidada e procurada, e não dependam apenas do "pioneirismo" do profissional?</li>
+                        <li>De que forma a falta de recursos básicos afeta a continuidade e a qualidade da oferta dessas práticas?</li>
+                        <li>Como a APS pode usar as PICS de forma mais estratégica e não apenas como "alternativa" para casos difíceis?</li>
+                    </ol>
+                </div>
+            </section>
+
+            <section class="pagina-historico-pics__referencias" aria-labelledby="unidade-1-pagina-5-referencias-titulo">
+                <h2 id="unidade-1-pagina-5-referencias-titulo">Referências:</h2>
+                <p>QUEIROZ, Neila Alves de; BARBOSA, Fernanda Elizabeth Sena; DUARTE, Wellington Bruno Araujo. Uso das Práticas Integrativas e Complementares em Saúde por profissionais dos Núcleos Ampliados de Saúde da Família e Atenção Básica. Physis: Revista de Saúde Coletiva, Rio de Janeiro, v. 33, 2023.</p>
+                <p>SCHVEITZER, Mariana Cabral; ESPER, Marcos Venicio; SILVA, Maria Júlia Paes da. Práticas Integrativas e Complementares na Atenção Primária em Saúde: em busca da humanização do cuidado. O Mundo da Saúde, São Paulo, v. 36, n. 3, p. 442-451, 2012.</p>
+            </section>`,
+        },
+        {
+            title: 'Políticas Públicas e Direitos da População nas Práticas Integrativas e Complementares do SUS',
+            className: 'pagina-politicas-pics',
+            html: `<section class="conteudo-texto-corrido" aria-labelledby="unidade-1-pagina-6-titulo">
+                <h2 id="unidade-1-pagina-6-titulo">Políticas Públicas e Direitos da População nas Práticas Integrativas e Complementares do SUS</h2>
+
+                <p>
+                    As Práticas Integrativas e Complementares em Saúde (PICS) fazem parte de uma política pública nacional que amplia as possibilidades de cuidado oferecidas pelo Sistema Único de Saúde (SUS). Elas reúnem técnicas e saberes tradicionais e contemporâneos, buscando promover saúde, prevenir doenças e melhorar a qualidade de vida da população. Para entender como essa política funciona, é importante conhecer o marco legal que orienta sua aplicação, os direitos dos usuários e como a oferta dessas práticas se organiza nos serviços de saúde.
+                </p>
+            </section>
+
+            <section class="lista-ordenada-estilizada-1-wrapper pagina-historico-pics__avancos pagina-politicas-pics__lista pagina-politicas-pics__diretrizes" aria-labelledby="unidade-1-pagina-6-diretrizes-titulo">
+                <div class="lista-ordenada-estilizada-1-card">
+                    <h2 id="unidade-1-pagina-6-diretrizes-titulo">Principais diretrizes da Portaria PNPIC</h2>
+
+                    <p class="pagina-politicas-pics__lista-introducao">
+                        Conforme já foi visto, o marco central das PICS no Brasil é a Portaria nº 971, publicada pelo Ministério da Saúde em 2006. Essa portaria instituiu oficialmente a Política Nacional de Práticas Integrativas e Complementares no SUS (PNPIC) e seu principal objetivo foi reconhecer e organizar a oferta dessas práticas garantindo seu uso seguro e qualificado. Entre as diretrizes definidas pela Portaria, destacam-se:
+                    </p>
+
+                    <ol class="lista-ordenada-estilizada-1">
+                        <li>
+                            <strong>Segurança</strong>
+                            <span>As práticas integrativas ofertadas no SUS devem seguir protocolos clínicos, métodos seguros e ambientes adequados.</span>
+                            <span>Há necessidade de avaliação de riscos e monitoramento dos efeitos.</span>
+                        </li>
+                        <li>
+                            <strong>Eficácia</strong>
+                            <span>Incentivo à produção de pesquisas científicas que comprovem a efetividade das práticas utilizadas.</span>
+                            <span>Reconhecimento de evidências oriundas não apenas da biomedicina, mas também de saberes tradicionais e experiências vivenciadas.</span>
+                        </li>
+                        <li>
+                            <strong>Acesso</strong>
+                            <span>As PICS devem ser disponibilizadas de forma universal e gratuita, conforme a capacidade de cada município.</span>
+                            <span>Prioridade para a Atenção Primária em Saúde, por ser a porta de entrada do SUS.</span>
+                        </li>
+                        <li>
+                            <strong>Qualificação profissional</strong>
+                            <span>Capacitação contínua das equipes com o oferecimento de cursos, especializações e formação em serviço.</span>
+                            <span>Reconhecimento da necessidade de profissionais habilitados para atuar com segurança.</span>
+                        </li>
+                        <li>
+                            <strong>Integralidade do cuidado</strong>
+                            <span>As práticas integrativas e complementares devem se articular com outros serviços e níveis de atenção, contribuindo para um cuidado mais amplo e centrado na pessoa.</span>
+                        </li>
+                        <li>
+                            <strong>Desenvolvimento multiprofissional</strong>
+                            <span>A política deve ser desenvolvida com equipes multiprofissionais, em consonância com os princípios do SUS.</span>
+                        </li>
+                        <li>
+                            <strong>Implementação e fortalecimento</strong>
+                            <span>Implantação de ações e fortalecimento de iniciativas existentes, incluindo a busca por mecanismos de financiamento.</span>
+                        </li>
+                        <li>
+                            <strong>Informação e divulgação</strong>
+                            <span>Divulgar e informar sobre as PICs para profissionais de saúde, gestores e usuários, utilizando metodologias participativas e valorizando o saber popular.</span>
+                        </li>
+                        <li>
+                            <strong>Ações intersetoriais</strong>
+                            <span>Estimular a colaboração com outros setores para o desenvolvimento integral das ações.</span>
+                        </li>
+                        <li>
+                            <strong>Participação social</strong>
+                            <span>Fortalecer a participação da sociedade nas decisões e ações relacionadas às PICs.</span>
+                        </li>
+                        <li>
+                            <strong>Acesso a insumos</strong>
+                            <span>Garantir o acesso a medicamentos fitoterápicos e homeopáticos, além de outros insumos estratégicos da PNPIC, assegurando qualidade e segurança.</span>
+                        </li>
+                        <li>
+                            <strong>Acompanhamento e avaliação</strong>
+                            <span>Desenvolver ações de acompanhamento e avaliação das PICs para instrumentalizar a gestão.</span>
+                        </li>
+                    </ol>
+                </div>
+            </section>
+
+            <section class="conteudo-texto-corrido" aria-labelledby="unidade-1-pagina-6-politicas-titulo">
+                <p>
+                    Conforme já vimos nas aulas anteriores, depois de 2006 a Política passou por atualizações importantes. Entre 2017 e 2018, novas portarias ampliaram o número de práticas reconhecidas pelo SUS, incluindo yoga, meditação, arteterapia, musicoterapia, reiki, aromaterapia, ayurveda, terapia comunitária integrativa, constelação familiar e várias outras. Essas ampliações reforçam a diversidade cultural e terapêutica presente no país. Além disso, as atualizações incentivaram a formação de profissionais, a produção de pesquisas e o fortalecimento da implementação das PICS nos serviços de saúde, especialmente na Atenção Primária em Saúde.
+                </p>
+
+                <h3 id="unidade-1-pagina-6-politicas-titulo">Relação com outras políticas de saúde</h3>
+
+                <p>As PICS dialogam diretamente com várias políticas estruturantes do SUS:</p>
+            </section>
+
+            <section class="lista-ordenada-estilizada-1-wrapper pagina-historico-pics__avancos pagina-politicas-pics__lista" aria-labelledby="unidade-1-pagina-6-politicas-lista-titulo">
+                <div class="lista-ordenada-estilizada-1-card">
+                    <h2 id="unidade-1-pagina-6-politicas-lista-titulo">Políticas estruturantes do SUS</h2>
+
+                    <ol class="lista-ordenada-estilizada-1">
+                        <li>
+                            <strong>Política Nacional de Atenção Básica</strong>
+                            <span>A maioria das práticas é ofertada na Estratégia Saúde da Família.</span>
+                            <span>Fortalece ações de promoção, prevenção e cuidado longitudinal.</span>
+                        </li>
+                        <li>
+                            <strong>Política Nacional de Promoção da Saúde (PNPS)</strong>
+                            <span>As PICS são reconhecidas como ferramentas para o autocuidado, atividade física, saúde mental e estilos de vida saudáveis.</span>
+                        </li>
+                        <li>
+                            <strong>Política Nacional de Humanização (PNH)</strong>
+                            <span>Contribuem para acolhimento, vínculo, escuta qualificada e valorização da subjetividade.</span>
+                            <span>Estimulam relações mais horizontais entre profissionais e usuários.</span>
+                        </li>
+                        <li>
+                            <strong>Política de Saúde Mental</strong>
+                            <span>São amplamente utilizadas nos Centro de Atenção Psicossocial (CAPS), auxiliando no manejo da ansiedade, depressão, sofrimento emocional e dependência química.</span>
+                        </li>
+                        <li>
+                            <strong>Equidade e populações tradicionais</strong>
+                            <span>Reconhecimento de saberes indígenas, afro-brasileiros e comunitários.</span>
+                            <span>Valorização de práticas ancestrais e terapias culturais.</span>
+                            <span>Fortalecimento do cuidado territorial e comunitário.</span>
+                        </li>
+                    </ol>
+                </div>
+            </section>
+
+            <section class="conteudo-texto-corrido" aria-labelledby="unidade-1-pagina-6-direitos-titulo">
+                <h3 id="unidade-1-pagina-6-direitos-titulo">Direitos da População em Relação às PICS</h3>
+                <p>Do ponto de vista legal e ético, os usuários do SUS têm direitos fundamentais relacionados às PICS. Vamos a eles:</p>
+            </section>
+
+            <section class="lista-ordenada-estilizada-1-wrapper pagina-historico-pics__avancos pagina-politicas-pics__lista" aria-labelledby="unidade-1-pagina-6-direitos-lista-titulo">
+                <div class="lista-ordenada-estilizada-1-card">
+                    <h2 id="unidade-1-pagina-6-direitos-lista-titulo">Direitos fundamentais dos usuários</h2>
+
+                    <ol class="lista-ordenada-estilizada-1">
+                        <li>
+                            <strong>Direito ao acesso</strong>
+                            <span>O SUS garante acesso gratuito às PICS, conforme disponibilidade local.</span>
+                            <span>As práticas devem estar incorporadas na Atenção Básica e em outros pontos da rede.</span>
+                            <span>Usuários têm direito de solicitar informações sobre onde e como acessá-las.</span>
+                        </li>
+                        <li>
+                            <strong>Direito à informação</strong>
+                            <span>Profissionais têm o dever de informar ao usuário:</span>
+                            <span class="pagina-politicas-pics__subitem">Para que serve a prática.</span>
+                            <span class="pagina-politicas-pics__subitem">Quais são seus possíveis benefícios.</span>
+                            <span class="pagina-politicas-pics__subitem">Quais são os riscos e limitações.</span>
+                            <span class="pagina-politicas-pics__subitem">Quem são os profissionais responsáveis.</span>
+                            <span>O usuário deve receber consentimento informado, podendo aceitar ou recusar a prática.</span>
+                        </li>
+                        <li>
+                            <strong>Direito à integralidade e pluralidade terapêutica</strong>
+                            <span>O usuário pode combinar terapias convencionais com práticas integrativas.</span>
+                            <span>Deve ser respeitado em sua escolha terapêutica, crenças espirituais e valores culturais.</span>
+                            <span>A equipe precisa considerar a pessoa em todas as suas dimensões: física, emocional, social, espiritual e comunitária.</span>
+                        </li>
+                        <li>
+                            <strong>Direito à segurança e qualidade</strong>
+                            <span>As PICS devem ser realizadas por profissionais qualificados e reconhecidos.</span>
+                            <span>As práticas precisam seguir normas técnicas, protocolos e diretrizes do Ministério da Saúde.</span>
+                            <span>O usuário tem direito de denunciar práticas inadequadas ou sem respaldo técnico.</span>
+                        </li>
+                    </ol>
+                </div>
+            </section>
+
+            <section class="conteudo-texto-corrido" aria-label="Atuação das equipes de saúde da família">
+                <p>
+                    O trabalho das equipes de saúde da família é essencial para a efetividade das PICS. Cabe aos ACS e ACE juntamente com todo corpo de profissionais acolherem as demandas dos usuários, indicarem práticas adequadas, acompanharem o desenvolvimento das atividades e registrarem todas as intervenções nos sistemas de informação. O trabalho interdisciplinar é um dos pilares das PICS, envolvendo diferentes categorias profissionais em ações compartilhadas.
+                </p>
+            </section>
+
+            <section class="pagina-historico-pics__card pagina-historico-pics__card--resumo" aria-labelledby="unidade-1-pagina-6-conclusao-titulo">
+                <div class="pagina-historico-pics__card-icone" aria-hidden="true">
+                    <svg viewBox="0 0 48 48" fill="none" focusable="false">
+                        <path d="M14 8.5h17l7 7V39a2.5 2.5 0 0 1-2.5 2.5h-21A2.5 2.5 0 0 1 12 39V11a2.5 2.5 0 0 1 2-2.45Z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"></path>
+                        <path d="M30.5 9v7h7M18 23h14M18 29h14M18 35h9" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                </div>
+
+                <div class="pagina-historico-pics__card-conteudo">
+                    <h2 id="unidade-1-pagina-6-conclusao-titulo">Conclusão:</h2>
+                    <p>Nesta sessão tivemos a oportunidade de conhecer as principais diretrizes da PNPIC, conhecer a relação das PICS com outras políticas de saúde e conhecer os Direitos da População em relação às PICS.</p>
+                    <p>Os benefícios das PICS são amplamente reconhecidos no SUS e pela população. Eles contribuem para a melhoria do bem-estar físico, emocional e mental, reduzindo sintomas como dor, ansiedade e estresse. Também favorecem a redução do uso excessivo de medicamentos e fortalecem a autonomia das pessoas, estimulando o autocuidado e a corresponsabilidade na manutenção da saúde. Além disso, promovem relações mais humanizadas e acolhedoras entre profissionais e usuários, reforçando os princípios basilares do SUS.</p>
+                    <p>Sendo assim, as PICS representam um importante instrumento de cuidado integral, ampliando alternativas terapêuticas e fortalecendo práticas que valorizam a diversidade cultural, a promoção da saúde e o protagonismo do usuário dentro das políticas públicas brasileiras.</p>
+                </div>
+            </section>
+
+            <section class="pagina-historico-pics__card pagina-historico-pics__card--reflexao" aria-labelledby="unidade-1-pagina-6-perguntas-titulo">
+                <div class="pagina-historico-pics__card-icone" aria-hidden="true">
+                    <svg viewBox="0 0 48 48" fill="none" focusable="false">
+                        <path d="M35.9 31.25c3.22-2.82 5.1-6.7 5.1-10.88C41 12.16 33.39 5.5 24 5.5S7 12.16 7 20.37c0 8.22 7.61 14.88 17 14.88 1.8 0 3.53-.25 5.16-.73L38.5 42l-2.6-10.75Z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"></path>
+                        <path d="M19.2 17.25a5.04 5.04 0 0 1 9.54 2.26c0 3.36-3.66 3.77-4.57 6.18M24.16 30.2h.02" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"></path>
+                    </svg>
+                </div>
+
+                <div class="pagina-historico-pics__card-conteudo">
+                    <h2 id="unidade-1-pagina-6-perguntas-titulo">Perguntas:</h2>
+
+                    <ol class="pagina-historico-pics__perguntas">
+                        <li>O que significa cuidar da pessoa de forma integral nas PICS?</li>
+                        <li>Por que é importante que as PICS sejam oferecidas de forma segura?</li>
+                        <li>O que muda quando o profissional é bem capacitado para oferecer uma prática integrativa?</li>
+                        <li>Você acha que as pessoas do seu território conseguem acessar as PICS com facilidade? Por quê?</li>
+                        <li>Como as PICS podem ajudar no cuidado diário das pessoas atendidas na UBS?</li>
+                    </ol>
+                </div>
+            </section>
+
+            <section class="pagina-historico-pics__referencias" aria-labelledby="unidade-1-pagina-6-referencias-titulo">
+                <h2 id="unidade-1-pagina-6-referencias-titulo">Referências:</h2>
+                <p>BARROS, Nelson Filice de; SPADACIO, Cristiane; COSTA, Marcelo Viana da. Trabalho interprofissional e as Práticas Integrativas e Complementares no contexto da Atenção Primária à Saúde: potenciais e desafios. Saúde Debate, v. 42, número especial 1, p. 163–173, 2018.</p>
+                <p>BRASIL. Ministério da Saúde. Política Nacional de Práticas Integrativas e Complementares no SUS (PNPIC). Portaria nº 971, de 03 de maio de 2006. Brasília: Ministério da Saúde, 2006.</p>
+                <p>BRASIL. Ministério da Saúde. Política Nacional de Promoção da Saúde. Brasília: Ministério da Saúde, 2010.</p>
+                <p>BRASIL. Ministério da Saúde. Política Nacional de Humanização (PNH): HumanizaSUS. Brasília: MS, 2013.</p>
+                <p>ORGANIZAÇÃO MUNDIAL DA SAÚDE (OMS). WHO Traditional Medicine Strategy 2025–2034. Geneva: World Health Organization, 2025. Disponível em: Organização Mundial da Saúde – WHO Global Traditional Medicine Centre.</p>
+            </section>`,
+        },
+        {
+            title: 'Papel dos ACS e ACE na promoção e fortalecimento das PICS',
+            className: 'pagina-flipbook-interativo',
+            html: `<section class="unidade-1-flipbook" aria-labelledby="unidade-1-pagina-7-titulo">
+                <header class="flipbook-introducao">
+                    <p class="flipbook-introducao-etiqueta">Conteúdo complementar</p>
+
+                    <h2 id="unidade-1-pagina-7-titulo" class="flipbook-introducao-titulo">Papel dos ACS e ACE na promoção e fortalecimento das PICS</h2>
+
+                    <p class="flipbook-introducao-descricao">
+                        Explore o material abaixo para aprofundar sua compreensão sobre as Práticas Integrativas e Complementares em Saúde (PICS). Você pode folhear pelas bordas das páginas, usar os controles de navegação, ampliar trechos, abrir as miniaturas e entrar em tela cheia.
+                    </p>
+                </header>
+
+                <pics-flipbook
+                    src="./assets/flipbook/pdf/HQ_page-0001.pdf"
+                    title="Papel dos ACS e ACE na promoção e fortalecimento das PICS">
+                </pics-flipbook>
+
+                <aside class="flipbook-reflexao" aria-label="Para refletir">
+                    <p><strong>Para refletir:</strong> durante a leitura, identifique quais práticas de cuidado são apresentadas e como elas podem contribuir para a promoção da saúde, o autocuidado e o cuidado integral.</p>
+                </aside>
+            </section>`,
+        },
+        {
+            title: 'Leitura Complementar, Dialogando com a Prática e Avaliação',
+            className: 'pagina-recursos-unidade-1',
+            html: `<section class="recurso-destaque recurso-destaque--leitura" aria-labelledby="unidade-1-pagina-8-leitura-titulo" aria-describedby="unidade-1-pagina-8-leitura-descricao">
+                <div class="recurso-destaque-card">
+                    <div class="recurso-destaque-conteudo">
+                        <span class="recurso-destaque-tag">Material em PDF</span>
+
+                        <div class="recurso-destaque-titulo-linha">
+                            <span class="recurso-destaque-icone" aria-hidden="true">
+                                <svg viewBox="0 0 48 48" fill="none" focusable="false">
+                                    <path d="M13 5.5h16l8 8V40a2.5 2.5 0 0 1-2.5 2.5h-21A2.5 2.5 0 0 1 11 40V8a2.5 2.5 0 0 1 2-2.45Z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"></path>
+                                    <path d="M28.5 6v8h8M17 22h14M17 28h14M17 34h9" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"></path>
+                                </svg>
+                            </span>
+
+                            <h2 id="unidade-1-pagina-8-leitura-titulo">Leitura Complementar</h2>
+                        </div>
+
+                        <p id="unidade-1-pagina-8-leitura-descricao">
+                            Aprofunde seus conhecimentos com a linha do tempo da Coordenação Nacional de Práticas Integrativas e Complementares em Saúde (CNPICS), acompanhando seus principais marcos e acontecimentos.
+                        </p>
+
+                        <a class="recurso-destaque-botao" href="./assets/documents/unidade-1/linha-do-tempo-cnpics.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir a leitura complementar Linha do tempo CNPICS em uma nova aba">
+                            Acessar leitura complementar
+                            <span aria-hidden="true">↗</span>
+                        </a>
+                    </div>
+
+                    <div class="recurso-destaque-painel" aria-hidden="true">
+                        <svg viewBox="0 0 160 160" fill="none" focusable="false">
+                            <circle cx="80" cy="80" r="61" stroke="currentColor" stroke-width="4" stroke-dasharray="7 9"></circle>
+                            <path d="M43 80h74M53 80a27 27 0 0 1 54 0M53 80a27 27 0 0 0 54 0" stroke="currentColor" stroke-width="4" stroke-linecap="round"></path>
+                            <circle cx="43" cy="80" r="8" fill="currentColor"></circle>
+                            <circle cx="80" cy="53" r="8" fill="currentColor"></circle>
+                            <circle cx="117" cy="80" r="8" fill="currentColor"></circle>
+                        </svg>
+                        <strong>Linha do tempo</strong>
+                        <span>CNPICS</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="forum-pratica pagina-recursos-unidade-1__forum" aria-labelledby="unidade-1-pagina-8-forum-titulo" aria-describedby="unidade-1-pagina-8-forum-descricao">
+                <div class="forum-pratica-card">
+                    <div class="forum-pratica-conteudo">
+                        <span class="forum-pratica-tag">Fórum de discussão</span>
+
+                        <h2 id="unidade-1-pagina-8-forum-titulo" class="forum-pratica-titulo">Dialogando com a Prática</h2>
+
+                        <p id="unidade-1-pagina-8-forum-descricao">
+                            Compartilhe experiências do seu território, dialogue com outros participantes e relacione os conteúdos desta unidade com a atuação cotidiana dos ACS e ACE no fortalecimento das PICS.
+                        </p>
+
+                        <a class="forum-pratica-botao" href="#" data-config-link="forumUrl" aria-label="Acessar o fórum Dialogando com a Prática">
+                            Acessar fórum
+                            <span aria-hidden="true">→</span>
+                        </a>
+                    </div>
+
+                    <div class="forum-pratica-imagem">
+                        <img loading="lazy" decoding="async" src="./assets/images/forum-dialogando-com-a-pratica.webp" alt="Pessoas reunidas em torno de um computador, dialogando e compartilhando experiências.">
+                    </div>
+                </div>
+            </section>
+
+            <section class="formulario-atividade pagina-recursos-unidade-1__avaliacao" aria-labelledby="unidade-1-pagina-8-avaliacao-titulo" aria-describedby="unidade-1-pagina-8-avaliacao-descricao">
+                <div class="formulario-atividade-card">
+                    <div class="formulario-atividade-conteudo">
+                        <span class="formulario-atividade-tag">Atividade avaliativa</span>
+
+                        <div class="recurso-destaque-titulo-linha">
+                            <span class="recurso-destaque-icone" aria-hidden="true">
+                                <svg viewBox="0 0 48 48" fill="none" focusable="false">
+                                    <path d="M17 9.5h-3A2.5 2.5 0 0 0 11.5 12v27A2.5 2.5 0 0 0 14 41.5h20A2.5 2.5 0 0 0 36.5 39V12A2.5 2.5 0 0 0 34 9.5h-3" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"></path>
+                                    <rect x="17" y="5.5" width="14" height="8" rx="3" stroke="currentColor" stroke-width="2.5"></rect>
+                                    <path d="m17.5 24 3.5 3.5 8-8M17.5 34h13" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                            </span>
+
+                            <h2 id="unidade-1-pagina-8-avaliacao-titulo" class="formulario-atividade-titulo">Avaliação</h2>
+                        </div>
+
+                        <p id="unidade-1-pagina-8-avaliacao-descricao" class="formulario-atividade-descricao">
+                            Avaliação da Unidade 1 (05 questões de múltipla escolha).
+                        </p>
+
+                        <a class="formulario-atividade-botao" href="#" data-config-link="unitOneAssessmentUrl" aria-label="Acessar a avaliação da Unidade 1">
+                            Iniciar avaliação
+                            <span aria-hidden="true">→</span>
+                        </a>
+                    </div>
+
+                    <div class="formulario-atividade-imagem pagina-recursos-unidade-1__avaliacao-painel" aria-hidden="true">
+                        <svg viewBox="0 0 120 120" fill="none" focusable="false">
+                            <path d="M40 25h-8a6 6 0 0 0-6 6v63a6 6 0 0 0 6 6h56a6 6 0 0 0 6-6V31a6 6 0 0 0-6-6h-8" stroke="currentColor" stroke-width="5" stroke-linecap="round"></path>
+                            <rect x="40" y="16" width="40" height="20" rx="7" stroke="currentColor" stroke-width="5"></rect>
+                            <path d="m42 60 9 9 22-22M42 85h36" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                        <strong>05 questões</strong>
+                        <span>Múltipla escolha</span>
                     </div>
                 </div>
             </section>`,

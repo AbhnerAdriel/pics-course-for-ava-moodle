@@ -4,7 +4,7 @@ export function bindPageInteractions(root = document) {
     const onClick = (event) => {
         const disabled = event.target.closest('[aria-disabled="true"]');
         if (disabled) { event.preventDefault(); return; }
-        if (event.target.closest('pics-flipbook')) return;
+        if (event.target.closest('pics-flipbook, pics-horizontal-timeline')) return;
         const button = event.target.closest('button, .unidade-card-botao, .formulario-atividade-botao');
         if (!button) return;
         const rect = button.getBoundingClientRect();

@@ -43,13 +43,18 @@ As rotas têm o formato:
 #/unidade/boas-vindas/pagina/3
 #/unidade/unidade-1/pagina/2
 #/unidade/unidade-1/pagina/3
+#/unidade/unidade-1/pagina/4
+#/unidade/unidade-1/pagina/5
+#/unidade/unidade-1/pagina/6
+#/unidade/unidade-1/pagina/7
+#/unidade/unidade-1/pagina/8
 ```
 
 Por serem rotas com fragmento, o Moodle sempre entrega o mesmo `index.html` e não precisa conhecer as rotas internas.
 
 ## Configurar links externos
 
-Edite `assets/js/config.js`. O campo `welcomeFormUrl`, por exemplo, recebe o endereço real do formulário no Moodle. Quando o mesmo pacote for reutilizado em contextos diferentes, defina também um `instanceId` único para separar o progresso local de cada instância.
+Edite `assets/js/config.js`. Os campos `forumUrl`, `unitOneAssessmentUrl` e `welcomeFormUrl` recebem, respectivamente, os endereços reais do fórum, da avaliação da Unidade 1 e do formulário no Moodle. Quando o mesmo pacote for reutilizado em contextos diferentes, defina também um `instanceId` único para separar o progresso local de cada instância.
 
 ## Integração futura com um plugin Moodle
 
@@ -67,4 +72,4 @@ A aplicação continua funcionando mesmo quando esse adaptador não existe.
 
 ## Conteúdo disponível
 
-O pacote contém conteúdo publicado para **Introdução**, **Boas-Vindas** e as três primeiras páginas da **Unidade 1**. A segunda página da Unidade 1 incorpora um flipbook interativo autocontido, disponível em `assets/flipbook`. A terceira página integra o componente visual de vídeo disponível em `assets/video`; o exemplo fornecido usa um iframe do `youtube-nocookie.com` e requer conexão com a internet para reprodução. As demais unidades permanecem visíveis no catálogo, mas marcadas como “Em breve”.
+O pacote contém conteúdo publicado para **Introdução**, **Boas-Vindas** e as oito primeiras páginas da **Unidade 1**. A segunda página da Unidade 1 incorpora um flipbook interativo autocontido, disponível em `assets/flipbook`. A terceira página integra o componente visual de vídeo disponível em `assets/video`; o exemplo fornecido usa um iframe do `youtube-nocookie.com` e requer conexão com a internet para reprodução. A quarta página apresenta o histórico das PICS no SUS e uma linha do tempo horizontal autocontida, disponível em `assets/horizontal-timeline`. A quinta página apresenta, em texto corrido, a importância das PICS para a ampliação do cuidado em saúde, organiza seus cinco pontos principais no componente animado `pillar-stack`, disponível em `assets/pillar-stack`, e conclui com questões para reflexão e referências. A sexta página aborda políticas públicas, diretrizes da PNPIC, articulação com outras políticas de saúde, direitos da população, conclusão, perguntas e referências, reutilizando os padrões visuais das páginas anteriores. A sétima página reutiliza o conteúdo interativo da segunda página com o título “Papel dos ACS e ACE na promoção e fortalecimento das PICS”. A oitava página reúne a leitura complementar “Linha do tempo CNPICS”, o fórum “Dialogando com a Prática” e a avaliação da Unidade 1. As demais unidades permanecem visíveis no catálogo, mas marcadas como “Em breve”.

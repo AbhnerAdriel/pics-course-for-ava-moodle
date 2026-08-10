@@ -51,6 +51,15 @@
     --formulario-atividade-cor-borda: #e1e6d8;
     --formulario-atividade-sombra: 0 24px 60px rgba(31, 45, 31, 0.11);
 
+    --forum-pratica-cor-fundo: #ffffff;
+    --forum-pratica-cor-titulo: #263326;
+    --forum-pratica-cor-texto: #4f5c4f;
+    --forum-pratica-cor-destaque: #735f20;
+    --forum-pratica-cor-botao: #4f633d;
+    --forum-pratica-cor-botao-hover: #3f5130;
+    --forum-pratica-cor-borda: #e1e6d8;
+    --forum-pratica-sombra: 0 24px 60px rgba(31, 45, 31, 0.11);
+
     --faq-modulo-cor-fundo-card: #ffffff;
     --faq-modulo-cor-titulo: #020b12;
     --faq-modulo-cor-texto: #3f4b55;
@@ -108,6 +117,10 @@ body :where(
     .conteudo-texto-corrido,
     .formulario-atividade-conteudo,
     .formulario-atividade-imagem,
+    .forum-pratica-conteudo,
+    .forum-pratica-imagem,
+    .recurso-destaque-conteudo,
+    .recurso-destaque-painel,
     .faq-pergunta span:first-child,
     .menu-link,
     .paginacao-botao span,
@@ -133,6 +146,10 @@ button,
 .conteudo-texto-imagem-flex-botao,
 .formulario-atividade-tag,
 .formulario-atividade-botao,
+.forum-pratica-tag,
+.forum-pratica-botao,
+.recurso-destaque-tag,
+.recurso-destaque-botao,
 #unidades-modulo-cabecalho span,
 .faq-modulo-cabecalho span {
     font-family: var(--fonte-auxiliar);
@@ -149,6 +166,8 @@ button:focus-visible,
 .unidade-card-botao:focus-visible,
 .conteudo-texto-imagem-flex-botao:focus-visible,
 .formulario-atividade-botao:focus-visible,
+.forum-pratica-botao:focus-visible,
+.recurso-destaque-botao:focus-visible,
 .menu-navegacao-botao:focus-visible,
 .menu-navegacao-fechar:focus-visible,
 .menu-link:focus-visible,
@@ -162,7 +181,9 @@ button:focus-visible,
 
 .unidade-card-botao:focus-visible,
 .conteudo-texto-imagem-flex-botao:focus-visible,
-.formulario-atividade-botao:focus-visible {
+.formulario-atividade-botao:focus-visible,
+.forum-pratica-botao:focus-visible,
+.recurso-destaque-botao:focus-visible {
     transform: none;
 }
 
@@ -705,6 +726,499 @@ button:focus-visible,
     }
 }
 
+/* ----- Página 6 da Unidade 1: políticas públicas e direitos ----- */
+
+.pagina-politicas-pics > .conteudo-texto-corrido:first-child h2 {
+    font-size: clamp(1.75rem, 5vw, 3.4rem);
+    overflow-wrap: anywhere;
+}
+
+.pagina-politicas-pics__lista-introducao {
+    margin: 0 0 clamp(22px, 3vw, 30px);
+    color: var(--conteudo-cor-texto);
+    font-family: var(--fonte-principal);
+    font-size: 17px;
+    line-height: 1.65;
+    text-align: left;
+}
+
+.pagina-politicas-pics__lista .lista-ordenada-estilizada-1 li strong {
+    display: block;
+    margin-bottom: 7px;
+    color: var(--historico-pics-verde-escuro);
+    font-family: var(--fonte-auxiliar);
+    font-size: 1.05em;
+    line-height: 1.3;
+    white-space: normal;
+}
+
+.pagina-politicas-pics__lista .lista-ordenada-estilizada-1 li > span {
+    position: relative;
+    display: block;
+    padding-left: 17px;
+    color: var(--conteudo-cor-texto);
+}
+
+.pagina-politicas-pics__lista .lista-ordenada-estilizada-1 li > span + span {
+    margin-top: 5px;
+}
+
+.pagina-politicas-pics__lista .lista-ordenada-estilizada-1 li > span::before {
+    content: "";
+    position: absolute;
+    top: 0.7em;
+    left: 2px;
+    width: 6px;
+    height: 6px;
+    background-color: var(--historico-pics-verde);
+    border-radius: 50%;
+    transform: translateY(-50%);
+}
+
+.pagina-politicas-pics__lista .lista-ordenada-estilizada-1 li > .pagina-politicas-pics__subitem {
+    margin-left: 18px;
+}
+
+.pagina-politicas-pics__lista .lista-ordenada-estilizada-1 li > .pagina-politicas-pics__subitem::before {
+    background-color: transparent;
+    border: 1.5px solid var(--historico-pics-verde);
+}
+
+.pagina-politicas-pics__diretrizes .lista-ordenada-estilizada-1 li::before {
+    content: counter(item-percurso, lower-alpha);
+}
+
+@media (max-width: 768px) {
+    /* Neutraliza a regra legada global de 1px aplicada a section em telas menores. */
+    .pagina-conteudo:is(.pagina-importancia-pics, .pagina-politicas-pics) > .conteudo-texto-corrido {
+        padding-inline: clamp(20px, 5vw, 32px) !important;
+    }
+
+    .pagina-conteudo.pagina-politicas-pics > .pagina-politicas-pics__lista {
+        padding-inline: clamp(0px, 2vw, 14px) !important;
+    }
+
+    .pagina-politicas-pics__lista-introducao {
+        font-size: 15.5px;
+    }
+
+    .pagina-politicas-pics__lista .lista-ordenada-estilizada-1 li > .pagina-politicas-pics__subitem {
+        margin-left: 8px;
+    }
+}
+
+/* ----- Página 4 da Unidade 1: histórico das PICS no SUS ----- */
+
+.pagina-conteudo:is(.pagina-historico-pics, .pagina-importancia-pics, .pagina-politicas-pics) {
+    --historico-pics-verde: #4f633d;
+    --historico-pics-verde-escuro: #3f5130;
+    --historico-pics-verde-claro: #eef4e7;
+    --historico-pics-dourado: #735f20;
+    --historico-pics-dourado-claro: #fff6dd;
+    --historico-pics-borda: #dfe6d8;
+}
+
+.pagina-historico-pics .conteudo-texto-imagem-flex {
+    width: 100%;
+    margin: 0 auto clamp(34px, 5vw, 62px);
+}
+
+.pagina-historico-pics__introducao .conteudo-texto-imagem-flex-card {
+    min-height: 520px;
+    grid-template-columns: minmax(0, 1.08fr) minmax(330px, 0.92fr);
+    border-color: var(--historico-pics-borda);
+    box-shadow: 0 22px 58px rgba(50, 70, 43, 0.13);
+}
+
+.pagina-historico-pics__introducao .conteudo-texto-imagem-flex-card::before {
+    background-color: rgba(115, 95, 32, 0.12);
+}
+
+.pagina-historico-pics__introducao .conteudo-texto-imagem-flex-conteudo {
+    padding: clamp(34px, 5vw, 62px);
+}
+
+.pagina-historico-pics__introducao .conteudo-texto-imagem-flex-titulo {
+    max-width: 700px;
+    font-size: clamp(29px, 3.4vw, 45px);
+    line-height: 1.08;
+}
+
+.pagina-historico-pics__introducao .conteudo-texto-imagem-flex-descricao {
+    margin-bottom: 0;
+    color: var(--conteudo-cor-texto);
+}
+
+.pagina-historico-pics__imagem-abertura {
+    min-height: 520px;
+    margin: 0;
+    background-color: var(--historico-pics-verde-claro);
+}
+
+.pagina-historico-pics__imagem-abertura::before {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0));
+}
+
+.pagina-historico-pics__imagem-abertura img,
+.pagina-historico-pics__introducao .conteudo-texto-imagem-flex-card:hover .pagina-historico-pics__imagem-abertura img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transform: none;
+}
+
+.pagina-historico-pics__texto {
+    width: min(100%, 1040px);
+    margin: 0 auto;
+    padding: clamp(12px, 2vw, 26px) clamp(0px, 3vw, 34px) clamp(28px, 5vw, 58px);
+}
+
+.pagina-historico-pics__texto h2 {
+    margin-top: 8px;
+    color: var(--historico-pics-dourado);
+}
+
+.pagina-historico-pics__linha-do-tempo {
+    width: 100%;
+    margin: 0 auto clamp(38px, 6vw, 72px);
+}
+
+.pagina-historico-pics__linha-do-tempo > h2 {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 0 0 clamp(22px, 3vw, 34px);
+    color: var(--historico-pics-dourado);
+    font-family: var(--fonte-auxiliar);
+    font-size: clamp(25px, 3.4vw, 38px);
+    line-height: 1.15;
+    font-weight: 800;
+}
+
+.pagina-historico-pics__linha-do-tempo > h2::before {
+    content: "";
+    width: 7px;
+    height: 1.4em;
+    flex: 0 0 7px;
+    background-color: var(--historico-pics-verde);
+    border-radius: 999px;
+}
+
+.pagina-historico-pics__linha-do-tempo pics-horizontal-timeline {
+    display: block;
+    width: 100%;
+}
+
+.pagina-historico-pics__avancos {
+    width: 100%;
+    margin: 0 auto clamp(42px, 6vw, 72px);
+    padding: clamp(24px, 4vw, 38px) clamp(0px, 2vw, 20px);
+}
+
+.pagina-historico-pics__avancos::before {
+    height: 4px;
+    background: linear-gradient(90deg, var(--historico-pics-verde), var(--historico-pics-dourado));
+    border-radius: 999px;
+}
+
+.pagina-historico-pics__avancos .lista-ordenada-estilizada-1-card {
+    width: min(100%, 1080px);
+    padding: clamp(34px, 5vw, 54px) clamp(20px, 4vw, 42px) clamp(28px, 4vw, 44px);
+    background: linear-gradient(135deg, var(--historico-pics-dourado-claro), #f4f8ed);
+    border: 1px solid rgba(115, 95, 32, 0.18);
+    box-shadow: 0 18px 48px rgba(58, 72, 48, 0.12);
+}
+
+.pagina-historico-pics__avancos .lista-ordenada-estilizada-1-card h2 {
+    color: var(--historico-pics-dourado);
+    font-size: clamp(23px, 3vw, 34px);
+}
+
+.pagina-historico-pics__avancos .lista-ordenada-estilizada-1 li {
+    background-color: rgba(255, 255, 255, 0.88);
+    color: var(--conteudo-cor-texto);
+    border: 1px solid rgba(79, 99, 61, 0.12);
+}
+
+.pagina-historico-pics__avancos .lista-ordenada-estilizada-1 li::before {
+    background-color: var(--historico-pics-verde);
+    box-shadow: 0 6px 14px rgba(50, 70, 43, 0.24);
+}
+
+.pagina-historico-pics__avancos .lista-ordenada-estilizada-1 li:hover {
+    background-color: #ffffff;
+}
+
+.pagina-historico-pics__avancos .lista-ordenada-estilizada-1 li:hover::before {
+    background-color: var(--historico-pics-verde-escuro);
+}
+
+.pagina-historico-pics__card {
+    position: relative;
+    isolation: isolate;
+    width: min(100%, 1060px);
+    margin: 0 auto clamp(28px, 4vw, 42px);
+    padding: clamp(28px, 4vw, 46px);
+    display: grid;
+    grid-template-columns: 74px minmax(0, 1fr);
+    align-items: start;
+    gap: clamp(20px, 3vw, 30px);
+    overflow: hidden;
+    border: 1px solid var(--historico-pics-borda);
+    border-radius: 26px;
+    box-shadow: 0 16px 42px rgba(50, 67, 47, 0.1);
+}
+
+.pagina-historico-pics__card::after {
+    content: "";
+    position: absolute;
+    top: -76px;
+    right: -64px;
+    z-index: -1;
+    width: 190px;
+    height: 190px;
+    background-color: rgba(255, 255, 255, 0.48);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.pagina-historico-pics__card--resumo {
+    border-top: 5px solid var(--historico-pics-dourado);
+}
+
+.pagina-historico-pics__card--reflexao {
+    background: linear-gradient(135deg, #eff6e9, #f7faf3);
+    border-top: 5px solid var(--historico-pics-verde);
+}
+
+.pagina-historico-pics__card-icone {
+    width: 74px;
+    height: 74px;
+    display: grid;
+    place-items: center;
+    color: #ffffff;
+    border-radius: 22px;
+    box-shadow: 0 10px 24px rgba(50, 67, 47, 0.16);
+}
+
+.pagina-historico-pics__card--resumo .pagina-historico-pics__card-icone {
+    background-color: var(--historico-pics-dourado);
+}
+
+.pagina-historico-pics__card--reflexao .pagina-historico-pics__card-icone {
+    background-color: var(--historico-pics-verde);
+}
+
+.pagina-historico-pics__card-icone svg {
+    width: 42px;
+    height: 42px;
+}
+
+.pagina-historico-pics__card-conteudo {
+    min-width: 0;
+}
+
+.pagina-historico-pics__card h2 {
+    margin: 0 0 18px;
+    color: var(--historico-pics-dourado);
+    font-family: var(--fonte-auxiliar);
+    font-size: clamp(24px, 3vw, 34px);
+    line-height: 1.15;
+    font-weight: 800;
+}
+
+.pagina-historico-pics__card--reflexao h2 {
+    color: var(--historico-pics-verde-escuro);
+}
+
+.pagina-historico-pics__card p {
+    margin: 0 0 18px;
+    color: var(--conteudo-cor-texto);
+    font-family: var(--fonte-principal);
+    font-size: 17px;
+    line-height: 1.65;
+}
+
+.pagina-historico-pics__card p:last-child {
+    margin-bottom: 0;
+}
+
+.pagina-historico-pics__perguntas {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 14px;
+    list-style: none;
+    counter-reset: pergunta-reflexao;
+}
+
+.pagina-historico-pics__perguntas li {
+    position: relative;
+    min-height: 52px;
+    padding: 15px 18px 15px 58px;
+    counter-increment: pergunta-reflexao;
+    background-color: rgba(255, 255, 255, 0.78);
+    color: var(--conteudo-cor-texto);
+    border: 1px solid rgba(79, 99, 61, 0.16);
+    border-radius: 14px;
+    font-family: var(--fonte-principal);
+    font-size: 17px;
+    line-height: 1.55;
+}
+
+.pagina-historico-pics__perguntas li::before {
+    content: counter(pergunta-reflexao);
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    width: 30px;
+    height: 30px;
+    display: grid;
+    place-items: center;
+    background-color: var(--historico-pics-verde);
+    color: #ffffff;
+    border-radius: 50%;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.pagina-historico-pics__referencias {
+    width: min(100%, 1060px);
+    margin: clamp(46px, 7vw, 78px) auto 0;
+    padding: clamp(24px, 4vw, 38px);
+    background-color: #f8f9f4;
+    border: 1px solid var(--historico-pics-borda);
+    border-left: 7px solid var(--historico-pics-dourado);
+    border-radius: 18px;
+}
+
+.pagina-historico-pics__referencias h2 {
+    margin: 0 0 14px;
+    color: var(--historico-pics-dourado);
+    font-family: var(--fonte-auxiliar);
+    font-size: clamp(22px, 2.7vw, 30px);
+    line-height: 1.2;
+    font-weight: 800;
+}
+
+.pagina-historico-pics__referencias p {
+    margin: 0;
+    color: var(--conteudo-cor-texto-suave);
+    font-family: var(--fonte-principal);
+    font-size: 15px;
+    line-height: 1.65;
+}
+
+.pagina-historico-pics__referencias p + p {
+    margin-top: 14px;
+}
+
+@media (max-width: 768px) {
+    /* Protege estes cards da regra legada global de 1px aplicada a section. */
+    .pagina-conteudo:is(.pagina-historico-pics, .pagina-importancia-pics, .pagina-politicas-pics)
+        > :is(.pagina-historico-pics__card, .pagina-historico-pics__referencias) {
+        padding-inline: clamp(20px, 5vw, 32px) !important;
+    }
+
+    .pagina-historico-pics__introducao .conteudo-texto-imagem-flex-card {
+        min-height: auto;
+    }
+
+    .pagina-historico-pics__introducao .conteudo-texto-imagem-flex-conteudo {
+        padding: 30px 24px;
+    }
+
+    .pagina-historico-pics__imagem-abertura {
+        min-height: 380px;
+    }
+
+    .pagina-historico-pics__texto {
+        padding-inline: 0;
+    }
+
+    .pagina-historico-pics__avancos {
+        padding-inline: 0;
+    }
+
+    .pagina-historico-pics__card {
+        grid-template-columns: 64px minmax(0, 1fr);
+    }
+
+    .pagina-historico-pics__card-icone {
+        width: 64px;
+        height: 64px;
+        border-radius: 19px;
+    }
+
+    .pagina-historico-pics__card-icone svg {
+        width: 36px;
+        height: 36px;
+    }
+}
+
+@media (max-width: 640px) {
+    .pagina-historico-pics__introducao .conteudo-texto-imagem-flex-titulo {
+        font-size: clamp(25px, 7vw, 32px);
+    }
+
+    .pagina-historico-pics__imagem-abertura {
+        min-height: 320px;
+    }
+
+    .pagina-historico-pics__linha-do-tempo > h2 {
+        align-items: flex-start;
+        font-size: clamp(23px, 6.3vw, 30px);
+    }
+
+    .pagina-historico-pics__card {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        padding: 24px 20px;
+        border-radius: 22px;
+    }
+
+    .pagina-historico-pics__card-icone {
+        width: 58px;
+        height: 58px;
+    }
+
+    .pagina-historico-pics__card h2 {
+        margin-bottom: 14px;
+    }
+
+    .pagina-historico-pics__card p,
+    .pagina-historico-pics__perguntas li {
+        font-size: 15.5px;
+    }
+
+    .pagina-historico-pics__perguntas li {
+        padding: 14px 14px 14px 52px;
+    }
+
+    .pagina-historico-pics__perguntas li::before {
+        top: 13px;
+        left: 12px;
+        width: 28px;
+        height: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .pagina-historico-pics__imagem-abertura {
+        min-height: 275px;
+    }
+
+    .pagina-historico-pics__avancos .lista-ordenada-estilizada-1-card {
+        padding-inline: 14px;
+    }
+
+    .pagina-historico-pics__referencias {
+        padding: 22px 18px;
+        border-left-width: 5px;
+    }
+}
+
 .pagina-conteudo.pagina-flipbook-interativo {
     padding: clamp(14px, 2.5vw, 32px);
 }
@@ -784,6 +1298,399 @@ button:focus-visible,
 
 .flipbook-reflexao strong {
     color: var(--conteudo-cor-titulo);
+}
+
+/* ----- Seção Fórum Dialogando com a Prática ----- */
+
+.forum-pratica {
+    width: min(84%, 1300px);
+    margin: 78px auto 72px;
+}
+
+.forum-pratica-card {
+    position: relative;
+    min-height: 390px;
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr);
+    align-items: stretch;
+    overflow: hidden;
+    background-color: var(--forum-pratica-cor-fundo);
+    border: 1px solid var(--forum-pratica-cor-borda);
+    border-radius: 34px;
+    box-shadow: var(--forum-pratica-sombra);
+}
+
+.forum-pratica-card::before {
+    content: "";
+    position: absolute;
+    top: -70px;
+    left: -70px;
+    z-index: 1;
+    width: 210px;
+    height: 210px;
+    background-color: rgba(219, 191, 127, 0.16);
+    border-radius: 50%;
+}
+
+.forum-pratica-conteudo {
+    position: relative;
+    z-index: 2;
+    padding: 54px 58px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.forum-pratica-tag {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 14px;
+    padding: 10px 16px;
+    background-color: rgba(219, 191, 127, 0.16);
+    color: var(--forum-pratica-cor-botao);
+    border-radius: 999px;
+    font-size: 13px;
+    line-height: 1;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.forum-pratica-titulo {
+    max-width: 620px;
+    margin-bottom: 20px;
+    color: var(--forum-pratica-cor-destaque);
+    font-family: var(--fonte-auxiliar);
+    font-size: clamp(30px, 3.7vw, 48px);
+    line-height: 1.05;
+    font-weight: 800;
+    letter-spacing: -1.1px;
+}
+
+.forum-pratica-conteudo p {
+    max-width: 720px;
+    margin-bottom: 32px;
+    color: var(--forum-pratica-cor-texto);
+    font-family: var(--fonte-principal);
+    font-size: 18px;
+    line-height: 1.65;
+    font-weight: 400;
+}
+
+.forum-pratica-botao {
+    min-height: 60px;
+    padding: 0 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: var(--forum-pratica-cor-botao);
+    color: #ffffff;
+    border-radius: 999px;
+    font-size: 18px;
+    line-height: 1;
+    font-weight: 800;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.forum-pratica-botao span {
+    font-size: 22px;
+    line-height: 1;
+    transition: transform 0.3s ease;
+}
+
+.forum-pratica-botao:hover {
+    background-color: var(--forum-pratica-cor-botao-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px rgba(111, 128, 87, 0.24);
+}
+
+.forum-pratica-botao:hover span {
+    transform: translateX(4px);
+}
+
+.forum-pratica-imagem {
+    position: relative;
+    min-height: 300px;
+    overflow: hidden;
+}
+
+.forum-pratica-imagem::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0));
+}
+
+.forum-pratica-imagem img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    transform: scale(0.6);
+    transition: transform 0.45s ease, filter 0.45s ease;
+}
+
+.forum-pratica-card:hover .forum-pratica-imagem img {
+    transform: scale(0.65);
+    filter: brightness(1.03) contrast(1.02);
+}
+
+/* ----- Página 8 da Unidade 1: recursos e atividades ----- */
+
+.recurso-destaque {
+    width: min(100%, 1040px);
+    margin: 0 auto;
+}
+
+.pagina-recursos-unidade-1 #unidade-1-pagina-8-leitura-titulo:focus {
+    outline: none;
+}
+
+.recurso-destaque-card {
+    position: relative;
+    min-height: 360px;
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+    align-items: stretch;
+    overflow: hidden;
+    background-color: #ffffff;
+    border: 1px solid var(--conteudo-cor-borda);
+    border-radius: 34px;
+    box-shadow: var(--conteudo-sombra-card);
+}
+
+.recurso-destaque-card::before {
+    content: "";
+    position: absolute;
+    top: -82px;
+    left: -72px;
+    z-index: 0;
+    width: 220px;
+    height: 220px;
+    background-color: rgba(115, 95, 32, 0.08);
+    border-radius: 50%;
+}
+
+.recurso-destaque-conteudo {
+    position: relative;
+    z-index: 1;
+    min-width: 0;
+    padding: clamp(34px, 5vw, 56px);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.recurso-destaque-tag {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 18px;
+    padding: 10px 16px;
+    background-color: var(--conteudo-cor-dourado-claro);
+    color: var(--conteudo-cor-dourado);
+    border-radius: 999px;
+    font-size: 13px;
+    line-height: 1;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.recurso-destaque-titulo-linha {
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.recurso-destaque-icone {
+    width: 58px;
+    height: 58px;
+    flex: 0 0 58px;
+    display: grid;
+    place-items: center;
+    background-color: var(--conteudo-cor-dourado-claro);
+    color: var(--conteudo-cor-dourado);
+    border-radius: 18px;
+}
+
+.recurso-destaque-icone svg {
+    width: 34px;
+    height: 34px;
+}
+
+.recurso-destaque-titulo-linha h2 {
+    margin: 0;
+    color: var(--conteudo-cor-dourado);
+    font-family: var(--fonte-auxiliar);
+    font-size: clamp(27px, 3.2vw, 38px);
+    line-height: 1.08;
+    font-weight: 800;
+}
+
+.recurso-destaque-conteudo p {
+    max-width: 690px;
+    margin: 0 0 30px;
+    color: var(--conteudo-cor-texto-suave);
+    font-family: var(--fonte-principal);
+    font-size: 17px;
+    line-height: 1.65;
+}
+
+.recurso-destaque-botao {
+    min-height: 58px;
+    padding: 0 27px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: var(--conteudo-cor-dourado);
+    color: #ffffff;
+    border-radius: 999px;
+    font-size: 17px;
+    line-height: 1.15;
+    font-weight: 800;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.recurso-destaque-botao span {
+    font-size: 21px;
+    line-height: 1;
+    transition: transform 0.3s ease;
+}
+
+.recurso-destaque-botao:hover {
+    background-color: #5f4d17;
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px rgba(115, 95, 32, 0.22);
+}
+
+.recurso-destaque-botao:hover span {
+    transform: translate(3px, -2px);
+}
+
+.recurso-destaque-painel {
+    min-height: 300px;
+    padding: 34px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(145deg, #fff8e5, #f2ead2);
+    color: var(--conteudo-cor-dourado);
+    text-align: center;
+}
+
+.recurso-destaque-painel svg {
+    width: min(72%, 190px);
+    margin-bottom: 18px;
+}
+
+.recurso-destaque-painel strong {
+    font-family: var(--fonte-auxiliar);
+    font-size: 22px;
+    line-height: 1.15;
+}
+
+.recurso-destaque-painel span {
+    margin-top: 5px;
+    font-family: var(--fonte-principal);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.forum-pratica.pagina-recursos-unidade-1__forum {
+    width: min(100%, 1040px);
+    margin: clamp(38px, 6vw, 70px) auto;
+}
+
+.pagina-recursos-unidade-1__forum .forum-pratica-titulo {
+    font-size: clamp(28px, 3.4vw, 40px);
+}
+
+.pagina-recursos-unidade-1__avaliacao {
+    margin-top: 0;
+}
+
+.pagina-recursos-unidade-1__avaliacao .formulario-atividade-card::before {
+    background-color: rgba(79, 99, 61, 0.1);
+}
+
+.pagina-recursos-unidade-1__avaliacao .recurso-destaque-titulo-linha {
+    margin-bottom: 20px;
+}
+
+.pagina-recursos-unidade-1__avaliacao .recurso-destaque-icone {
+    background-color: var(--conteudo-cor-verde-claro);
+    color: var(--conteudo-cor-verde);
+}
+
+.pagina-recursos-unidade-1__avaliacao .formulario-atividade-titulo {
+    margin: 0;
+    color: var(--conteudo-cor-verde-escuro);
+    font-size: clamp(27px, 3.2vw, 38px);
+}
+
+.pagina-recursos-unidade-1__avaliacao .formulario-atividade-botao {
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pagina-recursos-unidade-1__avaliacao .formulario-atividade-botao:hover {
+    background-color: var(--conteudo-cor-verde-escuro);
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px rgba(79, 99, 61, 0.22);
+}
+
+.pagina-recursos-unidade-1__avaliacao-painel {
+    padding: 34px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(145deg, #eef5e5, #dfead2);
+    color: var(--conteudo-cor-verde);
+    text-align: center;
+}
+
+.pagina-recursos-unidade-1__avaliacao-painel::before {
+    display: none;
+}
+
+.pagina-recursos-unidade-1__avaliacao-painel svg {
+    width: min(62%, 150px);
+    margin-bottom: 20px;
+}
+
+.pagina-recursos-unidade-1__avaliacao-painel strong {
+    font-family: var(--fonte-auxiliar);
+    font-size: 22px;
+    line-height: 1.15;
+}
+
+.pagina-recursos-unidade-1__avaliacao-painel span {
+    margin-top: 5px;
+    font-family: var(--fonte-principal);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+:is(.forum-pratica-botao, .formulario-atividade-botao)[aria-disabled="true"] {
+    opacity: 0.62;
+    cursor: not-allowed;
+    filter: grayscale(0.25);
 }
 
 /* ----- Seção Formulário ----- */
@@ -3134,6 +4041,247 @@ button:focus-visible,
 }
 
 
+/* ----- Responsividade do fórum e da Página 8 da Unidade 1 ----- */
+
+@media (max-width: 1200px) {
+    .forum-pratica {
+        width: 82%;
+        margin: 68px auto 64px;
+    }
+
+    .forum-pratica-card {
+        grid-template-columns: minmax(0, 1fr) minmax(320px, 0.85fr);
+    }
+
+    .forum-pratica-conteudo {
+        padding: 46px 44px;
+    }
+
+    .forum-pratica-conteudo p {
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 768px) {
+    .forum-pratica {
+        width: min(90%, 520px);
+        margin: 54px auto;
+    }
+
+    .forum-pratica-card {
+        min-height: auto;
+        display: flex;
+        flex-direction: column-reverse;
+        border-radius: 28px;
+    }
+
+    .forum-pratica-conteudo {
+        padding: 30px 24px 28px;
+    }
+
+    .forum-pratica-tag {
+        margin-bottom: 12px;
+        padding: 9px 14px;
+        font-size: 11.5px;
+    }
+
+    .forum-pratica-titulo {
+        margin-bottom: 16px;
+        font-size: clamp(26px, 7.4vw, 35px);
+    }
+
+    .forum-pratica-conteudo p {
+        margin-bottom: 24px;
+        font-size: 15.5px;
+        line-height: 1.55;
+    }
+
+    .forum-pratica-botao {
+        width: 100%;
+        min-height: 58px;
+        font-size: 17px;
+    }
+
+    .forum-pratica-imagem {
+        min-height: 250px;
+    }
+
+    .forum-pratica-imagem::before {
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.18));
+    }
+
+    .recurso-destaque-card {
+        min-height: auto;
+        display: flex;
+        flex-direction: column-reverse;
+        border-radius: 28px;
+    }
+
+    .recurso-destaque-conteudo {
+        padding: 30px 24px 28px;
+    }
+
+    .recurso-destaque-tag {
+        margin-bottom: 14px;
+        padding: 9px 14px;
+        font-size: 11.5px;
+    }
+
+    .recurso-destaque-titulo-linha {
+        align-items: flex-start;
+        margin-bottom: 17px;
+    }
+
+    .recurso-destaque-icone {
+        width: 52px;
+        height: 52px;
+        flex-basis: 52px;
+        border-radius: 16px;
+    }
+
+    .recurso-destaque-icone svg {
+        width: 30px;
+        height: 30px;
+    }
+
+    .recurso-destaque-titulo-linha h2,
+    .pagina-recursos-unidade-1__avaliacao .formulario-atividade-titulo {
+        font-size: clamp(25px, 7vw, 32px);
+    }
+
+    .recurso-destaque-conteudo p {
+        margin-bottom: 24px;
+        font-size: 15.5px;
+        line-height: 1.55;
+    }
+
+    .recurso-destaque-botao {
+        width: 100%;
+        min-height: 58px;
+        padding: 12px 22px;
+        font-size: 16px;
+    }
+
+    .recurso-destaque-painel {
+        min-height: 230px;
+        padding: 24px;
+    }
+
+    .recurso-destaque-painel svg {
+        width: min(48%, 150px);
+        margin-bottom: 12px;
+    }
+
+    .forum-pratica.pagina-recursos-unidade-1__forum {
+        margin-block: 42px;
+    }
+
+    .pagina-recursos-unidade-1__avaliacao-painel svg {
+        width: min(42%, 125px);
+    }
+}
+
+@media (max-width: 480px) {
+    .forum-pratica {
+        width: 88%;
+        margin: 44px auto 48px;
+    }
+
+    .forum-pratica-card {
+        border-radius: 24px;
+    }
+
+    .forum-pratica-conteudo {
+        padding: 26px 20px 24px;
+    }
+
+    .forum-pratica-tag {
+        font-size: 10.5px;
+    }
+
+    .forum-pratica-titulo {
+        font-size: clamp(24px, 7vw, 30px);
+    }
+
+    .forum-pratica-conteudo p {
+        font-size: 15px;
+        line-height: 1.52;
+    }
+
+    .forum-pratica-botao {
+        min-height: 56px;
+        font-size: 16.5px;
+    }
+
+    .forum-pratica-imagem {
+        min-height: 220px;
+    }
+
+    .recurso-destaque-card {
+        border-radius: 24px;
+    }
+
+    .recurso-destaque-conteudo {
+        padding: 26px 20px 24px;
+    }
+
+    .recurso-destaque-titulo-linha {
+        gap: 12px;
+    }
+
+    .recurso-destaque-icone {
+        width: 48px;
+        height: 48px;
+        flex-basis: 48px;
+    }
+
+    .recurso-destaque-conteudo p {
+        font-size: 15px;
+        line-height: 1.52;
+    }
+
+    .recurso-destaque-painel {
+        min-height: 205px;
+    }
+
+    .recurso-destaque-painel strong,
+    .pagina-recursos-unidade-1__avaliacao-painel strong {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 360px) {
+    .forum-pratica-card,
+    .recurso-destaque-card {
+        border-radius: 22px;
+    }
+
+    .forum-pratica-conteudo,
+    .recurso-destaque-conteudo {
+        padding: 24px 18px 22px;
+    }
+
+    .forum-pratica-titulo {
+        font-size: 23px;
+    }
+
+    .forum-pratica-conteudo p,
+    .recurso-destaque-conteudo p {
+        font-size: 14.5px;
+    }
+
+    .forum-pratica-botao,
+    .recurso-destaque-botao {
+        min-height: 54px;
+        font-size: 16px;
+    }
+
+    .forum-pratica-imagem,
+    .recurso-destaque-painel {
+        min-height: 200px;
+    }
+}
+
 /* =========================================================
    REDUÇÃO DE MOVIMENTO
    ========================================================= */
@@ -3148,6 +4296,10 @@ button:focus-visible,
     .menu-navegacao-backdrop,
     .pagina-conteudo,
     .formulario-atividade-imagem img,
+    .forum-pratica-imagem img,
+    .forum-pratica-botao,
+    .recurso-destaque-botao,
+    .recurso-destaque-botao span,
     .progresso-circular-valor,
     .faq-item,
     .faq-resposta,
@@ -3161,7 +4313,9 @@ button:focus-visible,
     }
 
     .formulario-atividade-imagem img,
-    .formulario-atividade-card:hover .formulario-atividade-imagem img {
+    .formulario-atividade-card:hover .formulario-atividade-imagem img,
+    .forum-pratica-imagem img,
+    .forum-pratica-card:hover .forum-pratica-imagem img {
         filter: none !important;
         transform: none !important;
     }
@@ -3188,6 +4342,9 @@ button:focus-visible,
 
    
     .conteudo-texto-imagem-flex-botao,
+    .forum-pratica-botao,
+    .formulario-atividade-botao,
+    .recurso-destaque-botao,
     .faq-pergunta {
         border: 2px solid ButtonText;
     }
