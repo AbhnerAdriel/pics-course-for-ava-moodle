@@ -12,11 +12,18 @@ export const unitOne = {
             html: `<section class="conteudo-texto-imagem-flex unidade-1-introducao" aria-labelledby="unidade-1-pagina-1-titulo" aria-describedby="unidade-1-pagina-1-descricao">
                 <div class="conteudo-texto-imagem-flex-card">
                     <div class="conteudo-texto-imagem-flex-conteudo">
+                        <p class="pics-section-kicker"><span>01</span> Comece por aqui</p>
                         <h2 id="unidade-1-pagina-1-titulo" class="conteudo-texto-imagem-flex-titulo">O que são as Práticas Integrativas e Complementares em Saúde (PICS)</h2>
 
                         <p id="unidade-1-pagina-1-descricao" class="conteudo-texto-imagem-flex-descricao">
                             Nesta primeira aula, você conhecerá as Práticas Integrativas e Complementares em Saúde (PICS) por meio de uma história em quadrinhos que retrata situações do cotidiano de uma Unidade Básica de Saúde (UBS). Ao acompanhar os diálogos entre profissionais da saúde e usuários do SUS, será possível compreender como essas práticas contribuem para o cuidado integral, valorizam os saberes tradicionais e fortalecem a promoção da saúde nos territórios.
                         </p>
+
+                        <ul class="pics-reading-route" aria-label="Percurso desta aula">
+                            <li>Reconhecer</li>
+                            <li>Observar</li>
+                            <li>Relacionar ao território</li>
+                        </ul>
                     </div>
 
                     <figure class="conteudo-texto-imagem-flex-imagem conteudo-figura unidade-1-figura unidade-1-figura--retrato" aria-labelledby="figura-8-unidade-1-titulo" aria-describedby="figura-8-unidade-1-subtitulo">
@@ -33,42 +40,44 @@ export const unitOne = {
                 </div>
             </section>
 
-            <section class="conteudo-texto-corrido" aria-labelledby="unidade-1-pagina-1-titulo">
-                <p>
-                    Ao longo da narrativa, você conhecerá personagens com diferentes histórias, culturas e experiências de vida, mostrando que as PICS acolhem a diversidade e ampliam as possibilidades de cuidado. A história apresenta práticas como fitoterapia, meditação, Yoga, Terapia Comunitária Integrativa, automassagem e práticas corporais da Medicina Tradicional Chinesa, evidenciando como podem ser integradas à atuação dos Agentes Comunitários de Saúde (ACS) e dos Agentes de Combate às Endemias (ACE).
-                </p>
+            <section class="pics-story" aria-label="Percurso introdutório sobre as PICS">
+                <article class="pics-story__chapter">
+                    <div class="pics-story__copy">
+                        <p class="pics-story__index">01 · Diversidade no cuidado</p>
+                        <p>Ao longo da narrativa, você conhecerá personagens com diferentes histórias, culturas e experiências de vida, mostrando que as PICS acolhem a diversidade e ampliam as possibilidades de cuidado. A história apresenta práticas como fitoterapia, meditação, Yoga, Terapia Comunitária Integrativa, automassagem e práticas corporais da Medicina Tradicional Chinesa, evidenciando como podem ser integradas à atuação dos Agentes Comunitários de Saúde (ACS) e dos Agentes de Combate às Endemias (ACE).</p>
+                    </div>
 
-                <figure class="conteudo-texto-corrido-imagem conteudo-figura unidade-1-figura" aria-labelledby="figura-9-unidade-1-titulo" aria-describedby="figura-9-unidade-1-subtitulo">
-                    <p id="figura-9-unidade-1-titulo" class="conteudo-figura-titulo">
-                        Figura 9 – Atendimento individual com aplicação tópica
-                    </p>
+                    <figure class="conteudo-figura unidade-1-figura" aria-labelledby="figura-9-unidade-1-titulo" aria-describedby="figura-9-unidade-1-subtitulo">
+                        <p id="figura-9-unidade-1-titulo" class="conteudo-figura-titulo">Figura 9 – Atendimento individual com aplicação tópica</p>
+                        <img loading="lazy" decoding="async" src="./assets/images/unidades/unidade-01/figura-02-unidade-01.webp" width="2896" height="2039" alt="Profissional aplica com uma espátula material de aspecto argiloso sobre as costas de uma pessoa deitada.">
+                        <figcaption id="figura-9-unidade-1-subtitulo" class="conteudo-figura-subtitulo">Profissional aplica material de aspecto argiloso sobre as costas de uma pessoa deitada.</figcaption>
+                    </figure>
+                </article>
 
-                    <img loading="lazy" decoding="async" src="./assets/images/unidades/unidade-01/figura-02-unidade-01.webp" width="2896" height="2039" alt="Profissional aplica com uma espátula material de aspecto argiloso sobre as costas de uma pessoa deitada.">
+                <article class="pics-story__chapter pics-story__chapter--reverse">
+                    <div class="pics-story__copy">
+                        <p class="pics-story__index">02 · Cuidado no território</p>
+                        <p>Durante a leitura, observe como o diálogo entre profissionais, comunidade e saberes populares fortalece os vínculos, incentiva o autocuidado e contribui para uma atenção mais humanizada. Reflita também sobre o papel dos ACS e ACE na orientação da população, na valorização das práticas culturais locais e na construção de estratégias de promoção da saúde que respeitem as necessidades de cada território.</p>
+                    </div>
 
-                    <figcaption id="figura-9-unidade-1-subtitulo" class="conteudo-figura-subtitulo">
-                        Profissional aplica material de aspecto argiloso sobre as costas de uma pessoa deitada.
-                    </figcaption>
-                </figure>
+                    <figure class="conteudo-figura unidade-1-figura" aria-labelledby="figura-10-unidade-1-titulo" aria-describedby="figura-10-unidade-1-subtitulo">
+                        <p id="figura-10-unidade-1-titulo" class="conteudo-figura-titulo">Figura 10 – Encontro entre equipe de saúde e comunidade</p>
+                        <img loading="lazy" decoding="async" src="./assets/images/unidades/unidade-01/figura-03-unidade-01.webp" width="1672" height="941" alt="Profissionais da saúde e integrantes da comunidade conversam em roda ao redor de uma mesa com plantas e materiais de cuidado.">
+                        <figcaption id="figura-10-unidade-1-subtitulo" class="conteudo-figura-subtitulo">Profissionais da saúde e integrantes da comunidade dialogam em roda.</figcaption>
+                    </figure>
+                </article>
 
-                <p>
-                    Durante a leitura, observe como o diálogo entre profissionais, comunidade e saberes populares fortalece os vínculos, incentiva o autocuidado e contribui para uma atenção mais humanizada. Reflita também sobre o papel dos ACS e ACE na orientação da população, na valorização das práticas culturais locais e na construção de estratégias de promoção da saúde que respeitem as necessidades de cada território.
-                </p>
+                <div class="pics-story__closing">
+                    <p>Ao concluir esta aula, você terá uma visão inicial sobre o que são as PICS, sua importância para o Sistema Único de Saúde e como elas podem ampliar as ações desenvolvidas na Atenção Primária, preparando o caminho para os próximos conteúdos do módulo.</p>
 
-                <figure class="conteudo-texto-corrido-imagem conteudo-figura unidade-1-figura" aria-labelledby="figura-10-unidade-1-titulo" aria-describedby="figura-10-unidade-1-subtitulo">
-                    <p id="figura-10-unidade-1-titulo" class="conteudo-figura-titulo">
-                        Figura 10 – Encontro entre equipe de saúde e comunidade
-                    </p>
-
-                    <img loading="lazy" decoding="async" src="./assets/images/unidades/unidade-01/figura-03-unidade-01.webp" width="1672" height="941" alt="Profissionais da saúde e integrantes da comunidade conversam em roda ao redor de uma mesa com plantas e materiais de cuidado.">
-
-                    <figcaption id="figura-10-unidade-1-subtitulo" class="conteudo-figura-subtitulo">
-                        Profissionais da saúde e integrantes da comunidade dialogam em roda.
-                    </figcaption>
-                </figure>
-
-                <p>
-                    Ao concluir esta aula, você terá uma visão inicial sobre o que são as PICS, sua importância para o Sistema Único de Saúde e como elas podem ampliar as ações desenvolvidas na Atenção Primária, preparando o caminho para os próximos conteúdos do módulo.
-                </p>
+                    <aside class="pics-callout pics-callout--saiba-mais" aria-labelledby="unidade-1-pagina-1-saiba-mais">
+                        <img src="./assets/images/icones-de-conteudo/saiba-mais-icon.png" width="1254" height="1254" alt="" aria-hidden="true">
+                        <div>
+                            <p class="pics-callout__label" id="unidade-1-pagina-1-saiba-mais">Saiba mais</p>
+                            <p>Ao ler a história em quadrinhos na próxima página, observe três pistas: quem participa do cuidado, quais saberes são mobilizados e como a comunidade aparece nas decisões.</p>
+                        </div>
+                    </aside>
+                </div>
             </section>`,
         },
         {
@@ -101,10 +110,7 @@ export const unitOne = {
             html: `<section class="pics-video" data-pics-video aria-labelledby="unidade-1-pagina-3-titulo">
                 <header class="pics-video__intro">
                     <div class="pics-video__eyebrow" aria-hidden="true">
-                        <svg class="pics-video__eyebrow-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
-                            <rect x="2.75" y="4.75" width="18.5" height="14.5" rx="2.25" stroke="currentColor" stroke-width="1.5"></rect>
-                            <path d="M10 8.75L15.25 12 10 15.25V8.75Z" fill="currentColor"></path>
-                        </svg>
+                        <img class="pics-video__eyebrow-icon" src="./assets/images/icones-de-conteudo/video-icon.png" width="1254" height="1254" alt="">
                         <span class="pics-video__eyebrow-line"></span>
                         <span class="pics-video__eyebrow-text">CONTEÚDO EM VÍDEO</span>
                     </div>
@@ -128,7 +134,7 @@ export const unitOne = {
                         <div class="pics-video__media-shell">
                             <div class="pics-video__media" data-video-mount>
                                 <iframe
-                                    src="https://www.youtube.com/embed/WOoa1zonTSs"
+                                    src="https://www.youtube-nocookie.com/embed/M7lc1UVf-VE?rel=0"
                                     title="Vídeo de exemplo do YouTube"
                                     loading="lazy"
                                     referrerpolicy="strict-origin-when-cross-origin"
@@ -197,6 +203,34 @@ export const unitOne = {
                     A OMS (2014–2023) também reforça a importância da integração dessas práticas nos sistemas nacionais de saúde, reconhecendo seu impacto positivo na qualidade de vida e na redução de custos assistenciais. No Brasil, as PICS vêm sendo consolidadas como parte essencial da atenção primária e da efetivação do princípio da integralidade e universalidade do SUS.
                 </p>
             </section>
+
+            <aside class="pics-keyfacts" aria-labelledby="unidade-1-pagina-4-destaques-titulo">
+                <header class="pics-keyfacts__heading">
+                    <img src="./assets/images/icones-de-conteudo/lupa-mais-verde.png" width="1254" height="1254" alt="" aria-hidden="true">
+                    <div>
+                        <p>Destaque</p>
+                        <h2 id="unidade-1-pagina-4-destaques-titulo">Três marcos para guardar</h2>
+                    </div>
+                </header>
+                <div class="pics-keyfacts__grid">
+                    <article><strong>2006</strong><span>instituição da PNPIC no SUS</span></article>
+                    <article><strong>29</strong><span>práticas reconhecidas após a ampliação de 2018</span></article>
+                    <article><strong>84%</strong><span>dos municípios com presença de PICS no período citado</span></article>
+                </div>
+            </aside>
+
+            <aside class="pics-glossary" aria-labelledby="unidade-1-pagina-4-glossario-titulo">
+                <header class="pics-glossary__heading">
+                    <img src="./assets/images/icones-de-conteudo/glossario-icon-verde.png" width="1254" height="1254" alt="" aria-hidden="true">
+                    <div><p>Glossário</p><h2 id="unidade-1-pagina-4-glossario-titulo">Siglas que acompanham esta unidade</h2></div>
+                </header>
+                <div class="pics-glossary__terms">
+                    <details><summary>PNPIC</summary><p>Política Nacional de Práticas Integrativas e Complementares no SUS.</p></details>
+                    <details><summary>MTC</summary><p>Medicina Tradicional Chinesa, uma das bases teóricas e práticas da política.</p></details>
+                    <details><summary>APS</summary><p>Atenção Primária à Saúde, porta preferencial de entrada do SUS.</p></details>
+                    <details><summary>ACS e ACE</summary><p>Agentes Comunitários de Saúde e Agentes de Combate às Endemias.</p></details>
+                </div>
+            </aside>
 
             <section class="pagina-historico-pics__linha-do-tempo" aria-labelledby="unidade-1-pagina-4-linha-do-tempo-titulo">
                 <h2 id="unidade-1-pagina-4-linha-do-tempo-titulo">Linha do Tempo – Evolução das PICS no Brasil</h2>
@@ -342,15 +376,19 @@ export const unitOne = {
             title: 'Importância das PICS para ampliar o cuidado em saúde',
             className: 'pagina-importancia-pics',
             html: `<section class="conteudo-texto-corrido" aria-labelledby="unidade-1-pagina-5-titulo">
-                <h2 id="unidade-1-pagina-5-titulo">Importância das PICS para ampliar o cuidado em saúde</h2>
+                <header class="pics-essay-intro">
+                    <h2 id="unidade-1-pagina-5-titulo">Importância das PICS para ampliar o cuidado em saúde</h2>
 
-                <p>
-                    As Práticas Integrativas e Complementares em Saúde (PICS) têm se destacado por ampliarem a visão sobre o cuidado, considerando o indivíduo de forma integral e humanizada. Na Atenção Primária à Saúde, fortalecem princípios da Política Nacional de Humanização, como acolhimento, autonomia e vínculo, ao oferecer práticas que vão além do modelo biomédico convencional.
-                </p>
+                    <div class="pics-essay-intro__body">
+                        <p class="pics-essay-intro__lead">
+                            As Práticas Integrativas e Complementares em Saúde (PICS) têm se destacado por ampliarem a visão sobre o cuidado, considerando o indivíduo de forma integral e humanizada. Na Atenção Primária à Saúde, fortalecem princípios da Política Nacional de Humanização, como acolhimento, autonomia e vínculo, ao oferecer práticas que vão além do modelo biomédico convencional.
+                        </p>
 
-                <p>
-                    Práticas como fitoterapia, meditação e práticas corporais da medicina tradicional chinesa contribuem para a promoção da saúde, prevenção de doenças e estímulo ao autocuidado. Apesar de seu potencial, a implementação das PICS ainda é desigual e requer maior integração à formação profissional e à organização dos serviços. Mesmo assim, representam uma estratégia importante para qualificar o cuidado e fortalecer um modelo de saúde centrado na pessoa.
-                </p>
+                        <p class="pics-essay-intro__summary">
+                            Práticas como fitoterapia, meditação e práticas corporais da medicina tradicional chinesa contribuem para a promoção da saúde, prevenção de doenças e estímulo ao autocuidado. Apesar de seu potencial, a implementação das PICS ainda é desigual e requer maior integração à formação profissional e à organização dos serviços. Mesmo assim, representam uma estratégia importante para qualificar o cuidado e fortalecer um modelo de saúde centrado na pessoa.
+                        </p>
+                    </div>
+                </header>
 
                 <h3>Ampliação do cuidado</h3>
 
@@ -542,69 +580,57 @@ export const unitOne = {
                 </p>
             </section>
 
-            <section class="lista-ordenada-estilizada-1-wrapper pagina-historico-pics__avancos pagina-politicas-pics__lista pagina-politicas-pics__diretrizes" aria-labelledby="unidade-1-pagina-6-diretrizes-titulo">
-                <div class="lista-ordenada-estilizada-1-card">
-                    <h2 id="unidade-1-pagina-6-diretrizes-titulo">Principais diretrizes da Portaria PNPIC</h2>
+            <section class="pics-policy-slider pics-directives-slider" data-content-slider aria-labelledby="unidade-1-pagina-6-diretrizes-titulo">
+                <header class="pics-policy-slider__header pics-directives-slider__header">
+                    <div>
+                        <p class="pics-policy-slider__eyebrow">PNPIC · Portaria nº 971/2006</p>
+                        <h2 id="unidade-1-pagina-6-diretrizes-titulo">Principais diretrizes da Portaria PNPIC</h2>
+                        <p>O marco central das PICS reconheceu e organizou sua oferta no SUS. Explore as diretrizes em quatro conjuntos, mantendo o foco no uso seguro, qualificado e acessível.</p>
+                    </div>
+                    <img src="./assets/images/icones-de-conteudo/saiba-mais-icon-maior.png" width="2051" height="767" alt="" aria-hidden="true">
+                </header>
 
-                    <p class="pagina-politicas-pics__lista-introducao">
-                        Conforme já foi visto, o marco central das PICS no Brasil é a Portaria nº 971, publicada pelo Ministério da Saúde em 2006. Essa portaria instituiu oficialmente a Política Nacional de Práticas Integrativas e Complementares no SUS (PNPIC) e seu principal objetivo foi reconhecer e organizar a oferta dessas práticas garantindo seu uso seguro e qualificado. Entre as diretrizes definidas pela Portaria, destacam-se:
-                    </p>
+                <div class="pics-policy-slider__viewport pics-directives-slider__viewport">
+                    <article class="pics-directives-slide" id="diretrizes-painel-1" role="tabpanel" data-content-slide aria-labelledby="diretrizes-grupo-1">
+                        <h3 class="sr-only" id="diretrizes-grupo-1">Diretrizes 1 a 3</h3>
+                        <section class="pics-directive"><span>01</span><h3>Segurança</h3><ul><li>As práticas ofertadas no SUS devem seguir protocolos clínicos, métodos seguros e ambientes adequados.</li><li>É necessário avaliar riscos e monitorar efeitos.</li></ul></section>
+                        <section class="pics-directive"><span>02</span><h3>Eficácia</h3><ul><li>Incentivo à produção de pesquisas científicas que comprovem a efetividade das práticas.</li><li>Reconhecimento de evidências da biomedicina, dos saberes tradicionais e das experiências vivenciadas.</li></ul></section>
+                        <section class="pics-directive"><span>03</span><h3>Acesso</h3><ul><li>Oferta universal e gratuita, conforme a capacidade de cada município.</li><li>Prioridade para a Atenção Primária em Saúde, porta de entrada do SUS.</li></ul></section>
+                    </article>
 
-                    <ol class="lista-ordenada-estilizada-1">
-                        <li>
-                            <strong>Segurança</strong>
-                            <span>As práticas integrativas ofertadas no SUS devem seguir protocolos clínicos, métodos seguros e ambientes adequados.</span>
-                            <span>Há necessidade de avaliação de riscos e monitoramento dos efeitos.</span>
-                        </li>
-                        <li>
-                            <strong>Eficácia</strong>
-                            <span>Incentivo à produção de pesquisas científicas que comprovem a efetividade das práticas utilizadas.</span>
-                            <span>Reconhecimento de evidências oriundas não apenas da biomedicina, mas também de saberes tradicionais e experiências vivenciadas.</span>
-                        </li>
-                        <li>
-                            <strong>Acesso</strong>
-                            <span>As PICS devem ser disponibilizadas de forma universal e gratuita, conforme a capacidade de cada município.</span>
-                            <span>Prioridade para a Atenção Primária em Saúde, por ser a porta de entrada do SUS.</span>
-                        </li>
-                        <li>
-                            <strong>Qualificação profissional</strong>
-                            <span>Capacitação contínua das equipes com o oferecimento de cursos, especializações e formação em serviço.</span>
-                            <span>Reconhecimento da necessidade de profissionais habilitados para atuar com segurança.</span>
-                        </li>
-                        <li>
-                            <strong>Integralidade do cuidado</strong>
-                            <span>As práticas integrativas e complementares devem se articular com outros serviços e níveis de atenção, contribuindo para um cuidado mais amplo e centrado na pessoa.</span>
-                        </li>
-                        <li>
-                            <strong>Desenvolvimento multiprofissional</strong>
-                            <span>A política deve ser desenvolvida com equipes multiprofissionais, em consonância com os princípios do SUS.</span>
-                        </li>
-                        <li>
-                            <strong>Implementação e fortalecimento</strong>
-                            <span>Implantação de ações e fortalecimento de iniciativas existentes, incluindo a busca por mecanismos de financiamento.</span>
-                        </li>
-                        <li>
-                            <strong>Informação e divulgação</strong>
-                            <span>Divulgar e informar sobre as PICs para profissionais de saúde, gestores e usuários, utilizando metodologias participativas e valorizando o saber popular.</span>
-                        </li>
-                        <li>
-                            <strong>Ações intersetoriais</strong>
-                            <span>Estimular a colaboração com outros setores para o desenvolvimento integral das ações.</span>
-                        </li>
-                        <li>
-                            <strong>Participação social</strong>
-                            <span>Fortalecer a participação da sociedade nas decisões e ações relacionadas às PICs.</span>
-                        </li>
-                        <li>
-                            <strong>Acesso a insumos</strong>
-                            <span>Garantir o acesso a medicamentos fitoterápicos e homeopáticos, além de outros insumos estratégicos da PNPIC, assegurando qualidade e segurança.</span>
-                        </li>
-                        <li>
-                            <strong>Acompanhamento e avaliação</strong>
-                            <span>Desenvolver ações de acompanhamento e avaliação das PICs para instrumentalizar a gestão.</span>
-                        </li>
-                    </ol>
+                    <article class="pics-directives-slide" id="diretrizes-painel-2" role="tabpanel" data-content-slide aria-labelledby="diretrizes-grupo-2">
+                        <h3 class="sr-only" id="diretrizes-grupo-2">Diretrizes 4 a 6</h3>
+                        <section class="pics-directive"><span>04</span><h3>Qualificação profissional</h3><ul><li>Capacitação contínua por meio de cursos, especializações e formação em serviço.</li><li>Atuação de profissionais habilitados para garantir segurança.</li></ul></section>
+                        <section class="pics-directive"><span>05</span><h3>Integralidade do cuidado</h3><ul><li>Articulação das práticas com outros serviços e níveis de atenção.</li><li>Cuidado mais amplo e centrado na pessoa.</li></ul></section>
+                        <section class="pics-directive"><span>06</span><h3>Desenvolvimento multiprofissional</h3><ul><li>Desenvolvimento da política por equipes multiprofissionais.</li><li>Atuação em consonância com os princípios do SUS.</li></ul></section>
+                    </article>
+
+                    <article class="pics-directives-slide" id="diretrizes-painel-3" role="tabpanel" data-content-slide aria-labelledby="diretrizes-grupo-3">
+                        <h3 class="sr-only" id="diretrizes-grupo-3">Diretrizes 7 a 9</h3>
+                        <section class="pics-directive"><span>07</span><h3>Implementação e fortalecimento</h3><ul><li>Implantar ações e fortalecer iniciativas existentes.</li><li>Buscar mecanismos de financiamento.</li></ul></section>
+                        <section class="pics-directive"><span>08</span><h3>Informação e divulgação</h3><ul><li>Informar profissionais, gestores e usuários sobre as PICS.</li><li>Usar metodologias participativas e valorizar o saber popular.</li></ul></section>
+                        <section class="pics-directive"><span>09</span><h3>Ações intersetoriais</h3><ul><li>Estimular a colaboração com outros setores.</li><li>Favorecer o desenvolvimento integral das ações.</li></ul></section>
+                    </article>
+
+                    <article class="pics-directives-slide" id="diretrizes-painel-4" role="tabpanel" data-content-slide aria-labelledby="diretrizes-grupo-4">
+                        <h3 class="sr-only" id="diretrizes-grupo-4">Diretrizes 10 a 12</h3>
+                        <section class="pics-directive"><span>10</span><h3>Participação social</h3><ul><li>Fortalecer a participação da sociedade.</li><li>Incluir a população nas decisões e ações relacionadas às PICS.</li></ul></section>
+                        <section class="pics-directive"><span>11</span><h3>Acesso a insumos</h3><ul><li>Garantir medicamentos fitoterápicos, homeopáticos e outros insumos estratégicos.</li><li>Assegurar qualidade e segurança.</li></ul></section>
+                        <section class="pics-directive"><span>12</span><h3>Acompanhamento e avaliação</h3><ul><li>Desenvolver ações de acompanhamento e avaliação.</li><li>Produzir informações que instrumentalizem a gestão.</li></ul></section>
+                    </article>
                 </div>
+
+                <footer class="pics-policy-slider__controls">
+                    <button type="button" data-slide-previous aria-label="Mostrar conjunto anterior de diretrizes"><span aria-hidden="true">←</span> Anterior</button>
+                    <div class="pics-policy-slider__steps" role="tablist" aria-label="Selecionar conjunto de diretrizes">
+                        <button type="button" role="tab" data-slide-to="0" aria-controls="diretrizes-painel-1" aria-label="Diretrizes 1 a 3"></button>
+                        <button type="button" role="tab" data-slide-to="1" aria-controls="diretrizes-painel-2" aria-label="Diretrizes 4 a 6"></button>
+                        <button type="button" role="tab" data-slide-to="2" aria-controls="diretrizes-painel-3" aria-label="Diretrizes 7 a 9"></button>
+                        <button type="button" role="tab" data-slide-to="3" aria-controls="diretrizes-painel-4" aria-label="Diretrizes 10 a 12"></button>
+                    </div>
+                    <p class="pics-policy-slider__status" aria-live="polite"><span class="sr-only">Conjunto </span><span data-slide-status>1 de 4</span></p>
+                    <button type="button" data-slide-next>Próximo <span aria-hidden="true">→</span></button>
+                </footer>
             </section>
 
             <section class="conteudo-texto-corrido" aria-labelledby="unidade-1-pagina-6-politicas-titulo">
@@ -617,37 +643,56 @@ export const unitOne = {
                 <p>As PICS dialogam diretamente com várias políticas estruturantes do SUS:</p>
             </section>
 
-            <section class="lista-ordenada-estilizada-1-wrapper pagina-historico-pics__avancos pagina-politicas-pics__lista" aria-labelledby="unidade-1-pagina-6-politicas-lista-titulo">
-                <div class="lista-ordenada-estilizada-1-card">
-                    <h2 id="unidade-1-pagina-6-politicas-lista-titulo">Políticas estruturantes do SUS</h2>
+            <section class="pics-policy-slider" data-content-slider aria-labelledby="unidade-1-pagina-6-politicas-lista-titulo">
+                <header class="pics-policy-slider__header">
+                    <div>
+                        <p class="pics-policy-slider__eyebrow">Saiba mais <span>· conteúdo interativo</span></p>
+                        <h2 id="unidade-1-pagina-6-politicas-lista-titulo">Políticas estruturantes do SUS</h2>
+                        <p>Use os controles para perceber como as PICS se conectam a cinco frentes do cuidado público.</p>
+                    </div>
+                    <img src="./assets/images/icones-de-conteudo/saiba-mais-icon-maior.png" width="2051" height="767" alt="" aria-hidden="true">
+                </header>
 
-                    <ol class="lista-ordenada-estilizada-1">
-                        <li>
-                            <strong>Política Nacional de Atenção Básica</strong>
-                            <span>A maioria das práticas é ofertada na Estratégia Saúde da Família.</span>
-                            <span>Fortalece ações de promoção, prevenção e cuidado longitudinal.</span>
-                        </li>
-                        <li>
-                            <strong>Política Nacional de Promoção da Saúde (PNPS)</strong>
-                            <span>As PICS são reconhecidas como ferramentas para o autocuidado, atividade física, saúde mental e estilos de vida saudáveis.</span>
-                        </li>
-                        <li>
-                            <strong>Política Nacional de Humanização (PNH)</strong>
-                            <span>Contribuem para acolhimento, vínculo, escuta qualificada e valorização da subjetividade.</span>
-                            <span>Estimulam relações mais horizontais entre profissionais e usuários.</span>
-                        </li>
-                        <li>
-                            <strong>Política de Saúde Mental</strong>
-                            <span>São amplamente utilizadas nos Centro de Atenção Psicossocial (CAPS), auxiliando no manejo da ansiedade, depressão, sofrimento emocional e dependência química.</span>
-                        </li>
-                        <li>
-                            <strong>Equidade e populações tradicionais</strong>
-                            <span>Reconhecimento de saberes indígenas, afro-brasileiros e comunitários.</span>
-                            <span>Valorização de práticas ancestrais e terapias culturais.</span>
-                            <span>Fortalecimento do cuidado territorial e comunitário.</span>
-                        </li>
-                    </ol>
+                <div class="pics-policy-slider__viewport">
+                    <article class="pics-policy-slide" id="politica-painel-1" role="tabpanel" data-content-slide style="--pics-slide-image: url('./assets/images/slides-background/BG.png')" aria-labelledby="politica-slide-1">
+                        <span class="pics-policy-slide__number">01</span>
+                        <div><p class="pics-policy-slide__type">Atenção Básica</p><h3 id="politica-slide-1">Política Nacional de Atenção Básica</h3>
+                        <ul><li>A maioria das práticas é ofertada na Estratégia Saúde da Família.</li><li>Fortalece ações de promoção, prevenção e cuidado longitudinal.</li></ul></div>
+                    </article>
+                    <article class="pics-policy-slide" id="politica-painel-2" role="tabpanel" data-content-slide style="--pics-slide-image: url('./assets/images/slides-background/BG colorido.jpg')" aria-labelledby="politica-slide-2">
+                        <span class="pics-policy-slide__number">02</span>
+                        <div><p class="pics-policy-slide__type">Promoção da saúde</p><h3 id="politica-slide-2">Política Nacional de Promoção da Saúde (PNPS)</h3>
+                        <ul><li>Reconhece as PICS como ferramentas para o autocuidado, a atividade física e a saúde mental.</li><li>Favorece estilos de vida saudáveis no cotidiano dos territórios.</li></ul></div>
+                    </article>
+                    <article class="pics-policy-slide" id="politica-painel-3" role="tabpanel" data-content-slide style="--pics-slide-image: url('./assets/images/slides-background/BG.png')" aria-labelledby="politica-slide-3">
+                        <span class="pics-policy-slide__number">03</span>
+                        <div><p class="pics-policy-slide__type">Humanização</p><h3 id="politica-slide-3">Política Nacional de Humanização (PNH)</h3>
+                        <ul><li>Contribui para acolhimento, vínculo, escuta qualificada e valorização da subjetividade.</li><li>Estimula relações mais horizontais entre profissionais e usuários.</li></ul></div>
+                    </article>
+                    <article class="pics-policy-slide" id="politica-painel-4" role="tabpanel" data-content-slide style="--pics-slide-image: url('./assets/images/slides-background/BG colorido.jpg')" aria-labelledby="politica-slide-4">
+                        <span class="pics-policy-slide__number">04</span>
+                        <div><p class="pics-policy-slide__type">Saúde mental</p><h3 id="politica-slide-4">Política de Saúde Mental</h3>
+                        <ul><li>As PICS são utilizadas nos Centros de Atenção Psicossocial (CAPS).</li><li>Podem auxiliar no manejo da ansiedade, depressão, sofrimento emocional e dependência química.</li></ul></div>
+                    </article>
+                    <article class="pics-policy-slide" id="politica-painel-5" role="tabpanel" data-content-slide style="--pics-slide-image: url('./assets/images/slides-background/BG.png')" aria-labelledby="politica-slide-5">
+                        <span class="pics-policy-slide__number">05</span>
+                        <div><p class="pics-policy-slide__type">Território e cultura</p><h3 id="politica-slide-5">Equidade e populações tradicionais</h3>
+                        <ul><li>Reconhece saberes indígenas, afro-brasileiros e comunitários.</li><li>Valoriza práticas ancestrais e terapias culturais.</li><li>Fortalece o cuidado territorial e comunitário.</li></ul></div>
+                    </article>
                 </div>
+
+                <footer class="pics-policy-slider__controls">
+                    <button type="button" data-slide-previous aria-label="Mostrar política anterior"><span aria-hidden="true">←</span> Anterior</button>
+                    <div class="pics-policy-slider__steps" role="tablist" aria-label="Selecionar política">
+                        <button type="button" role="tab" data-slide-to="0" aria-controls="politica-painel-1" aria-label="Política 1"></button>
+                        <button type="button" role="tab" data-slide-to="1" aria-controls="politica-painel-2" aria-label="Política 2"></button>
+                        <button type="button" role="tab" data-slide-to="2" aria-controls="politica-painel-3" aria-label="Política 3"></button>
+                        <button type="button" role="tab" data-slide-to="3" aria-controls="politica-painel-4" aria-label="Política 4"></button>
+                        <button type="button" role="tab" data-slide-to="4" aria-controls="politica-painel-5" aria-label="Política 5"></button>
+                    </div>
+                    <p class="pics-policy-slider__status" aria-live="polite"><span class="sr-only">Política </span><span data-slide-status>1 de 5</span></p>
+                    <button type="button" data-slide-next>Próxima <span aria-hidden="true">→</span></button>
+                </footer>
             </section>
 
             <section class="conteudo-texto-corrido" aria-labelledby="unidade-1-pagina-6-direitos-titulo">
@@ -655,39 +700,28 @@ export const unitOne = {
                 <p>Do ponto de vista legal e ético, os usuários do SUS têm direitos fundamentais relacionados às PICS. Vamos a eles:</p>
             </section>
 
-            <section class="lista-ordenada-estilizada-1-wrapper pagina-historico-pics__avancos pagina-politicas-pics__lista" aria-labelledby="unidade-1-pagina-6-direitos-lista-titulo">
-                <div class="lista-ordenada-estilizada-1-card">
-                    <h2 id="unidade-1-pagina-6-direitos-lista-titulo">Direitos fundamentais dos usuários</h2>
-
-                    <ol class="lista-ordenada-estilizada-1">
-                        <li>
-                            <strong>Direito ao acesso</strong>
-                            <span>O SUS garante acesso gratuito às PICS, conforme disponibilidade local.</span>
-                            <span>As práticas devem estar incorporadas na Atenção Básica e em outros pontos da rede.</span>
-                            <span>Usuários têm direito de solicitar informações sobre onde e como acessá-las.</span>
-                        </li>
-                        <li>
-                            <strong>Direito à informação</strong>
-                            <span>Profissionais têm o dever de informar ao usuário:</span>
-                            <span class="pagina-politicas-pics__subitem">Para que serve a prática.</span>
-                            <span class="pagina-politicas-pics__subitem">Quais são seus possíveis benefícios.</span>
-                            <span class="pagina-politicas-pics__subitem">Quais são os riscos e limitações.</span>
-                            <span class="pagina-politicas-pics__subitem">Quem são os profissionais responsáveis.</span>
-                            <span>O usuário deve receber consentimento informado, podendo aceitar ou recusar a prática.</span>
-                        </li>
-                        <li>
-                            <strong>Direito à integralidade e pluralidade terapêutica</strong>
-                            <span>O usuário pode combinar terapias convencionais com práticas integrativas.</span>
-                            <span>Deve ser respeitado em sua escolha terapêutica, crenças espirituais e valores culturais.</span>
-                            <span>A equipe precisa considerar a pessoa em todas as suas dimensões: física, emocional, social, espiritual e comunitária.</span>
-                        </li>
-                        <li>
-                            <strong>Direito à segurança e qualidade</strong>
-                            <span>As PICS devem ser realizadas por profissionais qualificados e reconhecidos.</span>
-                            <span>As práticas precisam seguir normas técnicas, protocolos e diretrizes do Ministério da Saúde.</span>
-                            <span>O usuário tem direito de denunciar práticas inadequadas ou sem respaldo técnico.</span>
-                        </li>
-                    </ol>
+            <section class="pics-rights" aria-labelledby="unidade-1-pagina-6-direitos-lista-titulo">
+                <header class="pics-rights__header">
+                    <div><p>Conheça seus direitos</p><h2 id="unidade-1-pagina-6-direitos-lista-titulo">Direitos fundamentais dos usuários</h2></div>
+                    <img src="./assets/images/icones-de-conteudo/saiba-mais-icon.png" width="1254" height="1254" alt="" aria-hidden="true">
+                </header>
+                <div class="pics-rights__list">
+                    <details open>
+                        <summary><span>01</span> Direito ao acesso</summary>
+                        <div><p>O SUS garante acesso gratuito às PICS, conforme disponibilidade local.</p><p>As práticas devem estar incorporadas na Atenção Básica e em outros pontos da rede.</p><p>Usuários têm direito de solicitar informações sobre onde e como acessá-las.</p></div>
+                    </details>
+                    <details>
+                        <summary><span>02</span> Direito à informação</summary>
+                        <div><p>Profissionais devem explicar para que serve a prática, seus possíveis benefícios, riscos e limitações e quem são os responsáveis.</p><p>O usuário deve receber consentimento informado, podendo aceitar ou recusar a prática.</p></div>
+                    </details>
+                    <details>
+                        <summary><span>03</span> Direito à integralidade e pluralidade terapêutica</summary>
+                        <div><p>O usuário pode combinar terapias convencionais com práticas integrativas e deve ser respeitado em suas escolhas, crenças e valores culturais.</p><p>A equipe considera as dimensões física, emocional, social, espiritual e comunitária.</p></div>
+                    </details>
+                    <details>
+                        <summary><span>04</span> Direito à segurança e qualidade</summary>
+                        <div><p>As PICS devem ser realizadas por profissionais qualificados e seguir normas técnicas, protocolos e diretrizes do Ministério da Saúde.</p><p>O usuário pode denunciar práticas inadequadas ou sem respaldo técnico.</p></div>
+                    </details>
                 </div>
             </section>
 
@@ -770,105 +804,46 @@ export const unitOne = {
         {
             title: 'Leitura Complementar, Dialogando com a Prática e Avaliação',
             className: 'pagina-recursos-unidade-1',
-            html: `<section class="recurso-destaque recurso-destaque--leitura" aria-labelledby="unidade-1-pagina-8-leitura-titulo" aria-describedby="unidade-1-pagina-8-leitura-descricao">
-                <div class="recurso-destaque-card">
-                    <div class="recurso-destaque-conteudo">
-                        <span class="recurso-destaque-tag">Material em PDF</span>
+            html: `<section class="pics-resource-hub" aria-labelledby="unidade-1-pagina-8-titulo">
+                <header class="pics-resource-hub__header">
+                    <p class="pics-resource-hub__eyebrow">Encerramento da unidade</p>
+                    <h2 id="unidade-1-pagina-8-titulo">Aprofunde, compartilhe e verifique sua aprendizagem</h2>
+                    <p>Três próximos passos, reunidos em uma única área: uma leitura para consulta, uma conversa com a turma e a avaliação da Unidade 1.</p>
+                </header>
 
-                        <div class="recurso-destaque-titulo-linha">
-                            <span class="recurso-destaque-icone" aria-hidden="true">
-                                <svg viewBox="0 0 48 48" fill="none" focusable="false">
-                                    <path d="M13 5.5h16l8 8V40a2.5 2.5 0 0 1-2.5 2.5h-21A2.5 2.5 0 0 1 11 40V8a2.5 2.5 0 0 1 2-2.45Z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"></path>
-                                    <path d="M28.5 6v8h8M17 22h14M17 28h14M17 34h9" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"></path>
-                                </svg>
-                            </span>
-
-                            <h2 id="unidade-1-pagina-8-leitura-titulo">Leitura Complementar</h2>
+                <div class="pics-resource-hub__layout">
+                    <article class="pics-resource-row" aria-labelledby="unidade-1-pagina-8-leitura-titulo" aria-describedby="unidade-1-pagina-8-leitura-descricao">
+                        <div class="pics-resource-row__number" aria-hidden="true">01</div>
+                        <img class="pics-resource-icon" src="./assets/images/icones-de-conteudo/material-complementar-icon.png" width="1254" height="1254" alt="" aria-hidden="true">
+                        <div>
+                            <p class="pics-resource-format">Material complementar · PDF</p>
+                            <h3 id="unidade-1-pagina-8-leitura-titulo">Leitura Complementar</h3>
+                            <p id="unidade-1-pagina-8-leitura-descricao">Aprofunde seus conhecimentos com a linha do tempo da Coordenação Nacional de Práticas Integrativas e Complementares em Saúde (CNPICS), acompanhando seus principais marcos e acontecimentos.</p>
+                            <a class="pics-resource-hub__action" href="./assets/documents/unidade-1/linha-do-tempo-cnpics.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir a leitura complementar Linha do tempo CNPICS em uma nova aba">Abrir linha do tempo <span aria-hidden="true">↗</span></a>
                         </div>
+                    </article>
 
-                        <p id="unidade-1-pagina-8-leitura-descricao">
-                            Aprofunde seus conhecimentos com a linha do tempo da Coordenação Nacional de Práticas Integrativas e Complementares em Saúde (CNPICS), acompanhando seus principais marcos e acontecimentos.
-                        </p>
-
-                        <a class="recurso-destaque-botao" href="./assets/documents/unidade-1/linha-do-tempo-cnpics.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir a leitura complementar Linha do tempo CNPICS em uma nova aba">
-                            Acessar leitura complementar
-                            <span aria-hidden="true">↗</span>
-                        </a>
-                    </div>
-
-                    <div class="recurso-destaque-painel" aria-hidden="true">
-                        <svg viewBox="0 0 160 160" fill="none" focusable="false">
-                            <circle cx="80" cy="80" r="61" stroke="currentColor" stroke-width="4" stroke-dasharray="7 9"></circle>
-                            <path d="M43 80h74M53 80a27 27 0 0 1 54 0M53 80a27 27 0 0 0 54 0" stroke="currentColor" stroke-width="4" stroke-linecap="round"></path>
-                            <circle cx="43" cy="80" r="8" fill="currentColor"></circle>
-                            <circle cx="80" cy="53" r="8" fill="currentColor"></circle>
-                            <circle cx="117" cy="80" r="8" fill="currentColor"></circle>
-                        </svg>
-                        <strong>Linha do tempo</strong>
-                        <span>CNPICS</span>
-                    </div>
-                </div>
-            </section>
-
-            <section class="forum-pratica pagina-recursos-unidade-1__forum" aria-labelledby="unidade-1-pagina-8-forum-titulo" aria-describedby="unidade-1-pagina-8-forum-descricao">
-                <div class="forum-pratica-card">
-                    <div class="forum-pratica-conteudo">
-                        <span class="forum-pratica-tag">Fórum de discussão</span>
-
-                        <h2 id="unidade-1-pagina-8-forum-titulo" class="forum-pratica-titulo">Dialogando com a Prática</h2>
-
-                        <p id="unidade-1-pagina-8-forum-descricao">
-                            Compartilhe experiências do seu território, dialogue com outros participantes e relacione os conteúdos desta unidade com a atuação cotidiana dos ACS e ACE no fortalecimento das PICS.
-                        </p>
-
-                        <a class="forum-pratica-botao" href="#" data-config-link="forumUrl" aria-label="Acessar o fórum Dialogando com a Prática">
-                            Acessar fórum
-                            <span aria-hidden="true">→</span>
-                        </a>
-                    </div>
-
-                    <div class="forum-pratica-imagem">
-                        <img loading="lazy" decoding="async" src="./assets/images/forum-dialogando-com-a-pratica.webp" alt="Pessoas reunidas em torno de um computador, dialogando e compartilhando experiências.">
-                    </div>
-                </div>
-            </section>
-
-            <section class="formulario-atividade pagina-recursos-unidade-1__avaliacao" aria-labelledby="unidade-1-pagina-8-avaliacao-titulo" aria-describedby="unidade-1-pagina-8-avaliacao-descricao">
-                <div class="formulario-atividade-card">
-                    <div class="formulario-atividade-conteudo">
-                        <span class="formulario-atividade-tag">Atividade avaliativa</span>
-
-                        <div class="recurso-destaque-titulo-linha">
-                            <span class="recurso-destaque-icone" aria-hidden="true">
-                                <svg viewBox="0 0 48 48" fill="none" focusable="false">
-                                    <path d="M17 9.5h-3A2.5 2.5 0 0 0 11.5 12v27A2.5 2.5 0 0 0 14 41.5h20A2.5 2.5 0 0 0 36.5 39V12A2.5 2.5 0 0 0 34 9.5h-3" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"></path>
-                                    <rect x="17" y="5.5" width="14" height="8" rx="3" stroke="currentColor" stroke-width="2.5"></rect>
-                                    <path d="m17.5 24 3.5 3.5 8-8M17.5 34h13" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                </svg>
-                            </span>
-
-                            <h2 id="unidade-1-pagina-8-avaliacao-titulo" class="formulario-atividade-titulo">Avaliação</h2>
+                    <article class="pics-resource-row" aria-labelledby="unidade-1-pagina-8-forum-titulo" aria-describedby="unidade-1-pagina-8-forum-descricao">
+                        <div class="pics-resource-row__number" aria-hidden="true">02</div>
+                        <img class="pics-resource-icon" src="./assets/images/icones-de-conteudo/dialogando-com-pratica-icon.png" width="1254" height="1254" alt="" aria-hidden="true">
+                        <div>
+                            <p class="pics-resource-format">Dialogando com a prática · Fórum</p>
+                            <h3 id="unidade-1-pagina-8-forum-titulo">Leve o conteúdo ao território</h3>
+                            <p id="unidade-1-pagina-8-forum-descricao">Compartilhe experiências e relacione a unidade com a atuação cotidiana dos ACS e ACE.</p>
+                            <a class="pics-resource-hub__action" href="#" data-config-link="forumUrl" aria-label="Acessar o fórum Dialogando com a Prática">Acessar fórum <span aria-hidden="true">→</span></a>
                         </div>
+                    </article>
 
-                        <p id="unidade-1-pagina-8-avaliacao-descricao" class="formulario-atividade-descricao">
-                            Avaliação da Unidade 1 (05 questões de múltipla escolha).
-                        </p>
-
-                        <a class="formulario-atividade-botao" href="#" data-config-link="unitOneAssessmentUrl" aria-label="Acessar a avaliação da Unidade 1">
-                            Iniciar avaliação
-                            <span aria-hidden="true">→</span>
-                        </a>
-                    </div>
-
-                    <div class="formulario-atividade-imagem pagina-recursos-unidade-1__avaliacao-painel" aria-hidden="true">
-                        <svg viewBox="0 0 120 120" fill="none" focusable="false">
-                            <path d="M40 25h-8a6 6 0 0 0-6 6v63a6 6 0 0 0 6 6h56a6 6 0 0 0 6-6V31a6 6 0 0 0-6-6h-8" stroke="currentColor" stroke-width="5" stroke-linecap="round"></path>
-                            <rect x="40" y="16" width="40" height="20" rx="7" stroke="currentColor" stroke-width="5"></rect>
-                            <path d="m42 60 9 9 22-22M42 85h36" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path>
-                        </svg>
-                        <strong>05 questões</strong>
-                        <span>Múltipla escolha</span>
-                    </div>
+                    <article class="pics-resource-row" aria-labelledby="unidade-1-pagina-8-avaliacao-titulo" aria-describedby="unidade-1-pagina-8-avaliacao-descricao">
+                        <div class="pics-resource-row__number" aria-hidden="true">03</div>
+                        <img class="pics-resource-icon" src="./assets/images/icones-de-conteudo/avaliacao-icon.png" width="1254" height="1254" alt="" aria-hidden="true">
+                        <div>
+                            <p class="pics-resource-format">Avaliação · Questionário</p>
+                            <h3 id="unidade-1-pagina-8-avaliacao-titulo">Conclua a Unidade 1</h3>
+                            <p id="unidade-1-pagina-8-avaliacao-descricao">Responda a 05 questões de múltipla escolha e verifique os pontos essenciais do percurso.</p>
+                            <a class="pics-resource-hub__action" href="#" data-config-link="unitOneAssessmentUrl" aria-label="Acessar a avaliação da Unidade 1">Iniciar avaliação <span aria-hidden="true">→</span></a>
+                        </div>
+                    </article>
                 </div>
             </section>`,
         },

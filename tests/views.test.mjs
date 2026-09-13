@@ -16,9 +16,9 @@ test('renderiza a página principal sem indicadores de progresso', () => {
 test('abre cards disponíveis em nova aba e preserva as demais unidades em preparação', () => {
     const html = renderHome({course});
     const availableCardLinks = html.match(/class="unidade-card-link"/g) || [];
-    const preparingCard = html.match(/<article class="unidade-card"[^>]*aria-labelledby="unit-unidade-2-title">[\s\S]*?<\/article>/)?.[0] || '';
+    const preparingCard = html.match(/<article class="unidade-card"[^>]*aria-labelledby="unit-unidade-3-title">[\s\S]*?<\/article>/)?.[0] || '';
 
-    assert.equal(availableCardLinks.length, 3);
+    assert.equal(availableCardLinks.length, 4);
     assert.match(html, /class="unidade-card-link" href="#\/unidade\/introducao\/pagina\/1" target="_blank" rel="noopener noreferrer"/);
     assert.match(html, /aria-label="Acessar Apresentação em nova aba"/);
     assert.match(html, /class="unidade-card-link" href="#\/unidade\/unidade-1\/pagina\/1" target="_blank" rel="noopener noreferrer"/);
@@ -38,7 +38,35 @@ test('renderiza unidade e página de conteúdo', () => {
     assert.match(html, /boas-vindas-ao-pics\.webp/);
     assert.match(html, /role="progressbar"/);
     assert.match(html, /aria-valuenow="67"/);
+    assert.match(html, /class="progresso-paginas-faixa"/);
+    const progressIndex = html.indexOf('<div class="progresso-paginas-faixa">');
+    const contentIndex = html.indexOf('<section id="conteudo-unidade"');
+    assert.ok(progressIndex > html.indexOf('<main id="conteudo-principal"') && progressIndex < contentIndex);
+    assert.match(html, /class="progresso-paginas-trilho" role="progressbar" aria-label="Progresso da unidade"/);
+    assert.match(html, /aria-valuetext="67% concluído\. Página 2 de 3\."/);
+    assert.match(html, /class="progresso-paginas-valor" style="width: 67%"/);
+    assert.match(html, /Página 02 de 03/);
+    assert.doesNotMatch(html, /progresso-circular|<circle\b/);
     assert.doesNotMatch(html, /\.\.\/\.\.\/assets/);
+});
+
+test('mantém a barra linear sincronizada em todas as páginas disponíveis', () => {
+    for (const unit of unitsBySlug.values()) {
+        const total = unit.pages.length;
+        for (let page = 1; page <= total; page += 1) {
+            const percent = Math.round((page / total) * 100);
+            const html = renderUnit({course, unit, page});
+            const progressHtml = html.match(/<div class="progresso-paginas-faixa">[\s\S]*?(?=<section id="conteudo-unidade")/)?.[0] || '';
+            const formattedPage = String(page).padStart(2, '0');
+            const formattedTotal = String(total).padStart(2, '0');
+
+            assert.equal((progressHtml.match(/class="progresso-paginas-trilho"/g) || []).length, 1, `${unit.slug}, página ${page}`);
+            assert.match(progressHtml, new RegExp(`aria-valuenow="${percent}"`));
+            assert.match(progressHtml, new RegExp(`style="width: ${percent}%"`));
+            assert.match(progressHtml, new RegExp(`Página ${formattedPage} de ${formattedTotal}`));
+            assert.doesNotMatch(progressHtml, /progresso-circular|<circle\b/);
+        }
+    }
 });
 
 test('renderiza a primeira página da Unidade 1 com o texto e as três figuras informadas', () => {
@@ -57,6 +85,10 @@ test('renderiza a primeira página da Unidade 1 com o texto e as três figuras i
     assert.match(html, /Figura 8 – Momento coletivo de relaxamento/);
     assert.match(html, /Figura 9 – Atendimento individual com aplicação tópica/);
     assert.match(html, /Figura 10 – Encontro entre equipe de saúde e comunidade/);
+    assert.match(html, /class="pics-reading-route"/);
+    assert.match(html, /icones-de-conteudo\/saiba-mais-icon\.png/);
+    assert.equal((html.match(/class="pics-story__chapter/g) || []).length, 2);
+    assert.match(html, /class="pics-story__closing"/);
     assert.match(html, /Página 1 de 8/);
     assert.match(html, /aria-valuenow="13"/);
     assert.match(html, /href="#\/unidade\/unidade-1\/pagina\/2"/);
@@ -108,7 +140,7 @@ test('renderiza o componente de vídeo como a terceira página da Unidade 1', ()
     assert.match(html, /<h2 class="pics-video__title" id="unidade-1-pagina-3-titulo">\s*Abordagens de cuidado integral focadas na pessoa e seus aspectos biopsicossociais\s*<\/h2>/);
     assert.match(html, /aria-label="Ir para a página 3: Abordagens de cuidado integral focadas na pessoa e seus aspectos biopsicossociais"/);
     assert.match(eyebrow, /class="pics-video__eyebrow-icon"/);
-    assert.match(eyebrow, /<svg\b[^>]*focusable="false"/);
+    assert.match(eyebrow, /<img\b[^>]*video-icon\.png/);
     assert.doesNotMatch(eyebrow, />\s*01\s*</);
     assert.doesNotMatch(html, /Práticas integrativas no cuidado em saúde|pics-video__eyebrow-index/);
     assert.match(html, /Assista ao vídeo a seguir para aprofundar os conceitos apresentados nesta unidade/);
@@ -146,6 +178,10 @@ test('renderiza todo o histórico das PICS e a linha do tempo como a quarta pág
     assert.match(html, /Como surgiram as PICS/);
     assert.match(html, /Atualmente, as PICS estão presentes em mais de 4\.300 municípios brasileiros \(78% do total\)/);
     assert.match(html, /A OMS \(2014–2023\) também reforça a importância da integração dessas práticas/);
+    assert.match(pageHtml, /class="pics-keyfacts"/);
+    assert.match(pageHtml, /<strong>84%<\/strong>/);
+    assert.match(pageHtml, /class="pics-glossary"/);
+    assert.equal((pageHtml.match(/<details>/g) || []).length, 4);
     assert.match(html, /Período \/ Marco\. Evento \/ Política\. Principais Avanços\./);
 
     for (const eventTitle of [
@@ -187,7 +223,11 @@ test('renderiza as três partes do PDF e o pillar stack como a quinta página da
     assert.match(html, /data-unit="unidade-1" data-page="5"/);
     assert.match(html, /class="pagina-conteudo pagina-importancia-pics"/);
     assert.match(pageHtml, /<section class="conteudo-texto-corrido" aria-labelledby="unidade-1-pagina-5-titulo">/);
+    assert.match(pageHtml, /<header class="pics-essay-intro">/);
     assert.match(pageHtml, /<h2 id="unidade-1-pagina-5-titulo">Importância das PICS para ampliar o cuidado em saúde<\/h2>/);
+    assert.match(pageHtml, /class="pics-essay-intro__body"/);
+    assert.match(pageHtml, /class="pics-essay-intro__lead"/);
+    assert.match(pageHtml, /class="pics-essay-intro__summary"/);
     assert.match(pageHtml, /<h3>Ampliação do cuidado<\/h3>/);
     assert.equal((pageHtml.match(/<p(?:\s|>)/g) || []).length, 19);
     assert.match(pageHtml, /As Práticas Integrativas e Complementares em Saúde \(PICS\) têm se destacado por ampliarem a visão sobre o cuidado/);
@@ -248,11 +288,13 @@ test('renderiza o conteúdo integral e estruturado do PDF como a sexta página d
     assert.match(html, /class="pagina-conteudo pagina-politicas-pics"/);
     assert.match(pageHtml, /<h2 id="unidade-1-pagina-6-titulo">Políticas Públicas e Direitos da População nas Práticas Integrativas e Complementares do SUS<\/h2>/);
     assert.match(pageHtml, /As Práticas Integrativas e Complementares em Saúde \(PICS\) fazem parte de uma política pública nacional/);
-    assert.equal((pageHtml.match(/class="lista-ordenada-estilizada-1-wrapper/g) || []).length, 3);
+    assert.doesNotMatch(pageHtml, /class="lista-ordenada-estilizada-1-wrapper/);
 
-    const guidelines = pageHtml.match(/<section class="[^"]*pagina-politicas-pics__diretrizes[^"]*"[\s\S]*?<\/section>/)?.[0] || '';
+    const guidelines = pageHtml.match(/<section class="pics-policy-slider pics-directives-slider" data-content-slider[\s\S]*?(?=<section class="conteudo-texto-corrido" aria-labelledby="unidade-1-pagina-6-politicas-titulo")/)?.[0] || '';
     assert.match(guidelines, /Principais diretrizes da Portaria PNPIC/);
-    assert.equal((guidelines.match(/<li>/g) || []).length, 12);
+    assert.equal((guidelines.match(/class="pics-directive"/g) || []).length, 12);
+    assert.equal((guidelines.match(/data-content-slide(?:\s|>)/g) || []).length, 4);
+    assert.equal((guidelines.match(/data-slide-to=/g) || []).length, 4);
     for (const guideline of [
         'Segurança',
         'Eficácia',
@@ -266,24 +308,29 @@ test('renderiza o conteúdo integral e estruturado do PDF como a sexta página d
         'Participação social',
         'Acesso a insumos',
         'Acompanhamento e avaliação',
-    ]) assert.ok(guidelines.includes(`<strong>${guideline}</strong>`), `diretriz ausente: ${guideline}`);
-    assert.match(guidelines, /Portaria nº 971, publicada pelo Ministério da Saúde em 2006/);
-    assert.match(guidelines, /Desenvolver ações de acompanhamento e avaliação das PICs para instrumentalizar a gestão/);
+    ]) assert.ok(guidelines.includes(`<h3>${guideline}</h3>`), `diretriz ausente: ${guideline}`);
+    assert.match(guidelines, /PNPIC · Portaria nº 971\/2006/);
+    assert.match(guidelines, /Produzir informações que instrumentalizem a gestão/);
 
     assert.match(pageHtml, /Relação com outras políticas de saúde/);
-    const policies = pageHtml.match(/aria-labelledby="unidade-1-pagina-6-politicas-lista-titulo"[\s\S]*?<\/section>/)?.[0] || '';
-    assert.equal((policies.match(/<li>/g) || []).length, 5);
+    const policies = pageHtml.match(/<section class="pics-policy-slider" data-content-slider aria-labelledby="unidade-1-pagina-6-politicas-lista-titulo"[\s\S]*?<\/section>/)?.[0] || '';
+    assert.match(policies, /data-content-slider/);
+    assert.equal((policies.match(/data-content-slide(?:\s|>)/g) || []).length, 5);
+    assert.equal((policies.match(/data-slide-to=/g) || []).length, 5);
+    assert.match(policies, /slides-background\/BG\.png/);
+    assert.match(policies, /slides-background\/BG colorido\.jpg/);
     assert.match(policies, /Política Nacional de Atenção Básica/);
     assert.match(policies, /Equidade e populações tradicionais/);
 
     assert.match(pageHtml, /Direitos da População em Relação às PICS/);
-    const rights = pageHtml.match(/aria-labelledby="unidade-1-pagina-6-direitos-lista-titulo"[\s\S]*?<\/section>/)?.[0] || '';
-    assert.equal((rights.match(/<li>/g) || []).length, 4);
+    const rights = pageHtml.match(/<section class="pics-rights" aria-labelledby="unidade-1-pagina-6-direitos-lista-titulo"[\s\S]*?<\/section>/)?.[0] || '';
+    assert.match(rights, /class="pics-rights"/);
+    assert.equal((rights.match(/<details(?:\s|>)/g) || []).length, 4);
     assert.match(rights, /Direito ao acesso/);
     assert.match(rights, /Direito à informação/);
     assert.match(rights, /Direito à integralidade e pluralidade terapêutica/);
     assert.match(rights, /Direito à segurança e qualidade/);
-    assert.equal((rights.match(/pagina-politicas-pics__subitem/g) || []).length, 4);
+    assert.match(rights, /Profissionais devem explicar para que serve a prática/);
     assert.match(pageHtml, /O trabalho das equipes de saúde da família é essencial para a efetividade das PICS/);
 
     assert.match(pageHtml, /<section class="pagina-historico-pics__card pagina-historico-pics__card--resumo" aria-labelledby="unidade-1-pagina-6-conclusao-titulo">/);
@@ -350,22 +397,26 @@ test('renderiza leitura complementar, fórum e avaliação como a oitava página
     assert.match(html, /data-unit="unidade-1" data-page="8"/);
     assert.match(html, /class="pagina-conteudo pagina-recursos-unidade-1"/);
 
-    assert.match(pageHtml, /<section class="recurso-destaque recurso-destaque--leitura"/);
-    assert.match(pageHtml, /<h2 id="unidade-1-pagina-8-leitura-titulo">Leitura Complementar<\/h2>/);
+    assert.match(pageHtml, /<section class="pics-resource-hub" aria-labelledby="unidade-1-pagina-8-titulo">/);
+    assert.match(pageHtml, /Aprofunde, compartilhe e verifique sua aprendizagem/);
+    assert.equal((pageHtml.match(/<article class="pics-resource-row"/g) || []).length, 3);
+    assert.doesNotMatch(pageHtml, /pics-resource-feature|pics-resource-next/);
+    assert.match(pageHtml, /pics-resource-row__number" aria-hidden="true">01</);
+    assert.match(pageHtml, /src="\.\/assets\/images\/icones-de-conteudo\/material-complementar-icon\.png"/);
+    assert.match(pageHtml, /<h3 id="unidade-1-pagina-8-leitura-titulo">Leitura Complementar<\/h3>/);
     assert.match(pageHtml, /linha do tempo da Coordenação Nacional de Práticas Integrativas e Complementares em Saúde \(CNPICS\)/);
     assert.match(pageHtml, /href="\.\/assets\/documents\/unidade-1\/linha-do-tempo-cnpics\.pdf" target="_blank" rel="noopener noreferrer"/);
     assert.ok(existsSync(new URL('../assets/documents/unidade-1/linha-do-tempo-cnpics.pdf', import.meta.url)));
 
-    assert.match(pageHtml, /<section class="forum-pratica pagina-recursos-unidade-1__forum"/);
     assert.match(pageHtml, /Dialogando com a Prática/);
-    assert.match(pageHtml, /src="\.\/assets\/images\/forum-dialogando-com-a-pratica\.webp"/);
-    assert.match(pageHtml, /class="forum-pratica-botao" href="#" data-config-link="forumUrl"/);
+    assert.match(pageHtml, /src="\.\/assets\/images\/icones-de-conteudo\/dialogando-com-pratica-icon\.png"/);
+    assert.match(pageHtml, /class="pics-resource-hub__action" href="#" data-config-link="forumUrl"/);
 
-    assert.match(pageHtml, /<section class="formulario-atividade pagina-recursos-unidade-1__avaliacao"/);
-    assert.match(pageHtml, /<h2 id="unidade-1-pagina-8-avaliacao-titulo" class="formulario-atividade-titulo">Avaliação<\/h2>/);
-    assert.match(pageHtml, /Avaliação da Unidade 1 \(05 questões de múltipla escolha\)\./);
-    assert.match(pageHtml, /class="formulario-atividade-botao" href="#" data-config-link="unitOneAssessmentUrl"/);
-    assert.equal((pageHtml.match(/class="recurso-destaque-icone"/g) || []).length, 2);
+    assert.match(pageHtml, /<h3 id="unidade-1-pagina-8-avaliacao-titulo">Conclua a Unidade 1<\/h3>/);
+    assert.match(pageHtml, /Responda a 05 questões de múltipla escolha/);
+    assert.match(pageHtml, /class="pics-resource-hub__action" href="#" data-config-link="unitOneAssessmentUrl"/);
+    assert.equal((pageHtml.match(/class="pics-resource-icon"/g) || []).length, 3);
+    assert.doesNotMatch(pageHtml, /pics-resource-panel|recurso-destaque-card|forum-pratica-card|formulario-atividade-card/);
 
     assert.match(html, /Página 8 de 8/);
     assert.match(html, /aria-valuenow="100"/);

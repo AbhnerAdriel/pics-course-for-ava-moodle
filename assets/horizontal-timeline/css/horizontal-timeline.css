@@ -21,6 +21,9 @@ pics-horizontal-timeline {
     display: block;
     inline-size: 100%;
     margin: 2em auto;
+    padding: clamp(14px, 2vw, 24px);
+    border: 1px solid #9eb6aa;
+    border-radius: 24px;
     color: var(--pics-horizontal-timeline-text);
     font-family: var(
         --fonte-conteudo-dinamico,
@@ -38,6 +41,16 @@ pics-horizontal-timeline * {
     box-sizing: border-box;
 }
 
+pics-horizontal-timeline > .pics-horizontal-timeline__events {
+    border-radius: 16px;
+}
+
+pics-horizontal-timeline
+    > .pics-horizontal-timeline__events
+    > [data-timeline-event] {
+    padding: 24px clamp(18px, 3vw, 36px) 32px;
+}
+
 /* Progressive-enhancement fallback: an ordinary, readable vertical list. */
 pics-horizontal-timeline:not([data-timeline-enhanced])
     > .pics-horizontal-timeline__events {
@@ -45,12 +58,6 @@ pics-horizontal-timeline:not([data-timeline-enhanced])
     gap: 1rem;
     margin: 0;
     padding-inline-start: 1.5rem;
-}
-
-pics-horizontal-timeline:not([data-timeline-enhanced])
-    > .pics-horizontal-timeline__events
-    > [data-timeline-event] {
-    padding: 0.25rem 0.25rem 0.75rem;
 }
 
 pics-horizontal-timeline:not([data-timeline-enhanced])
@@ -281,7 +288,6 @@ pics-horizontal-timeline[data-timeline-enhanced]
     inset-inline-start: 0;
     inline-size: 100%;
     margin: 0;
-    padding: 0 5%;
     opacity: 0;
     transform: translateX(-100%);
 }
@@ -484,11 +490,6 @@ pics-horizontal-timeline .pics-horizontal-timeline__visually-hidden {
         block-size: 2.5rem;
     }
 
-    pics-horizontal-timeline[data-timeline-enhanced]
-        > .pics-horizontal-timeline__events
-        > [data-timeline-event] {
-        padding-inline: 3%;
-    }
 }
 
 @media (prefers-reduced-motion: reduce) {

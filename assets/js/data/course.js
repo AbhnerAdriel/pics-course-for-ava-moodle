@@ -1,6 +1,7 @@
 import {introductionUnit} from './units/introducao.js';
 import {welcomeUnit} from './units/boas-vindas.js';
 import {unitOne} from './units/unidade-1.js';
+import {unitTwo} from './units/unidade-2.js';
 
 export const course = Object.freeze({
     id: 'pics-modulo-01',
@@ -29,9 +30,9 @@ export const course = Object.freeze({
             image: './assets/images/unidades/unidade-01.webp', available: true,
         },
         {
-            slug: 'unidade-2', category: 'Unidade 2', title: 'Práticas integradas à atuação dos ACS e ACE - Parte I',
+            slug: 'unidade-2', category: 'Unidade 2', title: unitTwo.title,
             description: 'Aprofunde práticas integrativas e reflita sobre limites, segurança e responsabilidade.',
-            image: './assets/images/unidades/unidade-02.webp', available: false,
+            image: './assets/images/unidades/unidade-02.webp', available: true,
         },
         {
             slug: 'unidade-3', category: 'Unidade 3', title: 'Práticas integradas à atuação dos ACS e ACE e questões éticas - Parte II',
@@ -55,4 +56,5 @@ export const unitsBySlug = new Map([
     [introductionUnit.slug, introductionUnit],
     [welcomeUnit.slug, welcomeUnit],
     [unitOne.slug, unitOne],
+    [unitTwo.slug, unitTwo],
 ]);

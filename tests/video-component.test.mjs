@@ -88,7 +88,7 @@ test('exibe imediatamente o vídeo com movimento reduzido ou sem IntersectionObs
 });
 
 test('mantém o ícone, a moldura elegante e a legenda fora da área do player', () => {
-    assert.match(styles, /\.pics-video__eyebrow-icon\s*\{[\s\S]*?width:\s*26px;[\s\S]*?height:\s*26px;/);
+    assert.match(styles, /\.pics-video__eyebrow-icon\s*\{[\s\S]*?width:\s*52px;[\s\S]*?height:\s*52px;/);
     assert.doesNotMatch(styles, /\.pics-video__eyebrow-index\b/);
     assert.match(styles, /\.pics-video__frame\s*\{[\s\S]*?border-radius:\s*var\(--pics-video-frame-radius\);[\s\S]*?linear-gradient\(145deg,[\s\S]*?box-shadow:/);
     assert.match(styles, /\.pics-video__media-shell\s*\{[\s\S]*?overflow:\s*hidden;[\s\S]*?border-radius:\s*calc\(var\(--pics-video-frame-radius\) - 7px\);/);

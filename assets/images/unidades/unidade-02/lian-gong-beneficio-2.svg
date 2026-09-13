@@ -1,0 +1,19 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#faf7f1"></rect>
+  
+  <ellipse cx="400" cy="380" rx="220" ry="26" fill="#cfe0e2" opacity="0.6"></ellipse>
+  
+  <g>
+    <path d="M 372.8 230.72 Q 329.28 249.28 340.15999999999997 286.4" stroke="#c98f5e" stroke-width="14.4" fill="none" stroke-linecap="round"></path>
+    <path d="M 427.2 230.72 Q 470.72 249.28 459.84000000000003 286.4" stroke="#c98f5e" stroke-width="14.4" fill="none" stroke-linecap="round"></path>
+    <path d="M 370.08 309.6 Q 372.8 360.64 389.12 379.20000000000005" stroke="#c98f5e" stroke-width="16" fill="none" stroke-linecap="round"></path>
+    <path d="M 429.92 309.6 Q 427.2 360.64 410.88 379.20000000000005" stroke="#c98f5e" stroke-width="16" fill="none" stroke-linecap="round"></path>
+    <rect x="372.8" y="226.07999999999998" width="54.400000000000006" height="92.80000000000001" rx="21.760000000000005" fill="#7fa588"></rect>
+    <circle cx="400" cy="200.15999999999997" r="28.8" fill="#c98f5e"></circle>
+  </g>
+  <path d="M 340 200 Q 400 190 460 210" stroke="#3d6b73" stroke-width="2.5" fill="none" opacity="0.55"></path>
+  <path d="M 320 260 Q 400 245 480 265" stroke="#3d6b73" stroke-width="2.5" fill="none" opacity="0.55"></path>
+  <path d="M 330 320 Q 400 305 470 322" stroke="#3d6b73" stroke-width="2.5" fill="none" opacity="0.55"></path>
+  <path d="M 355 380 Q 400 368 445 382" stroke="#3d6b73" stroke-width="2.5" fill="none" opacity="0.55"></path>
+
+  </svg>

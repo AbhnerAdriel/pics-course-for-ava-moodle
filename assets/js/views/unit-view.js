@@ -2,13 +2,21 @@ import {appConfig} from '../config.js';
 import {toHash, unitPath} from '../core/router.js';
 import {navigationShell} from '../components/navigation-drawer.js';
 
-function progressCircle(percent) {
-    return `<div class="progresso-paginas-faixa"><div class="progresso-circular" role="progressbar"
-        aria-label="Progresso no conteúdo" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${percent}">
-        <svg class="progresso-circular-svg" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
-            <circle class="progresso-circular-trilho" cx="50" cy="50" r="42" pathLength="100"></circle>
-            <circle class="progresso-circular-valor" cx="50" cy="50" r="42" pathLength="100" style="stroke-dashoffset:${100 - percent}"></circle>
-        </svg><span class="progresso-circular-texto">${percent}%</span></div></div>`;
+function progressBar({percent, page, total}) {
+    const formattedPage = String(page).padStart(2, '0');
+    const formattedTotal = String(total).padStart(2, '0');
+    return `<div class="progresso-paginas-faixa">
+        <div class="progresso-paginas-cabecalho" aria-hidden="true">
+            <p class="progresso-paginas-titulo">Progresso da unidade</p>
+            <strong class="progresso-paginas-percentual">${percent}%</strong>
+        </div>
+        <div class="progresso-paginas-trilho" role="progressbar" aria-label="Progresso da unidade"
+            aria-valuemin="0" aria-valuemax="100" aria-valuenow="${percent}"
+            aria-valuetext="${percent}% concluído. Página ${page} de ${total}.">
+            <span class="progresso-paginas-valor" style="width: ${percent}%"></span>
+        </div>
+        <p class="progresso-paginas-indicador" aria-hidden="true">Página ${formattedPage} de ${formattedTotal}</p>
+    </div>`;
 }
 
 function pagination(unit, page) {
@@ -55,10 +63,10 @@ export function renderUnit({course, unit, page}) {
             </div>
         </header>
         <main id="conteudo-principal" tabindex="-1">
+            ${progressBar({percent, page: safePage, total: unit.pages.length})}
             <section id="conteudo-unidade" aria-labelledby="conteudo-unidade-titulo">
                 <h2 id="conteudo-unidade-titulo" class="visually-hidden">${unit.title}</h2>
                 <article id="pagina-conteudo" class="pagina-conteudo ${pageData.className}" aria-live="polite" aria-label="${pageData.title}">${pageData.html}</article>
-                ${progressCircle(percent)}
                 ${pagination(unit, safePage)}
             </section>
         </main>
@@ -74,7 +82,7 @@ export function bindConfiguredLinks(root = document) {
     const handlers = [];
     for (const link of links) {
         const key = link.dataset.configLink;
-        const url = appConfig[key];
+        const url = appConfig[key] || appConfig[link.dataset.configFallback];
         if (url) {
             link.href = url;
             link.target = '_blank';

@@ -1,10 +1,28 @@
+import {bindContentSliders} from './content-slider.js';
+
+export function initializeDetailsGroups(root = document) {
+    const groups = new Map();
+    for (const details of root.querySelectorAll('details')) {
+        const parent = details.parentElement;
+        if (!groups.has(parent)) groups.set(parent, []);
+        groups.get(parent).push(details);
+    }
+    for (const details of groups.values()) {
+        if (details.length < 2) continue;
+        details.forEach((item, index) => { item.open = index === 0; });
+    }
+}
+
 export function bindPageInteractions(root = document) {
     const cleanup = [];
+
+    initializeDetailsGroups(root);
+    cleanup.push(bindContentSliders(root));
 
     const onClick = (event) => {
         const disabled = event.target.closest('[aria-disabled="true"]');
         if (disabled) { event.preventDefault(); return; }
-        if (event.target.closest('pics-flipbook, pics-horizontal-timeline')) return;
+        if (event.target.closest('pics-flipbook, pics-horizontal-timeline') || event.target.closest('[data-content-slider]')) return;
         const button = event.target.closest('button, .unidade-card-botao, .formulario-atividade-botao');
         if (!button) return;
         const rect = button.getBoundingClientRect();
@@ -20,7 +38,7 @@ export function bindPageInteractions(root = document) {
     root.addEventListener('click', onClick);
     cleanup.push(() => root.removeEventListener('click', onClick));
 
-    const reveals = [...root.querySelectorAll('.banner-info-card, .unidade-card, .conteudo-texto-imagem-flex-card, .conteudo-texto-corrido, .formulario-atividade')];
+    const reveals = [...root.querySelectorAll('.banner-info-card, .unidade-card, .conteudo-texto-imagem-flex-card, .conteudo-texto-corrido, .formulario-atividade, .pics-keyfacts, .pics-callout')];
     if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
         const observer = new IntersectionObserver((entries) => {
             for (const entry of entries) if (entry.isIntersecting) {

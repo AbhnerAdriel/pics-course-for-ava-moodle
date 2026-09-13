@@ -7,6 +7,7 @@ import {renderHome} from './views/home-view.js';
 import {renderUnit, bindConfiguredLinks} from './views/unit-view.js';
 import {bindNavigationDrawer} from './components/navigation-drawer.js';
 import {bindPageInteractions} from './components/interactions.js';
+import {bindUnitTwoTools, takeReadingDestination} from './components/unit-two-tools.js';
 
 const app = document.querySelector('#app');
 const liveRegion = document.querySelector('#app-live-region');
@@ -14,7 +15,6 @@ const styleManager = new RouteStyleManager(document.querySelector('#route-styles
 const progressStore = new ProgressStore();
 const moodleBridge = new MoodleBridge();
 let cleanupView = [];
-let lastRoute = null;
 let renderSequence = 0;
 let routeScrollFrame = 0;
 let routeScrollCleanupFrame = 0;
@@ -86,6 +86,7 @@ function bindCommon() {
     cleanupView.push(bindNavigationDrawer(document));
     cleanupView.push(bindPageInteractions(document));
     cleanupView.push(bindConfiguredLinks(document));
+    cleanupView.push(bindUnitTwoTools(document));
     const cleanupVideo = window.PICSVideo?.init?.(document);
     if (typeof cleanupVideo === 'function') cleanupView.push(cleanupVideo);
 }
@@ -94,8 +95,6 @@ async function render(route) {
     const sequence = ++renderSequence;
     cleanup();
     app.setAttribute('aria-busy', 'true');
-    const previous = lastRoute;
-    lastRoute = route;
 
     try {
         if (route.name === 'home') {
@@ -139,11 +138,11 @@ async function render(route) {
             moodleBridge.progressChanged({courseId: course.id, unitSlug: unit.slug, page, totalPages: unit.pages.length, ...unitProgress});
             bindCommon();
 
-            const sameUnit = previous?.name === 'unit' && previous.slug === unit.slug;
-            const target = sameUnit ? document.querySelector('#pagina-conteudo') : document.querySelector('#conteudo-principal');
-            const heading = document.querySelector('#pagina-conteudo h1, #pagina-conteudo h2, #pagina-conteudo h3');
+            const destination = takeReadingDestination(document);
+            const target = destination || document.querySelector('.progresso-paginas-faixa');
+            const heading = destination || document.querySelector('#pagina-conteudo h1, #pagina-conteudo h2, #pagina-conteudo h3');
             if (heading) { heading.tabIndex = -1; heading.focus({preventScroll: true}); }
-            scheduleRouteScroll(sameUnit ? target : null, sequence);
+            scheduleRouteScroll(target, sequence);
             announce(`${pageData.title}. Página ${page} de ${unit.pages.length}.`);
             return;
         }
