@@ -7,6 +7,10 @@ const required = [
     'index.html', 'assets/js/app.js', 'assets/css/app.css',
     'assets/js/data/units/introducao.js', 'assets/js/data/units/boas-vindas.js', 'assets/js/data/units/unidade-1.js',
     'assets/js/data/units/unidade-2.js', 'assets/css/unidade-2.css', 'assets/js/components/unit-two-tools.js',
+    'assets/js/data/units/unidade-3.js', 'assets/js/data/units/unidade-3-content.js',
+    'assets/js/data/units/unidade-3-interactions.js', 'assets/css/unidade-3.css', 'assets/js/components/unit-three-tools.js',
+    'assets/js/data/units/unidade-4.js', 'assets/js/data/units/unidade-4-content.js',
+    'assets/js/data/units/unidade-4-interactions.js', 'assets/css/unidade-4.css', 'assets/js/components/unit-four-tools.js',
     'assets/images/pnpic-main-logo.webp', 'assets/images/instituicoes-rodape.webp',
     'assets/images/unidades/unidade-01/figura-01-unidade-01.webp',
     'assets/images/unidades/unidade-01/figura-02-unidade-01.webp',
@@ -106,6 +110,9 @@ if (flipbookPdfSignature !== '%PDF-') {
 
 const shellHtml = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
 for (const asset of [
+    './assets/css/unidade-2.css',
+    './assets/css/unidade-3.css',
+    './assets/css/unidade-4.css',
     './assets/flipbook/css/flipbook.css',
     './assets/flipbook/js/flipbook.js',
     './assets/video/css/video-component.css',

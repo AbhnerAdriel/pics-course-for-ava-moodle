@@ -16,9 +16,9 @@ test('renderiza a página principal sem indicadores de progresso', () => {
 test('abre cards disponíveis em nova aba e preserva as demais unidades em preparação', () => {
     const html = renderHome({course});
     const availableCardLinks = html.match(/class="unidade-card-link"/g) || [];
-    const preparingCard = html.match(/<article class="unidade-card"[^>]*aria-labelledby="unit-unidade-3-title">[\s\S]*?<\/article>/)?.[0] || '';
+    const preparingCard = html.match(/<article class="unidade-card"[^>]*aria-labelledby="unit-conclusao-title">[\s\S]*?<\/article>/)?.[0] || '';
 
-    assert.equal(availableCardLinks.length, 4);
+    assert.equal(availableCardLinks.length, 6);
     assert.match(html, /class="unidade-card-link" href="#\/unidade\/introducao\/pagina\/1" target="_blank" rel="noopener noreferrer"/);
     assert.match(html, /aria-label="Acessar Apresentação em nova aba"/);
     assert.match(html, /class="unidade-card-link" href="#\/unidade\/unidade-1\/pagina\/1" target="_blank" rel="noopener noreferrer"/);

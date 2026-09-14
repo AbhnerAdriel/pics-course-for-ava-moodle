@@ -2,6 +2,8 @@ import {introductionUnit} from './units/introducao.js';
 import {welcomeUnit} from './units/boas-vindas.js';
 import {unitOne} from './units/unidade-1.js';
 import {unitTwo} from './units/unidade-2.js';
+import {unitThree} from './units/unidade-3.js';
+import {unitFour} from './units/unidade-4.js';
 
 export const course = Object.freeze({
     id: 'pics-modulo-01',
@@ -35,14 +37,14 @@ export const course = Object.freeze({
             image: './assets/images/unidades/unidade-02.webp', available: true,
         },
         {
-            slug: 'unidade-3', category: 'Unidade 3', title: 'Práticas integradas à atuação dos ACS e ACE e questões éticas - Parte II',
-            description: 'Reflita sobre práticas integrativas e questões éticas relacionadas à atuação profissional.',
-            image: './assets/images/unidades/unidade-03.webp', available: false,
+            slug: 'unidade-3', category: 'Unidade 3', title: unitThree.title,
+            description: 'Esta aula apresenta os fundamentos filosóficos e práticos do Yoga e da Meditação e discute sua aplicação segura nos espaços de saúde.',
+            image: './assets/images/unidades/unidade-03.webp', available: true,
         },
         {
             slug: 'unidade-4', category: 'Unidade 4', title: 'Campo de atuação no território e PICS como estratégia de cuidado integral',
-            description: 'Consolide orientações éticas para a atuação segura dos ACS e ACE com as PICS.',
-            image: './assets/images/unidades/unidade-04.webp', available: false,
+            description: 'Esta unidade apresenta o território como campo de atuação do ACS e do ACE e discute as PICS como estratégia de cuidado integral, incluindo grupos, oficinas, rodas de conversa, mutirões e a articulação com as práticas populares de saúde.',
+            image: './assets/images/unidades/unidade-04.webp', available: true,
         },
         {
             slug: 'conclusao', category: 'Conclusão', title: 'Autoavaliação e Avaliação do módulo',
@@ -57,4 +59,6 @@ export const unitsBySlug = new Map([
     [welcomeUnit.slug, welcomeUnit],
     [unitOne.slug, unitOne],
     [unitTwo.slug, unitTwo],
+    [unitThree.slug, unitThree],
+    [unitFour.slug, unitFour],
 ]);

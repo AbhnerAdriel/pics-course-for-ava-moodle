@@ -8,6 +8,8 @@ import {renderUnit, bindConfiguredLinks} from './views/unit-view.js';
 import {bindNavigationDrawer} from './components/navigation-drawer.js';
 import {bindPageInteractions} from './components/interactions.js';
 import {bindUnitTwoTools, takeReadingDestination} from './components/unit-two-tools.js';
+import {bindUnitThreeTools} from './components/unit-three-tools.js';
+import {bindUnitFourTools} from './components/unit-four-tools.js';
 
 const app = document.querySelector('#app');
 const liveRegion = document.querySelector('#app-live-region');
@@ -87,6 +89,8 @@ function bindCommon() {
     cleanupView.push(bindPageInteractions(document));
     cleanupView.push(bindConfiguredLinks(document));
     cleanupView.push(bindUnitTwoTools(document));
+    cleanupView.push(bindUnitThreeTools(document));
+    cleanupView.push(bindUnitFourTools(document));
     const cleanupVideo = window.PICSVideo?.init?.(document);
     if (typeof cleanupVideo === 'function') cleanupView.push(cleanupVideo);
 }
