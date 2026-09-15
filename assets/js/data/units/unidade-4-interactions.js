@@ -61,78 +61,6 @@ export const matchingTargets = [
   { id:'p4', description:'Promover socialização, pertencimento e qualidade de vida, com práticas corporais e danças circulares.' }
 ];
 
-export const unitFourQuestions = [
-    {
-        "label": "Questão 1.",
-        "prompt": "Sobre o uso das PICS na Atenção Básica/Atenção Primária à Saúde, assinale a alternativa correta:",
-        "options": [
-            "a) As atividades coletivas com PICS na Atenção Primária têm como foco exclusivo o tratamento de doenças, não sendo indicadas para ações de promoção da saúde ou fortalecimento de vínculos comunitários.",
-            "b) As PICS são utilizadas principalmente em atendimentos individuais, sendo pouco adequadas para grupos, rodas de conversa, oficinas ou mutirões na Atenção Primária à Saúde.",
-            "c) Os grupos, oficinas, rodas de conversa e mutirões que utilizam PICS contribuem para a promoção da saúde, prevenção de doenças, cuidado integral, fortalecimento de vínculos, valorização dos saberes populares e ampliação da participação social no território.",
-            "d) A atuação dos ACS e ACE nas ações com PICS limita-se à execução de tarefas administrativas, sem participação na mobilização comunitária ou no apoio às práticas coletivas.",
-            "e) Os mutirões de saúde que incluem PICS restringem-se à oferta de práticas integrativas isoladas, não podendo ser articulados a outras ações como vacinação, exames, orientações ou atendimentos clínicos."
-        ],
-        "correctIndex": 2,
-        "feedback": "Você acertou! As PICS, quando utilizadas em atividades coletivas como grupos, oficinas, rodas de conversa e mutirões, fortalecem o cuidado integral, a promoção da saúde, a prevenção de doenças, o vínculo entre equipes e comunidade, a participação social e a valorização dos saberes populares no território da APS.",
-        "objective": "Reconhecer as PICS como estratégia de prevenção e promoção da saúde em atividades coletivas."
-    },
-    {
-        "label": "Questão 2.",
-        "prompt": "Sobre o uso das PICS como ferramentas de aproximação, vínculo e educação em saúde no território da APS, assinale a alternativa correta:",
-        "options": [
-            "a) As PICS devem ser utilizadas prioritariamente em atendimentos individuais, apresentando pouca relevância para ações grupais, educativas ou comunitárias na Atenção Primária à Saúde.",
-            "b) O uso das PICS no território tem como principal finalidade substituir as práticas biomédicas e dispensar a atuação de profissionais e agentes de saúde na APS.",
-            "c) As PICS não possuem relação direta com os princípios do SUS e da Política Nacional de Humanização, sendo utilizadas apenas como práticas complementares sem impacto no cuidado integral.",
-            "d) A atuação dos ACS e ACE nas PICS restringe-se à observação das atividades, não contribuindo para ações educativas, preventivas ou de promoção da saúde no território.",
-            "e) As PICS contribuem para fortalecer o cuidado integral, ampliar o autocuidado, reduzir a medicalização e promover relações mais horizontais e humanizadas entre ACS, ACE, equipes de saúde e comunidade."
-        ],
-        "correctIndex": 4,
-        "feedback": "Você acertou! As PICS fortalecem o cuidado integral, estimulam o autocuidado e a autonomia, reduzem a medicalização, promovem vínculos comunitários e favorecem relações mais horizontais e humanizadas, além de ampliarem as possibilidades de atuação de ACS e ACE no território.",
-        "objective": "Reconhecer as PICS como ferramenta de aproximação, vínculo e educação em saúde."
-    },
-    {
-        "label": "Questão 3.",
-        "prompt": "A respeito das PICS, das Práticas Populares de Saúde e do conceito de território na Atenção Primária à Saúde, assinale a alternativa correta:",
-        "options": [
-            "a) As Práticas Integrativas e Complementares em Saúde não fazem parte das ações do SUS, sendo utilizadas apenas de forma isolada e desvinculadas de políticas públicas nacionais.",
-            "b) O território, segundo a abordagem de Milton Santos, limita-se a um espaço geográfico físico, sem considerar relações sociais, culturais, econômicas ou de poder.",
-            "c) As PICS e as práticas populares de saúde fortalecem o cuidado integral no SUS, valorizam o autocuidado, os saberes tradicionais e a diversidade cultural, devendo ser articuladas aos serviços de saúde, especialmente na Atenção Básica.",
-            "d) As práticas populares de saúde, como benzimento e uso de ervas medicinais, são pouco conhecidas pela população e não exercem influência significativa nas estratégias de cuidado adotadas pelas comunidades.",
-            "e) A Política Nacional de Educação Popular em Saúde (PNEPS-SUS) tem como foco exclusivo a formação acadêmica dos profissionais de saúde, não contemplando práticas populares, participação social ou controle social no SUS."
-        ],
-        "correctIndex": 2,
-        "feedback": "Você acertou! As PICS fazem parte do SUS e da PNPIC, dialogam com as Práticas Populares de Saúde presentes nos territórios e devem ser articuladas a elas, valorizando o autocuidado, os saberes tradicionais, a diversidade cultural e o território, especialmente na Atenção Primária à Saúde.",
-        "objective": "Compreender o conceito de território e reconhecer as Práticas Populares de Saúde."
-    },
-    {
-        "label": "Questão 4.",
-        "prompt": "Considerando o campo de atuação no território e o uso das PICS como estratégia de cuidado integral na Atenção Primária à Saúde, assinale a alternativa correta:",
-        "options": [
-            "a) As PICS no território têm atuação restrita ao ambiente das Unidades Básicas de Saúde, não sendo recomendadas em espaços comunitários como praças, escolas ou hortas comunitárias.",
-            "b) As PICS, quando desenvolvidas no território por meio de ações como hortas comunitárias, rodas de meditação e práticas corporais, contribuem para a promoção da qualidade de vida, prevenção de doenças e fortalecimento dos vínculos sociais na comunidade.",
-            "c) As ações territoriais com PICS priorizam exclusivamente o tratamento de doenças, não tendo relação com a promoção da saúde, a prevenção de agravos ou o fortalecimento da participação comunitária.",
-            "d) O desenvolvimento de PICS no território não influencia o vínculo entre equipes de saúde e comunidade, pois essas práticas têm caráter apenas individual e terapêutico.",
-            "e) As hortas comunitárias e rodas de meditação, enquanto exemplos de PICS no território, substituem as demais ações de saúde da Atenção Primária, tornando desnecessária a articulação com outros serviços e políticas públicas."
-        ],
-        "correctIndex": 1,
-        "feedback": "Você acertou! As PICS, quando desenvolvidas no território por meio de exemplos práticos como hortas comunitárias, práticas corporais da medicina chinesa, rodas de meditação e outras ações coletivas, promovem cuidado integral, melhoram a qualidade de vida, contribuem para a prevenção de doenças e fortalecem os vínculos sociais e comunitários.",
-        "objective": "Reconhecer exemplos práticos de PICS no território (vídeo VA4)."
-    },
-    {
-        "label": "Questão 5.",
-        "prompt": "Sobre o desenvolvimento das PICS no território da Atenção Primária à Saúde e suas contribuições para o cuidado integral, assinale a alternativa correta:",
-        "options": [
-            "a) A implementação das PICS no território favorece o cuidado integral ao considerar as dimensões físicas, emocionais, sociais e culturais das pessoas, além de estimular o autocuidado e a participação comunitária.",
-            "b) As ações com PICS no território têm como foco principal a realização de procedimentos técnicos, não sendo indicadas para ações educativas, comunitárias ou de fortalecimento dos vínculos sociais.",
-            "c) As PICS devem ser desenvolvidas apenas por profissionais especialistas, não sendo recomendada a participação de ACS e ACE nas ações territoriais e comunitárias.",
-            "d) As ações territoriais com PICS não contribuem para a prevenção de doenças, estando restritas ao alívio de sintomas já instalados.",
-            "e) O uso das PICS no território impede a articulação com outras políticas públicas e ações da Atenção Primária, por se tratar de práticas isoladas e independentes."
-        ],
-        "correctIndex": 0,
-        "feedback": "Você acertou! As PICS no território ampliam o cuidado integral ao considerar múltiplas dimensões do sujeito, promover o autocuidado, fortalecer a participação comunitária e articular ações de promoção da saúde, prevenção de doenças e fortalecimento dos vínculos sociais.",
-        "objective": "Sintetizar as contribuições das PICS no território."
-    }
-];
 
 export const unitFourMessages = {
     "objectiveLabel": "Objetivo principal:",
@@ -141,7 +69,5 @@ export const unitFourMessages = {
     "matchingPlaceholder": "(arraste aqui)",
     "matchingProgressSuffix": "corretos",
     "matchingSuccess": "Muito bem! Você acertou todos os pares.",
-    "matchingRetry": "Revise os pares incorretos e tente novamente.",
-    "feedbackLabel": "Feedback (correta):",
-    "relatedObjectiveLabel": "Objetivo relacionado:"
+    "matchingRetry": "Revise os pares incorretos e tente novamente."
 };

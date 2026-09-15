@@ -4,7 +4,7 @@ import {fileURLToPath} from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const required = [
-    'index.html', 'assets/js/app.js', 'assets/css/app.css',
+    'index.html', 'assets/js/app.js', 'assets/css/app.css', 'assets/css/content-typography.css',
     'assets/js/data/units/introducao.js', 'assets/js/data/units/boas-vindas.js', 'assets/js/data/units/unidade-1.js',
     'assets/js/data/units/unidade-2.js', 'assets/css/unidade-2.css', 'assets/js/components/unit-two-tools.js',
     'assets/js/data/units/unidade-3.js', 'assets/js/data/units/unidade-3-content.js',

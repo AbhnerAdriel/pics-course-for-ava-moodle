@@ -4,7 +4,7 @@ import {readFileSync, existsSync} from 'node:fs';
 import {course, unitsBySlug} from '../assets/js/data/course.js';
 import {unitFour} from '../assets/js/data/units/unidade-4.js';
 import {unitFourSourcePages} from '../assets/js/data/units/unidade-4-content.js';
-import {groupPurposes, mapNodes, practiceScripts, matchingTerms, matchingTargets, unitFourQuestions, unitFourMessages} from '../assets/js/data/units/unidade-4-interactions.js';
+import {groupPurposes, mapNodes, practiceScripts, matchingTerms, matchingTargets, unitFourMessages} from '../assets/js/data/units/unidade-4-interactions.js';
 import {renderUnit} from '../assets/js/views/unit-view.js';
 import {parseRoute, toHash, unitPath} from '../assets/js/core/router.js';
 
@@ -20,47 +20,60 @@ function countOccurrences(text, part) {
     return text.split(part).length - 1;
 }
 
-test('integra as seis páginas da Unidade 4 na ordem do ZIP e na paginação existente', () => {
+test('integra a Unidade 4 e separa as referências na nova página', () => {
     assert.equal(course.units.find(unit => unit.slug === 'unidade-4').available, true);
     assert.equal(unitsBySlug.get('unidade-4'), unitFour);
-    assert.deepEqual(unitFour.pages.map(page => page.title), source.pages.map(page => page.title));
-    assert.equal(unitFour.pages.length, 6);
-    for (let page = 1; page <= 6; page++) {
+    assert.deepEqual(unitFour.pages.map(page => page.title), [...source.pages.slice(0, 5).map(page => page.title), 'Refletir, praticar e encerrar', 'Referências e materiais complementares']);
+    assert.equal(unitFour.pages.length, 7);
+    for (let page = 1; page <= 7; page++) {
         const route = parseRoute(toHash(unitPath('unidade-4', page)));
         assert.equal(route.name, 'unit');
         assert.equal(route.slug, 'unidade-4');
         assert.equal(route.page, page);
         const html = renderUnit({course, unit: unitsBySlug.get(route.slug), page: route.page});
         assert.match(html, new RegExp(`data-unit="unidade-4" data-page="${page}"`));
-        assert.match(html, new RegExp(`Página ${page} de 6`));
-        for (let destination = 1; destination <= 6; destination++) {
+        assert.match(html, new RegExp(`Página ${page} de 7`));
+        for (let destination = 1; destination <= 7; destination++) {
             assert.ok(html.includes(`href="${toHash(unitPath('unidade-4', destination))}"`));
         }
-        assert.doesNotMatch(html, /unidade-4\/pagina\/7/);
+        assert.doesNotMatch(html, /unidade-4\/pagina\/8/);
     }
 });
 
-test('preserva os 145 blocos e 176 segmentos didáticos sem omissões, alterações ou duplicação de trechos', () => {
+test('preserva os textos mantidos após a remoção solicitada da identificação da aula', () => {
     assert.equal(source.pages.reduce((total, page) => total + page.blocks.length, 0), 145);
     assert.equal(source.visibleText.length, 176);
-    for (const [index, page] of source.pages.entries()) {
+    const originalLastPage = source.pages[5].visibleText;
+    const expectedByPage = [
+        ...source.pages.slice(0, 5).map(page => page.visibleText),
+        [...originalLastPage.slice(0, 34), ...originalLastPage.slice(80, 85)],
+        originalLastPage.slice(85),
+    ];
+    for (const [index, page] of expectedByPage.entries()) {
         const text = plainText(unitFour.pages[index].html);
         let offset = 0;
-        for (const segment of page.visibleText) {
+        const visibleText = (index === 0 ? page.slice(5) : page).map(segment => [
+            '[Acolhimento e contextualização]', '[Encerramento e continuidade]', '[Referências e materiais complementares]',
+        ].includes(segment) ? segment.slice(1, -1) : segment);
+        for (const segment of visibleText) {
             const position = text.indexOf(segment, offset);
             assert.ok(position >= 0, `Página ${index + 1}: trecho ausente, alterado ou fora da ordem: ${segment}`);
             offset = position + segment.length;
         }
-        const originalText = page.visibleText.join(' ');
-        for (const segment of new Set(page.visibleText.filter(value => value.length > 80))) {
+        const originalText = visibleText.join(' ');
+        for (const segment of new Set(visibleText.filter(value => value.length > 80))) {
             assert.equal(countOccurrences(text, segment), countOccurrences(originalText, segment),
                 `Página ${index + 1}: trecho duplicado: ${segment}`);
         }
     }
     const allText = plainText(unitFour.pages.map(page => page.html).join(' '));
-    assert.ok(allText.includes(source.generalText[0]));
-    assert.ok(allText.includes('Carga horária estimada: [A DEFINIR]'));
-    assert.ok(allText.includes('Nota mínima para aprovação: [A DEFINIR PELA COORDENAÇÃO DO CURSO]'));
+    assert.ok(!allText.includes(source.generalText[0]));
+    assert.doesNotMatch(unitFour.pages[0].html, /Identificação da aula|Carga horária estimada:|<b>Título:<\/b>|<b>Curso:<\/b>|<b>Descrição:<\/b>/);
+    assert.match(unitFour.pages[0].html, /u4-introduction__tag\">Introdução/);
+    assert.doesNotMatch(unitFour.pages[0].html, /\[Acolhimento e contextualização\]/);
+    assert.doesNotMatch(unitFour.pages[5].html, /Avaliação da aprendizagem|data-unit-four-quiz|Questão 1\.|Pontuação sugerida:|Nota mínima para aprovação:/);
+    assert.doesNotMatch(allText, /\[Encerramento e continuidade\]|\[Referências e materiais complementares\]/);
+    assert.match(unitFour.pages[6].html, /Referências utilizadas nesta unidade:/);
 });
 
 test('mantém exatamente os dados dinâmicos e todos os 88 textos apresentados nas interações', () => {
@@ -85,39 +98,15 @@ test('mantém exatamente os dados dinâmicos e todos os 88 textos apresentados n
     assert.ok(text.includes(activity.progressExamples[0]));
 });
 
-test('preserva as cinco perguntas, as 25 alternativas, o gabarito, as devolutivas e os objetivos', () => {
-    const expected = source.questions.map(question => ({
-        label: question.numberLabel,
-        prompt: question.prompt,
-        options: question.options.map((option, index) => `${question.optionLabels[index]} ${option}`),
-        correctIndex: question.correctIndex,
-        feedback: question.correctFeedback,
-        objective: question.relatedObjective,
-    }));
-    assert.deepEqual(unitFourQuestions, expected);
-    assert.deepEqual(unitFourQuestions.map(question => question.correctIndex), [2, 4, 2, 1, 0]);
-    const quiz = unitFour.pages[5].html.match(/<form\b[^>]*data-unit-four-quiz[\s\S]*?<\/form>/)?.[0];
-    assert.ok(quiz);
-    assert.equal((quiz.match(/<fieldset\b/g) || []).length, 5);
-    assert.equal((quiz.match(/<legend\b/g) || []).length, 5);
-    assert.equal((quiz.match(/<input\b[^>]*type="radio"[^>]*required/g) || []).length, 25);
-    for (let index = 0; index < 5; index++) {
-        assert.equal((quiz.match(new RegExp(`name="question-${index}"`, 'g')) || []).length, 5);
-        assert.match(quiz, new RegExp(`data-quiz-feedback="${index}" hidden`));
-    }
-    assert.match(quiz, /data-quiz-score hidden tabindex="-1" aria-live="polite"/);
-    assert.match(quiz, /type="reset"[^>]*data-quiz-reset hidden/);
-});
-
 test('conserva todos os links de leitura na sequência e fornece os 15 PDFs locais válidos', () => {
     const documents = new Set();
-    for (const [index, page] of unitFour.pages.entries()) {
-        const expectedLinks = source.resources.filter(resource => resource.page === index + 1 && !resource.editorial)
-            .map(resource => ({href: resource.href.replace('./docs/', './assets/documents/unidade-4/'), label: resource.label}));
-        const actualLinks = [...page.html.matchAll(/<a\b[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/g)]
-            .filter(([, href]) => href.endsWith('.pdf') || href.startsWith('https://globoplay.globo.com/'))
-            .map(([, href, label]) => ({href, label: plainText(label)}));
-        assert.deepEqual(actualLinks, expectedLinks, `Links alterados, removidos ou repetidos na página ${index + 1}`);
+    const expectedLinks = source.resources.filter(resource => !resource.editorial)
+        .map(resource => ({href: resource.href.replace('./docs/', './assets/documents/unidade-4/'), label: resource.label}));
+    const actualLinks = [...unitFour.pages.map(page => page.html).join(' ').matchAll(/<a\b[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/g)]
+        .filter(([, href]) => href.endsWith('.pdf') || href.startsWith('https://globoplay.globo.com/'))
+        .map(([, href, label]) => ({href, label: plainText(label)}));
+    assert.deepEqual(actualLinks, expectedLinks, 'Links alterados, removidos ou repetidos');
+    for (const page of unitFour.pages) {
         for (const [, file] of page.html.matchAll(/(?:src|href)="(\.\/assets\/[^"#]+)"/g)) {
             const path = new URL(`../${file}`, import.meta.url);
             assert.ok(existsSync(path), `Recurso local ausente: ${file}`);
@@ -191,5 +180,5 @@ test('mantém as notas de produção separadas e não apresenta links de referê
     assert.doesNotMatch(videoPage, /<(?:iframe|video)\b[^>]*globoplay/i);
     const references = source.pages[5].blocks.filter(block => block.line >= 352 && block.line <= 363);
     assert.equal(references.length, 12);
-    for (const reference of references) assert.ok(plainText(unitFour.pages[5].html).includes(reference.text));
+    for (const reference of references) assert.ok(plainText(unitFour.pages[6].html).includes(reference.text));
 });

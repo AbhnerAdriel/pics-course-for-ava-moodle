@@ -1,6 +1,8 @@
 # Integração da Unidade 4
 
-A unidade usa como fonte `unidade-04.zip`, especialmente `unidade-04/index.html`, `js/data.js` e `js/script.js`. As seis páginas e sua sequência foram mantidas: abertura e objetivos; grupos, oficinas, rodas de conversa e mutirões; aproximação e vínculo; relato de experiência; território e práticas populares; reflexão, prática, interação, avaliação, síntese e referências.
+Após a integração, por solicitação do usuário, foi removido da página 1 o bloco “Unidade 4 - Aula completa”, “Identificação da aula” e os campos Título, Curso, Carga horária estimada e Descrição. Foram retirados os colchetes de “Acolhimento e contextualização” e adicionada a etiqueta “Introdução” à esquerda da linha superior, repetindo o padrão da Unidade 3. O inventário original do ZIP foi preservado, e a conferência considera essas alterações autorizadas.
+
+A unidade usa como fonte `unidade-04.zip`, especialmente `unidade-04/index.html`, `js/data.js` e `js/script.js`. Após a integração, a avaliação da aprendizagem foi removida integralmente por solicitação do usuário. A antiga página 6 passou a se chamar “Refletir, praticar e encerrar”, e “Referências e materiais complementares” passou a constituir a página 7. Os colchetes desse título e de “Encerramento e continuidade” foram retirados.
 
 ## Conteúdo e apresentação
 
@@ -26,4 +28,4 @@ Os campos “[A DEFINIR]” de carga horária e “[A DEFINIR PELA COORDENAÇÃO
 
 `tests/fixtures/unit-four-source-text.json` registra os arquivos de origem e seus hashes, os 145 blocos/176 segmentos didáticos, os 88 textos dinâmicos, as cinco questões, as mensagens, os links e as notas editoriais separadas. `tests/unit-four-content.test.mjs` verifica fidelidade, ordem, ausência de duplicações indevidas, integração, referências de acessibilidade e os 15 PDFs. `tests/unit-four-tools.test.mjs` verifica avaliação, associação, reinício, recuperação, cleanup e navegação local.
 
-As seis páginas foram conferidas no Chrome em 1366, 390 e 320 pixels, sem transbordamento horizontal nem imagens ausentes. Também foram conferidos o primeiro item aberto, as abas por teclado, os três roteiros, os quatro pares por clique/teclado/arraste, os estados de erro e acerto, a nota, os feedbacks, a recuperação da tentativa, o reinício, os atalhos locais e o card da Unidade 4 na página principal. Todos os 15 PDFs responderam corretamente pelo servidor local.
+As páginas foram conferidas no Chrome em 1366, 390 e 320 pixels, sem transbordamento horizontal nem imagens ausentes. Também foram conferidos o primeiro item aberto, as abas por teclado, os três roteiros, os quatro pares por clique/teclado/arraste, o reinício, os atalhos locais e o card da Unidade 4 na página principal. Todos os 15 PDFs responderam corretamente pelo servidor local.

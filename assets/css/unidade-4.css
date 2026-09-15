@@ -31,6 +31,11 @@
 [data-unit="unidade-4"] #pagina-conteudo :is(h2, h3, h4, fieldset, aside) { scroll-margin-top: 28px; }
 [data-unit="unidade-4"] #pagina-conteudo :is(a, button, summary, input, [role="tabpanel"]):focus-visible { outline: 3px solid var(--cor-foco-acessivel, #bb811d); outline-offset: 5px; }
 .u4-lesson { min-width: 0; }
+.u4-introduction { margin: clamp(46px, 6vw, 72px) 0 26px; }
+.u4-introduction__rule { display: flex; align-items: center; gap: 14px; }
+.u4-introduction__rule::after { content: ""; flex: 1; height: 3px; background: var(--pics-ochre); }
+.u4-introduction__tag { padding: 6px 14px; border-radius: 4px 12px 4px 12px; background: var(--pics-deep); color: #fff; font: 700 14px/1.5 var(--fonte-auxiliar); }
+.u4-introduction .u2-chapter { margin: 18px 0 0; padding: 0; border: 0; }
 .u4-prose > p { margin: 0; }
 .u4-prose > ul { margin: 20px 0 0; padding-left: 24px; list-style: disc; }
 .u4-prose li { margin-bottom: 14px; }
@@ -96,11 +101,6 @@
 .u4-forum blockquote { margin: 28px 0; padding: 0 0 0 22px; border-left: 4px solid var(--pics-ochre); color: var(--pics-deep); font-weight: 700; }
 .u4-forum blockquote > div { margin-bottom: 10px; color: #72501d; font-size: 14px; }
 .u4-forum ul { padding-left: 24px; list-style: disc; }
-.u4-quiz .u2-question__feedback p { margin: 0 0 12px; }
-.u4-quiz .u2-question__feedback p:last-child { margin-bottom: 0; }
-.u4-quiz .u2-question__feedback[hidden], .u4-quiz [data-quiz-score][hidden] { display: none; }
-.u4-quiz label[data-answer="correct"]::after { content: "✓"; flex: 0 0 auto; color: #527b27; font-weight: 800; font-size: 22px; }
-.u4-quiz label[data-answer="incorrect"]::after { content: "×"; flex: 0 0 auto; color: #ad2c27; font-weight: 800; font-size: 22px; }
 .u4-video video { display: block; width: 100%; height: auto; }
 
 @media (max-width: 640px) {
@@ -117,7 +117,6 @@
 
 @media print {
     [data-unit="unidade-4"] #pagina-conteudo { padding: 0; border: 0; box-shadow: none; overflow: visible; }
-    .u4-reading-nav, .u4-concept-map__tabs, .u4-practice__tabs, .u4-matching, .u4-quiz .u2-quiz__actions { display: none; }
     .u4-concept-map__panel[hidden], .u4-practice__panel[hidden] { display: block; }
     .u4-callout, .u4-practice__steps > li { break-inside: avoid; }
 }

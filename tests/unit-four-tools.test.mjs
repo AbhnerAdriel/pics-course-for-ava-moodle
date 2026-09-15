@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {bindUnitFourTools, evaluateUnitFourAnswers, evaluateUnitFourMatches} from '../assets/js/components/unit-four-tools.js';
-import {unitFourQuestions, unitFourMessages} from '../assets/js/data/units/unidade-4-interactions.js';
+import {bindUnitFourTools, evaluateUnitFourMatches} from '../assets/js/components/unit-four-tools.js';
+import {unitFourMessages} from '../assets/js/data/units/unidade-4-interactions.js';
 
 class Element {
     constructor(kind = '', dataset = {}) {
@@ -70,53 +70,7 @@ function matchingFixture() {
     return {root, activity, terms, targets, progress, result, reset, pair};
 }
 
-function quizFixture() {
-    const feedbacks = unitFourQuestions.map((question) => {
-        const feedback = new Element();
-        feedback.hidden = true;
-        feedback.textContent = `${unitFourMessages.feedbackLabel} ${question.feedback} ${unitFourMessages.relatedObjectiveLabel} ${question.objective}`;
-        return feedback;
-    });
-    const fields = unitFourQuestions.map((question, index) => {
-        const field = new Element('fieldset', {unitFourQuestion: String(index)});
-        field.inputs = question.options.map((_, option) => {
-            const input = new Element('radio');
-            input.value = String(option);
-            input.label = new Element('label');
-            return input;
-        });
-        field.querySelectorAll = (selector) => selector === 'input[type="radio"]' ? field.inputs : selector === 'label' ? field.inputs.map((input) => input.label) : [];
-        field.querySelector = (selector) => selector === 'input[type="radio"]:checked' ? field.inputs.find((input) => input.checked) || null : field.inputs.find((input) => selector === `input[value="${input.value}"]`) || null;
-        return field;
-    });
-    const score = new Element();
-    score.hidden = true;
-    const submit = new Element('submit');
-    const reset = new Element('reset');
-    reset.hidden = true;
-    const form = new Element('form');
-    form.querySelector = (selector) => {
-        const field = selector.match(/^fieldset\[data-unit-four-question="(\d+)"\]$/);
-        if (field) return fields[Number(field[1])] || null;
-        const feedback = selector.match(/^\[data-quiz-feedback="(\d+)"\]$/);
-        if (feedback) return feedbacks[Number(feedback[1])] || null;
-        return {'[data-quiz-score]': score, '[data-quiz-submit]': submit, '[data-quiz-reset]': reset}[selector] || null;
-    };
-    form.reportValidity = () => fields.every((field) => field.inputs.some((input) => input.checked));
-    const unit = {querySelectorAll: (selector) => selector === 'form[data-unit-four-quiz]' ? [form] : []};
-    const root = {querySelector: () => unit};
-    const choose = (answers) => fields.forEach((field, index) => field.inputs.forEach((input) => { input.checked = Number(input.value) === answers[index]; }));
-    return {root, form, fields, feedbacks, score, submit, reset, choose};
-}
 
-test('avalia o gabarito original completo e rejeita respostas incompletas ou inválidas', () => {
-    assert.deepEqual(unitFourQuestions.map((question) => question.correctIndex), [2, 4, 2, 1, 0]);
-    for (const answers of [null, [], [2, 4, 2, 1], [2, 4, null, 1, 0], [2, 4, 2, 1, 5], [2, 4, 2, 1, '0'], new Array(5)]) {
-        assert.equal(evaluateUnitFourAnswers(answers), null);
-    }
-    assert.deepEqual(evaluateUnitFourAnswers([2, 4, 2, 1, 0]), {correct: [true, true, true, true, true], score: 10, total: 10});
-    assert.deepEqual(evaluateUnitFourAnswers([2, 0, 2, 0, 0]), {correct: [true, false, true, false, true], score: 6, total: 10});
-});
 
 test('avalia pares corretos, parciais e incorretos sem aceitar identificadores desconhecidos', () => {
     for (const matches of [null, [], {p5: 't1'}, {p1: 't5'}]) assert.equal(evaluateUnitFourMatches(matches), null);
@@ -179,76 +133,6 @@ test('arrastar e soltar usa os mesmos pares e restaura o DOM no encerramento da 
     assert.equal(fixture.activity.listeners.size, 0);
 });
 
-test('quiz exige todas as respostas, preserva devolutivas, calcula a nota e permite nova tentativa', () => {
-    const fixture = quizFixture();
-    const originalFeedback = fixture.feedbacks.map((feedback) => feedback.textContent);
-    const cleanup = bindUnitFourTools(fixture.root);
-    fixture.choose([2, 4, 2, 1, null]);
-    fixture.form.emit('submit');
-    assert.equal(fixture.score.hidden, true);
-    fixture.choose([2, 0, 2, 0, 0]);
-    fixture.form.emit('submit');
-    assert.equal(fixture.score.textContent, '6 / 10');
-    assert.equal(fixture.score.focused, true);
-    assert.equal(fixture.submit.hidden, true);
-    assert.equal(fixture.reset.hidden, false);
-    assert.ok(fixture.fields.every((field) => field.disabled));
-    assert.deepEqual(fixture.feedbacks.map((feedback) => feedback.hidden), [false, true, false, true, false]);
-    assert.deepEqual(fixture.feedbacks.map((feedback) => feedback.textContent), originalFeedback);
-    assert.equal(fixture.fields[1].inputs[0].label.dataset.answer, 'incorrect');
-    assert.equal(fixture.fields[1].inputs[4].label.dataset.answer, 'correct');
-    assert.equal(fixture.fields[1].getAttribute('aria-invalid'), 'true');
-    assert.equal(fixture.fields[0].getAttribute('aria-invalid'), 'false');
-    assert.equal(fixture.fields[1].inputs[0].getAttribute('aria-label'), `${unitFourQuestions[1].options[0]} — resposta incorreta`);
-    assert.equal(fixture.fields[1].inputs[4].getAttribute('aria-label'), `${unitFourQuestions[1].options[4]} — alternativa correta`);
-    fixture.form.emit('reset');
-    assert.equal(fixture.score.hidden, true);
-    assert.ok(fixture.fields.every((field) => !field.disabled && field.inputs.every((input) => !input.checked)));
-    assert.ok(fixture.fields.every((field) => field.getAttribute('aria-invalid') === null && field.inputs.every((input) => input.getAttribute('aria-label') === null)));
-    assert.ok(fixture.feedbacks.every((feedback) => feedback.hidden));
-    fixture.choose([2, 4, 2, 1, 0]);
-    fixture.form.emit('submit');
-    assert.equal(fixture.score.textContent, '10 / 10');
-    assert.ok(fixture.feedbacks.every((feedback) => !feedback.hidden));
-    cleanup();
-    assert.equal(fixture.form.listeners.size, 0);
-    assert.equal(fixture.score.textContent, '');
-    assert.ok(fixture.fields.every((field) => !field.disabled));
-    assert.ok(fixture.fields.every((field) => field.getAttribute('aria-invalid') === null && field.inputs.every((input) => input.getAttribute('aria-label') === null)));
-    assert.ok(fixture.fields.every((field) => field.inputs.every((input) => !input.required && !input.checked)));
-});
-
-test('tentativa salva restaura respostas e nota ao retornar à página, sem duplicar listeners', () => {
-    const originalStorage = globalThis.sessionStorage;
-    const items = new Map();
-    globalThis.sessionStorage = {setItem: (key, value) => items.set(key, value), getItem: (key) => items.get(key) || null, removeItem: (key) => items.delete(key)};
-    try {
-        const first = quizFixture();
-        const firstCleanup = bindUnitFourTools(first.root);
-        first.choose([2, 4, 2, 1, 0]);
-        first.form.emit('submit');
-        assert.equal(items.size, 1);
-        firstCleanup();
-        const next = quizFixture();
-        const nextCleanup = bindUnitFourTools(next.root);
-        assert.equal(next.score.textContent, '10 / 10');
-        assert.equal(next.score.hidden, false);
-        assert.ok(next.fields.every((field) => field.disabled));
-        assert.ok(next.feedbacks.every((feedback) => !feedback.hidden));
-        const reboundCleanup = bindUnitFourTools(next.root);
-        assert.equal(next.form.listeners.size, 3);
-        next.form.emit('reset');
-        assert.equal(items.size, 0);
-        assert.ok(next.feedbacks.every((feedback) => feedback.hidden));
-        nextCleanup();
-        assert.equal(next.form.listeners.size, 3);
-        reboundCleanup();
-        assert.equal(next.form.listeners.size, 0);
-    } finally {
-        if (originalStorage === undefined) delete globalThis.sessionStorage;
-        else globalThis.sessionStorage = originalStorage;
-    }
-});
 
 test('binder não altera páginas pertencentes a outra unidade', () => {
     let queries = 0;
@@ -260,10 +144,10 @@ test('binder não altera páginas pertencentes a outra unidade', () => {
 test('navegação de leitura foca apenas destinos da própria unidade e respeita movimento reduzido', () => {
     const originalMatchMedia = globalThis.matchMedia;
     const unit = new Element('unit');
-    const button = new Element('reading', {unitFourReading: 'u4-avaliacao'});
+    const button = new Element('reading', {unitFourReading: 'u4-sintese'});
     button.closest = (selector) => selector === '[data-unit-four-reading]' ? button : null;
     const target = new Element('section');
-    target.id = 'u4-avaliacao';
+    target.id = 'u4-sintese';
     target.scrollIntoView = (options) => { target.scrollOptions = options; };
     unit.contains = (node) => node === button || node === target;
     unit.querySelectorAll = (selector) => selector === '[data-unit-four-reading]' ? [button] : selector === '[id]' ? [target] : [];

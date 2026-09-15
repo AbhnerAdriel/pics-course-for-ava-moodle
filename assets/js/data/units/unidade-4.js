@@ -1,6 +1,6 @@
 import {appConfig} from '../../config.js';
 import {unitFourSourcePages} from './unidade-4-content.js';
-import {groupPurposes, mapNodes, practiceScripts, matchingTerms, matchingTargets, unitFourQuestions, unitFourMessages} from './unidade-4-interactions.js';
+import {groupPurposes, mapNodes, practiceScripts, matchingTerms, matchingTargets, unitFourMessages} from './unidade-4-interactions.js';
 
 const escapeText = value => String(value).replace(/[&<>"']/g, character => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'}[character]));
 
@@ -49,17 +49,6 @@ function matchingActivity() {
     </div>`;
 }
 
-function quizForm() {
-    return `<form class="u4-quiz" data-unit-four-quiz>
-        ${unitFourQuestions.map((question, index) => `<fieldset class="u2-question" data-unit-four-question="${index}">
-            <legend><span class="u2-question__number">${escapeText(question.label)}</span>${escapeText(question.prompt)}</legend>
-            <div class="u2-question__options">${question.options.map((option, optionIndex) => `<label><input type="radio" name="question-${index}" value="${optionIndex}" required><span>${escapeText(option)}</span></label>`).join('')}</div>
-            <div class="u2-question__feedback" data-quiz-feedback="${index}" hidden><p><strong>${unitFourMessages.feedbackLabel}</strong> ${escapeText(question.feedback)}</p><p><strong>${unitFourMessages.relatedObjectiveLabel}</strong> ${escapeText(question.objective)}</p></div>
-        </fieldset>`).join('')}
-        <div class="u2-quiz__actions"><button class="u2-action" type="submit" data-quiz-submit>Enviar respostas</button><p class="u2-quiz__result" data-quiz-score hidden tabindex="-1" aria-live="polite"></p><button class="u2-action u2-action--secondary" type="reset" data-quiz-reset hidden>Refazer questionário</button></div>
-    </form>`;
-}
-
 function videoResource() {
     const url = appConfig.unitFourVideoUrl;
     if (!url) return '';
@@ -69,7 +58,7 @@ function videoResource() {
     return `<section class="pics-video u4-video" data-pics-video aria-label="Vídeo VA4: PICS no território"><div class="pics-video__stage"><div class="pics-video__frame"><div class="pics-video__media-shell"><div class="pics-video__media">${media}</div></div></div></div></section>`;
 }
 
-const renderers = {groups: groupPurposeDetails, 'concept-map': conceptMap, practice: practiceScriptsTabs, matching: matchingActivity, quiz: quizForm, video: videoResource};
+const renderers = {groups: groupPurposeDetails, 'concept-map': conceptMap, practice: practiceScriptsTabs, matching: matchingActivity, video: videoResource};
 
 function renderPage(page, index) {
     const sections = page.sections.map(section => section.type === 'html' ? section.content : renderers[section.type]());

@@ -1,0 +1,7 @@
+/* Regra editorial comum a todos os parágrafos das unidades. */
+[data-unit] #pagina-conteudo p {
+    text-align: justify !important;
+    text-indent: clamp(1.5rem, 4vw, 2.5rem) !important;
+    hyphens: auto;
+    overflow-wrap: break-word;
+}

@@ -5,19 +5,7 @@ export const unitFourSourcePages = [
         "sections": [
             {
                 "type": "html",
-                "content": "<p class=\"pics-section-kicker\">Unidade 4 - Aula completa</p>"
-            },
-            {
-                "type": "html",
-                "content": "<header class=\"u4-heading u2-heading\"><h2 id=\"u4-page-1-section-1\">Identificação da aula</h2></header>"
-            },
-            {
-                "type": "html",
-                "content": "<div class=\"u4-prose u2-prose\"><p data-source-line=\"17\"><b>Título:</b> Campo de atuação no território e PICS como estratégia de cuidado integral<br>\n<b>Curso:</b> Práticas Integrativas e Complementares em Saúde (PICS) na Atuação de Agentes Comunitários de Saúde e Agentes de Combate às Endemias<br>\n<b>Carga horária estimada:</b> [A DEFINIR]<br>\n<b>Descrição:</b> Esta unidade apresenta o território como campo de atuação do ACS e do ACE e discute as PICS como estratégia de cuidado integral, incluindo grupos, oficinas, rodas de conversa, mutirões e a articulação com as práticas populares de saúde.</p></div>"
-            },
-            {
-                "type": "html",
-                "content": "<h3 class=\"u2-chapter\" id=\"u4-page-1-section-2\" data-source-line=\"22\">[Acolhimento e contextualização]</h3>"
+                "content": "<header class=\"u4-introduction\"><div class=\"u4-introduction__rule\"><span class=\"u4-introduction__tag\">Introdução</span></div><h3 class=\"u2-chapter\" id=\"u4-page-1-section-2\" data-source-line=\"22\">Acolhimento e contextualização</h3></header>"
             },
             {
                 "type": "html",
@@ -42,12 +30,8 @@ export const unitFourSourcePages = [
         ],
         "headings": [
             {
-                "id": "u4-page-1-section-1",
-                "text": "Identificação da aula"
-            },
-            {
                 "id": "u4-page-1-section-2",
-                "text": "[Acolhimento e contextualização]"
+                "text": "Acolhimento e contextualização"
             },
             {
                 "id": "u4-page-1-section-3",
@@ -221,7 +205,7 @@ export const unitFourSourcePages = [
         ]
     },
     {
-        "title": "Refletir, praticar, avaliar e encerrar",
+        "title": "Refletir, praticar e encerrar",
         "sections": [
             {
                 "type": "html",
@@ -291,21 +275,6 @@ export const unitFourSourcePages = [
             },
             {
                 "type": "html",
-                "content": "<h3 class=\"u2-chapter\" id=\"u4-page-6-section-5\" data-source-line=\"279\">Avaliação da aprendizagem </h3>"
-            },
-            {
-                "type": "html",
-                "content": "<div class=\"u4-prose u2-prose\"><p data-source-line=\"280\">Cinco questões de múltipla escolha, cada uma com cinco alternativas e apenas uma correta, valendo 2 pontos por acerto (10 pontos no total), abrangendo todo o conteúdo desta unidade.</p></div>"
-            },
-            {
-                "type": "quiz"
-            },
-            {
-                "type": "html",
-                "content": "<div class=\"u4-prose u2-prose\"><p data-source-line=\"337\"><b>Pontuação sugerida:</b> 10 pontos (2 pontos por questão).<br>\n<b>Nota mínima para aprovação:</b> [A DEFINIR PELA COORDENAÇÃO DO CURSO]<br>\n<b>Nova tentativa:</b> permitida - opção \"Refazer questionário\".<br>\n<b>Orientação em caso de erro:</b> ao errar uma questão, retome a página correspondente indicada no feedback antes de refazer o questionário.</p></div>"
-            },
-            {
-                "type": "html",
                 "content": "<h3 class=\"u2-chapter\" id=\"u4-page-6-section-6\" data-source-line=\"342\">Síntese da aula</h3>"
             },
             {
@@ -314,15 +283,46 @@ export const unitFourSourcePages = [
             },
             {
                 "type": "html",
-                "content": "<h3 class=\"u2-chapter\" id=\"u4-page-6-section-7\" data-source-line=\"346\">[Encerramento e continuidade]</h3>"
+                "content": "<h3 class=\"u2-chapter\" id=\"u4-page-6-section-7\" data-source-line=\"346\">Encerramento e continuidade</h3>"
             },
             {
                 "type": "html",
                 "content": "<div class=\"u4-prose u2-prose\"><p data-source-line=\"347\">Você concluiu a Unidade 4 e, com ela, o curso introdutório sobre PICS para ACS e ACE. Antes de encerrar, pergunte-se: qual dessas estratégias - grupos, rodas de conversa, mutirões ou diálogo com as práticas populares - você já pratica ou poderia começar a praticar no seu território?</p><p data-source-line=\"348\">Participe do fórum \"Dialogue com a Prática\" e, se possível, realize um dos roteiros práticos apresentados nesta unidade com sua equipe ou comunidade.</p></div>"
+            }
+        ],
+        "headings": [
+            {
+                "id": "u4-page-6-section-1",
+                "text": "Pausas para reflexão"
             },
             {
+                "id": "u4-page-6-section-2",
+                "text": "Atividade de arrastar e soltar"
+            },
+            {
+                "id": "u4-page-6-section-3",
+                "text": "Atividade prática - roteiros de vivência com PICS"
+            },
+            {
+                "id": "u4-page-6-section-4",
+                "text": "Interação e troca"
+            },
+            {
+                "id": "u4-page-6-section-6",
+                "text": "Síntese da aula"
+            },
+            {
+                "id": "u4-page-6-section-7",
+                "text": "Encerramento e continuidade"
+            }
+        ]
+    },
+    {
+        "title": "Referências e materiais complementares",
+        "sections": [
+            {
                 "type": "html",
-                "content": "<h3 class=\"u2-chapter\" id=\"u4-page-6-section-8\" data-source-line=\"350\">[Referências e materiais complementares]</h3>"
+                "content": "<header class=\"u4-heading u2-heading\"><h2 id=\"u4-page-7-section-1\">Referências e materiais complementares</h2></header>"
             },
             {
                 "type": "html",
@@ -359,36 +359,8 @@ export const unitFourSourcePages = [
         ],
         "headings": [
             {
-                "id": "u4-page-6-section-1",
-                "text": "Pausas para reflexão"
-            },
-            {
-                "id": "u4-page-6-section-2",
-                "text": "Atividade de arrastar e soltar"
-            },
-            {
-                "id": "u4-page-6-section-3",
-                "text": "Atividade prática - roteiros de vivência com PICS"
-            },
-            {
-                "id": "u4-page-6-section-4",
-                "text": "Interação e troca"
-            },
-            {
-                "id": "u4-page-6-section-5",
-                "text": "Avaliação da aprendizagem"
-            },
-            {
-                "id": "u4-page-6-section-6",
-                "text": "Síntese da aula"
-            },
-            {
-                "id": "u4-page-6-section-7",
-                "text": "[Encerramento e continuidade]"
-            },
-            {
-                "id": "u4-page-6-section-8",
-                "text": "[Referências e materiais complementares]"
+                "id": "u4-page-7-section-1",
+                "text": "Referências e materiais complementares"
             }
         ]
     }
