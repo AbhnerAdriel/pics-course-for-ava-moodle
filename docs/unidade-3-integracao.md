@@ -2,17 +2,20 @@
 
 Após a integração, por solicitação do usuário, foi removido da página 1 o bloco “Unidade 3 - Aula completa”, “Identificação da aula” e os campos Título, Unidade, Carga horária estimada e Descrição. Foram retirados os colchetes de “Acolhimento e contextualização” e adicionada a etiqueta “Introdução” à esquerda da linha superior. O inventário original do ZIP foi preservado, e a conferência considera essas alterações autorizadas.
 
-A Unidade 3 foi implementada a partir de `C:\Users\UFPE\Downloads\unidade-03.zip`, mantendo as cinco páginas do rascunho na ordem original:
+A Unidade 3 foi implementada a partir de `C:\Users\UFPE\Downloads\unidade-03.zip`. Posteriormente, a avaliação da aprendizagem foi removida integralmente da página 5 por solicitação do usuário. “Referências e materiais complementares” passou a constituir a sexta página, e os colchetes desse título e de “Encerramento e continuidade” foram retirados.
+
+As cinco páginas do rascunho foram mantidas na ordem original, com a nova separação das referências:
 
 1. Yoga e Meditação: por onde começar?
 2. Os fundamentos do Yoga
 3. Meditação e benefícios combinados
 4. Da teoria à prática: aplicação nas UBS
-5. Refletir, praticar, avaliar e encerrar
+5. Refletir, praticar e encerrar
+6. Referências e materiais complementares
 
 O conteúdo fica em `assets/js/data/units/unidade-3-content.js` e os dados das interações em `unidade-3-interactions.js`. O módulo `unidade-3.js` adapta esses dados ao contrato de páginas do curso. A unidade está registrada em `course.js`, disponível na página inicial, no menu e na paginação, com acompanhamento de progresso pelo mecanismo existente.
 
-A apresentação reutiliza os estilos de leitura, títulos, chamadas, abas, botões e questionário da Unidade 2. `assets/css/unidade-3.css` acrescenta os ajustes locais de composição e responsividade. Não foram modificados os conteúdos ou componentes das outras unidades.
+A apresentação reutiliza os estilos de leitura, títulos, chamadas, abas e botões da Unidade 2. `assets/css/unidade-3.css` acrescenta os ajustes locais de composição e responsividade. Não foram modificados os conteúdos ou componentes das outras unidades.
 
 ## Fidelidade ao material
 
@@ -26,12 +29,9 @@ As marcações de início/fim de página organizam a paginação. As instruçõe
 - Mapa conceitual com cinco abas e passo a passo de meditação com oito abas, pelo slider existente, com setas, Home e End, relações ARIA e painéis disponíveis antes da inicialização.
 - As figuras de Sukhasana e Shavasana vieram no ZIP e foram copiadas integralmente para `assets/images/unidades/unidade-03/`, mantendo suas proporções e legendas.
 - Associação dos quatro primeiros passos por clique, teclado e arraste, sem repetir o mesmo termo em duas definições; indicação de acerto/erro e reinício.
-- Três questões com quinze alternativas, gabarito original, feedbacks de acerto e erro, objetivos relacionados, nova tentativa e recuperação de respostas pela sessão. A pontuação usa os dois pontos por acerto do rascunho: máximo de seis pontos nas três questões disponíveis.
 - Navegação, foco, progresso, preferência por movimento reduzido e links configurados pelo mecanismo do curso.
 
 ## Recursos que não vieram no ZIP
-
-O rascunho anuncia cinco questões, mas contém somente as questões 1, 2 e 3. Não há textos, alternativas ou gabaritos das questões 4 e 5. A indicação original de cinco questões e dez pontos foi preservada no texto; não foram inventadas questões de Automassagem ou Shantala.
 
 Também não vieram os áudios de meditação guiada, a URL do fórum nem os cinco PDFs:
 
@@ -47,6 +47,6 @@ Em `assets/js/config.js`, configurar `unitThreeForumUrl`, `unitThreeMeditationAu
 
 ## Verificação
 
-`npm run check`: validação de recursos e todos os 66 testes aprovados. A suíte de conteúdo confere sequência dos textos, ausência de duplicação dos parágrafos extensos, dados dinâmicos, perguntas/alternativas/feedbacks, arquivos das figuras, gabaritos, IDs e destinos ARIA.
+`npm run check`: validação de recursos e testes automatizados. A suíte de conteúdo confere a remoção da avaliação, a nova página de referências, a sequência dos textos mantidos, ausência de duplicação dos parágrafos extensos, dados dinâmicos, arquivos das figuras, IDs e destinos ARIA.
 
-Revisão em Chrome nas cinco páginas e larguras de 1366, 390 e 320 pixels: sem transbordamento horizontal, imagens ausentes, erros de execução ou respostas locais 404. Foram verificados os grupos de details, as cinco abas do mapa, as oito etapas e duas figuras, navegação de abas por teclado, associação por teclado/clique/arraste, reinício, exigência de respostas completas, correção de tentativas certas e erradas, feedbacks correspondentes e recuperação da tentativa ao sair e voltar.
+Revisão em Chrome nas páginas e larguras de 1366, 390 e 320 pixels: sem transbordamento horizontal, imagens ausentes, erros de execução ou respostas locais 404. Foram verificados os grupos de details, as cinco abas do mapa, as oito etapas e duas figuras, navegação de abas por teclado, associação por teclado/clique/arraste e reinício.

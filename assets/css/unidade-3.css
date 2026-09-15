@@ -82,11 +82,6 @@
 .u3-practical > div:nth-child(5) > div:last-child > div { display: flex; align-items: baseline; gap: 16px; padding-block: 12px; border-bottom: 1px solid var(--pics-line); }
 .u3-practical > div:nth-child(5) > div:last-child > div > div:first-child { color: var(--pics-ochre); font-weight: 800; }
 .u3-practical p { margin: 0; }
-.u3-quiz .u2-question__feedback p { margin: 0 0 12px; }
-.u3-quiz .u2-question__feedback p:last-child { margin-bottom: 0; }
-.u3-quiz [hidden] { display: none; }
-.u3-quiz label[data-answer="correct"]::after { content: "✓"; color: #527b27; font-weight: 800; font-size: 22px; }
-.u3-quiz label[data-answer="incorrect"]::after { content: "×"; color: #ad2c27; font-weight: 800; font-size: 22px; }
 @media (max-width: 640px) {
     [data-unit="unidade-3"] #pagina-conteudo { padding: 24px 20px; border-radius: 8px 28px 8px 28px; }
     .u3-map__tabs.u2-benefits__tabs, .u3-meditation__tabs.u2-benefits__tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 16px; }
@@ -98,7 +93,6 @@
 }
 @media print {
     [data-unit="unidade-3"] #pagina-conteudo { padding: 0; border: 0; box-shadow: none; overflow: visible; }
-    .u3-map__tabs, .u3-meditation__tabs, .u3-matching, .u3-quiz .u2-quiz__actions { display: none; }
     .u3-map__panel[hidden], .u3-meditation__panel[hidden] { display: block; }
     .u3-callout, .u3-posture { break-inside: avoid; }
 }

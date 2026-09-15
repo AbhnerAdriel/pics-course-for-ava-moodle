@@ -200,7 +200,7 @@ export const unitThreeSourcePages = [
         ]
     },
     {
-        "title": "Refletir, praticar, avaliar e encerrar",
+        "title": "Refletir, praticar e encerrar",
         "headings": [
             {
                 "id": "u3-page-5-section-1",
@@ -219,20 +219,12 @@ export const unitThreeSourcePages = [
                 "text": "Interação e troca"
             },
             {
-                "id": "u3-page-5-section-5",
-                "text": "Avaliação da aprendizagem"
-            },
-            {
                 "id": "u3-page-5-section-6",
                 "text": "Síntese da aula"
             },
             {
                 "id": "u3-page-5-section-7",
-                "text": "[Encerramento e continuidade]"
-            },
-            {
-                "id": "u3-page-5-section-8",
-                "text": "[Referências e materiais complementares]"
+                "text": "Encerramento e continuidade"
             }
         ],
         "sections": [
@@ -281,21 +273,6 @@ export const unitThreeSourcePages = [
             },
             {
                 "type": "html",
-                "content": "<h3 class=\"u2-chapter\" id=\"u3-page-5-section-5\" data-source-line=\"270\">Avaliação da aprendizagem </h3>"
-            },
-            {
-                "type": "html",
-                "content": "<div class=\"u3-prose u2-prose\"><p data-source-line=\"271\">Cinco questões de múltipla escolha, cada uma com cinco alternativas e apenas uma correta, valendo 2 pontos por acerto (10 pontos no total). As três primeiras questões abordam diretamente os conteúdos desta aula (Yoga e Meditação); as duas últimas abordam Automassagem e Shantala, conteúdos das aulas seguintes da Unidade 3.</p></div>"
-            },
-            {
-                "type": "quiz"
-            },
-            {
-                "type": "html",
-                "content": "<div class=\"u3-prose u2-prose\"><p data-source-line=\"311\"><b data-source-line=\"311\">Pontuação sugerida:</b> 10 pontos (2 pontos por questão).<br data-source-line=\"311\">\n<b data-source-line=\"312\">Nota mínima para aprovação:</b> [A DEFINIR PELA COORDENAÇÃO DO CURSO]<br data-source-line=\"312\">\n<b data-source-line=\"313\">Nova tentativa:</b> permitida - o questionário já publicado inclui a opção \"Refazer questionário\".<br data-source-line=\"313\">\n<b data-source-line=\"314\">Orientação em caso de erro:</b> ao errar uma questão, retome a seção correspondente indicada no feedback antes de refazer o questionário.</p></div>"
-            },
-            {
-                "type": "html",
                 "content": "<h3 class=\"u2-chapter\" id=\"u3-page-5-section-6\" data-source-line=\"316\">Síntese da aula</h3>"
             },
             {
@@ -304,15 +281,26 @@ export const unitThreeSourcePages = [
             },
             {
                 "type": "html",
-                "content": "<h3 class=\"u2-chapter\" id=\"u3-page-5-section-7\" data-source-line=\"321\">[Encerramento e continuidade]</h3>"
+                "content": "<h3 class=\"u2-chapter\" id=\"u3-page-5-section-7\" data-source-line=\"321\">Encerramento e continuidade</h3>"
             },
             {
                 "type": "html",
                 "content": "<div class=\"u3-prose u2-prose\"><p data-source-line=\"322\">Você concluiu o estudo do Yoga e da Meditação nesta unidade. Antes de avançar, pergunte-se: em que situação do seu território essas práticas poderiam ser mais úteis hoje?</p><p data-source-line=\"323\">Antes de seguir para a próxima aula, participe do fórum \"Dialogando com a Prática\" e realize a atividade prática proposta. A próxima aula desta unidade trata da Automassagem, prática que complementa o autocuidado apresentado aqui.</p></div>"
-            },
+            }
+        ]
+    },
+    {
+        "title": "Referências e materiais complementares",
+        "headings": [
+            {
+                "id": "u3-page-6-section-1",
+                "text": "Referências e materiais complementares"
+            }
+        ],
+        "sections": [
             {
                 "type": "html",
-                "content": "<h3 class=\"u2-chapter\" id=\"u3-page-5-section-8\" data-source-line=\"326\">[Referências e materiais complementares]</h3>"
+                "content": "<header class=\"u2-heading u3-heading\"><h2 id=\"u3-page-6-section-1\">Referências e materiais complementares</h2></header>"
             },
             {
                 "type": "html",

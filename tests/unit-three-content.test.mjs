@@ -4,27 +4,40 @@ import fs from 'node:fs';
 import {unitThree} from '../assets/js/data/units/unidade-3.js';
 import {course, unitsBySlug} from '../assets/js/data/course.js';
 import * as data from '../assets/js/data/units/unidade-3-interactions.js';
-import {evaluateUnitThreeAnswers, evaluateUnitThreeMatches} from '../assets/js/components/unit-three-tools.js';
+import {evaluateUnitThreeMatches} from '../assets/js/components/unit-three-tools.js';
 const fixture=JSON.parse(fs.readFileSync(new URL('./fixtures/unit-three-source-text.json',import.meta.url),'utf8'));
 const decode=html=>html.replace(/<[^>]+>/g,'').replace(/&quot;/g,'"').replace(/&#39;/g,"'").replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&amp;/g,'&').replace(/\s+/g,' ').trim();
 const html=unitThree.pages.map(p=>p.html).join('\n');
 const text=decode(html);
 
-test('integra as cinco páginas da Unidade 3 na ordem original e na navegação do curso',()=>{
+test('integra as páginas da Unidade 3 e separa as referências na nova página',()=>{
     assert.equal(unitsBySlug.get('unidade-3'),unitThree);
     assert.equal(course.units.find(u=>u.slug==='unidade-3').available,true);
-    assert.deepEqual(unitThree.pages.map(p=>p.title),fixture.pages);
+    assert.deepEqual(unitThree.pages.map(p=>p.title),[...fixture.pages.slice(0,4),'Refletir, praticar e encerrar','Referências e materiais complementares']);
+    assert.doesNotMatch(unitThree.pages[4].html,/Avaliação da aprendizagem|data-unit-three-quiz|Questão 1\.|Pontuação sugerida:/);
+    assert.match(unitThree.pages[4].html,/Encerramento e continuidade/);
+    assert.doesNotMatch(unitThree.pages[4].html,/\[Encerramento e continuidade\]/);
+    assert.match(unitThree.pages[5].html,/Referências utilizadas nesta aula:/);
+    assert.doesNotMatch(unitThree.pages[5].html,/\[Referências e materiais complementares\]/);
 });
 test('preserva os segmentos do ZIP mantidos após a remoção solicitada da identificação da aula',()=>{
     let position=0;
-    const retainedSegments=fixture.textSegments.slice(9).map(segment=>segment==='[Acolhimento e contextualização]' ? 'Acolhimento e contextualização' : segment);
+    const retainedSegments=fixture.textSegments.slice(9);
+    const assessmentStart=retainedSegments.indexOf('Avaliação da aprendizagem');
+    const synthesisStart=retainedSegments.indexOf('Síntese da aula');
+    retainedSegments.splice(assessmentStart,synthesisStart-assessmentStart);
+    const adjustedSegments=retainedSegments.map(segment=>segment.startsWith('[') && [
+        '[Acolhimento e contextualização]',
+        '[Encerramento e continuidade]',
+        '[Referências e materiais complementares]',
+    ].includes(segment) ? segment.slice(1,-1) : segment);
     assert.doesNotMatch(unitThree.pages[0].html,/Unidade 3 - Aula completa|Identificação da aula|Carga horária estimada:|Descrição:/);
-    for(const segment of retainedSegments){
+    for(const segment of adjustedSegments){
         const index=text.indexOf(segment,position);
         assert.ok(index>=0,`Trecho ausente ou fora da sequência: ${segment}`);
         position=index+segment.length;
     }
-    for(const segment of retainedSegments.filter(s=>s.length>180)) assert.equal(text.split(segment).length-1,1,segment);
+    for(const segment of adjustedSegments.filter(s=>s.length>180)) assert.equal(text.split(segment).length-1,1,segment);
     assert.doesNotMatch(text,/Orientações pedagógicas|DADO DA REFERÊNCIA A CONFERIR|ESPAÇO RESERVADO|PARTE 4 - Pontos/);
 });
 test('preserva os dados, acentos, figuras e legendas das seis estruturas dinâmicas do ZIP',()=>{
@@ -36,18 +49,6 @@ test('preserva os dados, acentos, figuras e legendas das seis estruturas dinâmi
         assert.equal(image.subarray(1,4).toString(),'PNG');
         assert.ok(html.includes(`unidade-03/${name}`));
     }
-});
-test('mantém exatamente as três questões disponíveis e ambos os feedbacks, sem inventar questões ausentes',()=>{
-    assert.deepEqual(data.unitThreeQuestions,fixture.questions);
-    assert.equal((html.match(/<fieldset/g)||[]).length,3);
-    assert.equal((html.match(/type="radio"/g)||[]).length,15);
-    for(const question of fixture.questions){
-        for(const value of [question.prompt,...question.options,question.feedback,question.incorrectFeedback,question.objective]) assert.ok(text.includes(value),value);
-    }
-    assert.deepEqual(evaluateUnitThreeAnswers([1,2,2]),{correct:[true,true,true],score:6,total:6});
-    assert.equal(evaluateUnitThreeAnswers([1,2]),null);
-    assert.equal(evaluateUnitThreeAnswers([1,2,5]),null);
-    assert.equal(evaluateUnitThreeAnswers([0,0,0]).score,0);
 });
 test('oferece associação acessível com o gabarito original e não duplica identificadores ARIA',()=>{
     assert.equal(evaluateUnitThreeMatches({p1:'t1',p2:'t2',p3:'t3',p4:'t4'}).allCorrect,true);

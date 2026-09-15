@@ -54,53 +54,6 @@ export const DRAG_TARGETS = [
   { id:'p4', description:'Regula o fluxo de energia vital (prana) por meio do controle da respiração e acalma a mente.' }
 ];
 
-export const unitThreeQuestions = [
-    {
-        "label": "Questão 1.",
-        "prompt": "De acordo com o Glossário Temático das PICS, assinale a alternativa que apresenta corretamente os conceitos de Yoga e Meditação:",
-        "options": [
-            "a) Yoga é exclusivamente uma prática de posturas físicas; Meditação é uma técnica de relaxamento muscular profundo.",
-            "b) Yoga é uma prática corporal e mental de origem oriental associada à meditação; Meditação é uma prática mental de treinamento da atenção que promove alterações favoráveis no humor e cognição.",
-            "c) Yoga é uma prática religiosa obrigatoriamente vinculada ao hinduísmo; Meditação é uma prática terapêutica exclusivamente clínica.",
-            "d) Yoga e Meditação são práticas recentes incorporadas ao SUS sem evidências científicas consolidadas.",
-            "e) Yoga é um método de atividade física aeróbica; Meditação é uma técnica de respiração rápida para ativação mental."
-        ],
-        "correctIndex": 1,
-        "feedback": "Correto! O Glossário Temático das PICS (Brasil, 2018) define exatamente esses dois conceitos.",
-        "incorrectFeedback": "Reveja o conceito de Yoga e Meditação segundo o Glossário Temático das PICS, apresentado na Página 01 desta aula.",
-        "objective": "Conceituar os princípios da Yoga e da Meditação."
-    },
-    {
-        "label": "Questão 2.",
-        "prompt": "Sobre os oito passos do Yoga (Ashtanga Yoga), descritos por Patanjali, assinale a alternativa correta:",
-        "options": [
-            "a) Os asanas são o objetivo final do Yoga e representam o estado de iluminação.",
-            "b) Pranayama refere-se exclusivamente à prática de exercícios físicos intensos.",
-            "c) Yamas e Niyamas correspondem, respectivamente, à conduta ética externa e interna do praticante.",
-            "d) Samadhi é o estágio inicial do Yoga, voltado ao aprendizado das posturas básicas.",
-            "e) Dharana e Dhyana são práticas exclusivamente corporais."
-        ],
-        "correctIndex": 2,
-        "feedback": "Correto! Yamas trata da conduta ética externa e Niyamas da conduta ética interna, conforme os oito passos do Ashtanga Yoga.",
-        "incorrectFeedback": "Reveja o quadro dos oito passos do Yoga (Ashtanga) na Página 02 desta aula.",
-        "objective": "Conceituar os princípios da Yoga."
-    },
-    {
-        "label": "Questão 3.",
-        "prompt": "Em relação à aplicação do Yoga e da Meditação nas Unidades Básicas de Saúde (UBS), assinale a alternativa correta:",
-        "options": [
-            "a) As práticas podem ser realizadas por qualquer pessoa, independentemente de capacitação ou supervisão.",
-            "b) A respiração consciente é caracterizada por ser rápida e forçada para aumentar a oxigenação cerebral.",
-            "c) A prática pode ser utilizada como estratégia de promoção do bem-estar, devendo ser conduzida por profissional habilitado.",
-            "d) A meditação deve ser aplicada apenas em atendimentos individuais e nunca em grupos.",
-            "e) Caso o usuário apresente sofrimento emocional intenso durante a prática, deve-se manter a atividade até o término do tempo previsto."
-        ],
-        "correctIndex": 2,
-        "feedback": "Correto! Toda prática deve ser conduzida por profissional habilitado, conforme apresentado na Página 04.",
-        "incorrectFeedback": "Reveja a seção \"Yoga e meditação nas UBS\" e a caixa \"Atenção\" desta aula.",
-        "objective": "Reconhecer possibilidades seguras de participação da comunidade."
-    }
-];
 export const matchingTerms = DRAG_TERMS;
 export const matchingTargets = DRAG_TARGETS;
 export const unitThreeMessages = {matchingPlaceholder:"(arraste aqui)",matchingProgressSuffix:"corretos",matchingSuccess:"Muito bem! Você acertou todos os pares.",matchingRetry:"Revise os pares incorretos e tente novamente."};

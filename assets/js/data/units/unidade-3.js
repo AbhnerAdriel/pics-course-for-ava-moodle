@@ -1,6 +1,6 @@
 ﻿import {appConfig} from '../../config.js';
 import {unitThreeSourcePages} from './unidade-3-content.js';
-import {ASHTANGA_PILLARS, BENEFIT_ACCORDION, MAP_NODES, MEDITATION_STEPS, matchingTerms, matchingTargets, unitThreeQuestions, unitThreeMessages} from './unidade-3-interactions.js';
+import {ASHTANGA_PILLARS, BENEFIT_ACCORDION, MAP_NODES, MEDITATION_STEPS, matchingTerms, matchingTargets, unitThreeMessages} from './unidade-3-interactions.js';
 
 const escapeText = value => String(value).replace(/[&<>"']/g, character => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'}[character]));
 
@@ -32,12 +32,6 @@ function matching() {
     </div>`;
 }
 
-function quiz() {
-    return `<form class="u3-quiz" data-unit-three-quiz>${unitThreeQuestions.map((question, index) => `<fieldset class="u2-question" data-unit-three-question="${index}"><legend><span class="u2-question__number">${escapeText(question.label)}</span>${escapeText(question.prompt)}</legend><div class="u2-question__options">${question.options.map((option, oi) => `<label><input type="radio" name="u3-question-${index}" value="${oi}" required><span>${escapeText(option)}</span></label>`).join('')}</div><div class="u2-question__feedback" data-quiz-feedback="${index}" hidden><p data-feedback-correct><strong>Feedback (correta):</strong> ${escapeText(question.feedback)}</p><p data-feedback-incorrect hidden><strong>Feedback (incorretas):</strong> ${escapeText(question.incorrectFeedback)}</p><p><strong>Objetivo relacionado:</strong> ${escapeText(question.objective)}</p></div></fieldset>`).join('')}
-        <div class="u2-quiz__actions"><button class="u2-action" type="submit" data-quiz-submit>Enviar respostas</button><p class="u2-quiz__result" data-quiz-score hidden tabindex="-1" aria-live="polite"></p><button class="u2-action u2-action--secondary" type="reset" data-quiz-reset hidden>Refazer questionário</button></div>
-    </form>`;
-}
-
 function configureDocuments(html) {
     return html.replace(/<a\b[^>]*data-unit-three-document="([^"]+)"[^>]*>/g, (tag, name) => {
         const url = appConfig.unitThreeDocuments[name];
@@ -46,7 +40,7 @@ function configureDocuments(html) {
     });
 }
 
-const renderers = {pillars: () => accordion(ASHTANGA_PILLARS, true), benefits: () => accordion(BENEFIT_ACCORDION), map: () => slides(MAP_NODES, 'map', 'Mapa conceitual interativo', item => `<p>${escapeText(item.detail)}</p>`), meditation, matching, quiz, audio: audioResource};
+const renderers = {pillars: () => accordion(ASHTANGA_PILLARS, true), benefits: () => accordion(BENEFIT_ACCORDION), map: () => slides(MAP_NODES, 'map', 'Mapa conceitual interativo', item => `<p>${escapeText(item.detail)}</p>`), meditation, matching, audio: audioResource};
 
 export const unitThree = {
     slug: 'unidade-3',

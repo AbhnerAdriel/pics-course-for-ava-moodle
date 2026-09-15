@@ -1,14 +1,8 @@
 import {appConfig} from '../config.js';
-import {matchingTerms, matchingTargets, unitThreeQuestions, unitThreeMessages} from '../data/units/unidade-3-interactions.js';
+import {matchingTerms, matchingTargets, unitThreeMessages} from '../data/units/unidade-3-interactions.js';
 
 const activeBindings = new WeakMap();
 
-export function evaluateUnitThreeAnswers(answers) {
-    if (!Array.isArray(answers) || answers.length !== unitThreeQuestions.length ||
-        Array.from(answers).some((answer, index) => !Number.isInteger(answer) || answer < 0 || answer >= unitThreeQuestions[index].options.length)) return null;
-    const correct = answers.map((answer, index) => answer === unitThreeQuestions[index].correctIndex);
-    return {correct, score: correct.filter(Boolean).length * 2, total: unitThreeQuestions.length * 2};
-}
 
 export function evaluateUnitThreeMatches(matches) {
     if (!matches || typeof matches !== 'object' || Array.isArray(matches) ||
@@ -154,125 +148,6 @@ function bindMatching(activity) {
     };
 }
 
-function bindQuiz(form) {
-    const fields = unitThreeQuestions.map((_, index) => form.querySelector(`fieldset[data-unit-three-question="${index}"]`));
-    const feedbacks = unitThreeQuestions.map((_, index) => form.querySelector(`[data-quiz-feedback="${index}"]`));
-    const score = form.querySelector('[data-quiz-score]');
-    const submit = form.querySelector('[data-quiz-submit]');
-    const reset = form.querySelector('[data-quiz-reset]');
-    if (fields.some((field) => !field) || feedbacks.some((feedback) => !feedback) || !score || !submit || !reset) return () => {};
-    const inputs = fields.flatMap((field) => [...field.querySelectorAll('input[type="radio"]')]);
-    const labels = fields.flatMap((field) => [...field.querySelectorAll('label')]);
-    const restore = [remember(score, ['aria-live', 'tabindex'], ['innerHTML', 'hidden']), remember(submit, [], ['hidden']), remember(reset, [], ['hidden'])];
-    fields.forEach((field) => restore.push(remember(field, ['data-correct', 'aria-invalid'], ['disabled'])));
-    feedbacks.forEach((feedback) => {
-        restore.push(remember(feedback, [], ['hidden']));
-        restore.push(remember(feedback.querySelector('[data-feedback-correct]'), [], ['hidden']));
-        restore.push(remember(feedback.querySelector('[data-feedback-incorrect]'), [], ['hidden']));
-    });
-    inputs.forEach((input) => restore.push(remember(input, ['data-answer', 'aria-label'], ['checked', 'required'])));
-    labels.forEach((label) => restore.push(remember(label, ['data-answer'])));
-    const originalInputLabels = new Map(inputs.map((input) => [input, input.getAttribute('aria-label')]));
-    const restoreInputLabel = (input) => {
-        const originalLabel = originalInputLabels.get(input);
-        if (originalLabel === null) input.removeAttribute('aria-label');
-        else input.setAttribute('aria-label', originalLabel);
-    };
-    score.setAttribute('aria-live', 'polite');
-    score.setAttribute('tabindex', '-1');
-    inputs.forEach((input) => { input.required = true; });
-    const storageKey = `${appConfig.storageKey}:${appConfig.instanceId}:unit-three-quiz`;
-    let submitted = false;
-    const readAnswers = () => fields.map((field) => {
-        const input = field.querySelector('input[type="radio"]:checked');
-        return input ? Number(input.value) : null;
-    });
-    const save = () => {
-        try { globalThis.sessionStorage?.setItem(storageKey, JSON.stringify({answers: readAnswers(), submitted})); } catch { /* Storage is optional. */ }
-    };
-    const showGrade = (grade) => {
-        submitted = true;
-        fields.forEach((field, index) => {
-            field.disabled = true;
-            field.setAttribute('data-correct', String(grade.correct[index]));
-            field.setAttribute('aria-invalid', String(!grade.correct[index]));
-            feedbacks[index].hidden = false;
-            feedbacks[index].querySelector("[data-feedback-correct]").hidden = !grade.correct[index];
-            feedbacks[index].querySelector("[data-feedback-incorrect]").hidden = grade.correct[index];
-            field.querySelectorAll('input[type="radio"]').forEach((input) => {
-                const state = Number(input.value) === unitThreeQuestions[index].correctIndex ? 'correct' : input.checked ? 'incorrect' : null;
-                const label = input.closest('label');
-                if (state) {
-                    input.setAttribute('data-answer', state);
-                    const option = unitThreeQuestions[index].options[Number(input.value)];
-                    input.setAttribute('aria-label', `${option} — ${state === 'correct' ? 'alternativa correta' : 'resposta incorreta'}`);
-                    label?.setAttribute('data-answer', state);
-                } else {
-                    input.removeAttribute('data-answer');
-                    restoreInputLabel(input);
-                    label?.removeAttribute('data-answer');
-                }
-            });
-        });
-        score.textContent = `${grade.score} / ${grade.total}`;
-        score.hidden = false;
-        submit.hidden = true;
-        reset.hidden = false;
-    };
-    try {
-        const saved = JSON.parse(globalThis.sessionStorage?.getItem(storageKey) || 'null');
-        if (Array.isArray(saved?.answers) && saved.answers.length === fields.length) {
-            fields.forEach((field, index) => {
-                const value = saved.answers[index];
-                if (Number.isInteger(value) && value >= 0 && value < unitThreeQuestions[index].options.length) {
-                    const input = field.querySelector(`input[value="${value}"]`);
-                    if (input) input.checked = true;
-                }
-            });
-            const grade = saved.submitted && evaluateUnitThreeAnswers(saved.answers);
-            if (grade) showGrade(grade);
-        }
-    } catch { /* Unavailable storage and invalid saved attempts do not block learning. */ }
-    const onSubmit = (event) => {
-        event.preventDefault();
-        if (submitted || !form.reportValidity()) return;
-        const grade = evaluateUnitThreeAnswers(readAnswers());
-        if (!grade) return;
-        showGrade(grade);
-        save();
-        score.focus({preventScroll: true});
-    };
-    const onReset = () => {
-        submitted = false;
-        fields.forEach((field) => {
-            field.disabled = false;
-            field.removeAttribute('data-correct');
-            field.removeAttribute('aria-invalid');
-        });
-        feedbacks.forEach((feedback) => { feedback.hidden = true; });
-        inputs.forEach((input) => {
-            input.checked = false;
-            input.removeAttribute('data-answer');
-            restoreInputLabel(input);
-        });
-        labels.forEach((label) => label.removeAttribute('data-answer'));
-        score.textContent = '';
-        score.hidden = true;
-        submit.hidden = false;
-        reset.hidden = true;
-        try { globalThis.sessionStorage?.removeItem(storageKey); } catch { /* Storage is optional. */ }
-        inputs[0]?.focus({preventScroll: true});
-    };
-    form.addEventListener('submit', onSubmit);
-    form.addEventListener('reset', onReset);
-    form.addEventListener('change', save);
-    return () => {
-        form.removeEventListener('submit', onSubmit);
-        form.removeEventListener('reset', onReset);
-        form.removeEventListener('change', save);
-        restore.forEach((undo) => undo());
-    };
-}
 
 export function bindUnitThreeTools(root = document) {
     const unit = root.matches?.('[data-unit="unidade-3"]') ? root : root.querySelector('[data-unit="unidade-3"]');
@@ -280,7 +155,6 @@ export function bindUnitThreeTools(root = document) {
     activeBindings.get(unit)?.();
     const cleanups = [];
     unit.querySelectorAll('[data-unit-three-matching]').forEach((activity) => cleanups.push(bindMatching(activity)));
-    unit.querySelectorAll('form[data-unit-three-quiz]').forEach((form) => cleanups.push(bindQuiz(form)));
     let cleaned = false;
     const cleanup = () => {
         if (cleaned) return;
