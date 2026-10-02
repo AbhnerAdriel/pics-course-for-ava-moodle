@@ -9,6 +9,7 @@ export function normalizeHash(hash = '') {
 export function parseRoute(hash = '') {
     const path = normalizeHash(hash);
     if (path === '/') return {...HOME_ROUTE};
+    if (path === '/biblioteca') return {name: 'library', path};
 
     const match = path.match(/^\/unidade\/([a-z0-9-]+)(?:\/pagina\/(\d+))?$/i);
     if (match) {

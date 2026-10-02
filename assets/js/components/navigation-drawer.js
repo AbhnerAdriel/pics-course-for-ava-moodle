@@ -27,7 +27,7 @@ export function navigationShell({mode, course, unit, currentPage = 1}) {
                 <button id="fechar-menu-navegacao" class="menu-navegacao-fechar" type="button" aria-label="Fechar menu de navegação">×</button>
             </div>
             <nav class="menu-navegacao-conteudo" aria-label="${heading}">
-                ${mode === 'unit' ? `<p><a class="menu-link" href="#/">← Voltar ao módulo</a></p>` : ''}
+                ${mode === 'unit' || mode === 'library' ? `<p><a class="menu-link" href="#/">← Voltar ao módulo</a></p>` : ''}
                 <section class="menu-navegacao-grupo">
                     <h3>${heading}</h3>
                     <ul>${items}</ul>

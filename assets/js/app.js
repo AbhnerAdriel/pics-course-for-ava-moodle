@@ -4,6 +4,7 @@ import {ProgressStore} from './core/store.js';
 import {RouteStyleManager} from './core/style-manager.js';
 import {MoodleBridge} from './services/moodle-bridge.js';
 import {renderHome} from './views/home-view.js';
+import {renderLibrary, bindLibrary} from './views/library-view.js';
 import {renderUnit, bindConfiguredLinks} from './views/unit-view.js';
 import {bindNavigationDrawer} from './components/navigation-drawer.js';
 import {bindPageInteractions} from './components/interactions.js';
@@ -111,6 +112,20 @@ async function render(route) {
             document.querySelector('#conteudo-principal')?.focus({preventScroll: true});
             scheduleRouteScroll(null, sequence);
             announce('Página principal do módulo carregada.');
+            return;
+        }
+
+        if (route.name === 'library') {
+            await styleManager.use('home');
+            if (sequence !== renderSequence) return;
+            document.title = `Biblioteca Digital do Módulo | ${course.shortTitle}`;
+            app.innerHTML = renderLibrary({course});
+            app.setAttribute('aria-busy', 'false');
+            bindCommon();
+            cleanupView.push(bindLibrary(document));
+            document.querySelector('#conteudo-principal')?.focus({preventScroll: true});
+            scheduleRouteScroll(null, sequence);
+            announce('Biblioteca Digital do Módulo carregada.');
             return;
         }
 
