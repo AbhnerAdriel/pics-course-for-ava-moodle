@@ -117,7 +117,7 @@ function riskDetails() {
 }
 
 function lianGongParts() {
-    return `<div class="u2-parts">${LIAN_GONG_CARDS.map((card, index) => `<details><summary><span class="u2-parts__number" aria-hidden="true">0${index + 1}</span><span><span class="u2-parts__part">${escapeText(card.part)}</span><strong>${escapeText(card.title)}</strong><span class="u2-parts__hint">Clique para ver os detalhes ↻</span></span></summary><p>${escapeText(card.detail)}</p></details>`).join('')}</div>`;
+    return `<div class="u2-parts">${LIAN_GONG_CARDS.map((card, index) => `<details><summary><span class="u2-parts__number" aria-hidden="true">0${index + 1}</span><span><span class="u2-parts__part">${escapeText(card.part)}</span><strong>${escapeText(card.title)}</strong><span class="u2-parts__hint"><span>Clique para ver os detalhes</span><svg class="u2-parts__chevron" viewBox="0 0 16 16" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m4 6 4 4 4-4"/></svg></span></span></summary><p>${escapeText(card.detail)}</p></details>`).join('')}</div>`;
 }
 
 function communityActions() {
@@ -154,7 +154,7 @@ export const unitTwo = {
 <p>Na Grécia Antiga, Hipócrates e, posteriormente, Dioscórides sistematizaram o conhecimento medicinal das plantas, influenciando a prática médica por séculos. Ao longo da Idade Média e do Renascimento, o conhecimento botânico continuou sendo preservado e ampliado por herboristas, monges e médicos.</p>
 <p>Os chineses também contribuíram para a sistematização desse conhecimento, uma vez que grande parte da história da cura da humanidade está vinculada às plantas medicinais. O herborista chinês Shen Nung realizou o registro mais antigo de todos, o Pen Ts'ao, de 2800 a.C., narrando o uso de inúmeras plantas medicinais na cura de diversas doenças.</p>
 <p>Desde aproximadamente 2500 a.C., a Índia consolidou-se como um polo pioneiro no comércio de drogas vegetais, deixando um legado fundamental através dos sábios "Váidia" na região do Vale do Rio Indo. Esse conhecimento expandiu-se paralelamente ao florescimento da atividade científica no mundo árabe, que incorporou e aprimorou os saberes indianos. Contudo, foi a partir das grandes descobertas geográficas e da abertura das rotas marítimas para as Índias e Américas, no final do século XV, que o estudo dos fitofármacos entrou em uma nova era: o contato com espécies como o café, o chá preto e o coco não apenas diversificou o catálogo botânico, mas deu início a uma nova era para os estudos fitofármacos.</p>
-<p>Com o avanço da ciência no século XIX, muitos princípios ativos foram isolados de plantas (como morfina, quinina e salicina), dando origem aos primeiros medicamentos modernos. Ainda assim, o uso tradicional de plantas continuou forte em várias culturas, especialmente em regiões de grande biodiversidade, como a Amazônia e a Caatinga no Brasil.</p></div>${timeline(HISTORY, 'História das plantas medicinais e fitoterapia')}<div class="u2-prose"><p>A fitoterapia foi oficialmente reconhecida pela Organização Mundial da Saúde (OMS) em 1978 e, posteriormente, incorporada ao Sistema Único de Saúde, especialmente em 2006, com a criação da Política Nacional de Práticas Integrativas e Complementares no SUS (PNPIC) e da Política Nacional de Plantas Medicinais e Fitoterápicos (PNPMF). Essas iniciativas visam ampliar o acesso a terapias naturais, valorizar os saberes tradicionais e promover o uso seguro dos recursos da biodiversidade brasileira.</p></div><aside class="pics-callout u2-callout" id="anote-pnpmf"><img src="./assets/images/icones-de-conteudo/baixar-recurso-icon.png" alt="" width="1254" height="1254" aria-hidden="true" loading="lazy" decoding="async"><div class="u2-callout__copy">
+<p>Com o avanço da ciência no século XIX, muitos princípios ativos foram isolados de plantas (como morfina, quinina e salicina), dando origem aos primeiros medicamentos modernos. Ainda assim, o uso tradicional de plantas continuou forte em várias culturas, especialmente em regiões de grande biodiversidade, como a Amazônia e a Caatinga no Brasil.</p></div>${timeline(HISTORY, 'História das plantas medicinais e fitoterapia')}<div class="u2-prose"><p>A fitoterapia foi oficialmente reconhecida pela Organização Mundial da Saúde (OMS) em 1978 e, posteriormente, incorporada ao Sistema Único de Saúde, especialmente em 2006, com a criação da Política Nacional de Práticas Integrativas e Complementares no SUS (PNPIC) e da Política Nacional de Plantas Medicinais e Fitoterápicos (PNPMF). Essas iniciativas visam ampliar o acesso a terapias naturais, valorizar os saberes tradicionais e promover o uso seguro dos recursos da biodiversidade brasileira.</p></div><aside class="pics-callout u2-callout" id="anote-pnpmf"><img src="./assets/images/icones-de-conteudo/anote-icon.svg" alt="" width="64" height="64" aria-hidden="true" loading="lazy" decoding="async"><div class="u2-callout__copy">
         
           
         
@@ -162,7 +162,7 @@ export const unitTwo = {
         <p>A Política Nacional de Plantas Medicinais e Fitoterápicos, instituída em 2006, representa um marco na organização das ações voltadas às plantas medicinais e aos fitoterápicos no Brasil.</p>
         <p>Guarde essa referência: ela antecede e orienta o desenvolvimento de ações e programas posteriores, contribuindo para a valorização dos conhecimentos tradicionais, o uso seguro e racional desses recursos e sua integração às políticas públicas de saúde.</p>
         <p>⬇ Baixar PDF - PNPMF (2006)</p>
-      </div></aside><aside class="pics-callout u2-callout" id="saiba-mais-plantas"><img src="./assets/images/icones-de-conteudo/saiba-mais-icon.png" alt="" width="1254" height="1254" aria-hidden="true" loading="lazy" decoding="async"><div class="u2-callout__copy">
+      </div></aside><aside class="pics-callout u2-callout" id="saiba-mais-plantas"><img src="./assets/images/icones-de-conteudo/saiba-mais-plantas-icon.svg" alt="" width="64" height="64" aria-hidden="true" loading="lazy" decoding="async"><div class="u2-callout__copy">
         
           
         
@@ -226,7 +226,7 @@ export const unitTwo = {
         {
             title: "Terapia Comunitária Integrativa (TCI): escuta, acolhimento e fortalecimento comunitário",
             className: "pagina-tci-unidade-2",
-            html: `<div class="u2-lesson" id="aula3"><header class="u2-heading"><p class="pics-section-kicker">Aula 3</p><h2 id="u2-tci-titulo">Terapia Comunitária Integrativa (TCI): escuta, acolhimento e fortalecimento comunitário</h2></header><nav class="u2-reading-nav" aria-label="Nesta aula"><button type="button" data-reading-target="u2-o-que-e-tci">O que é a Terapia Comunitária Integrativa</button><button type="button" data-reading-target="u2-protocolo">Protocolo da TCI: o passo a passo</button><button type="button" data-reading-target="u2-atuacao-tci">Como o ACS e o ACE podem atuar na TCI</button></nav><aside class="pics-callout u2-callout" id="aula3-objetivos"><img src="./assets/images/icones-de-conteudo/lupa-mais-verde.png" alt="" width="1254" height="1254" aria-hidden="true" loading="lazy" decoding="async"><div class="u2-callout__copy">
+            html: `<div class="u2-lesson" id="aula3"><header class="u2-heading"><p class="pics-section-kicker">Aula 3</p><h2 id="u2-tci-titulo">Terapia Comunitária Integrativa (TCI): escuta, acolhimento e fortalecimento comunitário</h2></header><nav class="u2-reading-nav" aria-label="Nesta aula"><button type="button" data-reading-target="u2-o-que-e-tci">O que é a Terapia Comunitária Integrativa</button><button type="button" data-reading-target="u2-protocolo">Protocolo da TCI: o passo a passo</button><button type="button" data-reading-target="u2-atuacao-tci">Como o ACS e o ACE podem atuar na TCI</button></nav><aside class="pics-callout u2-callout" id="aula3-objetivos"><img src="./assets/images/icones-de-conteudo/objetivos-aprendizagem-icon.svg" alt="" width="64" height="64" aria-hidden="true" loading="lazy" decoding="async"><div class="u2-callout__copy">
         
           
           <p>Ao final desta aula, o cursista deverá ser capaz de:</p>
@@ -275,8 +275,33 @@ export const unitTwo = {
         {
             title: "Dialogando com a Prática",
             className: "pagina-forum-unidade-2",
-            html: `<section class="u2-forum" aria-labelledby="u2-forum-titulo"><div class="u2-forum__copy"><header class="u2-heading"><p class="pics-section-kicker">Fórum</p><div class="u2-heading__title" id="u2-forum-titulo" role="heading" aria-level="2"><img src="./assets/images/icones-de-conteudo/dialogando-com-pratica-icon-maior.png" width="2051" height="767" alt="Dialogando com a Prática"></div></header><div class="u2-prose"><p>Tema: Práticas integradas à atuação dos ACS e ACE – Parte I</p>
-<p>Olá! Caro cursista! Agora que você conheceu um pouco mais sobre plantas medicinais e fitoterapia, algumas práticas corporais da Medicina Tradicional Chinesa (MTC), como Lian Gong em 18 Terapias, Tai Chi e Qi Gong, e a Terapia Comunitária Integrativa (TCI), vamos refletir sobre essas práticas?</p></div><blockquote class="u2-forum__prompt"><p>"Algumas dessas PICS são ofertadas na sua unidade básica de saúde? Caso seja, comente aqui no fórum como se dá esta oferta."</p></blockquote><div class="u2-prose"><p>Registre suas observações no fórum, aproveite para conhecer a realidade dos participantes do módulo e converse com eles sobre a temática.</p></div><a class="u2-action" href="#" data-config-link="unitTwoForumUrl" data-config-fallback="forumUrl">Acessar fórum</a></div></section>`,
+            html: `<section class="formulario-atividade" aria-labelledby="u2-forum-titulo" aria-describedby="u2-forum-descricao">
+                <div class="formulario-atividade-card">
+                    <div class="formulario-atividade-conteudo">
+                        <span class="formulario-atividade-tag">Fórum</span>
+
+                        <h2 id="u2-forum-titulo" class="formulario-atividade-titulo">Dialogando com a Prática</h2>
+
+                        <p class="formulario-atividade-descricao">Tema: Práticas integradas à atuação dos ACS e ACE – Parte I</p>
+
+                        <p id="u2-forum-descricao" class="formulario-atividade-descricao">Olá! Caro cursista! Agora que você conheceu um pouco mais sobre plantas medicinais e fitoterapia, algumas práticas corporais da Medicina Tradicional Chinesa (MTC), como Lian Gong em 18 Terapias, Tai Chi e Qi Gong, e a Terapia Comunitária Integrativa (TCI), vamos refletir sobre essas práticas?</p>
+
+                        <p class="formulario-atividade-descricao"><strong>"Algumas dessas PICS são ofertadas na sua unidade básica de saúde? Caso seja, comente aqui no fórum como se dá esta oferta."</strong></p>
+
+                        <p class="formulario-atividade-descricao">Registre suas observações no fórum, aproveite para conhecer a realidade dos participantes do módulo e converse com eles sobre a temática.</p>
+
+                        <a class="formulario-atividade-botao" href="#" data-config-link="unitTwoForumUrl" data-config-fallback="forumUrl" aria-label="Acessar o fórum Dialogando com a Prática da Unidade 2">
+                            Acessar fórum
+                            <span aria-hidden="true">→</span>
+                        </a>
+                    </div>
+
+                    <div class="formulario-atividade-imagem">
+                        <img loading="lazy" decoding="async" src="./assets/images/unidades/boas-vindas/formulario.webp" width="1672" height="941"
+                            alt="Agentes comunitários de saúde dialogando com moradores durante uma visita no território.">
+                    </div>
+                </div>
+            </section>`,
         },
         {
             title: "Referências",

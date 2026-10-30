@@ -25,7 +25,7 @@ export const unitFourSourcePages = [
             },
             {
                 "type": "html",
-                "content": "<aside class=\"pics-callout u2-callout u4-callout\"><img src=\"./assets/images/icones-de-conteudo/saiba-mais-icon.png\" width=\"1254\" height=\"1254\" alt=\"\" aria-hidden=\"true\" loading=\"lazy\" decoding=\"async\"><div class=\"u2-callout__copy\"><p data-source-line=\"36\">Fique por dentro</p><p data-source-line=\"37\">O trabalho interprofissional é parte essencial da aplicação das PICS na Atenção Primária. Para aprofundar o tema, veja o material complementar - Trabalho interprofissional e as Práticas Integrativas e Complementares no contexto da Atenção Primária à Saúde: potenciais e desafios.</p><a href=\"./assets/documents/unidade-4/u4-trabalho-interprofissional-pics.pdf\" download=\"\" data-source-line=\"38\" class=\"u4-resource-link\">Baixe aqui</a></div></aside>"
+                "content": "<aside class=\"pics-callout u2-callout u4-callout\"><img src=\"./assets/images/icones-de-conteudo/fique-por-dentro-icon.svg\" width=\"64\" height=\"64\" alt=\"\" aria-hidden=\"true\" loading=\"lazy\" decoding=\"async\"><div class=\"u2-callout__copy\"><p data-source-line=\"36\">Fique por dentro</p><p data-source-line=\"37\">O trabalho interprofissional é parte essencial da aplicação das PICS na Atenção Primária. Para aprofundar o tema, veja o material complementar - Trabalho interprofissional e as Práticas Integrativas e Complementares no contexto da Atenção Primária à Saúde: potenciais e desafios.</p><a href=\"./assets/documents/unidade-4/u4-trabalho-interprofissional-pics.pdf\" download=\"\" data-source-line=\"38\" class=\"u4-resource-link\">Baixe aqui</a></div></aside>"
             }
         ],
         "headings": [
@@ -67,7 +67,7 @@ export const unitFourSourcePages = [
             },
             {
                 "type": "html",
-                "content": "<aside class=\"pics-callout u2-callout u4-callout\"><img src=\"./assets/images/icones-de-conteudo/glossario-icon-verde.png\" width=\"1254\" height=\"1254\" alt=\"\" aria-hidden=\"true\" loading=\"lazy\" decoding=\"async\"><div class=\"u2-callout__copy\"><p data-source-line=\"69\">Anote</p><p data-source-line=\"70\">A finalidade de um grupo orienta como ele é conduzido - se é mais educativo, terapêutico ou de convivência, por exemplo. Para conhecer essa classificação em detalhes, veja \"Grupos na Atenção Básica à Saúde: uma tipologia por finalidades\". RAIA, R. C.; SOUZA, Y. F. P. de. Revista de APS, 2024.</p><a href=\"./assets/documents/unidade-4/u4-grupos-atencao-basica.pdf\" download=\"\" data-source-line=\"71\" class=\"u4-resource-link\">Baixe aqui</a></div></aside>"
+                "content": "<aside class=\"pics-callout u2-callout u4-callout\"><img src=\"./assets/images/icones-de-conteudo/anote-icon.svg\" width=\"64\" height=\"64\" alt=\"\" aria-hidden=\"true\" loading=\"lazy\" decoding=\"async\"><div class=\"u2-callout__copy\"><p data-source-line=\"69\">Anote</p><p data-source-line=\"70\">A finalidade de um grupo orienta como ele é conduzido - se é mais educativo, terapêutico ou de convivência, por exemplo. Para conhecer essa classificação em detalhes, veja \"Grupos na Atenção Básica à Saúde: uma tipologia por finalidades\". RAIA, R. C.; SOUZA, Y. F. P. de. Revista de APS, 2024.</p><a href=\"./assets/documents/unidade-4/u4-grupos-atencao-basica.pdf\" download=\"\" data-source-line=\"71\" class=\"u4-resource-link\">Baixe aqui</a></div></aside>"
             }
         ],
         "headings": [
@@ -90,7 +90,7 @@ export const unitFourSourcePages = [
             },
             {
                 "type": "html",
-                "content": "<aside class=\"pics-callout u2-callout u4-callout\"><img src=\"./assets/images/icones-de-conteudo/saiba-mais-icon.png\" width=\"1254\" height=\"1254\" alt=\"\" aria-hidden=\"true\" loading=\"lazy\" decoding=\"async\"><div class=\"u2-callout__copy\"><p data-source-line=\"84\">Fique por dentro</p><p data-source-line=\"85\">Práticas integrativas e complementares grupais e o diálogo com a educação popular. NASCIMENTO, M. V. N. do; OLIVEIRA, I. F. de. Psicologia em Pesquisa, 2017.</p><a href=\"./assets/documents/unidade-4/u4-pics-grupais-educacao-popular.pdf\" download=\"\" data-source-line=\"86\" class=\"u4-resource-link\">Baixe aqui</a></div></aside>"
+                "content": "<aside class=\"pics-callout u2-callout u4-callout\"><img src=\"./assets/images/icones-de-conteudo/fique-por-dentro-icon.svg\" width=\"64\" height=\"64\" alt=\"\" aria-hidden=\"true\" loading=\"lazy\" decoding=\"async\"><div class=\"u2-callout__copy\"><p data-source-line=\"84\">Fique por dentro</p><p data-source-line=\"85\">Práticas integrativas e complementares grupais e o diálogo com a educação popular. NASCIMENTO, M. V. N. do; OLIVEIRA, I. F. de. Psicologia em Pesquisa, 2017.</p><a href=\"./assets/documents/unidade-4/u4-pics-grupais-educacao-popular.pdf\" download=\"\" data-source-line=\"86\" class=\"u4-resource-link\">Baixe aqui</a></div></aside>"
             },
             {
                 "type": "html",
@@ -162,7 +162,7 @@ export const unitFourSourcePages = [
             },
             {
                 "type": "html",
-                "content": "<aside class=\"pics-callout u2-callout u4-callout\"><img src=\"./assets/images/icones-de-conteudo/saiba-mais-icon.png\" width=\"1254\" height=\"1254\" alt=\"\" aria-hidden=\"true\" loading=\"lazy\" decoding=\"async\"><div class=\"u2-callout__copy\"><p data-source-line=\"137\">Saiba mais</p><p data-source-line=\"138\">Para acompanhar como as 29 PICS do SUS vêm sendo implementadas no país, veja o Relatório de monitoramento nacional das Práticas Integrativas e Complementares em Saúde.</p><a href=\"./assets/documents/unidade-4/u4-relatorio-monitoramento-pics.pdf\" download=\"\" data-source-line=\"139\" class=\"u4-resource-link\">Baixe aqui</a></div></aside>"
+                "content": "<aside class=\"pics-callout u2-callout u4-callout\"><img src=\"./assets/images/icones-de-conteudo/saiba-mais-plantas-icon.svg\" width=\"64\" height=\"64\" alt=\"\" aria-hidden=\"true\" loading=\"lazy\" decoding=\"async\"><div class=\"u2-callout__copy\"><p data-source-line=\"137\">Saiba mais</p><p data-source-line=\"138\">Para acompanhar como as 29 PICS do SUS vêm sendo implementadas no país, veja o Relatório de monitoramento nacional das Práticas Integrativas e Complementares em Saúde.</p><a href=\"./assets/documents/unidade-4/u4-relatorio-monitoramento-pics.pdf\" download=\"\" data-source-line=\"139\" class=\"u4-resource-link\">Baixe aqui</a></div></aside>"
             },
             {
                 "type": "html",
@@ -178,7 +178,7 @@ export const unitFourSourcePages = [
             },
             {
                 "type": "html",
-                "content": "<aside class=\"pics-callout u2-callout u4-callout\"><img src=\"./assets/images/icones-de-conteudo/saiba-mais-icon.png\" width=\"1254\" height=\"1254\" alt=\"\" aria-hidden=\"true\" loading=\"lazy\" decoding=\"async\"><div class=\"u2-callout__copy\"><p data-source-line=\"153\">Saiba mais</p><p data-source-line=\"154\">Política Nacional de Educação Popular em Saúde (PNEPS-SUS). Ministério da Saúde, 2013.</p><a href=\"./assets/documents/unidade-4/u4-pneps.pdf\" download=\"\" data-source-line=\"155\" class=\"u4-resource-link\">Baixe aqui</a></div></aside>"
+                "content": "<aside class=\"pics-callout u2-callout u4-callout\"><img src=\"./assets/images/icones-de-conteudo/saiba-mais-plantas-icon.svg\" width=\"64\" height=\"64\" alt=\"\" aria-hidden=\"true\" loading=\"lazy\" decoding=\"async\"><div class=\"u2-callout__copy\"><p data-source-line=\"153\">Saiba mais</p><p data-source-line=\"154\">Política Nacional de Educação Popular em Saúde (PNEPS-SUS). Ministério da Saúde, 2013.</p><a href=\"./assets/documents/unidade-4/u4-pneps.pdf\" download=\"\" data-source-line=\"155\" class=\"u4-resource-link\">Baixe aqui</a></div></aside>"
             },
             {
                 "type": "html",
@@ -217,7 +217,7 @@ export const unitFourSourcePages = [
             },
             {
                 "type": "html",
-                "content": "<aside class=\"pics-callout u2-callout u4-callout\"><img src=\"./assets/images/icones-de-conteudo/glossario-icon-verde.png\" width=\"1254\" height=\"1254\" alt=\"\" aria-hidden=\"true\" loading=\"lazy\" decoding=\"async\"><div class=\"u2-callout__copy\"><p data-source-line=\"189\">Anote</p><p data-source-line=\"190\">As PICS fortalecem o cuidado integral, ampliam o autocuidado, reduzem a medicalização e promovem relações mais horizontais e humanizadas entre ACS, ACE, equipes de saúde e comunidade - seja em grupos e mutirões, seja articuladas às Práticas Populares de Saúde do território.</p></div></aside>"
+                "content": "<aside class=\"pics-callout u2-callout u4-callout\"><img src=\"./assets/images/icones-de-conteudo/anote-icon.svg\" width=\"64\" height=\"64\" alt=\"\" aria-hidden=\"true\" loading=\"lazy\" decoding=\"async\"><div class=\"u2-callout__copy\"><p data-source-line=\"189\">Anote</p><p data-source-line=\"190\">As PICS fortalecem o cuidado integral, ampliam o autocuidado, reduzem a medicalização e promovem relações mais horizontais e humanizadas entre ACS, ACE, equipes de saúde e comunidade - seja em grupos e mutirões, seja articuladas às Práticas Populares de Saúde do território.</p></div></aside>"
             },
             {
                 "type": "html",
@@ -240,7 +240,7 @@ export const unitFourSourcePages = [
             },
             {
                 "type": "html",
-                "content": "<aside class=\"pics-callout u2-callout u4-callout\"><img src=\"./assets/images/icones-de-conteudo/saiba-mais-icon.png\" width=\"1254\" height=\"1254\" alt=\"\" aria-hidden=\"true\" loading=\"lazy\" decoding=\"async\"><div class=\"u2-callout__copy\"><p data-source-line=\"213\">Saiba mais</p><p data-source-line=\"214\">Os roteiros a seguir usam óleos e ervas nas oficinas de automassagem e escalda-pés. Para embasar cientificamente essa prática, veja o Mapa de Evidências sobre a Efetividade Clínica da Aromaterapia.</p><a href=\"./assets/documents/unidade-4/u4-mapa-evidencias-aromaterapia.pdf\" download=\"\" data-source-line=\"215\" class=\"u4-resource-link\">Baixe aqui</a></div></aside>"
+                "content": "<aside class=\"pics-callout u2-callout u4-callout\"><img src=\"./assets/images/icones-de-conteudo/saiba-mais-plantas-icon.svg\" width=\"64\" height=\"64\" alt=\"\" aria-hidden=\"true\" loading=\"lazy\" decoding=\"async\"><div class=\"u2-callout__copy\"><p data-source-line=\"213\">Saiba mais</p><p data-source-line=\"214\">Os roteiros a seguir usam óleos e ervas nas oficinas de automassagem e escalda-pés. Para embasar cientificamente essa prática, veja o Mapa de Evidências sobre a Efetividade Clínica da Aromaterapia.</p><a href=\"./assets/documents/unidade-4/u4-mapa-evidencias-aromaterapia.pdf\" download=\"\" data-source-line=\"215\" class=\"u4-resource-link\">Baixe aqui</a></div></aside>"
             },
             {
                 "type": "practice"
@@ -251,7 +251,7 @@ export const unitFourSourcePages = [
             },
             {
                 "type": "html",
-                "content": "<aside class=\"pics-callout u2-callout u4-callout\"><img src=\"./assets/images/icones-de-conteudo/saiba-mais-icon.png\" width=\"1254\" height=\"1254\" alt=\"\" aria-hidden=\"true\" loading=\"lazy\" decoding=\"async\"><div class=\"u2-callout__copy\"><p data-source-line=\"237\">Retomando</p><p data-source-line=\"238\">Antes de conduzir uma oficina de cultivo de plantas medicinais, retome os cuidados oficiais de uso seguro: dosagem, contraindicações e riscos do uso inadequado, reunidos na Cartilha de orientações sobre o uso de fitoterápicos e plantas medicinais. ANVISA, 2022.</p><a href=\"./assets/documents/unidade-4/u4-orientacoes-fitoterapicos-anvisa.pdf\" download=\"\" data-source-line=\"239\" class=\"u4-resource-link\">Baixe aqui</a></div></aside>"
+                "content": "<aside class=\"pics-callout u2-callout u4-callout\"><img src=\"./assets/images/icones-de-conteudo/retomando-icon.svg\" width=\"64\" height=\"64\" alt=\"\" aria-hidden=\"true\" loading=\"lazy\" decoding=\"async\"><div class=\"u2-callout__copy\"><p data-source-line=\"237\">Retomando</p><p data-source-line=\"238\">Antes de conduzir uma oficina de cultivo de plantas medicinais, retome os cuidados oficiais de uso seguro: dosagem, contraindicações e riscos do uso inadequado, reunidos na Cartilha de orientações sobre o uso de fitoterápicos e plantas medicinais. ANVISA, 2022.</p><a href=\"./assets/documents/unidade-4/u4-orientacoes-fitoterapicos-anvisa.pdf\" download=\"\" data-source-line=\"239\" class=\"u4-resource-link\">Baixe aqui</a></div></aside>"
             },
             {
                 "type": "html",
@@ -259,19 +259,15 @@ export const unitFourSourcePages = [
             },
             {
                 "type": "html",
-                "content": "<aside class=\"pics-callout u2-callout u4-callout\"><img src=\"./assets/images/icones-de-conteudo/saiba-mais-icon.png\" width=\"1254\" height=\"1254\" alt=\"\" aria-hidden=\"true\" loading=\"lazy\" decoding=\"async\"><div class=\"u2-callout__copy\"><p data-source-line=\"248\">Retomando</p><p data-source-line=\"249\">Para orientar o cultivo seguro no quintal ou na horta comunitária, retome as recomendações práticas da Cartilha de plantas medicinais &amp; fitoterápicos na agricultura familiar. CONTAG, 2024.</p><a href=\"./assets/documents/unidade-4/u4-cartilha-plantas-medicinais-contag.pdf\" download=\"\" data-source-line=\"250\" class=\"u4-resource-link\">Baixe aqui</a></div></aside>"
+                "content": "<aside class=\"pics-callout u2-callout u4-callout\"><img src=\"./assets/images/icones-de-conteudo/retomando-icon.svg\" width=\"64\" height=\"64\" alt=\"\" aria-hidden=\"true\" loading=\"lazy\" decoding=\"async\"><div class=\"u2-callout__copy\"><p data-source-line=\"248\">Retomando</p><p data-source-line=\"249\">Para orientar o cultivo seguro no quintal ou na horta comunitária, retome as recomendações práticas da Cartilha de plantas medicinais &amp; fitoterápicos na agricultura familiar. CONTAG, 2024.</p><a href=\"./assets/documents/unidade-4/u4-cartilha-plantas-medicinais-contag.pdf\" download=\"\" data-source-line=\"250\" class=\"u4-resource-link\">Baixe aqui</a></div></aside>"
             },
             {
                 "type": "html",
-                "content": "<aside class=\"pics-callout u2-callout u4-callout\"><img src=\"./assets/images/icones-de-conteudo/saiba-mais-icon.png\" width=\"1254\" height=\"1254\" alt=\"\" aria-hidden=\"true\" loading=\"lazy\" decoding=\"async\"><div class=\"u2-callout__copy\"><p data-source-line=\"258\">Retomando</p><p data-source-line=\"259\">As evidências científicas também respaldam o uso de plantas medicinais brasileiras: confira o Mapa de Evidências sobre a Efetividade Clínica das Plantas Medicinais Brasileiras.</p><a href=\"./assets/documents/unidade-4/u4-mapa-evidencias-plantas-medicinais.pdf\" download=\"\" data-source-line=\"260\" class=\"u4-resource-link\">Baixe aqui</a></div></aside>"
+                "content": "<aside class=\"pics-callout u2-callout u4-callout\"><img src=\"./assets/images/icones-de-conteudo/retomando-icon.svg\" width=\"64\" height=\"64\" alt=\"\" aria-hidden=\"true\" loading=\"lazy\" decoding=\"async\"><div class=\"u2-callout__copy\"><p data-source-line=\"258\">Retomando</p><p data-source-line=\"259\">As evidências científicas também respaldam o uso de plantas medicinais brasileiras: confira o Mapa de Evidências sobre a Efetividade Clínica das Plantas Medicinais Brasileiras.</p><a href=\"./assets/documents/unidade-4/u4-mapa-evidencias-plantas-medicinais.pdf\" download=\"\" data-source-line=\"260\" class=\"u4-resource-link\">Baixe aqui</a></div></aside>"
             },
             {
                 "type": "html",
-                "content": "<h3 class=\"u2-chapter\" id=\"u4-page-6-section-4\" data-source-line=\"264\">Interação e troca</h3>"
-            },
-            {
-                "type": "html",
-                "content": "<section class=\"u4-forum\" aria-labelledby=\"u4-forum-title\"><p class=\"pics-section-kicker\">Fórum</p><h4 id=\"u4-forum-title\"><a href=\"#\" data-config-link=\"unitFourForumUrl\" data-config-fallback=\"forumUrl\">Dialogue com a Prática</a></h4><p data-source-line=\"268\">Tema: Práticas integradas à atuação dos ACS e ACE - Parte I</p><p data-source-line=\"269\">\"Olá! Caro cursista! Agora que você conheceu um pouco mais sobre o campo de atuação no território e as Práticas Integrativas e Complementares em Saúde (PICS) como estratégia de cuidado integral - incluindo as visitas domiciliares, as ações coletivas, as estratégias de prevenção e promoção da saúde (como rodas de conversa, oficinas e mutirões), bem como as PICS enquanto ferramentas de aproximação, fortalecimento de vínculos e educação em saúde, articuladas às Práticas Populares de Saúde no território da APS -, convidamos você a refletir sobre essas práticas.\"</p><blockquote>\n<div>Pergunta norteadora</div>\n<p data-source-line=\"272\">\"Algumas dessas estratégias são adotadas na unidade de saúde onde você atua? Caso seja, comente aqui no fórum como estas estratégias acontecem.\"</p>\n</blockquote><ul>\n<li data-source-line=\"275\">Registre suas observações no fórum, aproveite para conhecer a realidade dos participantes do módulo e converse com eles sobre a temática.</li>\n</ul></section>"
+                "content": "<section class=\"formulario-atividade\" id=\"u4-page-6-section-4\" aria-labelledby=\"u4-forum-title\" aria-describedby=\"u4-forum-descricao\">\n    <div class=\"formulario-atividade-card\">\n        <div class=\"formulario-atividade-conteudo\">\n            <span class=\"formulario-atividade-tag\">Fórum</span>\n            <h2 id=\"u4-forum-title\" class=\"formulario-atividade-titulo\">Dialogue com a Prática</h2>\n            <p class=\"formulario-atividade-descricao\" data-source-line=\"268\">Tema: Práticas integradas à atuação dos ACS e ACE - Parte I</p>\n            <p id=\"u4-forum-descricao\" class=\"formulario-atividade-descricao\" data-source-line=\"269\">\"Olá! Caro cursista! Agora que você conheceu um pouco mais sobre o campo de atuação no território e as Práticas Integrativas e Complementares em Saúde (PICS) como estratégia de cuidado integral - incluindo as visitas domiciliares, as ações coletivas, as estratégias de prevenção e promoção da saúde (como rodas de conversa, oficinas e mutirões), bem como as PICS enquanto ferramentas de aproximação, fortalecimento de vínculos e educação em saúde, articuladas às Práticas Populares de Saúde no território da APS -, convidamos você a refletir sobre essas práticas.\"</p>\n            <p class=\"formulario-atividade-descricao\" data-source-line=\"272\"><strong>\"Algumas dessas estratégias são adotadas na unidade de saúde onde você atua? Caso seja, comente aqui no fórum como estas estratégias acontecem.\"</strong></p>\n            <p class=\"formulario-atividade-descricao\" data-source-line=\"275\">Registre suas observações no fórum, aproveite para conhecer a realidade dos participantes do módulo e converse com eles sobre a temática.</p>\n            <a class=\"formulario-atividade-botao\" href=\"#\" data-config-link=\"unitFourForumUrl\" data-config-fallback=\"forumUrl\" aria-label=\"Acessar o fórum Dialogue com a Prática da Unidade 4\">\n                Acessar fórum\n                <span aria-hidden=\"true\">→</span>\n            </a>\n        </div>\n        <div class=\"formulario-atividade-imagem\">\n            <img loading=\"lazy\" decoding=\"async\" src=\"./assets/images/unidades/boas-vindas/formulario.webp\" width=\"1672\" height=\"941\"\n                alt=\"Agentes comunitários de saúde dialogando com moradores durante uma visita no território.\">\n        </div>\n    </div>\n</section>"
             },
             {
                 "type": "html",
@@ -305,7 +301,7 @@ export const unitFourSourcePages = [
             },
             {
                 "id": "u4-page-6-section-4",
-                "text": "Interação e troca"
+                "text": "Dialogue com a Prática"
             },
             {
                 "id": "u4-page-6-section-6",

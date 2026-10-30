@@ -20,13 +20,18 @@ test('integra as páginas da Unidade 3 e separa as referências na nova página'
     assert.match(unitThree.pages[5].html,/Referências utilizadas nesta aula:/);
     assert.doesNotMatch(unitThree.pages[5].html,/\[Referências e materiais complementares\]/);
 });
-test('preserva os segmentos do ZIP mantidos após a remoção solicitada da identificação da aula',()=>{
+test('preserva os segmentos pedagógicos do ZIP após as adaptações de apresentação',()=>{
     let position=0;
     const retainedSegments=fixture.textSegments.slice(9);
+    // A tabela de regras e critérios pendentes foi removida a pedido do usuário.
+    const forumTableStart=retainedSegments.indexOf('Regras de convivência')-2;
+    retainedSegments.splice(forumTableStart,6);
     const assessmentStart=retainedSegments.indexOf('Avaliação da aprendizagem');
     const synthesisStart=retainedSegments.indexOf('Síntese da aula');
     retainedSegments.splice(assessmentStart,synthesisStart-assessmentStart);
-    const adjustedSegments=retainedSegments.map(segment=>segment.startsWith('[') && [
+    // O fórum usa um único título e destaca a pergunta sem os rótulos do layout anterior.
+    const forumPresentationLabels=new Set(['Interação e troca','Pergunta norteadora']);
+    const adjustedSegments=retainedSegments.filter(segment=>!forumPresentationLabels.has(segment)).map(segment=>segment.startsWith('[') && [
         '[Acolhimento e contextualização]',
         '[Encerramento e continuidade]',
         '[Referências e materiais complementares]',

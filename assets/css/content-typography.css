@@ -5,3 +5,8 @@
     hyphens: auto;
     overflow-wrap: break-word;
 }
+
+/* Apresentação da equipe na ficha técnica da Introdução. */
+[data-unit="introducao"] #pagina-conteudo.pagina-ficha-tecnica .ficha-tecnica-introducao {
+    text-indent: 0 !important;
+}

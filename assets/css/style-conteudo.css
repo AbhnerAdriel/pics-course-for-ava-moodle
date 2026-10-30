@@ -173,7 +173,7 @@ button:focus-visible,
 .menu-link:focus-visible,
 .paginacao-botao:focus-visible,
 .paginacao-numero:focus-visible,
-.controle-flutuante-pagina button:focus-visible {
+.voltar-ao-topo:focus-visible {
     outline: 4px solid var(--cor-foco-acessivel);
     outline-offset: 4px;
     box-shadow: 0 0 0 7px rgba(255, 255, 255, 0.94);
@@ -282,6 +282,11 @@ button:focus-visible,
     line-height: 1.15;
     font-weight: 800;
     letter-spacing: -1px;
+}
+
+/* O título recebe foco programático na navegação e no retorno ao topo. */
+#banner-conteudo-titulo:focus {
+    outline: none;
 }
 
 #banner-conteudo-box-textual #banner-conteudo-titulo #banner-conteudo-titulo-unidade {
@@ -3010,8 +3015,7 @@ button:focus-visible,
     transform: translateY(-3px);
 }
 
-.paginacao-botao:disabled,
-.controle-flutuante-pagina button:disabled {
+.paginacao-botao:disabled {
     opacity: 0.45;
     cursor: not-allowed;
 }
@@ -3091,67 +3095,45 @@ button:focus-visible,
 
 
 /* =========================================================
-   CONTROLE FLUTUANTE
+   BOTÃO VOLTAR AO TOPO
    ========================================================= */
 
-.controle-flutuante-pagina {
-    position: fixed;
-    right: 22px;
-    bottom: 22px;
-    z-index: 700;
-
-    display: inline-flex;
+.voltar-ao-topo {
+    display: flex;
     align-items: center;
-    gap: 12px;
+    justify-content: center;
+    gap: 9px;
 
-    padding: 9px 12px;
+    width: fit-content;
+    max-width: 100%;
+    min-height: 48px;
+    margin: 24px auto 0;
+    padding: 12px 18px;
 
-    background-color: rgba(255, 255, 255, 0.94);
+    background-color: var(--conteudo-cor-verde);
+    color: #fff;
 
     border: 1px solid rgba(225, 230, 216, 0.9);
     border-radius: 999px;
 
-    box-shadow: 0 16px 34px rgba(31, 45, 31, 0.20);
-    backdrop-filter: blur(8px);
-}
-
-.controle-flutuante-pagina button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 38px;
-    height: 38px;
-
-    background-color: var(--conteudo-cor-verde);
-    color: #ffffff;
-
-    border: none;
-    border-radius: 50%;
-
-    font-size: 18px;
-    font-weight: 900;
-
+    box-shadow: 0 12px 28px rgba(31, 45, 31, 0.16);
+    font: 800 14px/1.4 var(--fonte-auxiliar);
     cursor: pointer;
-
     transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
-.controle-flutuante-pagina button:hover:not(:disabled) {
+.voltar-ao-topo:hover {
     background-color: var(--conteudo-cor-verde-escuro);
 
     transform: translateY(-2px);
 }
 
-.controle-flutuante-pagina span {
-    min-width: 72px;
+.voltar-ao-topo svg {
+    flex-shrink: 0;
+}
 
-    color: var(--conteudo-cor-texto-suave);
-
-    font-family: var(--fonte-auxiliar);
-    font-size: 15px;
-    font-weight: 800;
-    text-align: center;
+@media print {
+    .voltar-ao-topo { display: none; }
 }
 
 
@@ -3784,10 +3766,6 @@ button:focus-visible,
         display: none;
     }
 
-    .controle-flutuante-pagina {
-        right: 14px;
-        bottom: 14px;
-    }
 }
 
 /* ----- Smartphones ----- */
@@ -3952,12 +3930,6 @@ button:focus-visible,
         gap: 7px;
     }
 
-    .controle-flutuante-pagina {
-        right: auto;
-        left: 50%;
-
-        transform: translateX(-50%);
-    }
 }
 
 /* ----- Smartphones Muito Pequenos ----- */
@@ -4290,7 +4262,7 @@ button:focus-visible,
 
     .paginacao-botao,
     .paginacao-numero,
-    .controle-flutuante-pagina button,
+    .voltar-ao-topo,
     .menu-navegacao-botao,
     .menu-navegacao-lateral,
     .menu-navegacao-backdrop,

@@ -7,10 +7,10 @@ function progressBar({percent, page, total}) {
     const formattedTotal = String(total).padStart(2, '0');
     return `<div class="progresso-paginas-faixa">
         <div class="progresso-paginas-cabecalho" aria-hidden="true">
-            <p class="progresso-paginas-titulo">Progresso da unidade</p>
+            <p class="progresso-paginas-titulo">Progresso de Leitura</p>
             <strong class="progresso-paginas-percentual">${percent}%</strong>
         </div>
-        <div class="progresso-paginas-trilho" role="progressbar" aria-label="Progresso da unidade"
+        <div class="progresso-paginas-trilho" role="progressbar" aria-label="Progresso de Leitura"
             aria-valuemin="0" aria-valuemax="100" aria-valuenow="${percent}"
             aria-valuetext="${percent}% concluído. Página ${page} de ${total}.">
             <span class="progresso-paginas-valor" style="width: ${percent}%"></span>
@@ -39,19 +39,19 @@ function pagination(unit, page) {
     </nav>`;
 }
 
-function floatingPagination(unit, page) {
-    const total = unit.pages.length;
-    return `<div class="controle-flutuante-pagina" aria-label="Controle rápido de páginas">
-        <a href="${toHash(unitPath(unit.slug, Math.max(1, page - 1)))}" aria-label="Voltar página" ${page === 1 ? 'aria-disabled="true" tabindex="-1"' : ''}>←</a>
-        <span>Página ${page}</span>
-        <a href="${toHash(unitPath(unit.slug, Math.min(total, page + 1)))}" aria-label="Avançar página" ${page === total ? 'aria-disabled="true" tabindex="-1"' : ''}>→</a>
-    </div>`;
+function backToTopButton() {
+    return `<button class="voltar-ao-topo" type="button" data-back-to-top aria-label="Voltar ao topo da página">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 19V5m-7 7 7-7 7 7"/></svg>
+        <span>Voltar ao topo</span>
+    </button>`;
 }
 
 export function renderUnit({course, unit, page}) {
     const safePage = Math.min(Math.max(1, page), unit.pages.length);
     const pageData = unit.pages[safePage - 1];
     const percent = Math.round((safePage / unit.pages.length) * 100);
+    // O flipbook mantém sua composição e seus estilos próprios, inclusive a abertura.
+    const contentDesign = /<pics-flipbook\b/i.test(pageData.html) ? '' : ' data-content-design="editorial"';
     return `<div class="route-view" data-view="unit" data-unit="${unit.slug}" data-page="${safePage}">
         ${navigationShell({mode: 'unit', course, unit, currentPage: safePage})}
         <header id="banner-conteudo" aria-labelledby="banner-conteudo-titulo">
@@ -59,22 +59,33 @@ export function renderUnit({course, unit, page}) {
             <div class="voltar-modulo-wrapper"><a class="voltar-modulo-link" href="#/" aria-label="Voltar para a página do módulo">← <span>Voltar ao módulo</span></a></div>
             <div id="banner-conteudo-box-textual">
                 <img id="banner-conteudo-logo" src="./assets/images/pnpic-main-logo.webp" alt="Logotipo da Política Nacional de Práticas Integrativas e Complementares" width="640" height="640">
-                <h1 id="banner-conteudo-titulo"><span id="banner-conteudo-titulo-unidade">${unit.bannerTitle}</span>${unit.bannerSubtitle}</h1>
+                <h1 id="banner-conteudo-titulo" tabindex="-1"><span id="banner-conteudo-titulo-unidade">${unit.bannerTitle}</span>${unit.bannerSubtitle}</h1>
             </div>
         </header>
         <main id="conteudo-principal" tabindex="-1">
             ${progressBar({percent, page: safePage, total: unit.pages.length})}
             <section id="conteudo-unidade" aria-labelledby="conteudo-unidade-titulo">
                 <h2 id="conteudo-unidade-titulo" class="visually-hidden">${unit.title}</h2>
-                <article id="pagina-conteudo" class="pagina-conteudo ${pageData.className}" aria-live="polite" aria-label="${pageData.title}">${pageData.html}</article>
+                <article id="pagina-conteudo" class="pagina-conteudo ${pageData.className}"${contentDesign} aria-live="polite" aria-label="${pageData.title}">${pageData.html}</article>
                 ${pagination(unit, safePage)}
+                ${backToTopButton()}
             </section>
         </main>
-        ${floatingPagination(unit, safePage)}
         <footer id="rodape-conteudo"><div id="rodape-conteudo-container">
             <img src="./assets/images/instituicoes-rodape.webp" alt="Logotipos das instituições envolvidas no módulo" width="1800" height="287" loading="lazy" decoding="async">
         </div></footer>
     </div>`;
+}
+
+export function bindBackToTop(root = document) {
+    const button = root.querySelector('[data-back-to-top]');
+    if (!button) return () => {};
+    const onClick = () => {
+        root.querySelector('#banner-conteudo-titulo')?.focus({preventScroll: true});
+        window.scrollTo({top: 0, left: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'});
+    };
+    button.addEventListener('click', onClick);
+    return () => button.removeEventListener('click', onClick);
 }
 
 export function bindConfiguredLinks(root = document) {

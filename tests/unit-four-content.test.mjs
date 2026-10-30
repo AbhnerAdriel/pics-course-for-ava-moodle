@@ -40,7 +40,7 @@ test('integra a Unidade 4 e separa as referências na nova página', () => {
     }
 });
 
-test('preserva os textos mantidos após a remoção solicitada da identificação da aula', () => {
+test('preserva os textos pedagógicos após as adaptações de apresentação', () => {
     assert.equal(source.pages.reduce((total, page) => total + page.blocks.length, 0), 145);
     assert.equal(source.visibleText.length, 176);
     const originalLastPage = source.pages[5].visibleText;
@@ -49,10 +49,13 @@ test('preserva os textos mantidos após a remoção solicitada da identificaçã
         [...originalLastPage.slice(0, 34), ...originalLastPage.slice(80, 85)],
         originalLastPage.slice(85),
     ];
+    // O fórum agora reúne título e pergunta no mesmo layout das demais unidades.
+    const forumPresentationLabels = new Set(['Interação e troca', 'Pergunta norteadora']);
     for (const [index, page] of expectedByPage.entries()) {
         const text = plainText(unitFour.pages[index].html);
         let offset = 0;
-        const visibleText = (index === 0 ? page.slice(5) : page).map(segment => [
+        const visibleText = (index === 0 ? page.slice(5) : page)
+            .filter(segment => index !== 5 || !forumPresentationLabels.has(segment)).map(segment => [
             '[Acolhimento e contextualização]', '[Encerramento e continuidade]', '[Referências e materiais complementares]',
         ].includes(segment) ? segment.slice(1, -1) : segment);
         for (const segment of visibleText) {

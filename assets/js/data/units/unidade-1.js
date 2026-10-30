@@ -166,9 +166,6 @@ export const unitOne = {
                         </p>
                     </div>
 
-                    <figure class="conteudo-texto-imagem-flex-imagem pagina-historico-pics__imagem-abertura">
-                        <img loading="lazy" decoding="async" src="./assets/images/unidades/unidade-01/historico-pics-sus.jpg" width="1000" height="1250" alt="Profissional de saúde apresenta um modelo de pontos de acupuntura a um grupo reunido com plantas medicinais.">
-                    </figure>
                 </div>
             </section>
 
@@ -368,7 +365,7 @@ export const unitOne = {
             </section>
 
             <section class="pagina-historico-pics__referencias" aria-labelledby="unidade-1-pagina-4-referencias-titulo">
-                <h2 id="unidade-1-pagina-4-referencias-titulo">Referências:</h2>
+                <h2 id="unidade-1-pagina-4-referencias-titulo" data-section-rule="none">Referências:</h2>
                 <p>FURTADO, José Henrique de Lacerda; QUEIROZ, Caio Ramon; FURTADO, Francisca Paula de Lacerda. A evolução das práticas integrativas e complementares no Brasil e o papel da Medicina Tradicional Chinesa. Revista Saúde e Desenvolvimento, Curitiba, v. 18, n. 28, p. 74-88, 2024.</p>
             </section>`,
         },
@@ -564,7 +561,7 @@ export const unitOne = {
             </section>
 
             <section class="pagina-historico-pics__referencias" aria-labelledby="unidade-1-pagina-5-referencias-titulo">
-                <h2 id="unidade-1-pagina-5-referencias-titulo">Referências:</h2>
+                <h2 id="unidade-1-pagina-5-referencias-titulo" data-section-rule="none">Referências:</h2>
                 <p>QUEIROZ, Neila Alves de; BARBOSA, Fernanda Elizabeth Sena; DUARTE, Wellington Bruno Araujo. Uso das Práticas Integrativas e Complementares em Saúde por profissionais dos Núcleos Ampliados de Saúde da Família e Atenção Básica. Physis: Revista de Saúde Coletiva, Rio de Janeiro, v. 33, 2023.</p>
                 <p>SCHVEITZER, Mariana Cabral; ESPER, Marcos Venicio; SILVA, Maria Júlia Paes da. Práticas Integrativas e Complementares na Atenção Primária em Saúde: em busca da humanização do cuidado. O Mundo da Saúde, São Paulo, v. 36, n. 3, p. 442-451, 2012.</p>
             </section>`,
@@ -587,7 +584,21 @@ export const unitOne = {
                         <h2 id="unidade-1-pagina-6-diretrizes-titulo">Principais diretrizes da Portaria PNPIC</h2>
                         <p>O marco central das PICS reconheceu e organizou sua oferta no SUS. Explore as diretrizes em quatro conjuntos, mantendo o foco no uso seguro, qualificado e acessível.</p>
                     </div>
-                    <img src="./assets/images/icones-de-conteudo/saiba-mais-icon-maior.png" width="2051" height="767" alt="" aria-hidden="true">
+                    <div class="unit-bonus-marker">
+                        <svg class="unit-bonus-marker__art" viewBox="0 0 64 64" width="64" height="64" fill="none" aria-hidden="true" focusable="false">
+                            <path d="M7 20C6 6 26 3 40 8s22 18 16 32-21 20-36 15S5 35 7 20Z" fill="currentColor" opacity=".08"/>
+                            <path d="M11 34c7-3 14-2 21 2 7-4 14-5 21-2v19c-7-3-14-2-21 2-7-4-14-5-21-2V34Z" fill="#fff" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                            <path d="M32 36v19M17 40c4-1 7 0 10 2M17 46c4-1 7 0 10 2M37 42c3-2 6-3 10-2M37 48c3-2 6-3 10-2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            <g stroke="var(--unit-ochre, #bb811d)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M27 24c0-3-4-4-4-9a9 9 0 0 1 18 0c0 5-4 6-4 9H27Z" fill="var(--unit-paper, #f7f6f0)"/>
+                                <path d="M28 28h8m-6 4h4M32 2v2M18 8l2 2m24 0 2-2"/>
+                            </g>
+                        </svg>
+                        <span class="unit-bonus-marker__copy">
+                            <span class="unit-bonus-marker__eyebrow">Conteúdo extra</span>
+                            <strong class="unit-bonus-marker__title">Saiba mais</strong>
+                        </span>
+                    </div>
                 </header>
 
                 <div class="pics-policy-slider__viewport pics-directives-slider__viewport">
@@ -638,7 +649,7 @@ export const unitOne = {
                     Conforme já vimos nas aulas anteriores, depois de 2006 a Política passou por atualizações importantes. Entre 2017 e 2018, novas portarias ampliaram o número de práticas reconhecidas pelo SUS, incluindo yoga, meditação, arteterapia, musicoterapia, reiki, aromaterapia, ayurveda, terapia comunitária integrativa, constelação familiar e várias outras. Essas ampliações reforçam a diversidade cultural e terapêutica presente no país. Além disso, as atualizações incentivaram a formação de profissionais, a produção de pesquisas e o fortalecimento da implementação das PICS nos serviços de saúde, especialmente na Atenção Primária em Saúde.
                 </p>
 
-                <h3 id="unidade-1-pagina-6-politicas-titulo">Relação com outras políticas de saúde</h3>
+                <h3 id="unidade-1-pagina-6-politicas-titulo" data-section-rule="none">Relação com outras políticas de saúde</h3>
 
                 <p>As PICS dialogam diretamente com várias políticas estruturantes do SUS:</p>
             </section>
@@ -650,7 +661,21 @@ export const unitOne = {
                         <h2 id="unidade-1-pagina-6-politicas-lista-titulo">Políticas estruturantes do SUS</h2>
                         <p>Use os controles para perceber como as PICS se conectam a cinco frentes do cuidado público.</p>
                     </div>
-                    <img src="./assets/images/icones-de-conteudo/saiba-mais-icon-maior.png" width="2051" height="767" alt="" aria-hidden="true">
+                    <div class="unit-bonus-marker">
+                        <svg class="unit-bonus-marker__art" viewBox="0 0 64 64" width="64" height="64" fill="none" aria-hidden="true" focusable="false">
+                            <path d="M7 20C6 6 26 3 40 8s22 18 16 32-21 20-36 15S5 35 7 20Z" fill="currentColor" opacity=".08"/>
+                            <path d="M11 34c7-3 14-2 21 2 7-4 14-5 21-2v19c-7-3-14-2-21 2-7-4-14-5-21-2V34Z" fill="#fff" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                            <path d="M32 36v19M17 40c4-1 7 0 10 2M17 46c4-1 7 0 10 2M37 42c3-2 6-3 10-2M37 48c3-2 6-3 10-2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            <g stroke="var(--unit-ochre, #bb811d)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M27 24c0-3-4-4-4-9a9 9 0 0 1 18 0c0 5-4 6-4 9H27Z" fill="var(--unit-paper, #f7f6f0)"/>
+                                <path d="M28 28h8m-6 4h4M32 2v2M18 8l2 2m24 0 2-2"/>
+                            </g>
+                        </svg>
+                        <span class="unit-bonus-marker__copy">
+                            <span class="unit-bonus-marker__eyebrow">Conteúdo extra</span>
+                            <strong class="unit-bonus-marker__title">Saiba mais</strong>
+                        </span>
+                    </div>
                 </header>
 
                 <div class="pics-policy-slider__viewport">
@@ -769,7 +794,7 @@ export const unitOne = {
             </section>
 
             <section class="pagina-historico-pics__referencias" aria-labelledby="unidade-1-pagina-6-referencias-titulo">
-                <h2 id="unidade-1-pagina-6-referencias-titulo">Referências:</h2>
+                <h2 id="unidade-1-pagina-6-referencias-titulo" data-section-rule="none">Referências:</h2>
                 <p>BARROS, Nelson Filice de; SPADACIO, Cristiane; COSTA, Marcelo Viana da. Trabalho interprofissional e as Práticas Integrativas e Complementares no contexto da Atenção Primária à Saúde: potenciais e desafios. Saúde Debate, v. 42, número especial 1, p. 163–173, 2018.</p>
                 <p>BRASIL. Ministério da Saúde. Política Nacional de Práticas Integrativas e Complementares no SUS (PNPIC). Portaria nº 971, de 03 de maio de 2006. Brasília: Ministério da Saúde, 2006.</p>
                 <p>BRASIL. Ministério da Saúde. Política Nacional de Promoção da Saúde. Brasília: Ministério da Saúde, 2010.</p>

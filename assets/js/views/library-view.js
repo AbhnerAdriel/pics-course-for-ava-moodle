@@ -72,7 +72,7 @@ export function renderLibraryResults(artifacts = libraryArtifacts, page = 1) {
 
 export function renderLibrary({course}) {
     const units = course.units.filter(unit => libraryArtifacts.some(artifact => artifact.unit === unit.slug));
-    return `<div class="route-view biblioteca-page" data-view="library" data-layout="grid">
+    return `<div class="route-view biblioteca-page" data-view="library" data-layout="list">
         ${navigationShell({mode: 'library', course})}
         <header class="biblioteca-banner" aria-labelledby="biblioteca-titulo">
             <div class="biblioteca-banner__overlay" aria-hidden="true"></div>
@@ -106,8 +106,8 @@ export function renderLibrary({course}) {
                     <div><h2 id="biblioteca-acervo-titulo" tabindex="-1">Explore o acervo</h2>
                         <p id="biblioteca-contagem" role="status" aria-live="polite" aria-atomic="true">${libraryArtifacts.length} materiais · Mostrando 1–12</p></div>
                     <div class="biblioteca-visualizacao" role="group" aria-label="Visualização dos materiais">
-                        <button type="button" data-library-layout="grid" aria-pressed="true" aria-controls="biblioteca-resultados">${libraryIcon('grid')}<span>Cards</span></button>
-                        <button type="button" data-library-layout="list" aria-pressed="false" aria-controls="biblioteca-resultados">${libraryIcon('list')}<span>Lista</span></button>
+                        <button type="button" data-library-layout="list" aria-pressed="true" aria-controls="biblioteca-resultados">${libraryIcon('list')}<span>Lista</span></button>
+                        <button type="button" data-library-layout="grid" aria-pressed="false" aria-controls="biblioteca-resultados">${libraryIcon('grid')}<span>Cards</span></button>
                     </div>
                 </div>
                 <div id="biblioteca-resultados">${renderLibraryResults()}</div>

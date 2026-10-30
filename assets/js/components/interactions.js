@@ -22,6 +22,7 @@ export function bindPageInteractions(root = document) {
     const onClick = (event) => {
         const disabled = event.target.closest('[aria-disabled="true"]');
         if (disabled) { event.preventDefault(); return; }
+        if (event.target.closest('[data-back-to-top]')) return;
         if (event.target.closest('pics-flipbook, pics-horizontal-timeline') || event.target.closest('[data-content-slider]')) return;
         const button = event.target.closest('button, .unidade-card-botao, .formulario-atividade-botao');
         if (!button) return;
@@ -38,7 +39,9 @@ export function bindPageInteractions(root = document) {
     root.addEventListener('click', onClick);
     cleanup.push(() => root.removeEventListener('click', onClick));
 
-    const reveals = [...root.querySelectorAll('.banner-info-card, .unidade-card, .conteudo-texto-imagem-flex-card, .conteudo-texto-corrido, .formulario-atividade, .pics-keyfacts, .pics-callout')];
+    // A coluna de leitura fica visível desde o início. Ocultar um contêiner longo
+    // também oculta seus textos e componentes até o observador liberar a animação.
+    const reveals = [...root.querySelectorAll('.banner-info-card, .unidade-card, .conteudo-texto-imagem-flex-card, .formulario-atividade, .pics-keyfacts, .pics-callout')];
     if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
         const observer = new IntersectionObserver((entries) => {
             for (const entry of entries) if (entry.isIntersecting) {

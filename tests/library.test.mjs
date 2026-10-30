@@ -7,12 +7,14 @@ import {renderHome} from '../assets/js/views/home-view.js';
 import {libraryPage, renderLibrary, renderLibraryResults} from '../assets/js/views/library-view.js';
 import {parseRoute} from '../assets/js/core/router.js';
 
-test('a Home apresenta o acesso à biblioteca depois das unidades e abre em nova aba', () => {
+test('a Home apresenta a biblioteca no menu e mantém o convite depois das unidades em nova aba', () => {
     const html = renderHome({course});
     const invitation = html.indexOf('<section class="biblioteca-convite"');
     assert.ok(invitation > html.indexOf('unit-conclusao-title'));
     assert.ok(invitation < html.indexOf('<footer'));
     assert.match(html, /href="#\/biblioteca" target="_blank" rel="noopener noreferrer"/);
+    const menu = html.match(/<aside id="menu-navegacao-lateral"[\s\S]*?<\/aside>/)?.[0] || '';
+    assert.match(menu, /<a class="menu-link" href="#\/biblioteca">Biblioteca Digital do Módulo<\/a>/);
     assert.doesNotMatch(html, /biblioteca-filtros|biblioteca-galeria/);
     assert.deepEqual(parseRoute('#/biblioteca'), {name: 'library', path: '/biblioteca'});
 });
@@ -79,10 +81,12 @@ test('paginação mantém todos os materiais acessíveis e limita páginas fora 
     assert.match(renderLibraryResults([]), /data-library-reset/);
 });
 
-test('a biblioteca inicia em cards e diferencia downloads de arquivos e de links externos', () => {
+test('a biblioteca inicia em lista como primeira opção e diferencia downloads de arquivos e de links externos', () => {
     const html = renderLibrary({course});
-    assert.match(html, /data-view="library" data-layout="grid"/);
-    assert.match(html, /data-library-layout="grid" aria-pressed="true"/);
+    assert.match(html, /data-view="library" data-layout="list"/);
+    assert.match(html, /data-library-layout="list" aria-pressed="true"/);
+    assert.match(html, /data-library-layout="grid" aria-pressed="false"/);
+    assert.ok(html.indexOf('data-library-layout="list"') < html.indexOf('data-library-layout="grid"'));
     assert.match(html, /role="search"/);
     assert.match(html, /role="status" aria-live="polite"/);
     assert.match(html, /name="query"/);

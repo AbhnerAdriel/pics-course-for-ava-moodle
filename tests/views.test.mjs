@@ -36,13 +36,15 @@ test('renderiza unidade e página de conteúdo', () => {
     assert.match(html, /Prazer em Conhecê-lo/);
     assert.match(html, /Página 2 de 3/);
     assert.match(html, /boas-vindas-ao-pics\.webp/);
+    assert.match(html, /<\/nav>\s*<button class="voltar-ao-topo" type="button" data-back-to-top/);
+    assert.doesNotMatch(html, /controle-flutuante-pagina|Controle rápido de páginas/);
     assert.match(html, /role="progressbar"/);
     assert.match(html, /aria-valuenow="67"/);
     assert.match(html, /class="progresso-paginas-faixa"/);
     const progressIndex = html.indexOf('<div class="progresso-paginas-faixa">');
     const contentIndex = html.indexOf('<section id="conteudo-unidade"');
     assert.ok(progressIndex > html.indexOf('<main id="conteudo-principal"') && progressIndex < contentIndex);
-    assert.match(html, /class="progresso-paginas-trilho" role="progressbar" aria-label="Progresso da unidade"/);
+    assert.match(html, /class="progresso-paginas-trilho" role="progressbar" aria-label="Progresso de Leitura"/);
     assert.match(html, /aria-valuetext="67% concluído\. Página 2 de 3\."/);
     assert.match(html, /class="progresso-paginas-valor" style="width: 67%"/);
     assert.match(html, /Página 02 de 03/);
@@ -172,7 +174,7 @@ test('renderiza todo o histórico das PICS e a linha do tempo como a quarta pág
     assert.equal(events.length, 9);
     assert.match(html, /data-unit="unidade-1" data-page="4"/);
     assert.match(html, /class="pagina-conteudo pagina-historico-pics"/);
-    assert.match(html, /historico-pics-sus\.jpg/);
+    assert.doesNotMatch(html, /historico-pics-sus\.jpg|pagina-historico-pics__imagem-abertura/);
     assert.match(html, /Caro cursista, nesta unidade apresentaremos a história das Práticas Integrativas e Complementares em Saúde/);
     assert.match(html, /A adoção das Práticas Integrativas e Complementares em Saúde \(PICS\) no Brasil segue uma tendência mundial/);
     assert.match(html, /Como surgiram as PICS/);
@@ -266,7 +268,7 @@ test('renderiza as três partes do PDF e o pillar stack como a quinta página da
     assert.match(questions, /Como a APS pode usar as PICS de forma mais estratégica/);
 
     const references = pageHtml.match(/<section class="pagina-historico-pics__referencias" aria-labelledby="unidade-1-pagina-5-referencias-titulo">[\s\S]*?<\/section>/)?.[0] || '';
-    assert.match(references, /<h2 id="unidade-1-pagina-5-referencias-titulo">Referências:<\/h2>/);
+    assert.match(references, /<h2 id="unidade-1-pagina-5-referencias-titulo" data-section-rule="none">Referências:<\/h2>/);
     assert.equal((references.match(/<p>/g) || []).length, 2);
     assert.match(references, /QUEIROZ, Neila Alves de; BARBOSA, Fernanda Elizabeth Sena; DUARTE, Wellington Bruno Araujo/);
     assert.match(references, /SCHVEITZER, Mariana Cabral; ESPER, Marcos Venicio; SILVA, Maria Júlia Paes da/);

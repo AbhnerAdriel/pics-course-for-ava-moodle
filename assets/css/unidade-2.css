@@ -281,11 +281,30 @@
 .u2-parts details:last-child { padding-right: 0; }
 .u2-parts summary { display: flex; gap: 12px; min-height: 120px; color: var(--pics-deep); list-style: none; cursor: pointer; }
 .u2-parts summary::-webkit-details-marker { display: none; }
+.u2-parts summary > span:last-child { min-width: 0; }
 .u2-parts__number { flex: 0 0 auto; color: var(--pics-ochre); font: 800 15px/1.5 var(--fonte-auxiliar); }
 .u2-parts__part { display: block; margin-bottom: 8px; font-size: 13px; line-height: 1.5; }
 .u2-parts summary strong { font: 700 18px/1.35 var(--fonte-auxiliar); }
-.u2-parts__hint { display: block; margin-top: 14px; font-size: 12px; line-height: 1.5; color: #536c5e; }
-.u2-parts details[open] .u2-parts__hint { color: var(--pics-deep); text-decoration: underline; }
+.u2-parts__hint {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-sizing: border-box;
+    width: fit-content;
+    max-width: 100%;
+    min-height: 44px;
+    margin-top: 14px;
+    padding: 8px 12px;
+    color: var(--pics-deep);
+    background: #edf4e9;
+    border: 1px solid var(--pics-line);
+    border-radius: 4px 12px 4px 12px;
+    font: 700 14px/1.5 var(--fonte-auxiliar);
+}
+.u2-parts__chevron { flex: 0 0 18px; width: 18px; height: 18px; }
+.u2-parts summary:hover .u2-parts__hint,
+.u2-parts summary:focus-visible .u2-parts__hint { background: #e2eddc; border-color: var(--pics-deep); }
+.u2-parts details[open] .u2-parts__chevron { transform: rotate(180deg); }
 .u2-parts details > p { margin: 18px 0 0; color: var(--pics-ink); font-size: 16px; line-height: 1.75; }
 .u2-actions { margin-block: 24px; padding: 0 20px; background: var(--pics-paper); border-left: 4px solid var(--pics-leaf); }
 .u2-actions ul { padding: 0 0 24px 24px; list-style: disc; }

@@ -5,12 +5,13 @@ import {RouteStyleManager} from './core/style-manager.js';
 import {MoodleBridge} from './services/moodle-bridge.js';
 import {renderHome} from './views/home-view.js';
 import {renderLibrary, bindLibrary} from './views/library-view.js';
-import {renderUnit, bindConfiguredLinks} from './views/unit-view.js';
+import {renderUnit, bindConfiguredLinks, bindBackToTop} from './views/unit-view.js';
 import {bindNavigationDrawer} from './components/navigation-drawer.js';
 import {bindPageInteractions} from './components/interactions.js';
 import {bindUnitTwoTools, takeReadingDestination} from './components/unit-two-tools.js';
 import {bindUnitThreeTools} from './components/unit-three-tools.js';
 import {bindUnitFourTools} from './components/unit-four-tools.js';
+import {enhanceUnitContent} from './components/unit-content.js';
 
 const app = document.querySelector('#app');
 const liveRegion = document.querySelector('#app-live-region');
@@ -86,9 +87,11 @@ function notFound() {
 }
 
 function bindCommon() {
+    enhanceUnitContent(document);
     cleanupView.push(bindNavigationDrawer(document));
     cleanupView.push(bindPageInteractions(document));
     cleanupView.push(bindConfiguredLinks(document));
+    cleanupView.push(bindBackToTop(document));
     cleanupView.push(bindUnitTwoTools(document));
     cleanupView.push(bindUnitThreeTools(document));
     cleanupView.push(bindUnitFourTools(document));
@@ -158,8 +161,12 @@ async function render(route) {
             bindCommon();
 
             const destination = takeReadingDestination(document);
-            const target = destination || document.querySelector('.progresso-paginas-faixa');
-            const heading = destination || document.querySelector('#pagina-conteudo h1, #pagina-conteudo h2, #pagina-conteudo h3');
+            // A entrada de toda unidade deve mostrar o início da página, incluindo o banner.
+            const isFirstPage = page === 1;
+            const target = isFirstPage ? null : destination || document.querySelector('.progresso-paginas-faixa');
+            const heading = isFirstPage
+                ? document.querySelector('#banner-conteudo-titulo')
+                : destination || document.querySelector('#pagina-conteudo h1, #pagina-conteudo h2, #pagina-conteudo h3');
             if (heading) { heading.tabIndex = -1; heading.focus({preventScroll: true}); }
             scheduleRouteScroll(target, sequence);
             announce(`${pageData.title}. Página ${page} de ${unit.pages.length}.`);

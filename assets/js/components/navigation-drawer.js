@@ -32,6 +32,10 @@ export function navigationShell({mode, course, unit, currentPage = 1}) {
                     <h3>${heading}</h3>
                     <ul>${items}</ul>
                 </section>
+                ${mode === 'home' ? `<section class="menu-navegacao-grupo">
+                    <h3>Recursos do módulo</h3>
+                    <ul><li><a class="menu-link" href="#/biblioteca">Biblioteca Digital do Módulo</a></li></ul>
+                </section>` : ''}
             </nav>
         </aside>`;
 }

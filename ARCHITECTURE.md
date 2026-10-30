@@ -27,6 +27,10 @@ assets/js/
 └── views/                  # renderização da página inicial e das unidades
 ```
 
+## Conteúdo das unidades
+
+O [sistema editorial das unidades](docs/design-system-conteudo.md) usa `data-content-design="editorial"` como limite de escopo. `enhanceUnitContent` adapta a marcação legada antes da inicialização das interações. Páginas que contêm `pics-flipbook` não recebem o atributo nem a adaptação. Os dados de conteúdo permanecem separados da apresentação.
+
 ## Segurança e robustez
 
 - não há execução de conteúdo vindo do usuário;

@@ -5,6 +5,7 @@ import {fileURLToPath} from 'node:url';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const required = [
     'index.html', 'assets/js/app.js', 'assets/css/app.css', 'assets/css/content-typography.css',
+    'assets/css/unit-content.css', 'assets/js/components/unit-content.js',
     'assets/css/biblioteca.css', 'assets/js/data/library.js', 'assets/js/views/library-view.js',
     'assets/js/components/library-icons.js',
     'assets/js/data/units/introducao.js', 'assets/js/data/units/boas-vindas.js', 'assets/js/data/units/unidade-1.js',
@@ -112,6 +113,7 @@ if (flipbookPdfSignature !== '%PDF-') {
 
 const shellHtml = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
 for (const asset of [
+    './assets/css/unit-content.css',
     './assets/css/biblioteca.css',
     './assets/css/unidade-2.css',
     './assets/css/unidade-3.css',

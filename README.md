@@ -13,6 +13,7 @@ Esta versão reorganiza o projeto original como uma **Single Page Application se
 - imagens otimizadas em WebP e nomes de arquivos portáveis;
 - JavaScript modular, sem jQuery, sem código inline e sem etapa obrigatória de build;
 - testes automatizados do roteador, das visualizações e do registro de páginas visitadas.
+- [sistema de design do conteúdo das unidades](docs/design-system-conteudo.md), com badges, divisórias, composições de imagem e caixas de destaque; páginas de flipbook preservam seu layout próprio.
 
 ## Executar localmente
 

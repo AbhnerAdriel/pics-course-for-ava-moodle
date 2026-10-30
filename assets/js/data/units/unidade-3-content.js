@@ -69,7 +69,7 @@ export const unitThreeSourcePages = [
             },
             {
                 "type": "html",
-                "content": "<aside class=\"pics-callout u2-callout u3-callout\"><img src=\"./assets/images/icones-de-conteudo/saiba-mais-icon.png\" alt=\"\" aria-hidden=\"true\" loading=\"lazy\" decoding=\"async\"><div class=\"u2-callout__copy\"><p data-source-line=\"65\">Saiba mais</p><p data-source-line=\"66\">Para saber mais sobre Yoga vale a pena fazer o curso <b data-source-line=\"66\">Introdução às Práticas Integrativas e Complementares em Saúde: Yoga</b>, da plataforma AVASUS do Ministério da Saúde.</p><a href=\"https://avasus.ufrn.br/local/avasplugin/cursos/curso.php?id=479\" target=\"_blank\" data-source-line=\"67\" class=\"u3-resource-link\" rel=\"noopener noreferrer\">Acesse aqui</a></div></aside>"
+                "content": "<aside class=\"pics-callout u2-callout u3-callout\"><img src=\"./assets/images/icones-de-conteudo/saiba-mais-plantas-icon.svg\" width=\"64\" height=\"64\" alt=\"\" aria-hidden=\"true\" loading=\"lazy\" decoding=\"async\"><div class=\"u2-callout__copy\"><p data-source-line=\"65\">Saiba mais</p><p data-source-line=\"66\">Para saber mais sobre Yoga vale a pena fazer o curso <b data-source-line=\"66\">Introdução às Práticas Integrativas e Complementares em Saúde: Yoga</b>, da plataforma AVASUS do Ministério da Saúde.</p><a href=\"https://avasus.ufrn.br/local/avasplugin/cursos/curso.php?id=479\" target=\"_blank\" data-source-line=\"67\" class=\"u3-resource-link\" rel=\"noopener noreferrer\">Acesse aqui</a></div></aside>"
             },
             {
                 "type": "html",
@@ -123,7 +123,7 @@ export const unitThreeSourcePages = [
             },
             {
                 "type": "html",
-                "content": "<aside class=\"pics-callout u2-callout u3-callout\"><img src=\"./assets/images/icones-de-conteudo/saiba-mais-icon.png\" alt=\"\" aria-hidden=\"true\" loading=\"lazy\" decoding=\"async\"><div class=\"u2-callout__copy\"><p data-source-line=\"111\">Saiba mais</p><p data-source-line=\"112\">Para saber mais sobre Meditação vale a pena fazer o curso <b data-source-line=\"112\">Introdução às Práticas Integrativas e Complementares em Saúde: Meditação</b>, da plataforma AVASUS do Ministério da Saúde.</p><a href=\"https://avasus.ufrn.br/local/avasplugin/cursos/curso.php?id=679\" target=\"_blank\" data-source-line=\"113\" class=\"u3-resource-link\" rel=\"noopener noreferrer\">Acesse aqui</a></div></aside>"
+                "content": "<aside class=\"pics-callout u2-callout u3-callout\"><img src=\"./assets/images/icones-de-conteudo/saiba-mais-plantas-icon.svg\" width=\"64\" height=\"64\" alt=\"\" aria-hidden=\"true\" loading=\"lazy\" decoding=\"async\"><div class=\"u2-callout__copy\"><p data-source-line=\"111\">Saiba mais</p><p data-source-line=\"112\">Para saber mais sobre Meditação vale a pena fazer o curso <b data-source-line=\"112\">Introdução às Práticas Integrativas e Complementares em Saúde: Meditação</b>, da plataforma AVASUS do Ministério da Saúde.</p><a href=\"https://avasus.ufrn.br/local/avasplugin/cursos/curso.php?id=679\" target=\"_blank\" data-source-line=\"113\" class=\"u3-resource-link\" rel=\"noopener noreferrer\">Acesse aqui</a></div></aside>"
             },
             {
                 "type": "html",
@@ -216,7 +216,7 @@ export const unitThreeSourcePages = [
             },
             {
                 "id": "u3-page-5-section-4",
-                "text": "Interação e troca"
+                "text": "Dialogando com a Prática"
             },
             {
                 "id": "u3-page-5-section-6",
@@ -238,7 +238,7 @@ export const unitThreeSourcePages = [
             },
             {
                 "type": "html",
-                "content": "<aside class=\"pics-callout u2-callout u3-callout\"><img src=\"./assets/images/icones-de-conteudo/saiba-mais-icon.png\" alt=\"\" aria-hidden=\"true\" loading=\"lazy\" decoding=\"async\"><div class=\"u2-callout__copy\"><p data-source-line=\"189\">Retomando</p><p data-source-line=\"190\">Utilizar as práticas de Yoga e Meditação nos espaços de saúde é uma importante ferramenta de integração para os agentes de saúde nos territórios. São práticas alinhadas às políticas públicas de saúde, de baixo custo e fácil implementação, que fortalecem o cuidado integral e humanizado, promovem o acolhimento, a escuta e o vínculo entre usuários e equipe de saúde, e estimulam a participação da comunidade no cuidado coletivo.</p></div></aside>"
+                "content": "<aside class=\"pics-callout u2-callout u3-callout\"><img src=\"./assets/images/icones-de-conteudo/retomando-icon.svg\" width=\"64\" height=\"64\" alt=\"\" aria-hidden=\"true\" loading=\"lazy\" decoding=\"async\"><div class=\"u2-callout__copy\"><p data-source-line=\"189\">Retomando</p><p data-source-line=\"190\">Utilizar as práticas de Yoga e Meditação nos espaços de saúde é uma importante ferramenta de integração para os agentes de saúde nos territórios. São práticas alinhadas às políticas públicas de saúde, de baixo custo e fácil implementação, que fortalecem o cuidado integral e humanizado, promovem o acolhimento, a escuta e o vínculo entre usuários e equipe de saúde, e estimulam a participação da comunidade no cuidado coletivo.</p></div></aside>"
             },
             {
                 "type": "html",
@@ -261,15 +261,7 @@ export const unitThreeSourcePages = [
             },
             {
                 "type": "html",
-                "content": "<h3 class=\"u2-chapter\" id=\"u3-page-5-section-4\" data-source-line=\"247\">Interação e troca</h3>"
-            },
-            {
-                "type": "html",
-                "content": "<section class=\"u3-forum\" data-source-line=\"248\">\n<div data-source-line=\"249\">Fórum</div>\n<h4 data-source-line=\"250\"><a href=\"#\" data-config-link=\"unitThreeForumUrl\" data-config-fallback=\"forumUrl\">Dialogando com a Prática</a></h4>\n<div data-source-line=\"251\">Tema: Práticas integradas à atuação dos ACS e ACE (Parte II)</div>\n<p data-source-line=\"252\">\"Olá! Caro cursista! Agora que você conheceu um pouco mais sobre Yoga e Meditação, e algumas práticas de massagem como a Automassagem e a Shantala, vamos refletir sobre essas práticas?\"</p>\n<div data-source-line=\"253\">\n<div data-source-line=\"254\">Pergunta norteadora</div>\n<p data-source-line=\"255\">\"Algumas dessas PICS são oferecidas na sua unidade de saúde? Caso seja, comente aqui no fórum como se dá esta oferta.\"</p>\n</div>\n<ul data-source-line=\"257\">\n<li data-source-line=\"258\">Registre suas observações no fórum, aproveite para conhecer a realidade dos participantes do módulo e converse com eles sobre a temática.</li>\n<li data-source-line=\"259\">Comente a postagem de pelo menos um colega, relacionando-a à sua própria realidade territorial.</li>\n</ul>\n</section>"
-            },
-            {
-                "type": "html",
-                "content": "<div class=\"u3-table\"><table data-source-line=\"262\">\n<thead data-source-line=\"263\"><tr data-source-line=\"263\"><th data-source-line=\"263\">Item</th><th data-source-line=\"263\">Definição</th></tr></thead>\n<tbody data-source-line=\"264\">\n<tr data-source-line=\"265\"><td data-source-line=\"265\">Regras de convivência</td><td data-source-line=\"265\">[A DEFINIR PELA COORDENAÇÃO DO CURSO]</td></tr>\n<tr data-source-line=\"266\"><td data-source-line=\"266\">Critérios de participação</td><td data-source-line=\"266\">[A DEFINIR PELA COORDENAÇÃO DO CURSO]</td></tr>\n</tbody>\n</table></div>"
+                "content": "<section class=\"formulario-atividade\" aria-labelledby=\"u3-page-5-section-4\" aria-describedby=\"u3-forum-descricao\" data-source-line=\"248\">\n    <div class=\"formulario-atividade-card\">\n        <div class=\"formulario-atividade-conteudo\">\n            <span class=\"formulario-atividade-tag\" data-source-line=\"249\">Fórum</span>\n            <h2 id=\"u3-page-5-section-4\" class=\"formulario-atividade-titulo\" data-source-line=\"250\">Dialogando com a Prática</h2>\n            <p class=\"formulario-atividade-descricao\" data-source-line=\"251\">Tema: Práticas integradas à atuação dos ACS e ACE (Parte II)</p>\n            <p id=\"u3-forum-descricao\" class=\"formulario-atividade-descricao\" data-source-line=\"252\">\"Olá! Caro cursista! Agora que você conheceu um pouco mais sobre Yoga e Meditação, e algumas práticas de massagem como a Automassagem e a Shantala, vamos refletir sobre essas práticas?\"</p>\n            <p class=\"formulario-atividade-descricao\" data-source-line=\"255\"><strong>\"Algumas dessas PICS são oferecidas na sua unidade de saúde? Caso seja, comente aqui no fórum como se dá esta oferta.\"</strong></p>\n            <p class=\"formulario-atividade-descricao\" data-source-line=\"258\">Registre suas observações no fórum, aproveite para conhecer a realidade dos participantes do módulo e converse com eles sobre a temática.</p>\n            <p class=\"formulario-atividade-descricao\" data-source-line=\"259\">Comente a postagem de pelo menos um colega, relacionando-a à sua própria realidade territorial.</p>\n            <a class=\"formulario-atividade-botao\" href=\"#\" data-config-link=\"unitThreeForumUrl\" data-config-fallback=\"forumUrl\" aria-label=\"Acessar o fórum Dialogando com a Prática da Unidade 3\">\n                Acessar fórum\n                <span aria-hidden=\"true\">→</span>\n            </a>\n        </div>\n        <div class=\"formulario-atividade-imagem\">\n            <img loading=\"lazy\" decoding=\"async\" src=\"./assets/images/unidades/boas-vindas/formulario.webp\" width=\"1672\" height=\"941\"\n                alt=\"Agentes comunitários de saúde dialogando com moradores durante uma visita no território.\">\n        </div>\n    </div>\n</section>"
             },
             {
                 "type": "html",
