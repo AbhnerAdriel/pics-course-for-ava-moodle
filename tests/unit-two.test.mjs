@@ -51,7 +51,10 @@ test('preserva o texto da fonte mantido após a remoção da avaliação e a sub
     // As três mensagens finais da HQ permanecem no aviso abaixo do flipbook.
     for (const sourceText of [...originalText.visibleText, ...originalText.dynamicText, ...originalText.storyText.slice(-3)]) {
         if (removedText.has(sourceText)) continue;
-        assert.ok(content.includes(sourceText), `Texto original ausente ou modificado: ${sourceText}`);
+        // Os downloads podem receber metadados entre os rótulos da fonte.
+        for (const segment of sourceText.split(/(?=⬇ )/).map(text => text.trim()).filter(Boolean)) {
+            assert.ok(content.includes(segment), `Texto original ausente ou modificado: ${segment}`);
+        }
     }
     assert.doesNotMatch(content, /SUGESTÃO DO MINISTÉRIO|INSERIR COMO|Cenário:|Modelos de UBS|biotipos de praticantes/);
     assert.deepEqual(unitTwoQuestions, originalText.questions, 'Questões, alternativas, gabarito e devolutivas devem manter o conteúdo da fonte.');

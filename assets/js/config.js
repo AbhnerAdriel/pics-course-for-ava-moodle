@@ -8,7 +8,13 @@ export const appConfig = Object.freeze({
     unitTwoForumUrl: '',
     unitThreeForumUrl: '',
     unitThreeMeditationAudioUrl: '',
-    unitThreeDocuments: {}, // Mapear os cinco nomes de PDF do rascunho para URLs reais.
+    unitThreeDocuments: {
+        'u3-mapa-evidencias-yoga.pdf': encodeURI('./assets/documents/unidade-3/MAPA DE EVIDÊNCIAS EFETIVIDADE CLÍNICA DA PRÁTICA DO YOGA.pdf'),
+        'u3-asana-pranayama-mudra-bandha.pdf': encodeURI('./assets/documents/unidade-3/Asana Pranayama Mudra Bandha Complete Opt OCR.pdf'),
+        'u3-yoga-para-nervosos.pdf': './assets/documents/unidade-3/02.-Yoga-para-nervosos-autor-Oswaldo-Paulino.pdf',
+        'u3-mapa-evidencias-meditacao.pdf': encodeURI('./assets/documents/unidade-3/MAPA EVIDÊNCIAS MEDITAÇÃO.pdf'),
+        'u3-arte-da-meditacao-goleman.pdf': './assets/documents/unidade-3/Daniel-Goleman-_-A-Arte-da-Meditacao.pdf',
+    }, // PDFs compartilhados pelas aulas e pela biblioteca da Unidade 3.
     unitFourForumUrl: '',
     unitFourVideoUrl: '', // URL do VA4 finalizado (arquivo de vídeo ou URL de incorporação).
     welcomeFormUrl: '',

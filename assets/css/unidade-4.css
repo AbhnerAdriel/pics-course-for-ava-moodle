@@ -48,6 +48,7 @@
 .u4-callout .u2-callout__copy p { font-size: 18px; }
 .u4-resource-link { display: inline-block; min-height: 44px; padding: 10px 0; color: var(--pics-deep); border-bottom: 2px solid var(--pics-leaf); font: 700 16px/1.5 var(--fonte-auxiliar); }
 .u4-resource-link:hover { border-color: var(--pics-deep); }
+.u4-resource-links { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 12px 28px; }
 .u4-reference-resource { display: flex; flex-wrap: wrap; align-items: baseline; gap: 12px 24px; padding: 18px 0; border-bottom: 1px solid var(--pics-line); }
 .u4-reference-resource > p { flex: 1 1 300px; margin: 0; color: var(--pics-ink); font-size: 18px; line-height: 1.7; }
 .u4-reference-resource > a { flex: 0 0 auto; }

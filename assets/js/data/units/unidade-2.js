@@ -187,8 +187,22 @@ export const unitTwo = {
         <p>Resumo</p>
         <p>Nesta unidade, os cursistas exploraram o histórico do uso de plantas medicinais, desde as civilizações antigas até sua integração nas políticas públicas de saúde, como a PNPIC e a PNPMF. Discutiu-se a relevância da convergência entre o conhecimento científico e o tradicional, enfatizando o papel essencial do farmacêutico na orientação e no uso racional de fitoterápicos. Foram abordados cuidados fundamentais na coleta das plantas - horários, partes, condições climáticas e momento ideal de desenvolvimento - além de orientações práticas para preparo e armazenamento (higiene, secagem imediata, recipientes adequados e controle das quantidades). Por fim, o módulo alertou sobre os riscos do uso inadequado: intoxicações, erros de identificação, presença de mofo e aflatoxinas, interações medicamentosas, dosagens excessivas e misturas imprevisíveis, reforçando a importância da identificação correta das espécies e da aquisição com rótulos informativos contendo nome, data e finalidade de uso.</p>
         
-          <p>⬇ Baixar Caderno de Atenção Básica</p>
-          <p>⬇ Baixar Portaria 886/2010 (Farmácia Viva)</p>
+        <div class="u2-summary-downloads" role="group" aria-label="Materiais complementares para baixar">
+          <a class="u2-summary-download" href="./assets/documents/unidade-2/caderno-atencao-basica-plantas.pdf" download="caderno-atencao-basica-plantas.pdf">
+            <span class="u2-summary-download__icon" aria-hidden="true">⬇</span>
+            <span class="u2-summary-download__copy">
+              <span class="u2-summary-download__title">Baixar Caderno de Atenção Básica</span>
+              <span class="u2-summary-download__format">PDF</span>
+            </span>
+          </a>
+          <a class="u2-summary-download" href="./assets/documents/unidade-2/portaria-886-2010-farmacia-viva.pdf" download="portaria-886-2010-farmacia-viva.pdf">
+            <span class="u2-summary-download__icon" aria-hidden="true">⬇</span>
+            <span class="u2-summary-download__copy">
+              <span class="u2-summary-download__title">Baixar Portaria 886/2010 (Farmácia Viva)</span>
+              <span class="u2-summary-download__format">PDF</span>
+            </span>
+          </a>
+        </div>
         
       </div></aside><aside class="pics-callout u2-callout u2-callout--reflection"><img src="./assets/images/icones-de-conteudo/dialogando-com-pratica-icon.png" alt="" width="1254" height="1254" aria-hidden="true" loading="lazy" decoding="async"><div class="u2-callout__copy">
         
@@ -269,7 +283,15 @@ export const unitTwo = {
       
       <p>Quer ampliar sua compreensão sobre a inserção das Práticas Integrativas e Complementares no Sistema Único de Saúde? A Política Nacional de Práticas Integrativas e Complementares no SUS (PNPIC) apresenta princípios, diretrizes e responsabilidades para a oferta dessas práticas na rede pública de saúde, contribuindo para compreender como diferentes formas de cuidado passaram a integrar as políticas do SUS.</p>
       <p>Durante a leitura, observe especialmente como a PNPIC articula promoção da saúde, cuidado integral, participação social e ampliação das possibilidades terapêuticas. Acesse a Política Nacional de Práticas Integrativas e Complementares no SUS – 2ª ed. (2015).</p>
-      <p>⬇ Baixar PDF - PNPIC (2ª ed., 2015)</p>
+      <div class="u2-summary-downloads" role="group" aria-label="Material complementar para baixar">
+        <a class="u2-summary-download" href="./assets/documents/unidade-2/pnpic-2ed-2015.pdf" download="pnpic-2ed-2015.pdf">
+          <span class="u2-summary-download__icon" aria-hidden="true">⬇</span>
+          <span class="u2-summary-download__copy">
+            <span class="u2-summary-download__title">Baixar PDF - PNPIC (2ª ed., 2015)</span>
+            <span class="u2-summary-download__format">PDF</span>
+          </span>
+        </a>
+      </div>
     </div></aside></div>`,
         },
         {

@@ -94,7 +94,7 @@ test('os quatro filtros se combinam e a busca tolera acentos, espaços e maiúsc
 
 test('materiais pendentes ficam sem links falsos e acompanham a configuração das unidades', () => {
     const pending = libraryArtifacts.filter(item => !item.available);
-    assert.equal(pending.length, 6);
+    assert.equal(pending.length, 1);
     assert.ok(pending.every(item => item.url === ''));
     const configured = buildLibraryArtifacts({unitThreeDocuments: {'u3-arte-da-meditacao-goleman.pdf': 'https://example.org/meditacao.pdf'}, unitFourVideoUrl: 'https://example.org/va4.mp4'});
     assert.equal(configured.find(item => item.id === 'arte-meditacao').available, true);
