@@ -15,7 +15,7 @@
 }
 [data-unit="unidade-3"] #pagina-conteudo::before {
     content: ""; position: absolute; inset: 0; z-index: -1; opacity: .035;
-    background: url("../images/slides-background/Elementos.png") top right / 920px auto no-repeat;
+    background: url("../images/slides-background/elementos-visuais-bg-slide.png") top right / 920px auto no-repeat;
     pointer-events: none;
 }
 [data-unit="unidade-3"] #pagina-conteudo :is(p, li, figcaption) { text-align: left; }

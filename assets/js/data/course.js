@@ -11,7 +11,7 @@ export const course = Object.freeze({
     shortTitle: 'PICS para ACS e ACE',
     stats: [
         {number: '01.', label: 'Carga Horária', value: '60 horas'},
-        {number: '02.', label: 'Número de Unidades', value: '6 unidades'},
+        {number: '02.', label: 'Número de Unidades', value: '4 unidades'},
         {number: '03.', label: 'Com Certificação', value: 'Sim. Pela totalidade do curso.'},
         {number: '04.', label: 'Público-alvo', value: 'Agentes Comunitários de Saúde e Agentes de Combate às Endemias e demais interessados, sem restrição de público a quem se destina.'},
     ],

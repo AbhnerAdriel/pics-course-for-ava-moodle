@@ -679,27 +679,27 @@ export const unitOne = {
                 </header>
 
                 <div class="pics-policy-slider__viewport">
-                    <article class="pics-policy-slide" id="politica-painel-1" role="tabpanel" data-content-slide style="--pics-slide-image: url('./assets/images/slides-background/BG.png')" aria-labelledby="politica-slide-1">
+                    <article class="pics-policy-slide" id="politica-painel-1" role="tabpanel" data-content-slide aria-labelledby="politica-slide-1">
                         <span class="pics-policy-slide__number">01</span>
                         <div><p class="pics-policy-slide__type">Atenção Básica</p><h3 id="politica-slide-1">Política Nacional de Atenção Básica</h3>
                         <ul><li>A maioria das práticas é ofertada na Estratégia Saúde da Família.</li><li>Fortalece ações de promoção, prevenção e cuidado longitudinal.</li></ul></div>
                     </article>
-                    <article class="pics-policy-slide" id="politica-painel-2" role="tabpanel" data-content-slide style="--pics-slide-image: url('./assets/images/slides-background/BG colorido.jpg')" aria-labelledby="politica-slide-2">
+                    <article class="pics-policy-slide" id="politica-painel-2" role="tabpanel" data-content-slide aria-labelledby="politica-slide-2">
                         <span class="pics-policy-slide__number">02</span>
                         <div><p class="pics-policy-slide__type">Promoção da saúde</p><h3 id="politica-slide-2">Política Nacional de Promoção da Saúde (PNPS)</h3>
                         <ul><li>Reconhece as PICS como ferramentas para o autocuidado, a atividade física e a saúde mental.</li><li>Favorece estilos de vida saudáveis no cotidiano dos territórios.</li></ul></div>
                     </article>
-                    <article class="pics-policy-slide" id="politica-painel-3" role="tabpanel" data-content-slide style="--pics-slide-image: url('./assets/images/slides-background/BG.png')" aria-labelledby="politica-slide-3">
+                    <article class="pics-policy-slide" id="politica-painel-3" role="tabpanel" data-content-slide aria-labelledby="politica-slide-3">
                         <span class="pics-policy-slide__number">03</span>
                         <div><p class="pics-policy-slide__type">Humanização</p><h3 id="politica-slide-3">Política Nacional de Humanização (PNH)</h3>
                         <ul><li>Contribui para acolhimento, vínculo, escuta qualificada e valorização da subjetividade.</li><li>Estimula relações mais horizontais entre profissionais e usuários.</li></ul></div>
                     </article>
-                    <article class="pics-policy-slide" id="politica-painel-4" role="tabpanel" data-content-slide style="--pics-slide-image: url('./assets/images/slides-background/BG colorido.jpg')" aria-labelledby="politica-slide-4">
+                    <article class="pics-policy-slide" id="politica-painel-4" role="tabpanel" data-content-slide aria-labelledby="politica-slide-4">
                         <span class="pics-policy-slide__number">04</span>
                         <div><p class="pics-policy-slide__type">Saúde mental</p><h3 id="politica-slide-4">Política de Saúde Mental</h3>
                         <ul><li>As PICS são utilizadas nos Centros de Atenção Psicossocial (CAPS).</li><li>Podem auxiliar no manejo da ansiedade, depressão, sofrimento emocional e dependência química.</li></ul></div>
                     </article>
-                    <article class="pics-policy-slide" id="politica-painel-5" role="tabpanel" data-content-slide style="--pics-slide-image: url('./assets/images/slides-background/BG.png')" aria-labelledby="politica-slide-5">
+                    <article class="pics-policy-slide" id="politica-painel-5" role="tabpanel" data-content-slide aria-labelledby="politica-slide-5">
                         <span class="pics-policy-slide__number">05</span>
                         <div><p class="pics-policy-slide__type">Território e cultura</p><h3 id="politica-slide-5">Equidade e populações tradicionais</h3>
                         <ul><li>Reconhece saberes indígenas, afro-brasileiros e comunitários.</li><li>Valoriza práticas ancestrais e terapias culturais.</li><li>Fortalece o cuidado territorial e comunitário.</li></ul></div>
@@ -791,15 +791,6 @@ export const unitOne = {
                         <li>Como as PICS podem ajudar no cuidado diário das pessoas atendidas na UBS?</li>
                     </ol>
                 </div>
-            </section>
-
-            <section class="pagina-historico-pics__referencias" aria-labelledby="unidade-1-pagina-6-referencias-titulo">
-                <h2 id="unidade-1-pagina-6-referencias-titulo" data-section-rule="none">Referências:</h2>
-                <p>BARROS, Nelson Filice de; SPADACIO, Cristiane; COSTA, Marcelo Viana da. Trabalho interprofissional e as Práticas Integrativas e Complementares no contexto da Atenção Primária à Saúde: potenciais e desafios. Saúde Debate, v. 42, número especial 1, p. 163–173, 2018.</p>
-                <p>BRASIL. Ministério da Saúde. Política Nacional de Práticas Integrativas e Complementares no SUS (PNPIC). Portaria nº 971, de 03 de maio de 2006. Brasília: Ministério da Saúde, 2006.</p>
-                <p>BRASIL. Ministério da Saúde. Política Nacional de Promoção da Saúde. Brasília: Ministério da Saúde, 2010.</p>
-                <p>BRASIL. Ministério da Saúde. Política Nacional de Humanização (PNH): HumanizaSUS. Brasília: MS, 2013.</p>
-                <p>ORGANIZAÇÃO MUNDIAL DA SAÚDE (OMS). WHO Traditional Medicine Strategy 2025–2034. Geneva: World Health Organization, 2025. Disponível em: Organização Mundial da Saúde – WHO Global Traditional Medicine Centre.</p>
             </section>`,
         },
         {
@@ -838,7 +829,6 @@ export const unitOne = {
 
                 <div class="pics-resource-hub__layout">
                     <article class="pics-resource-row" aria-labelledby="unidade-1-pagina-8-leitura-titulo" aria-describedby="unidade-1-pagina-8-leitura-descricao">
-                        <div class="pics-resource-row__number" aria-hidden="true">01</div>
                         <img class="pics-resource-icon" src="./assets/images/icones-de-conteudo/material-complementar-icon.png" width="1254" height="1254" alt="" aria-hidden="true">
                         <div>
                             <p class="pics-resource-format">Material complementar · PDF</p>
@@ -849,27 +839,34 @@ export const unitOne = {
                     </article>
 
                     <article class="pics-resource-row" aria-labelledby="unidade-1-pagina-8-forum-titulo" aria-describedby="unidade-1-pagina-8-forum-descricao">
-                        <div class="pics-resource-row__number" aria-hidden="true">02</div>
                         <img class="pics-resource-icon" src="./assets/images/icones-de-conteudo/dialogando-com-pratica-icon.png" width="1254" height="1254" alt="" aria-hidden="true">
                         <div>
                             <p class="pics-resource-format">Dialogando com a prática · Fórum</p>
                             <h3 id="unidade-1-pagina-8-forum-titulo">Leve o conteúdo ao território</h3>
                             <p id="unidade-1-pagina-8-forum-descricao">Compartilhe experiências e relacione a unidade com a atuação cotidiana dos ACS e ACE.</p>
-                            <a class="pics-resource-hub__action" href="#" data-config-link="forumUrl" aria-label="Acessar o fórum Dialogando com a Prática">Acessar fórum <span aria-hidden="true">→</span></a>
+                            <a class="pics-resource-hub__action" href="https://docenciaimpar.com.br/mod/forum/view.php?id=6" data-config-link="forumUrl" aria-label="Acessar o fórum Dialogando com a Prática">Acessar fórum <span aria-hidden="true">→</span></a>
                         </div>
                     </article>
 
                     <article class="pics-resource-row" aria-labelledby="unidade-1-pagina-8-avaliacao-titulo" aria-describedby="unidade-1-pagina-8-avaliacao-descricao">
-                        <div class="pics-resource-row__number" aria-hidden="true">03</div>
                         <img class="pics-resource-icon" src="./assets/images/icones-de-conteudo/avaliacao-icon.png" width="1254" height="1254" alt="" aria-hidden="true">
                         <div>
                             <p class="pics-resource-format">Avaliação · Questionário</p>
                             <h3 id="unidade-1-pagina-8-avaliacao-titulo">Conclua a Unidade 1</h3>
                             <p id="unidade-1-pagina-8-avaliacao-descricao">Responda a 05 questões de múltipla escolha e verifique os pontos essenciais do percurso.</p>
-                            <a class="pics-resource-hub__action" href="#" data-config-link="unitOneAssessmentUrl" aria-label="Acessar a avaliação da Unidade 1">Iniciar avaliação <span aria-hidden="true">→</span></a>
+                            <a class="pics-resource-hub__action" href="https://docenciaimpar.com.br/mod/quiz/view.php?id=2" data-config-link="unitOneAssessmentUrl" aria-label="Acessar a avaliação da Unidade 1">Iniciar avaliação <span aria-hidden="true">→</span></a>
                         </div>
                     </article>
                 </div>
+            </section>
+
+            <section class="pagina-historico-pics__referencias" aria-labelledby="unidade-1-pagina-8-referencias-titulo">
+                <h2 id="unidade-1-pagina-8-referencias-titulo" data-section-rule="none">Referências:</h2>
+                <p>BARROS, Nelson Filice de; SPADACIO, Cristiane; COSTA, Marcelo Viana da. Trabalho interprofissional e as Práticas Integrativas e Complementares no contexto da Atenção Primária à Saúde: potenciais e desafios. Saúde Debate, v. 42, número especial 1, p. 163–173, 2018.</p>
+                <p>BRASIL. Ministério da Saúde. Política Nacional de Práticas Integrativas e Complementares no SUS (PNPIC). Portaria nº 971, de 03 de maio de 2006. Brasília: Ministério da Saúde, 2006.</p>
+                <p>BRASIL. Ministério da Saúde. Política Nacional de Promoção da Saúde. Brasília: Ministério da Saúde, 2010.</p>
+                <p>BRASIL. Ministério da Saúde. Política Nacional de Humanização (PNH): HumanizaSUS. Brasília: MS, 2013.</p>
+                <p>ORGANIZAÇÃO MUNDIAL DA SAÚDE (OMS). WHO Traditional Medicine Strategy 2025–2034. Geneva: World Health Organization, 2025. Disponível em: Organização Mundial da Saúde – WHO Global Traditional Medicine Centre.</p>
             </section>`,
         },
     ],

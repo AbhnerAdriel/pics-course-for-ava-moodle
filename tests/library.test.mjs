@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {readFileSync, existsSync} from 'node:fs';
 import {course, unitsBySlug} from '../assets/js/data/course.js';
 import {libraryArtifacts, buildLibraryArtifacts, filterLibraryArtifacts} from '../assets/js/data/library.js';
-import {renderHome} from '../assets/js/views/home-view.js';
+import {renderHome, bindHome} from '../assets/js/views/home-view.js';
 import {libraryPage, renderLibrary, renderLibraryResults} from '../assets/js/views/library-view.js';
 import {parseRoute} from '../assets/js/core/router.js';
 
@@ -19,14 +19,53 @@ test('a Home apresenta a biblioteca no menu e mantém o convite depois das unida
     assert.deepEqual(parseRoute('#/biblioteca'), {name: 'library', path: '/biblioteca'});
 });
 
-test('o catálogo inclui os PDFs, vídeos e links publicados nas unidades sem duplicar recursos', () => {
+test('o atalho da Home rola até a seção da biblioteca, respeita movimento reduzido e limpa o evento', (t) => {
+    const previousWindow = globalThis.window;
+    t.after(() => {
+        if (previousWindow === undefined) delete globalThis.window;
+        else globalThis.window = previousWindow;
+    });
+
+    for (const reducedMotion of [false, true]) {
+        globalThis.window = {matchMedia: () => ({matches: reducedMotion})};
+        const listeners = new Map();
+        const calls = [];
+        const shortcut = {
+            addEventListener: (name, handler) => listeners.set(name, handler),
+            removeEventListener: (name, handler) => {
+                assert.equal(listeners.get(name), handler);
+                listeners.delete(name);
+            },
+        };
+        const section = {scrollIntoView: options => calls.push({action: 'scroll', ...options})};
+        const title = {focus: options => calls.push({action: 'focus', ...options})};
+        const root = {querySelector: selector => ({
+            '[data-home-library-shortcut]': shortcut,
+            '#biblioteca-digital-modulo': section,
+            '#biblioteca-convite-titulo': title,
+        })[selector] || null};
+
+        const cleanup = bindHome(root);
+        listeners.get('click')();
+        assert.deepEqual(calls, [
+            {action: 'focus', preventScroll: true},
+            {action: 'scroll', behavior: reducedMotion ? 'auto' : 'smooth', block: 'start'},
+        ]);
+        cleanup();
+        assert.equal(listeners.size, 0);
+    }
+});
+
+test('o catálogo inclui os PDFs, vídeos e links de leitura publicados nas unidades sem duplicar recursos', () => {
     const urls = libraryArtifacts.filter(item => item.available).map(item => item.url);
     assert.equal(new Set(urls).size, urls.length);
     assert.equal(new Set(libraryArtifacts.map(item => item.id)).size, libraryArtifacts.length);
     assert.deepEqual(new Set(libraryArtifacts.map(item => item.type)), new Set(['pdf', 'video', 'link']));
     for (const unit of unitsBySlug.values()) {
         for (const page of unit.pages) {
-            const references = [...page.html.matchAll(/(?:href|src)="((?:https?:\/\/|\.\/assets\/)[^"]+)"/g)]
+            // Atividades do Moodle não são materiais de leitura da biblioteca.
+            const resources = page.html.replace(/<a\b[^>]*\bdata-config-link="[^"]*(?:forum|assessment|form)Url"[^>]*>/gi, '');
+            const references = [...resources.matchAll(/(?:href|src)="((?:https?:\/\/|\.\/assets\/)[^"]+)"/g)]
                 .map(match => match[1]).filter(url => /^https?:\/\//.test(url) || /\.pdf$/.test(url));
             for (const url of references) assert.ok(urls.includes(url), `${unit.slug}: ${url}`);
         }

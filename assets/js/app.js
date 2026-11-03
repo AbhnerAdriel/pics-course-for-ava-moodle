@@ -3,7 +3,7 @@ import {HashRouter, unitPath} from './core/router.js';
 import {ProgressStore} from './core/store.js';
 import {RouteStyleManager} from './core/style-manager.js';
 import {MoodleBridge} from './services/moodle-bridge.js';
-import {renderHome} from './views/home-view.js';
+import {renderHome, bindHome} from './views/home-view.js';
 import {renderLibrary, bindLibrary} from './views/library-view.js';
 import {renderUnit, bindConfiguredLinks, bindBackToTop} from './views/unit-view.js';
 import {bindNavigationDrawer} from './components/navigation-drawer.js';
@@ -112,6 +112,7 @@ async function render(route) {
             app.innerHTML = renderHome({course});
             app.setAttribute('aria-busy', 'false');
             bindCommon();
+            cleanupView.push(bindHome(document));
             document.querySelector('#conteudo-principal')?.focus({preventScroll: true});
             scheduleRouteScroll(null, sequence);
             announce('Página principal do módulo carregada.');

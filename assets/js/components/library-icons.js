@@ -1,4 +1,5 @@
 const paths = {
+    library: '<path d="M3 4h4v16H3zM9 4h4v16H9zM15 5l4-1 4 15-4 1zM2 21h21M3 8h4M9 8h4m3-1 4-1"/>',
     book: '<path d="M4 4h6a3 3 0 0 1 3 3v14a4 4 0 0 0-4-3H4z"/><path d="M13 7a3 3 0 0 1 3-3h5v14h-4a4 4 0 0 0-4 3"/>',
     pdf: '<path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/>',
     video: '<rect x="3" y="4" width="18" height="16" rx="3"/><path d="m10 8 6 4-6 4z"/>',

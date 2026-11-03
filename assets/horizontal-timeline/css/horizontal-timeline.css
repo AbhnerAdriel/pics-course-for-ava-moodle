@@ -316,6 +316,15 @@ pics-horizontal-timeline[data-timeline-enhanced]
     margin-inline: auto;
 }
 
+/* Escala comum aos títulos dos eventos, independentemente do nível do título. */
+pics-horizontal-timeline
+    > .pics-horizontal-timeline__events
+    > [data-timeline-event]
+    > article
+    > :is(h2, h3, h4) {
+    font-size: clamp(1.25rem, 2.4vw, 1.5rem);
+}
+
 pics-horizontal-timeline[data-timeline-enhanced]
     > .pics-horizontal-timeline__events
     > [data-timeline-event]
@@ -340,7 +349,6 @@ pics-horizontal-timeline[data-timeline-enhanced]
     margin-block: 0;
     color: var(--pics-horizontal-timeline-text);
     font-family: "Playfair Display", Georgia, "Times New Roman", serif;
-    font-size: clamp(1.5rem, 5vw, 3.5rem);
     font-weight: 700;
     line-height: 1.2;
 }
@@ -371,6 +379,14 @@ pics-horizontal-timeline[data-timeline-enhanced]
     color: var(--pics-horizontal-timeline-muted);
     font-size: clamp(0.875rem, 2vw, 1.125rem);
     line-height: 1.6;
+}
+
+pics-horizontal-timeline[data-timeline-enhanced]
+    > .pics-horizontal-timeline__events
+    > [data-timeline-event]
+    > article
+    > p:not(.u2-timeline__index) {
+    font-size: clamp(1.0625rem, 1.5vw, 1.25rem);
 }
 
 pics-horizontal-timeline[data-timeline-enhanced]

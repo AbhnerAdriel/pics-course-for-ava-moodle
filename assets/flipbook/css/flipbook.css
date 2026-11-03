@@ -33,6 +33,7 @@ pics-flipbook,
   line-height: 1.55;
   max-width: 100%;
   contain: layout style;
+  container: pics-flipbook / inline-size;
 }
 
 .pics-flipbook *,
@@ -66,7 +67,7 @@ pics-flipbook,
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding: 18px 22px 14px;
+  padding: 18px 22px;
   border-bottom: 1px solid var(--pf-border);
   background:
     linear-gradient(135deg, rgba(234, 242, 223, 0.72), rgba(255, 255, 255, 0) 52%),
@@ -78,13 +79,20 @@ pics-flipbook,
 }
 
 .pics-flipbook__eyebrow {
-  margin: 0 0 2px;
-  color: var(--pf-accent);
+  margin: 0;
+  color: var(--pf-text-strong);
   font-family: var(--pf-font-ui);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 800;
   letter-spacing: 0.06em;
   text-transform: uppercase;
+  line-height: 1.4;
+}
+
+/* O rótulo do leitor mantém o alinhamento da interface. */
+[data-unit] #pagina-conteudo .pics-flipbook__eyebrow {
+  text-align: left !important;
+  text-indent: 0 !important;
 }
 
 .pics-flipbook__title {
@@ -98,7 +106,8 @@ pics-flipbook,
 }
 
 .pics-flipbook__toolbar {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
   justify-content: space-between;
   gap: 10px;
@@ -115,7 +124,6 @@ pics-flipbook,
 }
 
 .pics-flipbook__toolbar-group--center {
-  flex: 1 1 auto;
   justify-content: center;
 }
 
@@ -124,6 +132,7 @@ pics-flipbook,
   place-items: center;
   width: 38px;
   height: 38px;
+  flex: 0 0 auto;
   padding: 0;
   color: var(--pf-primary);
   background: var(--pf-surface);
@@ -800,10 +809,6 @@ pics-flipbook,
   border-radius: 24px;
 }
 
-.pics-flipbook.is-pseudo-fullscreen .pics-flipbook__viewport {
-  height: calc(100vh - 162px);
-}
-
 pics-flipbook:fullscreen,
 .pics-flipbook:fullscreen {
   width: 100vw;
@@ -812,48 +817,63 @@ pics-flipbook:fullscreen,
   background: var(--pf-bg);
 }
 
-pics-flipbook:fullscreen .pics-flipbook__frame,
-.pics-flipbook:fullscreen .pics-flipbook__frame {
+/* A altura disponível acompanha as linhas de controles, inclusive no celular. */
+.pics-flipbook:is(:fullscreen, .is-pseudo-fullscreen) .pics-flipbook__frame {
+  display: flex;
+  flex-direction: column;
   height: 100%;
 }
 
-pics-flipbook:fullscreen .pics-flipbook__viewport,
-.pics-flipbook:fullscreen .pics-flipbook__viewport {
-  height: calc(100vh - 176px);
+.pics-flipbook:is(:fullscreen, .is-pseudo-fullscreen) :is(.pics-flipbook__header, .pics-flipbook__toolbar, .pics-flipbook__footer) {
+  flex-shrink: 0;
+}
+
+.pics-flipbook:is(:fullscreen, .is-pseudo-fullscreen) .pics-flipbook__viewport {
+  flex: 1 1 auto;
+  height: auto;
+  min-height: 0;
 }
 
 @keyframes pf-spin {
   to { transform: rotate(360deg); }
 }
 
-@media (max-width: 760px) {
+@container pics-flipbook (max-width: 680px) {
   .pics-flipbook__frame {
     border-radius: 24px;
   }
 
   .pics-flipbook__header {
-    align-items: flex-start;
-    padding: 15px 14px 12px;
+    padding: 16px 14px;
   }
 
   .pics-flipbook__toolbar {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .pics-flipbook__toolbar-group--navigation {
+    grid-column: 1 / -1;
+    justify-content: center;
     flex-wrap: wrap;
-    padding: 9px 10px;
   }
 
   .pics-flipbook__toolbar-group--center {
-    order: 3;
-    flex-basis: 100%;
+    justify-content: flex-start;
+  }
+
+  .pics-flipbook__toolbar-group--tools {
+    justify-content: flex-end;
+  }
+
+  .pics-flipbook__page-control {
+    min-width: 100px;
   }
 
   .pics-flipbook__viewport {
     height: min(72vh, 680px);
     min-height: 430px;
-  }
-
-  .pics-flipbook__button {
-    width: 36px;
-    height: 36px;
   }
 
   .pics-flipbook__footer {
@@ -873,17 +893,18 @@ pics-flipbook:fullscreen .pics-flipbook__viewport,
   }
 }
 
-@media (max-width: 420px) {
+@container pics-flipbook (max-width: 360px) {
+  .pics-flipbook__toolbar {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
   .pics-flipbook__toolbar-group {
+    justify-content: center;
     gap: 4px;
   }
 
   .pics-flipbook__page-control {
-    min-width: 108px;
-  }
-
-  .pics-flipbook__zoom-label {
-    display: none;
+    min-width: 84px;
   }
 
   .pics-flipbook__viewport {

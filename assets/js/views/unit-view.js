@@ -88,16 +88,20 @@ export function bindBackToTop(root = document) {
     return () => button.removeEventListener('click', onClick);
 }
 
-export function bindConfiguredLinks(root = document) {
+export function bindConfiguredLinks(root = document, config = appConfig) {
     const links = [...root.querySelectorAll('[data-config-link]')];
     const handlers = [];
     for (const link of links) {
         const key = link.dataset.configLink;
-        const url = appConfig[key] || appConfig[link.dataset.configFallback];
+        const url = [config[key], config[link.dataset.configFallback], link.getAttribute('href')]
+            .map(value => typeof value === 'string' ? value.trim() : '')
+            .find(value => value && value !== '#');
         if (url) {
             link.href = url;
             link.target = '_blank';
             link.rel = 'noopener noreferrer';
+            link.removeAttribute('aria-disabled');
+            if (link.title === 'Link ainda não configurado.') link.removeAttribute('title');
         } else {
             link.setAttribute('aria-disabled', 'true');
             link.title = 'Link ainda não configurado.';

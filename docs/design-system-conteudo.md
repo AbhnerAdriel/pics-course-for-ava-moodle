@@ -103,4 +103,4 @@ Todas compartilham fundo suave, borda esquerda de 4px, cantos assimétricos e o 
 - Alternar a posição das imagens conforme o assunto, preservando proporção, legenda e fonte.
 - Manter foco visível, IDs e relações ARIA; não converter controles em elementos decorativos.
 - Na impressão, remover sombras e formas de fundo. Em alto contraste, manter bordas e rótulos identificáveis.
-- Preservar integralmente a apresentação das páginas de flipbook, incluindo sua introdução e seus controles.
+- O flipbook mantém uma apresentação própria: cartão de introdução com título e descrição, seguido pelo leitor com a faixa “Leitura interativa”, controles agrupados acima do livro e fundo quadriculado suave. Em telas pequenas, os grupos de controles ocupam linhas separadas. Não aplicar a adaptação editorial automática a essas páginas.

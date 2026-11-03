@@ -34,7 +34,7 @@ const required = [
     'assets/images/slides-background/BG colorido.jpg',
     'assets/images/slides-background/BG.png',
     'assets/images/slides-background/caixa-de-dialogo.png',
-    'assets/images/slides-background/Elementos.png',
+    'assets/images/slides-background/elementos-visuais-bg-slide.png',
     'assets/flipbook/css/flipbook.css',
     'assets/flipbook/js/flipbook.js',
     'assets/flipbook/pdf/HQ_page-0001.pdf',

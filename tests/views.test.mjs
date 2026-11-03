@@ -319,8 +319,8 @@ test('renderiza o conteúdo integral e estruturado do PDF como a sexta página d
     assert.match(policies, /data-content-slider/);
     assert.equal((policies.match(/data-content-slide(?:\s|>)/g) || []).length, 5);
     assert.equal((policies.match(/data-slide-to=/g) || []).length, 5);
-    assert.match(policies, /slides-background\/BG\.png/);
-    assert.match(policies, /slides-background\/BG colorido\.jpg/);
+    assert.doesNotMatch(policies, /style="--pics-slide-image:/);
+    assert.doesNotMatch(policies, /slides-background\/BG(?: colorido)?\./);
     assert.match(policies, /Política Nacional de Atenção Básica/);
     assert.match(policies, /Equidade e populações tradicionais/);
 
@@ -345,10 +345,7 @@ test('renderiza o conteúdo integral e estruturado do PDF como a sexta página d
     assert.match(questions, /O que significa cuidar da pessoa de forma integral nas PICS/);
     assert.match(questions, /Como as PICS podem ajudar no cuidado diário das pessoas atendidas na UBS/);
 
-    const references = pageHtml.match(/<section class="pagina-historico-pics__referencias" aria-labelledby="unidade-1-pagina-6-referencias-titulo">[\s\S]*?<\/section>/)?.[0] || '';
-    assert.equal((references.match(/<p>/g) || []).length, 5);
-    assert.match(references, /BARROS, Nelson Filice de; SPADACIO, Cristiane; COSTA, Marcelo Viana da/);
-    assert.match(references, /WHO Traditional Medicine Strategy 2025–2034/);
+    assert.doesNotMatch(pageHtml, /pagina-historico-pics__referencias|WHO Traditional Medicine Strategy/);
     assert.doesNotMatch(pageHtml, /<pics-[a-z-]+/);
 
     assert.match(html, /Página 6 de 8/);
@@ -403,7 +400,7 @@ test('renderiza leitura complementar, fórum e avaliação como a oitava página
     assert.match(pageHtml, /Aprofunde, compartilhe e verifique sua aprendizagem/);
     assert.equal((pageHtml.match(/<article class="pics-resource-row"/g) || []).length, 3);
     assert.doesNotMatch(pageHtml, /pics-resource-feature|pics-resource-next/);
-    assert.match(pageHtml, /pics-resource-row__number" aria-hidden="true">01</);
+    assert.doesNotMatch(pageHtml, /pics-resource-row__number/);
     assert.match(pageHtml, /src="\.\/assets\/images\/icones-de-conteudo\/material-complementar-icon\.png"/);
     assert.match(pageHtml, /<h3 id="unidade-1-pagina-8-leitura-titulo">Leitura Complementar<\/h3>/);
     assert.match(pageHtml, /linha do tempo da Coordenação Nacional de Práticas Integrativas e Complementares em Saúde \(CNPICS\)/);
@@ -412,13 +409,20 @@ test('renderiza leitura complementar, fórum e avaliação como a oitava página
 
     assert.match(pageHtml, /Dialogando com a Prática/);
     assert.match(pageHtml, /src="\.\/assets\/images\/icones-de-conteudo\/dialogando-com-pratica-icon\.png"/);
-    assert.match(pageHtml, /class="pics-resource-hub__action" href="#" data-config-link="forumUrl"/);
+    assert.match(pageHtml, /class="pics-resource-hub__action" href="https?:\/\/[^\"]+" data-config-link="forumUrl"/);
 
     assert.match(pageHtml, /<h3 id="unidade-1-pagina-8-avaliacao-titulo">Conclua a Unidade 1<\/h3>/);
     assert.match(pageHtml, /Responda a 05 questões de múltipla escolha/);
-    assert.match(pageHtml, /class="pics-resource-hub__action" href="#" data-config-link="unitOneAssessmentUrl"/);
+    assert.match(pageHtml, /class="pics-resource-hub__action" href="https?:\/\/[^\"]+" data-config-link="unitOneAssessmentUrl"/);
     assert.equal((pageHtml.match(/class="pics-resource-icon"/g) || []).length, 3);
     assert.doesNotMatch(pageHtml, /pics-resource-panel|recurso-destaque-card|forum-pratica-card|formulario-atividade-card/);
+
+    const references = pageHtml.match(/<section class="pagina-historico-pics__referencias" aria-labelledby="unidade-1-pagina-8-referencias-titulo">[\s\S]*?<\/section>/)?.[0] || '';
+    assert.match(references, /<h2 id="unidade-1-pagina-8-referencias-titulo" data-section-rule="none">Referências:<\/h2>/);
+    assert.equal((references.match(/<p>/g) || []).length, 5);
+    assert.match(references, /BARROS, Nelson Filice de; SPADACIO, Cristiane; COSTA, Marcelo Viana da/);
+    assert.match(references, /WHO Traditional Medicine Strategy 2025–2034/);
+    assert.ok(pageHtml.trimEnd().endsWith(references), 'O box de referências encerra o conteúdo da página 8.');
 
     assert.match(html, /Página 8 de 8/);
     assert.match(html, /aria-valuenow="100"/);

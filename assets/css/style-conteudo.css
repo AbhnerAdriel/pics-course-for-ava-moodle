@@ -814,7 +814,7 @@ button:focus-visible,
 
 /* ----- Página 4 da Unidade 1: histórico das PICS no SUS ----- */
 
-.pagina-conteudo:is(.pagina-historico-pics, .pagina-importancia-pics, .pagina-politicas-pics) {
+.pagina-conteudo:is(.pagina-historico-pics, .pagina-importancia-pics, .pagina-politicas-pics, .pagina-recursos-unidade-1) {
     --historico-pics-verde: #4f633d;
     --historico-pics-verde-escuro: #3f5130;
     --historico-pics-verde-claro: #eef4e7;
@@ -1121,7 +1121,7 @@ button:focus-visible,
 
 @media (max-width: 768px) {
     /* Protege estes cards da regra legada global de 1px aplicada a section. */
-    .pagina-conteudo:is(.pagina-historico-pics, .pagina-importancia-pics, .pagina-politicas-pics)
+    .pagina-conteudo:is(.pagina-historico-pics, .pagina-importancia-pics, .pagina-politicas-pics, .pagina-recursos-unidade-1)
         > :is(.pagina-historico-pics__card, .pagina-historico-pics__referencias) {
         padding-inline: clamp(20px, 5vw, 32px) !important;
     }
@@ -1238,7 +1238,7 @@ button:focus-visible,
     margin-bottom: 24px;
     padding: clamp(22px, 4vw, 42px);
 
-    background-color: var(--conteudo-cor-card);
+    background-color: #fff;
 
     border: 1px solid var(--conteudo-cor-borda);
     border-radius: 34px;
@@ -1247,30 +1247,42 @@ button:focus-visible,
 }
 
 .flipbook-introducao-etiqueta {
-    margin: 0 0 6px;
+    margin: 0 0 8px;
 
-    color: var(--conteudo-cor-dourado);
+    color: var(--conteudo-cor-texto);
 
     font-family: var(--fonte-auxiliar);
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 800;
     letter-spacing: 0.06em;
     text-transform: uppercase;
 }
 
+.flipbook-introducao-etiqueta::before {
+    content: "";
+    display: inline-block;
+    width: 14px;
+    height: 16px;
+    margin-right: 5px;
+    vertical-align: -2px;
+    background: #e74c68;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 3h12v18l-6-4-6 4V3Zm5 3v3H8v2h3v3h2v-3h3V9h-3V6h-2Z'/%3E%3C/svg%3E") center / contain no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 3h12v18l-6-4-6 4V3Zm5 3v3H8v2h3v3h2v-3h3V9h-3V6h-2Z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
 .flipbook-introducao-titulo {
     margin: 0 0 14px;
 
-    color: var(--conteudo-cor-titulo);
+    color: var(--pics-deep, #0a5d43);
 
     font-family: var(--fonte-auxiliar);
-    font-size: clamp(28px, 4vw, 46px);
-    line-height: 1.08;
+    font-size: clamp(22px, 2.3vw, 28px);
+    line-height: 1.25;
     font-weight: 800;
 }
 
 .flipbook-introducao-descricao {
-    max-width: 78ch;
+    max-width: none;
 
     margin: 0;
 
@@ -1279,6 +1291,17 @@ button:focus-visible,
     font-family: var(--fonte-principal);
     font-size: clamp(15px, 1.7vw, 18px);
     line-height: 1.6;
+}
+
+.flipbook-introducao-descricao + .flipbook-introducao-descricao {
+    margin-top: 18px;
+}
+
+@media (max-width: 760px) {
+    [data-unit] #pagina-conteudo .flipbook-introducao-etiqueta {
+        text-align: left !important;
+        text-indent: 0 !important;
+    }
 }
 
 .flipbook-reflexao {
@@ -4366,7 +4389,7 @@ button:focus-visible,
     position: absolute;
     inset: 0;
     z-index: -1;
-    background: url("../images/slides-background/Elementos.png") top right / 920px auto no-repeat;
+    background: url("../images/slides-background/elementos-visuais-bg-slide.png") top right / 920px auto no-repeat;
     opacity: 0.035;
     pointer-events: none;
 }
@@ -4717,7 +4740,7 @@ button:focus-visible,
     display: block;
     color: #fff;
     font-family: var(--fonte-auxiliar);
-    font-size: clamp(42px, 6vw, 76px);
+    font-size: clamp(30px, 3.8vw, 48px);
     line-height: 0.95;
 }
 
@@ -4725,7 +4748,7 @@ button:focus-visible,
     display: block;
     margin-top: 12px;
     color: #fff;
-    font-size: 15px;
+    font-size: clamp(16px, 1.4vw, 18px);
     line-height: 1.4;
 }
 
@@ -4798,6 +4821,12 @@ button:focus-visible,
 
 .pics-policy-slider[data-enhanced="true"] .pics-policy-slider__viewport { display: block; }
 
+.pics-policy-slide,
+.pics-directives-slider__viewport,
+.u2-plant-safety__slide {
+    --pics-slide-image: url("../images/slides-background/elementos-visuais-bg-slide.png");
+}
+
 .pics-policy-slide {
     position: relative;
     isolation: isolate;
@@ -4818,8 +4847,6 @@ button:focus-visible,
     z-index: -1;
     background: rgba(247, 246, 240, 0.9);
 }
-
-.pics-policy-slide:nth-child(even)::before { background: rgba(10, 93, 67, 0.9); }
 
 .pics-policy-slide[hidden] { display: none; }
 
@@ -4851,7 +4878,6 @@ button:focus-visible,
 
 .pics-policy-slide ul { display: grid; gap: 9px; margin: 0; padding-left: 21px; }
 .pics-policy-slide li { max-width: 65ch; font-size: clamp(15px, 1.6vw, 18px); line-height: 1.55; }
-.pics-policy-slide:nth-child(even) :is(.pics-policy-slide__number, .pics-policy-slide__type, h3, li) { color: #fff !important; -webkit-text-stroke-color: rgba(255, 255, 255, 0.7); }
 
 .pics-policy-slider__controls {
     display: grid;
@@ -5077,7 +5103,6 @@ button:focus-visible,
 [data-unit="unidade-1"] .pagina-historico-pics__introducao .conteudo-texto-imagem-flex-titulo,
 [data-unit="unidade-1"] .pagina-politicas-pics > .conteudo-texto-corrido:first-child h2,
 [data-unit="unidade-1"] .pagina-importancia-pics > .conteudo-texto-corrido > h2,
-[data-unit="unidade-1"] .flipbook-introducao-titulo,
 [data-unit="unidade-1"] .pics-video__title {
     font-size: clamp(28px, 3.3vw, 42px);
     line-height: 1.08;
@@ -5188,20 +5213,8 @@ button:focus-visible,
 }
 
 /* Todos os slides usam superfícies claras; a imagem de fundo vira textura. */
-[data-unit="unidade-1"] .pics-policy-slide::before,
-[data-unit="unidade-1"] .pics-policy-slide:nth-child(even)::before {
+[data-unit="unidade-1"] .pics-policy-slide::before {
     background: rgba(247, 246, 240, 0.93);
-}
-
-[data-unit="unidade-1"] .pics-policy-slide:nth-child(even)
-    :is(.pics-policy-slide__number, .pics-policy-slide__type, h3, li) {
-    color: var(--pics-ink) !important;
-    -webkit-text-stroke-color: var(--pics-ochre);
-}
-
-[data-unit="unidade-1"] .pics-policy-slide:nth-child(even) .pics-policy-slide__type,
-[data-unit="unidade-1"] .pics-policy-slide:nth-child(even) h3 {
-    color: var(--pics-deep) !important;
 }
 
 /* Primeiro carrossel da página 6: 12 diretrizes em quatro conjuntos. */
@@ -5215,7 +5228,7 @@ button:focus-visible,
 }
 
 .pics-directives-slider__viewport {
-    background: var(--pics-paper) url("../images/slides-background/BG.png") center / cover;
+    background: var(--pics-paper) var(--pics-slide-image) center / cover no-repeat;
 }
 
 .pics-directives-slide {
@@ -5223,7 +5236,7 @@ button:focus-visible,
     grid-template-columns: repeat(3, minmax(0, 1fr));
     min-height: 420px;
     padding: clamp(32px, 5vw, 58px);
-    background: rgba(255, 255, 255, 0.82);
+    background: transparent;
 }
 
 .pics-directives-slide[hidden] { display: none; }
@@ -5321,15 +5334,6 @@ button:focus-visible,
     display: block;
 }
 
-.pics-resource-row__number {
-    color: transparent;
-    -webkit-text-stroke: 1.5px var(--pics-ochre);
-    font-family: var(--fonte-auxiliar);
-    font-size: clamp(58px, 7vw, 92px);
-    font-weight: 900;
-    line-height: 0.85;
-}
-
 .pics-resource-icon {
     display: block;
     width: 62px;
@@ -5379,7 +5383,7 @@ button:focus-visible,
 
 .pics-resource-row {
     display: grid;
-    grid-template-columns: 82px 62px minmax(0, 1fr);
+    grid-template-columns: 62px minmax(0, 1fr);
     gap: clamp(20px, 3vw, 36px);
     align-items: start;
     min-width: 0;
@@ -5387,9 +5391,8 @@ button:focus-visible,
 }
 
 .pics-resource-row + .pics-resource-row { border-top: 1px solid var(--pics-line); }
-.pics-resource-row__number { font-size: clamp(42px, 5vw, 66px); }
 .pics-resource-row .pics-resource-icon { width: 58px; height: 58px; margin: 0; }
-.pics-resource-row > div:last-child { max-width: 780px; }
+.pics-resource-row > div { min-width: 0; }
 
 @media (max-width: 900px) {
     .pics-story__chapter { grid-template-columns: 1fr; }
@@ -5418,9 +5421,7 @@ button:focus-visible,
     [data-unit="unidade-1"] #pagina-conteudo.pagina-recursos-unidade-1 { padding: 28px 20px; }
     .pics-resource-hub__header h2 { font-size: clamp(27px, 8vw, 35px); }
     .pics-resource-row { grid-template-columns: 52px minmax(0, 1fr); }
-    .pics-resource-row__number { grid-column: 1; grid-row: 1; }
-    .pics-resource-row .pics-resource-icon { grid-column: 1; grid-row: 2; width: 48px; height: 48px; }
-    .pics-resource-row > div:last-child { grid-column: 2; grid-row: 1 / span 2; }
+    .pics-resource-row .pics-resource-icon { width: 48px; height: 48px; }
 }
 
 /* Acabamento editorial: sínteses e reflexões deixam de parecer cards empilhados. */

@@ -117,12 +117,12 @@
           <header class="pics-flipbook__header">
             <div class="pics-flipbook__heading-wrap">
               <p class="pics-flipbook__eyebrow">Leitura interativa</p>
-              <h3 class="pics-flipbook__title">Carregando flipbook...</h3>
+              <h3 class="pics-flipbook__title pics-flipbook__sr-only">Carregando flipbook...</h3>
             </div>
           </header>
 
           <div class="pics-flipbook__toolbar" role="toolbar" aria-label="Controles do flipbook">
-            <div class="pics-flipbook__toolbar-group" aria-label="Navegação">
+            <div class="pics-flipbook__toolbar-group pics-flipbook__toolbar-group--navigation" role="group" aria-label="Navegação">
               <button class="pics-flipbook__button" type="button" data-action="first" title="Primeira página" aria-label="Ir para a primeira página">${ICONS.first}</button>
               <button class="pics-flipbook__button" type="button" data-action="prev" title="Página anterior" aria-label="Página anterior">${ICONS.prev}</button>
               <label class="pics-flipbook__page-control" title="Ir diretamente para uma página">
@@ -134,14 +134,14 @@
               <button class="pics-flipbook__button" type="button" data-action="last" title="Última página" aria-label="Ir para a última página">${ICONS.last}</button>
             </div>
 
-            <div class="pics-flipbook__toolbar-group pics-flipbook__toolbar-group--center" aria-label="Zoom">
+            <div class="pics-flipbook__toolbar-group pics-flipbook__toolbar-group--center" role="group" aria-label="Zoom">
               <button class="pics-flipbook__button" type="button" data-action="zoom-out" title="Diminuir zoom" aria-label="Diminuir zoom">${ICONS.zoomOut}</button>
               <span class="pics-flipbook__zoom-label" data-ref="zoom-label" aria-live="polite">100%</span>
               <button class="pics-flipbook__button" type="button" data-action="zoom-in" title="Aumentar zoom" aria-label="Aumentar zoom">${ICONS.zoomIn}</button>
               <button class="pics-flipbook__button" type="button" data-action="zoom-reset" title="Restaurar zoom" aria-label="Restaurar zoom para 100%">${ICONS.reset}</button>
             </div>
 
-            <div class="pics-flipbook__toolbar-group" aria-label="Visualização">
+            <div class="pics-flipbook__toolbar-group pics-flipbook__toolbar-group--tools" role="group" aria-label="Visualização">
               <button class="pics-flipbook__button" type="button" data-action="thumbs" title="Miniaturas" aria-label="Mostrar miniaturas" aria-expanded="false">${ICONS.thumbs}</button>
               <button class="pics-flipbook__button" type="button" data-action="source" title="Abrir PDF original" aria-label="Abrir PDF original em nova aba">${ICONS.source}</button>
               <button class="pics-flipbook__button" type="button" data-action="fullscreen" title="Tela cheia" aria-label="Alternar tela cheia" aria-pressed="false">${ICONS.fullscreen}</button>

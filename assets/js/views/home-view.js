@@ -35,6 +35,13 @@ export function renderHome({course}) {
         ${navigationShell({mode: 'home', course})}
         <header id="banner-modulo" aria-labelledby="banner-modulo-titulo">
             <div class="dark-overlay" aria-hidden="true"></div>
+            <div class="banner-biblioteca-wrapper">
+                <button class="menu-navegacao-botao banner-biblioteca-botao" type="button" data-home-library-shortcut
+                    aria-label="Ir para a seção Biblioteca Digital do Módulo" aria-controls="biblioteca-digital-modulo">
+                    <span class="menu-navegacao-icone banner-biblioteca-icone" aria-hidden="true">${libraryIcon('library')}</span>
+                    <span class="menu-navegacao-texto">Biblioteca</span>
+                </button>
+            </div>
             <div id="banner-modulo-box-textual">
                 <img id="banner-modulo-logo" src="./assets/images/pnpic-main-logo.webp"
                     alt="Logotipo da Política Nacional de Práticas Integrativas e Complementares" width="640" height="640">
@@ -57,10 +64,10 @@ export function renderHome({course}) {
                 </div>
                 <div id="unidades-modulo-lista" role="list">${course.units.map(unitCard).join('')}</div>
             </section>
-            <section class="biblioteca-convite" aria-labelledby="biblioteca-convite-titulo">
+            <section class="biblioteca-convite" id="biblioteca-digital-modulo" aria-labelledby="biblioteca-convite-titulo">
                 <div class="biblioteca-convite__conteudo">
                     <span class="biblioteca-etiqueta">Acervo do módulo</span>
-                    <h2 id="biblioteca-convite-titulo">Biblioteca Digital<br>do Módulo</h2>
+                    <h2 id="biblioteca-convite-titulo" tabindex="-1">Biblioteca Digital<br>do Módulo</h2>
                     <p>Todos os materiais, em um só lugar. Consulte os PDFs, revisite os vídeos e explore os links que acompanham sua aprendizagem.</p>
                     <ul class="biblioteca-convite__formatos" aria-label="Tipos de materiais disponíveis">
                         <li>${libraryIcon('pdf')}PDFs</li><li>${libraryIcon('video')}Vídeos</li><li>${libraryIcon('link')}Links externos</li>
@@ -79,4 +86,20 @@ export function renderHome({course}) {
             <img src="./assets/images/instituicoes-rodape.webp" alt="Logotipos das instituições envolvidas no módulo" width="1800" height="287" loading="lazy" decoding="async">
         </div></footer>
     </div>`;
+}
+
+export function bindHome(root = document) {
+    const shortcut = root.querySelector('[data-home-library-shortcut]');
+    const section = root.querySelector('#biblioteca-digital-modulo');
+    if (!shortcut || !section) return () => {};
+
+    const onClick = () => {
+        root.querySelector('#biblioteca-convite-titulo')?.focus({preventScroll: true});
+        section.scrollIntoView({
+            behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+            block: 'start',
+        });
+    };
+    shortcut.addEventListener('click', onClick);
+    return () => shortcut.removeEventListener('click', onClick);
 }

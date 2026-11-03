@@ -41,7 +41,7 @@
     position: absolute;
     inset: 0;
     z-index: -1;
-    background: url("../images/slides-background/Elementos.png") top right / 920px auto no-repeat;
+    background: url("../images/slides-background/elementos-visuais-bg-slide.png") top right / 920px auto no-repeat;
     opacity: .035;
     pointer-events: none;
 }
@@ -367,6 +367,12 @@
 [data-unit] #pagina-conteudo[data-content-design] :is(.pics-keyfacts__heading, .pics-glossary__heading, .pics-rights__header) > div { flex: 1 1 180px; min-width: 0; max-width: 100%; }
 [data-unit] #pagina-conteudo[data-content-design] .pics-policy-slider { border-block: 1px solid var(--unit-line); }
 [data-unit] #pagina-conteudo[data-content-design] :is(.pics-policy-slider__viewport, .pics-policy-slide) { background: var(--unit-paper); border-radius: 0 30px 0 30px; }
+[data-unit] #pagina-conteudo[data-content-design] :is(.pics-policy-slide, .pics-directives-slider__viewport, .u2-plant-safety__slide) {
+    background-image: linear-gradient(rgba(247, 246, 240, .85), rgba(247, 246, 240, .85)), var(--pics-slide-image, none);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 [data-unit] #pagina-conteudo[data-content-design] .pics-policy-slide::before { display: none; }
 [data-unit] #pagina-conteudo[data-content-design] .pillar-stack__surface {
     background: var(--unit-paper);

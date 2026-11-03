@@ -203,7 +203,7 @@ pics-pillar-stack.pillar-stack {
     color: var(--conteudo-cor-titulo, #263326);
 
     font-family: var(--fonte-auxiliar, sans-serif);
-    font-size: clamp(2.35rem, 4.6vw, 4.4rem);
+    font-size: clamp(1.75rem, 3.3vw, 3rem);
     font-weight: 650;
     letter-spacing: -0.045em;
     line-height: 0.98;
@@ -296,7 +296,7 @@ pics-pillar-stack.pillar-stack {
     }
 
     .pillar-stack__title {
-        font-size: clamp(1.55rem, 7.4vw, 2.8rem);
+        font-size: clamp(1.25rem, 5.4vw, 2rem);
         letter-spacing: -0.035em;
         overflow-wrap: anywhere;
     }

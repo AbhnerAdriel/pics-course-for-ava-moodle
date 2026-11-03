@@ -57,6 +57,8 @@ Por serem rotas com fragmento, o Moodle sempre entrega o mesmo `index.html` e n�
 
 Edite `assets/js/config.js`. Os campos `forumUrl`, `unitOneAssessmentUrl` e `welcomeFormUrl` recebem, respectivamente, os endereços reais do fórum, da avaliação da Unidade 1 e do formulário no Moodle. Quando o mesmo pacote for reutilizado em contextos diferentes, defina também um `instanceId` único para separar o progresso local de cada instância.
 
+Os links com `data-config-link` priorizam a URL configurada e, depois, a configuração indicada em `data-config-fallback`. Se ambas estiverem vazias, usam o endereço do próprio `href`. O link fica desativado quando nenhum destino está disponível; `href="#"` é apenas um marcador.
+
 ## Integração futura com um plugin Moodle
 
 A SPA dispara o evento `pics:progresschange` sempre que uma página é visitada. Um plugin pode também fornecer:

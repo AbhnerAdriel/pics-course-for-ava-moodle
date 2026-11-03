@@ -222,6 +222,28 @@ button:focus-visible,
     transform: translateX(0);
 }
 
+/* Atalho do banner: compartilha o botão Menu e expande para a esquerda. */
+.banner-biblioteca-wrapper {
+    position: absolute;
+    top: 28px;
+    right: 28px;
+    z-index: 3;
+}
+
+.banner-biblioteca-botao { flex-direction: row-reverse; }
+.banner-biblioteca-botao:hover,
+.banner-biblioteca-botao:focus-visible { width: 178px; }
+.banner-biblioteca-icone svg {
+    width: 23px;
+    height: 23px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+#biblioteca-digital-modulo { scroll-margin-top: 28px; }
+
 .menu-navegacao-backdrop {
     position: fixed;
     inset: 0;
@@ -965,6 +987,11 @@ button:focus-visible,
     .menu-navegacao-wrapper {
         top: 18px;
         left: 18px;
+    }
+
+    .banner-biblioteca-wrapper {
+        top: 18px;
+        right: 18px;
     }
 
     .menu-navegacao-botao {
